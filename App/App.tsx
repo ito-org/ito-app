@@ -15,6 +15,9 @@ import { Onboarding } from './screens/Onboarding';
 import { Overview } from './screens/Overview';
 import { Endagerment } from './screens/Endangerment';
 import { BluetoothNotification } from './screens/BluetoothNotification';
+import { SymptomInfo } from './screens/SymptomInfo';
+import { DataUpload } from './screens/DataUpload';
+import { ConfirmationCode } from './screens/ConfirmationCode';
 
 const Stack = createStackNavigator();
 
@@ -23,10 +26,15 @@ declare var global: {HermesInternal: null | {}};
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Onboarding">
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Overview" component={Overview} />
         <Stack.Screen name="Endangerment" component={Endagerment} />
+        <Stack.Screen name="BluetoothNotification" component={BluetoothNotification} />
+        
+        <Stack.Screen name="SymptomInfo" component={SymptomInfo} />
+        <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
+        <Stack.Screen name="DataUpload" component={DataUpload} />
       </Stack.Navigator>
     </NavigationContainer>
   );
