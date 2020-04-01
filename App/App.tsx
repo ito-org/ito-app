@@ -11,25 +11,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-  PanResponder,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { Onboarding } from './screens/Onboarding';
+import { Overview } from './screens/Overview';
+import { Endagerment } from './screens/Endangerment';
+import { BluetoothNotification } from './screens/BluetoothNotification';
 
 const Stack = createStackNavigator();
 
@@ -39,40 +24,12 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="TestHomeScreen"
-          component={TestHomeScreen}
-          options={{title: 'Welcome'}}
-        />
-        <Stack.Screen name="StackedInstructions" component={StackedInstructions} />
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="Overview" component={Overview} />
+        <Stack.Screen name="Endangerment" component={Endagerment} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-function TestHomeScreen({navigation}){
-  return (
-    <>
-      <Text>
-        Reload Instructions
-      </Text>
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Show SomeInstructions" onPress={() => navigation.navigate("StackedInstructions")}></Button>
-      </View>
-    </>
-  );
-}
-
-function StackedInstructions({navigation}){
-  return (
-    <>
-      <Text style={{ fontWeight: "bold", fontSize: 18 }}>Debug Instructions</Text>
-      <ReloadInstructions></ReloadInstructions>
-      
-      <Text style={{ fontWeight: "bold", fontSize: 18 }}>Reload Instructions</Text>
-      <DebugInstructions></DebugInstructions>
-    </>
-  );
-}
 
 export default App;
