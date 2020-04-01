@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@types/react-native-background-timer": "^2.0.0",
     "@types/uuid": "^7.0.2",
     "react": "16.11.0",
     "react-native": "0.62.0",
