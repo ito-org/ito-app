@@ -8,8 +8,6 @@ export class ConfirmationCode extends React.Component {
             <>
                 <TextInput placeholder="Enter confirmation code"></TextInput>
                 <Button title="OK" onPress={() => this.props.navigation.navigate("DataUpload")}></Button>
-
-                
             </>
         )
     }
