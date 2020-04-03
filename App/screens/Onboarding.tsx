@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
+import {Button} from 'react-native-elements';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,6 +34,20 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 38,
   },
+  bottomButtonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 16,
+  },
+  buttonHow: {
+    backgroundColor: 'white',
+  },
+  buttonHowTitle: {
+    color: '#9fc85b',
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    fontSize: 14,
+  },
 });
 
 export class Onboarding extends React.Component {
@@ -51,11 +66,14 @@ export class Onboarding extends React.Component {
           we just need to know {'\n'}
           about your health status
         </Text>
-        <Button
-          title="How does this work?"
-          onPress={() => this.props.navigation.navigate('Overview')}
-          color="lightgreen"
-        />
+        <View style={styles.bottomButtonContainer}>
+          <Button
+            title="How does this work?"
+            onPress={() => this.props.navigation.navigate('Overview')}
+            titleStyle={styles.buttonHowTitle}
+            buttonStyle={styles.buttonHow}
+          />
+        </View>
       </View>
     );
   }
