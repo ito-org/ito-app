@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Feather';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,13 +27,8 @@ const styles = StyleSheet.create({
   shield: {
     marginTop: 24,
     marginBottom: 24,
-    textAlign: 'center',
-    backgroundColor: 'white',
-    width: 120,
-    height: 130,
     marginLeft: 'auto',
     marginRight: 'auto',
-    borderRadius: 80,
   },
   explanation: {
     color: 'white',
@@ -66,7 +62,7 @@ export class Onboarding extends React.Component {
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
         <Text style={styles.subtitle}>privacy-first infection tracking</Text>
-        <View style={styles.shield} />
+        <Icon name="shield" color="white" size={120} style={styles.shield} />
         <Text style={styles.explanation}>
           protect yourself and {'\n'}
           the people surrounding you {'\n'}
