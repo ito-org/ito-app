@@ -7,8 +7,11 @@
  *
  * @format
  */
-
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import BackgroundTimer from 'react-native-background-timer';
+import {Text} from 'react-native';
+import 'react-native-get-random-values';
+import {v4} from 'uuid';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Onboarding} from './screens/Onboarding';
@@ -24,7 +27,16 @@ const Stack = createStackNavigator();
 
 declare var global: {HermesInternal: null | {}};
 
+const REGENERATE_UUID_MINUTES = 30;
+
 const App = () => {
+  const [uuid, setUuid] = useState(v4());
+  useEffect(() => {
+    BackgroundTimer.runBackgroundTimer(() => {
+      setUuid(v4());
+    }, REGENERATE_UUID_MINUTES * 60 * 1000);
+    BackgroundTimer.start();
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding" headerMode={null}>
@@ -41,6 +53,16 @@ const App = () => {
         <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
         <Stack.Screen name="DataUpload" component={DataUpload} />
       </Stack.Navigator>
+      <Text
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          textAlign: 'center',
+          color: 'white',
+          backgroundColor: '#444',
+          padding: 4,
+        }}>
+        Your ID: {uuid}
+      </Text>
     </NavigationContainer>
   );
 };
