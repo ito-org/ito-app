@@ -11,28 +11,10 @@ const styles = StyleSheet.create({
   },
   logo: {
     color: 'white',
-    fontSize: 56,
+    fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
-  },
-  subtitle: {
-    color: 'white',
-    fontSize: 18,
-    paddingTop: 12,
-    paddingBottom: 8,
-    textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
-  },
-  shield: {
-    marginTop: 24,
-    marginBottom: 24,
-    textAlign: 'center',
-    backgroundColor: 'white',
-    width: 120,
-    height: 130,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderRadius: 80,
+    marginBottom: 8,
   },
   explanation: {
     color: 'white',
@@ -60,26 +42,31 @@ const styles = StyleSheet.create({
   },
 });
 
-export class Onboarding extends React.Component {
+export class OnboardingHow extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
-        <Text style={styles.subtitle}>privacy-first infection tracking</Text>
-        <View style={styles.shield} />
         <Text style={styles.explanation}>
-          protect yourself and {'\n'}
-          the people surrounding you {'\n'}
-          {'\n'}
-          ito doesn't track any personal {'\n'}
-          or location data {'\n'}- {'\n'}
-          we just need to know {'\n'}
-          about your health status
+          we use your phone's bluetooth to let your phone see every other ito
+          user around you
+        </Text>
+        <Text style={styles.explanation}>
+          your phone saves which other phones you encountered. this data is just
+          on your phone
+        </Text>
+        <Text style={styles.explanation}>
+          if someone who you encountered before got infected, you get a
+          notification with information on what to do
+        </Text>
+        <Text style={styles.explanation}>
+          if you got infected and tested positive you can let everybody who you
+          encountered lately know
         </Text>
         <View style={styles.bottomButtonContainer}>
           <Button
-            title="How does this work?"
-            onPress={() => this.props.navigation.navigate('OnboardingHow')}
+            title="Get Started"
+            onPress={() => this.props.navigation.navigate('Overview')}
             titleStyle={styles.buttonHowTitle}
             buttonStyle={styles.buttonHow}
           />

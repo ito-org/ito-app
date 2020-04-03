@@ -12,6 +12,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Onboarding} from './screens/Onboarding';
+import {OnboardingHow} from './screens/OnboardingHow';
 import {Overview} from './screens/Overview';
 import {Endangerment} from './screens/Endangerment';
 import {BluetoothNotification} from './screens/BluetoothNotification';
@@ -28,6 +29,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding" headerMode={null}>
         <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
         <Stack.Screen name="Overview" component={Overview} />
         <Stack.Screen name="Endangerment" component={Endangerment} />
         <Stack.Screen
