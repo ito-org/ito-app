@@ -17,14 +17,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-R',
     marginBottom: 8,
   },
-  explanation: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 18,
-    paddingTop: 12,
-    paddingBottom: 38,
-    fontFamily: 'Ubuntu-R',
-  },
   bottomButtonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -41,8 +33,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
-  iconLeft: {
+  explanationRow: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    textAlign: 'left',
+  },
+  explanation: {
+    color: 'white',
+    textAlign: 'left',
+    fontSize: 18,
+    paddingTop: 12,
+    paddingBottom: 38,
+    fontFamily: 'Ubuntu-R',
   },
 });
 
@@ -51,25 +53,39 @@ export class OnboardingHow extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
-        <View style={styles.iconLeft}>
+        <View style={styles.explanationRow}>
           <Icon name="bluetooth" size={64} color="white" />
           <Text style={styles.explanation}>
-            we use your phone's bluetooth to let your phone see every other ito
-            user around you
+            we use your phone's bluetooth {'\n'}
+            to let your phone see every {'\n'}
+            other ito user around you
           </Text>
         </View>
-        <Text style={styles.explanation}>
-          your phone saves which other phones you encountered. this data is just
-          on your phone
-        </Text>
-        <Text style={styles.explanation}>
-          if someone who you encountered before got infected, you get a
-          notification with information on what to do
-        </Text>
-        <Text style={styles.explanation}>
-          if you got infected and tested positive you can let everybody who you
-          encountered lately know
-        </Text>
+        <View style={styles.explanationRow}>
+          <Text style={styles.explanation}>
+            your phone saves which other {'\n'}
+            phones you encountered. this {'\n'}
+            data is just on your phone
+          </Text>
+          <Icon name="smartphone" size={64} color="white" />
+        </View>
+        <View style={styles.explanationRow}>
+          <Icon name="bell" size={64} color="white" />
+          <Text style={styles.explanation}>
+            if someone you encountered {'\n'}
+            before got infected, you get a {'\n'}
+            notification with information {'\n'}
+            on what to do
+          </Text>
+        </View>
+        <View style={styles.explanationRow}>
+          <Text style={styles.explanation}>
+            if you got infected and tested {'\n'}
+            positive you can let everybody {'\n'}
+            you encountered lately know
+          </Text>
+          <Icon name="shield" size={64} color="white" />
+        </View>
         <View style={styles.bottomButtonContainer}>
           <Button
             title="Get Started"
