@@ -48,53 +48,51 @@ const styles = StyleSheet.create({
   },
 });
 
-export class OnboardingHow extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.logo}>ito</Text>
-        <View style={styles.explanationRow}>
-          <Icon name="bluetooth" size={64} color="white" />
-          <Text style={styles.explanation}>
-            we use your phone's bluetooth {'\n'}
-            to let your phone see every {'\n'}
-            other ito user around you
-          </Text>
-        </View>
-        <View style={styles.explanationRow}>
-          <Text style={styles.explanation}>
-            your phone saves which other {'\n'}
-            phones you encountered. this {'\n'}
-            data is just on your phone
-          </Text>
-          <Icon name="smartphone" size={64} color="white" />
-        </View>
-        <View style={styles.explanationRow}>
-          <Icon name="bell" size={64} color="white" />
-          <Text style={styles.explanation}>
-            if someone you encountered {'\n'}
-            before got infected, you get a {'\n'}
-            notification with information {'\n'}
-            on what to do
-          </Text>
-        </View>
-        <View style={styles.explanationRow}>
-          <Text style={styles.explanation}>
-            if you got infected and tested {'\n'}
-            positive you can let everybody {'\n'}
-            you encountered lately know
-          </Text>
-          <Icon name="shield" size={64} color="white" />
-        </View>
-        <View style={styles.bottomButtonContainer}>
-          <Button
-            title="Get Started"
-            onPress={() => this.props.navigation.navigate('Overview')}
-            titleStyle={styles.buttonHowTitle}
-            buttonStyle={styles.buttonHow}
-          />
-        </View>
+export function OnboardingHow({navigation}) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.logo}>ito</Text>
+      <View style={styles.explanationRow}>
+        <Icon name="bluetooth" size={64} color="white" />
+        <Text style={styles.explanation}>
+          we use your phone's bluetooth {'\n'}
+          to let your phone see every {'\n'}
+          other ito user around you
+        </Text>
       </View>
-    );
-  }
+      <View style={styles.explanationRow}>
+        <Text style={styles.explanation}>
+          your phone saves which other {'\n'}
+          phones you encountered. this {'\n'}
+          data is just on your phone
+        </Text>
+        <Icon name="smartphone" size={64} color="white" />
+      </View>
+      <View style={styles.explanationRow}>
+        <Icon name="bell" size={64} color="white" />
+        <Text style={styles.explanation}>
+          if someone you encountered {'\n'}
+          before got infected, you get a {'\n'}
+          notification with information {'\n'}
+          on what to do
+        </Text>
+      </View>
+      <View style={styles.explanationRow}>
+        <Text style={styles.explanation}>
+          if you got infected and tested {'\n'}
+          positive you can let everybody {'\n'}
+          you encountered lately know
+        </Text>
+        <Icon name="shield" size={64} color="white" />
+      </View>
+      <View style={styles.bottomButtonContainer}>
+        <Button
+          title="Get Started"
+          onPress={() => navigation.navigate('Home')}
+          titleStyle={styles.buttonHowTitle}
+          buttonStyle={styles.buttonHow}
+        />
+      </View>
+    </View>
+  );
 }

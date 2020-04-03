@@ -56,31 +56,30 @@ const styles = StyleSheet.create({
   },
 });
 
-export class Onboarding extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.logo}>ito</Text>
-        <Text style={styles.subtitle}>privacy-first infection tracking</Text>
-        <Icon name="shield" color="white" size={120} style={styles.shield} />
-        <Text style={styles.explanation}>
-          protect yourself and {'\n'}
-          the people surrounding you {'\n'}
-          {'\n'}
-          ito doesn't track any personal {'\n'}
-          or location data {'\n'}- {'\n'}
-          we just need to know {'\n'}
-          about your health status
-        </Text>
-        <View style={styles.bottomButtonContainer}>
-          <Button
-            title="How does this work?"
-            onPress={() => this.props.navigation.navigate('OnboardingHow')}
-            titleStyle={styles.buttonHowTitle}
-            buttonStyle={styles.buttonHow}
-          />
-        </View>
+export function Onboarding({navigation}) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.logo}>ito</Text>
+      <Text style={styles.subtitle}>privacy-first infection tracking</Text>
+      <Icon name="shield" color="white" size={120} style={styles.shield} />
+      <Text style={styles.explanation}>
+        protect yourself and {'\n'}
+        the people surrounding you {'\n'}
+        {'\n'}
+        ito doesn't track any personal {'\n'}
+        or location data {'\n'}- {'\n'}
+        we just need to know {'\n'}
+        about your health status
+      </Text>
+      <View style={styles.bottomButtonContainer}>
+        <Button
+          title="How does this work?"
+          onPress={() => navigation.navigate('OnboardingHow')}
+          titleStyle={styles.buttonHowTitle}
+          buttonStyle={styles.buttonHow}
+        />
       </View>
-    );
-  }
+    </View>
+  );
 }
+export default Onboarding;
