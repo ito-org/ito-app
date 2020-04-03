@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/Feather';
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 12,
     flex: 1,
-    padding: 12,
     backgroundColor: '#9fc85b',
     textAlign: 'center',
   },
@@ -53,21 +53,26 @@ const styles = StyleSheet.create({
   },
   contacts: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
+    marginBottom: 32,
   },
   bottomButtonContainer: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 16,
+    backgroundColor: 'white',
   },
   buttonInfected: {
-    backgroundColor: 'white',
+    backgroundColor: '#9fc85b',
     borderRadius: 6,
+    marginBottom: 24,
+    marginLeft: 16,
+    marginRight: 16,
+    padding: 12,
   },
   buttonInfectedTitle: {
-    color: '#9fc85b',
+    color: 'white',
     letterSpacing: 2,
     textTransform: 'uppercase',
     fontSize: 14,
