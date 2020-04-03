@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 export class BluetoothNotification extends React.Component {
-    render() {
-        return (<></>)
-    }
+  render() {
+    return <></>;
+  }
 }
