@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Feather';
 
 const styles = StyleSheet.create({
   container: {
@@ -40,6 +41,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
+  iconLeft: {
+    flexDirection: 'row',
+  },
 });
 
 export class OnboardingHow extends React.Component {
@@ -47,10 +51,13 @@ export class OnboardingHow extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
-        <Text style={styles.explanation}>
-          we use your phone's bluetooth to let your phone see every other ito
-          user around you
-        </Text>
+        <View style={styles.iconLeft}>
+          <Icon name="bluetooth" size={64} color="white" />
+          <Text style={styles.explanation}>
+            we use your phone's bluetooth to let your phone see every other ito
+            user around you
+          </Text>
+        </View>
         <Text style={styles.explanation}>
           your phone saves which other phones you encountered. this data is just
           on your phone
