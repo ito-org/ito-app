@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import {Animated, View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
     marginBottom: 8,
+  },
+  lastIdContainer: {
+    wrap-content alike?
   },
   lastFetch: {
     color: 'white',
@@ -80,14 +83,57 @@ const styles = StyleSheet.create({
   },
 });
 
+const RefreshView = (props) => {
+  const rotateAnim = useRef(new Animated.Value(0)).current
+  const rotateProp = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '90deg'],
+  })
+
+  React.useEffect(() => {
+    Animated.timing(
+      rotateAnim,
+      {
+        toValue: 1,
+        duration: 5000,
+        useNativeDriver: true,
+      }
+    ).start();
+    console.log("test");
+  }, [])
+
+  return(
+    <Animated.Text
+      style={{
+        ...props.style,
+        backgroundColor: '#FF0000',
+        transform: [
+          {rotate: rotateProp},
+          {perspective: 1000},
+        ]
+      }}
+    >
+      {props.children}
+    </Animated.Text>
+  )
+}
+
 export function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
-      <Text style={styles.lastFetch}>
-        Last ID fetch: today 11:04{'  '}
-        <Icon name="refresh-ccw" size={18} />
-      </Text>
+      <View style={styles.lastIdContainer}>
+        <Text style={styles.lastFetch}>
+          Last ID fetch: today 11:04{'  '}
+        </Text>
+        <RefreshView style={{
+
+        }}>
+          <Icon name="refresh-ccw" size={18} />
+        </RefreshView>
+      </View>
+
+
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
         <Text style={styles.radius2} />
