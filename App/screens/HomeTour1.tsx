@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {Button, withTheme} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -15,25 +15,33 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
-    marginBottom: 8,
+    marginBottom: 16,
+  },
+  lastFetchRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   lastFetch: {
     color: 'hsl(0, 0%, 90%)',
     fontSize: 16,
-    textAlign: 'center',
     fontFamily: 'Ubuntu-R',
-    marginBottom: 8,
+    marginRight: 8,
+  },
+  refreshIcon: {
+    color: 'hsl(0, 0%, 90%)',
   },
   bubbleBoxContainer: {
     position: 'relative',
     flex: 1,
     marginLeft: 18,
     marginRight: 18,
+    marginBottom: -32,
   },
   bubbleBox: {
     position: 'absolute',
     backgroundColor: 'white',
-    top: 20,
+    top: 0,
     left: 0,
     right: 0,
     flex: 1,
@@ -41,6 +49,7 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
     borderRadius: 12,
     flexDirection: 'column',
+    zIndex: 1,
   },
   bubbleText: {
     paddingLeft: 14,
@@ -59,6 +68,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-R',
     color: 'hsl(83, 50%, 57%)',
   },
+  nextIcon: {
+    color: 'hsl(83, 50%, 57%)',
+  },
   bubbleTriangle: {
     position: 'absolute',
     width: 0,
@@ -74,7 +86,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   radiusContainer: {
-    marginTop: -54,
     marginBottom: 16,
     alignItems: 'center',
   },
@@ -108,7 +119,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   bottomButtonContainer: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'flex-end',
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
@@ -133,12 +144,12 @@ export function HomeTour1({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
-      <Text style={styles.lastFetch}>
-        Last ID fetch: today 11:04{'  '}
-        <Icon name="refresh-ccw" size={18} />
-      </Text>
+      <View style={styles.lastFetchRow}>
+        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+      </View>
       <View style={styles.bubbleBoxContainer}>
-        <TouchableHighlight onPress={() => navigation.navigate('Home')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
           <View style={styles.bubbleBox}>
             <Text style={styles.bubbleText}>
               This circle shows you how many ito users you just encountered.
@@ -146,13 +157,12 @@ export function HomeTour1({navigation}) {
               middle of a lot of ito users or not.
             </Text>
             <View style={styles.bubbleActions}>
-              <Text style={styles.next}>
-                next <Icon name="chevron-right" />
-              </Text>
+              <Text style={styles.next}>next</Text>
+              <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
             <View style={styles.bubbleTriangle} />
           </View>
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
       </View>
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
@@ -163,8 +173,8 @@ export function HomeTour1({navigation}) {
       <View style={styles.bottomButtonContainer}>
         <Button
           title="I think I'm infected"
-          titleStyle={styles.buttonInfectedTitle}
-          buttonStyle={styles.buttonInfected}
+          disabledTitleStyle={styles.buttonInfectedTitle}
+          disabledStyle={styles.buttonInfected}
           disabled
         />
       </View>
