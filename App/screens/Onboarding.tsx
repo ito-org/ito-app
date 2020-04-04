@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Feather';
+import ShieldIcon from '../components/ShieldIcon';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   buttonHowTitle: {
     color: '#9fc85b',
-    letterSpacing: 2,
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
@@ -61,7 +61,7 @@ export function Onboarding({navigation}) {
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
       <Text style={styles.subtitle}>privacy-first infection tracking</Text>
-      <Icon name="shield" color="white" size={120} style={styles.shield} />
+      <ShieldIcon style={styles.shield} />
       <Text style={styles.explanation}>
         protect yourself and {'\n'}
         the people surrounding you {'\n'}

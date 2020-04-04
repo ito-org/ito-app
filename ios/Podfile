@@ -54,6 +54,8 @@ target 'ReactNativeApp' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'ReactNativeAppTests' do
     inherit! :complete
     # Pods for testing
