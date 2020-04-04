@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
+import ShieldIcon from '../components/ShieldIcon';
+import transform from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -83,12 +85,12 @@ export function OnboardingHow({navigation}) {
           positive you can let everybody {'\n'}
           you encountered lately know
         </Text>
-        <Icon name="shield" size={64} color="white" />
+        <ShieldIcon height={128} width={128} />
       </View>
       <View style={styles.bottomButtonContainer}>
         <Button
           title="Get Started"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('HomeTour1')}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}
         />

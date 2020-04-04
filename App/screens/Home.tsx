@@ -15,7 +15,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
-    marginBottom: 8,
+    marginBottom: 16,
+  },
+  lastFetchRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   lastFetch: {
     color: 'white',
@@ -23,6 +28,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
     marginBottom: 8,
+    marginRight: 8,
+  },
+  refreshIcon: {
+    color: 'hsl(0, 0%, 90%)',
   },
   radiusContainer: {
     marginTop: 16,
@@ -59,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   bottomButtonContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'flex-end',
     backgroundColor: 'white',
   },
@@ -84,10 +93,10 @@ export function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
-      <Text style={styles.lastFetch}>
-        Last ID fetch: today 11:04{'  '}
-        <Icon name="refresh-ccw" size={18} />
-      </Text>
+      <View style={styles.lastFetchRow}>
+        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+      </View>
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
         <Text style={styles.radius2} />
