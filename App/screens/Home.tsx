@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Ubuntu-B',
     marginBottom: 32,
   },
   bottomButtonContainer: {
@@ -125,9 +125,7 @@ const stylesManyContacts = StyleSheet.create({
   radius3: {
     backgroundColor: 'rgba(255, 255, 255, 0.45)',
   },
-  contacts: {
-    fontFamily: 'Ubuntu-B',
-  },
+  contacts: {},
 });
 
 export function Home({navigation}) {

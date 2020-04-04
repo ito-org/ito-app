@@ -7,8 +7,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
     backgroundColor: '#4770e0',
     textAlign: 'center',
   },
@@ -58,30 +56,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Onboarding({navigation}) {
+export function Loading({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
-      <Text style={styles.subtitle}>privacy-first infection tracking</Text>
-      <ShieldIcon style={styles.shield} />
-      <Text style={styles.explanation}>
-        protect yourself and {'\n'}
-        the people surrounding you {'\n'}
-        {'\n'}
-        ito doesn't track any personal {'\n'}
-        or location data {'\n'}- {'\n'}
-        we just need to know {'\n'}
-        about your health status
-      </Text>
-      <View style={styles.bottomButtonContainer}>
-        <Button
-          title="How does this work?"
-          onPress={() => navigation.navigate('OnboardingHow')}
-          titleStyle={styles.buttonHowTitle}
-          buttonStyle={styles.buttonHow}
-        />
-      </View>
     </View>
   );
 }
-export default Onboarding;
+export default Loading;

@@ -14,6 +14,7 @@ import 'react-native-get-random-values';
 import {v4} from 'uuid';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Loading} from './screens/Loading';
 import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 import {Home} from './screens/Home';
@@ -41,7 +42,8 @@ const App = () => {
   }, []);
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Onboarding" headerMode="none">
+      <Stack.Navigator initialRouteName="Loading" headerMode="none">
+        <Stack.Screen name="Loading" component={Loading} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
         <Stack.Screen name="HomeTour1" component={HomeTour1} />
