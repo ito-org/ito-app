@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   bubbleBoxContainer: {
     position: 'relative',
     flex: 1,
-    marginTop: -148,
+    marginTop: -158,
     marginLeft: 18,
     marginRight: 18,
     zIndex: 1,

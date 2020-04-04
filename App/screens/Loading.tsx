@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, View, Text, Image} from 'react-native';
 import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
 
@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
     padding: 12,
     backgroundColor: '#4770e0',
     textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
     color: 'white',
@@ -16,50 +18,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
-  subtitle: {
-    color: 'white',
-    fontSize: 18,
-    paddingTop: 12,
-    paddingBottom: 8,
-    textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
-  },
-  shield: {
-    marginTop: 24,
-    marginBottom: 24,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  explanation: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 18,
-    paddingTop: 12,
-    paddingBottom: 38,
-    fontFamily: 'Ubuntu-R',
-  },
-  bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 16,
-  },
-  buttonHow: {
-    backgroundColor: 'white',
-    borderRadius: 6,
-  },
-  buttonHowTitle: {
-    color: '#4770e0',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
-  },
 });
 
 export function Loading({navigation}) {
+  useEffect(() => {
+    setTimeout(() => navigation.navigate('Onboarding'), 3000);
+  });
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
+      <Image
+        source={require('../../assets/icons/white_arcs_transparent.png')}
+        style={{width: 120, height: 120}}
+      />
     </View>
   );
 }

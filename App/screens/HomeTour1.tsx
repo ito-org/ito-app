@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 18,
     marginRight: 18,
-    marginBottom: -40,
+    marginBottom: -46,
   },
   bubbleBox: {
     position: 'absolute',
