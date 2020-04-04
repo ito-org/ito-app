@@ -40,7 +40,7 @@ const App = () => {
   }, []);
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Onboarding" headerMode={null}>
+      <Stack.Navigator initialRouteName="Onboarding" headerMode="none">
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
         <Stack.Screen name="HomeTour1" component={HomeTour1} />
