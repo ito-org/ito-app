@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
   bubbleBoxContainer: {
     position: 'relative',
     flex: 1,
-    marginTop: -114,
+    marginTop: -139,
     marginLeft: 18,
     marginRight: 18,
+    zIndex: 1,
   },
   bubbleBox: {
     position: 'absolute',
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     paddingLeft: 14,
     paddingRight: 14,
     fontFamily: 'Ubuntu-R',
+    zIndex: 1,
   },
   bubbleActions: {
     flexDirection: 'row',
@@ -63,6 +65,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 4,
     paddingBottom: 4,
+    zIndex: 1,
   },
   done: {
     fontFamily: 'Ubuntu-R',
@@ -154,23 +157,23 @@ export function HomeTour2({navigation}) {
         <Text style={styles.radius3} />
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
-      <View style={styles.bottomButtonContainer}>
-        <View style={styles.bubbleBoxContainer}>
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
-            <View style={styles.bubbleBox}>
-              <Text style={styles.bubbleText}>
-                If you think you got infected please report with this button to
-                get more information on what to do next. This also helps us
-                inform other ito users about their possible risk.
-              </Text>
-              <View style={styles.bubbleActions}>
-                <Text style={styles.done}>done</Text>
-                <Icon name="chevron-right" size={18} style={styles.nextIcon} />
-              </View>
-              <View style={styles.bubbleTriangle} />
+      <View style={styles.bubbleBoxContainer}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+          <View style={styles.bubbleBox}>
+            <Text style={styles.bubbleText}>
+              If you think you got infected please report with this button to
+              get more information on what to do next. This also helps us inform
+              other ito users about their possible risk.
+            </Text>
+            <View style={styles.bubbleActions}>
+              <Text style={styles.done}>done</Text>
+              <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
-          </TouchableWithoutFeedback>
-        </View>
+            <View style={styles.bubbleTriangle} />
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+      <View style={styles.bottomButtonContainer}>
         <Button
           title="I think I'm infected"
           disabledTitleStyle={styles.buttonInfectedTitle}
