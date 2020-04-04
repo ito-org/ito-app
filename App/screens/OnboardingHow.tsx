@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
-import ShieldIcon from '../components/ShieldIcon';
+import ShieldIcon2 from '../components/ShieldIcon2';
 import transform from 'react-native';
 
 const styles = StyleSheet.create({
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   buttonHowTitle: {
     color: '#9fc85b',
-    letterSpacing: 2,
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
@@ -85,7 +85,12 @@ export function OnboardingHow({navigation}) {
           positive you can let everybody {'\n'}
           you encountered lately know
         </Text>
-        <ShieldIcon height={128} width={128} />
+        <ShieldIcon2
+          style={{marginTop: 10}}
+          height={90}
+          width={90}
+          viewBox="0 0 120 180"
+        />
       </View>
       <View style={styles.bottomButtonContainer}>
         <Button
