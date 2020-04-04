@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 12,
     textAlign: 'center',
-    backgroundColor: 'hsl(83, 50%, 40%)',
+    backgroundColor: 'hsl(224, 51%, 38%)',
   },
   logo: {
     color: 'hsl(0, 0%, 90%)',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 16,
   },
   lastFetchRow: {
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 18,
     marginRight: 18,
-    marginBottom: -32,
+    marginBottom: -46,
   },
   bubbleBox: {
     position: 'absolute',
@@ -66,10 +66,10 @@ const styles = StyleSheet.create({
   },
   next: {
     fontFamily: 'Ubuntu-R',
-    color: 'hsl(83, 50%, 57%)',
+    color: 'hsl(224, 61%, 58%)',
   },
   nextIcon: {
-    color: 'hsl(83, 50%, 57%)',
+    color: 'hsl(224, 61%, 58%)',
   },
   bubbleTriangle: {
     position: 'absolute',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: 'rgba(255, 255, 255, 0.55)',
   },
   radius2: {
     position: 'absolute',
@@ -115,16 +115,16 @@ const styles = StyleSheet.create({
     color: 'hsl(0, 0%, 80%)',
     fontSize: 14,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Ubuntu-B',
     marginBottom: 32,
   },
   bottomButtonContainer: {
-    flex: 2,
+    flex: 1.7,
     justifyContent: 'flex-end',
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
   buttonInfected: {
-    backgroundColor: 'hsl(83, 50%, 40%)',
+    backgroundColor: 'hsl(224, 51%, 38%)',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,

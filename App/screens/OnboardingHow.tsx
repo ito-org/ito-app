@@ -9,14 +9,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#9fc85b',
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#4770e0',
     textAlign: 'center',
   },
   logo: {
     color: 'white',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 8,
   },
   bottomButtonContainer: {
@@ -29,16 +31,19 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   buttonHowTitle: {
-    color: '#9fc85b',
+    color: '#4770e0',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
   explanationRow: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     textAlign: 'left',
+    alignItems: 'center',
+    paddingTop: 24,
   },
   explanation: {
     color: 'white',
@@ -55,34 +60,44 @@ export function OnboardingHow({navigation}) {
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
       <View style={styles.explanationRow}>
-        <Icon name="bluetooth" size={64} color="white" />
+        <Icon
+          name="bluetooth"
+          size={64}
+          color="white"
+          style={{marginTop: -30}}
+        />
         <Text style={styles.explanation}>
-          we use your phone's bluetooth {'\n'}
-          to let your phone see every {'\n'}
+          we use your phone's bluetooth{'\n'}
+          to let your phone see every{'\n'}
           other ito user around you
         </Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>
-          your phone saves which other {'\n'}
-          phones you encountered. this {'\n'}
+          your phone saves which other{'\n'}
+          phones you encountered. this{'\n'}
           data is just on your phone
         </Text>
-        <Icon name="smartphone" size={64} color="white" />
+        <Icon
+          name="smartphone"
+          size={64}
+          color="white"
+          style={{marginTop: -20}}
+        />
       </View>
       <View style={styles.explanationRow}>
-        <Icon name="bell" size={64} color="white" />
+        <Icon name="bell" size={64} color="white" style={{marginTop: -20}} />
         <Text style={styles.explanation}>
-          if someone you encountered {'\n'}
-          before got infected, you get a {'\n'}
-          notification with information {'\n'}
+          if someone you encountered{'\n'}
+          before got infected, you get a{'\n'}
+          notification with information{'\n'}
           on what to do
         </Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>
-          if you got infected and tested {'\n'}
-          positive you can let everybody {'\n'}
+          if you got infected and tested{'\n'}
+          positive you can let everybody{'\n'}
           you encountered lately know
         </Text>
         <ShieldIcon2

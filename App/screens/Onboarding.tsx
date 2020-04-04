@@ -7,14 +7,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#9fc85b',
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#4770e0',
     textAlign: 'center',
   },
   logo: {
     color: 'white',
     fontSize: 56,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
   },
   subtitle: {
     color: 'white',
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   buttonHowTitle: {
-    color: '#9fc85b',
+    color: '#4770e0',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
