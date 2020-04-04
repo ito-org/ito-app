@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   contacts: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
     marginBottom: 32,
@@ -99,6 +99,7 @@ const stylesNoContacts = StyleSheet.create({
   radius3: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
+  contacts: {},
 });
 
 const stylesFewContacts = StyleSheet.create({
@@ -111,9 +112,7 @@ const stylesFewContacts = StyleSheet.create({
   radius3: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
-  contacts: {
-    fontFamily: 'Ubuntu-B',
-  },
+  contacts: {},
 });
 
 const stylesManyContacts = StyleSheet.create({
@@ -128,18 +127,17 @@ const stylesManyContacts = StyleSheet.create({
   },
   contacts: {
     fontFamily: 'Ubuntu-B',
-    fontSize: 16,
   },
 });
 
 export function Home({navigation}) {
-  const [contacts, setContactCount] = useState(0);
+  const [contactCount, setContactCount] = useState(0);
   let contactStyles;
   let contactDescription;
-  if (contacts === 0) {
+  if (contactCount === 0) {
     contactStyles = stylesNoContacts;
     contactDescription = 'no contacts around you';
-  } else if (contacts <= 3) {
+  } else if (contactCount <= 3) {
     contactStyles = stylesFewContacts;
     contactDescription = 'just a few contacts around you';
   } else {
@@ -163,27 +161,29 @@ export function Home({navigation}) {
     contactStyles.contacts,
   ]);
   return (
-    <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
-      <View style={styles.lastFetchRow}>
-        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
-        <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+    <TouchableWithoutFeedback onPress={() => setContactCount(contactCount + 1)}>
+      <View style={styles.container}>
+        <Text style={styles.logo}>ito</Text>
+        <View style={styles.lastFetchRow}>
+          <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+          <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+        </View>
+        <View style={styles.radiusContainer}>
+          <Text style={radius1Style} />
+          <Text style={radius2Style} />
+          <Text style={radius3Style} />
+        </View>
+        <Text style={contactsStyle}>{contactDescription}</Text>
+        <View style={styles.bottomButtonContainer}>
+          <Button
+            title="I think I'm infected"
+            onPress={() => navigation.navigate('Endangerment')}
+            titleStyle={styles.buttonInfectedTitle}
+            buttonStyle={styles.buttonInfected}
+          />
+        </View>
       </View>
-      <View style={styles.radiusContainer}>
-        <Text style={radius1Style} />
-        <Text style={radius2Style} />
-        <Text style={radius3Style} />
-      </View>
-      <Text style={contactsStyle}>{contactDescription}</Text>
-      <View style={styles.bottomButtonContainer}>
-        <Button
-          title="I think I'm infected"
-          onPress={() => navigation.navigate('Endangerment')}
-          titleStyle={styles.buttonInfectedTitle}
-          buttonStyle={styles.buttonInfected}
-        />
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 export default Home;
