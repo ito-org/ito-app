@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 12,
     textAlign: 'center',
-    backgroundColor: 'hsl(83, 50%, 40%)',
+    backgroundColor: 'hsl(224, 51%, 38%)',
   },
   logo: {
     color: 'hsl(0, 0%, 90%)',
@@ -66,10 +66,10 @@ const styles = StyleSheet.create({
   },
   next: {
     fontFamily: 'Ubuntu-R',
-    color: 'hsl(83, 50%, 57%)',
+    color: 'hsl(224, 61%, 58%)',
   },
   nextIcon: {
-    color: 'hsl(83, 50%, 57%)',
+    color: 'hsl(224, 61%, 58%)',
   },
   bubbleTriangle: {
     position: 'absolute',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
   buttonInfected: {
-    backgroundColor: 'hsl(83, 50%, 40%)',
+    backgroundColor: 'hsl(224, 51%, 38%)',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#9fc85b',
+    backgroundColor: '#4770e0',
     textAlign: 'center',
   },
   logo: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   buttonHowTitle: {
-    color: '#9fc85b',
+    color: '#4770e0',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,

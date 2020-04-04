@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 12,
     flex: 1,
-    backgroundColor: '#9fc85b',
+    backgroundColor: 'hsl(224, 71%, 58%)',
     textAlign: 'center',
   },
   logo: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   buttonInfected: {
-    backgroundColor: '#9fc85b',
+    backgroundColor: '#4770e0',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,
