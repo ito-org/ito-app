@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   refreshIcon: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'white',
   },
   radiusContainer: {
     marginTop: 16,
@@ -82,12 +82,14 @@ const styles = StyleSheet.create({
   },
   buttonInfectedTitle: {
     color: 'white',
-    letterSpacing: 2,
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
 });
+
+const stylesOne = StyleSheet.create({});
 
 export function Home({navigation}) {
   return (

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   buttonHowTitle: {
     color: '#9fc85b',
-    letterSpacing: 2,
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',

@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
   bubbleBoxContainer: {
     position: 'relative',
     flex: 1,
+    marginTop: -114,
     marginLeft: 18,
     marginRight: 18,
-    marginBottom: -32,
   },
   bubbleBox: {
     position: 'absolute',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     paddingTop: 4,
     paddingBottom: 4,
   },
-  next: {
+  done: {
     fontFamily: 'Ubuntu-R',
     color: 'hsl(83, 50%, 57%)',
   },
@@ -140,30 +140,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export function HomeTour1({navigation}) {
+export function HomeTour2({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
       <View style={styles.lastFetchRow}>
         <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
-      </View>
-      <View style={styles.bubbleBoxContainer}>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('HomeTour2')}>
-          <View style={styles.bubbleBox}>
-            <Text style={styles.bubbleText}>
-              This circle shows you how many ito users you just encountered.
-              Don't worry, it's just an indicator to see if you are in the
-              middle of a lot of ito users or not.
-            </Text>
-            <View style={styles.bubbleActions}>
-              <Text style={styles.next}>next</Text>
-              <Icon name="chevron-right" size={18} style={styles.nextIcon} />
-            </View>
-            <View style={styles.bubbleTriangle} />
-          </View>
-        </TouchableWithoutFeedback>
       </View>
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
@@ -172,6 +155,22 @@ export function HomeTour1({navigation}) {
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
       <View style={styles.bottomButtonContainer}>
+        <View style={styles.bubbleBoxContainer}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+            <View style={styles.bubbleBox}>
+              <Text style={styles.bubbleText}>
+                If you think you got infected please report with this button to
+                get more information on what to do next. This also helps us
+                inform other ito users about their possible risk.
+              </Text>
+              <View style={styles.bubbleActions}>
+                <Text style={styles.done}>done</Text>
+                <Icon name="chevron-right" size={18} style={styles.nextIcon} />
+              </View>
+              <View style={styles.bubbleTriangle} />
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
         <Button
           title="I think I'm infected"
           disabledTitleStyle={styles.buttonInfectedTitle}
@@ -182,4 +181,4 @@ export function HomeTour1({navigation}) {
     </View>
   );
 }
-export default HomeTour1;
+export default HomeTour2;

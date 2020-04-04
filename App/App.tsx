@@ -18,6 +18,7 @@ import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 import {Home} from './screens/Home';
 import {HomeTour1} from './screens/HomeTour1';
+import {HomeTour2} from './screens/HomeTour2';
 import {Endangerment} from './screens/Endangerment';
 import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
@@ -44,6 +45,7 @@ const App = () => {
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
         <Stack.Screen name="HomeTour1" component={HomeTour1} />
+        <Stack.Screen name="HomeTour2" component={HomeTour2} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Endangerment" component={Endangerment} />
         <Stack.Screen
