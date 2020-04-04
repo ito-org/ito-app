@@ -18,7 +18,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   lastIdContainer: {
-    wrap-content alike?
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'baseline',
   },
   lastFetch: {
     color: 'white',
@@ -87,7 +89,7 @@ const RefreshView = (props) => {
   const rotateAnim = useRef(new Animated.Value(0)).current
   const rotateProp = rotateAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '90deg'],
+    outputRange: ['360deg', '0deg'],
   })
 
   React.useEffect(() => {
@@ -99,14 +101,12 @@ const RefreshView = (props) => {
         useNativeDriver: true,
       }
     ).start();
-    console.log("test");
   }, [])
 
   return(
-    <Animated.Text
+    <Animated.View
       style={{
         ...props.style,
-        backgroundColor: '#FF0000',
         transform: [
           {rotate: rotateProp},
           {perspective: 1000},
@@ -114,7 +114,7 @@ const RefreshView = (props) => {
       }}
     >
       {props.children}
-    </Animated.Text>
+    </Animated.View>
   )
 }
 
@@ -126,13 +126,10 @@ export function Home({navigation}) {
         <Text style={styles.lastFetch}>
           Last ID fetch: today 11:04{'  '}
         </Text>
-        <RefreshView style={{
-
-        }}>
+        <RefreshView>
           <Icon name="refresh-ccw" size={18} />
         </RefreshView>
       </View>
-
 
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
