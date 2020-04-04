@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
@@ -89,9 +89,79 @@ const styles = StyleSheet.create({
   },
 });
 
-const stylesOne = StyleSheet.create({});
+const stylesNoContacts = StyleSheet.create({
+  radius1: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  radius2: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  },
+  radius3: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+});
+
+const stylesFewContacts = StyleSheet.create({
+  radius1: {
+    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+  },
+  radius2: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  radius3: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  contacts: {
+    fontFamily: 'Ubuntu-B',
+  },
+});
+
+const stylesManyContacts = StyleSheet.create({
+  radius1: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  },
+  radius2: {
+    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+  },
+  radius3: {
+    backgroundColor: 'rgba(255, 255, 255, 0.45)',
+  },
+  contacts: {
+    fontFamily: 'Ubuntu-B',
+    fontSize: 16,
+  },
+});
 
 export function Home({navigation}) {
+  const [contacts, setContactCount] = useState(0);
+  let contactStyles;
+  let contactDescription;
+  if (contacts === 0) {
+    contactStyles = stylesNoContacts;
+    contactDescription = 'no contacts around you';
+  } else if (contacts <= 3) {
+    contactStyles = stylesFewContacts;
+    contactDescription = 'just a few contacts around you';
+  } else {
+    contactStyles = stylesManyContacts;
+    contactDescription = 'many contacts around you';
+  }
+  const radius1Style = StyleSheet.flatten([
+    styles.radius1,
+    contactStyles.radius1,
+  ]);
+  const radius2Style = StyleSheet.flatten([
+    styles.radius2,
+    contactStyles.radius2,
+  ]);
+  const radius3Style = StyleSheet.flatten([
+    styles.radius3,
+    contactStyles.radius3,
+  ]);
+  const contactsStyle = StyleSheet.flatten([
+    styles.contacts,
+    contactStyles.contacts,
+  ]);
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
@@ -100,11 +170,11 @@ export function Home({navigation}) {
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
       <View style={styles.radiusContainer}>
-        <Text style={styles.radius1} />
-        <Text style={styles.radius2} />
-        <Text style={styles.radius3} />
+        <Text style={radius1Style} />
+        <Text style={radius2Style} />
+        <Text style={radius3Style} />
       </View>
-      <Text style={styles.contacts}>just a few contacts around you</Text>
+      <Text style={contactsStyle}>{contactDescription}</Text>
       <View style={styles.bottomButtonContainer}>
         <Button
           title="I think I'm infected"
