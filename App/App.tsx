@@ -57,7 +57,7 @@ const App = () => {
         <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
         <Stack.Screen name="DataUpload" component={DataUpload} />
       </Stack.Navigator>
-      <Text
+      {/* <Text
         // eslint-disable-next-line react-native/no-inline-styles
         style={{
           textAlign: 'center',
@@ -66,7 +66,7 @@ const App = () => {
           padding: 4,
         }}>
         Your ID: {uuid}
-      </Text>
+      </Text> */}
     </NavigationContainer>
   );
 };

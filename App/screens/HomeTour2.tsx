@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: 'hsl(0, 0%, 90%)',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 16,
   },
   lastFetchRow: {
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   bottomButtonContainer: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'flex-end',
     backgroundColor: 'hsl(0, 0%, 70%)',
   },

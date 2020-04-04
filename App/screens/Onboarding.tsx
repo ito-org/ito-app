@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 56,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
   },
   subtitle: {
     color: 'white',

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: 'hsl(0, 0%, 90%)',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 16,
   },
   lastFetchRow: {

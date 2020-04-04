@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 8,
   },
   bottomButtonContainer: {
