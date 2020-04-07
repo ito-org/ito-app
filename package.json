@@ -16,7 +16,7 @@
     "@types/react-native-background-timer": "^2.0.0",
     "@types/uuid": "^7.0.2",
     "react": "16.11.0",
-    "react-native": "0.62.0",
+    "react-native": "0.62.1",
     "react-native-background-timer": "^2.2.0",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "^1.6.1",
