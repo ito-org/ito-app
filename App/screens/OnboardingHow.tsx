@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, PermissionsAndroid} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
@@ -110,7 +110,16 @@ export function OnboardingHow({navigation}) {
       <View style={styles.bottomButtonContainer}>
         <Button
           title="Get Started"
-          onPress={() => navigation.navigate('HomeTour1')}
+          onPress={() => {
+            PermissionsAndroid.request(
+              PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+              {
+                'title': 'ReactNativeCode Location Permission',
+                'message': 'ReactNativeCode App needs access to your location '
+              }
+            );
+          	navigation.navigate('HomeTour1')
+          	}}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}
         />

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -130,6 +130,10 @@ const stylesManyContacts = StyleSheet.create({
 
 export function Home({navigation}) {
   const [contactCount, setContactCount] = useState(0);
+  const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
+  this.eventListener = eventEmitter.addListener('onDistancesChanged', (distances) => {
+    //TODO
+  });
   let contactStyles;
   let contactDescription;
   if (contactCount === 0) {
