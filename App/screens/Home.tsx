@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
+import React, { useRef, useEffect, useState } from 'react';
+import {Animated, View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'baseline',
   },
   lastFetch: {
     color: 'white',
@@ -88,6 +89,39 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-M',
   },
 });
+
+const RefreshView = (props) => {
+  const rotateAnim = useRef(new Animated.Value(0)).current
+  const rotateProp = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['360deg', '0deg'],
+  })
+
+  React.useEffect(() => {
+    Animated.timing(
+      rotateAnim,
+      {
+        toValue: 1,
+        duration: 5000,
+        useNativeDriver: true,
+      }
+    ).start();
+  }, [])
+
+  return(
+    <Animated.View
+      style={{
+        ...props.style,
+        transform: [
+          {rotate: rotateProp},
+          {perspective: 1000},
+        ]
+      }}
+    >
+      {props.children}
+    </Animated.View>
+  )
+};
 
 const stylesNoContacts = StyleSheet.create({
   radius1: {
@@ -168,7 +202,9 @@ export function Home({navigation}) {
         <Text style={styles.logo}>ito</Text>
         <View style={styles.lastFetchRow}>
           <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
-          <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+          <RefreshView>
+            <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+          </RefreshView>
         </View>
         <View style={styles.radiusContainer}>
           <Text style={radius1Style} />
