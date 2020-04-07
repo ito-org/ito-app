@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import {Animated, View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {Animated, View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -7,14 +7,14 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 12,
     flex: 1,
-    backgroundColor: '#9fc85b',
+    backgroundColor: 'hsl(224, 71%, 58%)',
     textAlign: 'center',
   },
   logo: {
     color: 'white',
     fontSize: 32,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Righteous-Regular',
     marginBottom: 16,
   },
   lastFetchRow: {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Ubuntu-B',
     marginBottom: 32,
   },
   bottomButtonContainer: {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   buttonInfected: {
-    backgroundColor: '#9fc85b',
+    backgroundColor: '#4770e0',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,
@@ -159,13 +159,15 @@ const stylesManyContacts = StyleSheet.create({
   radius3: {
     backgroundColor: 'rgba(255, 255, 255, 0.45)',
   },
-  contacts: {
-    fontFamily: 'Ubuntu-B',
-  },
+  contacts: {},
 });
 
 export function Home({navigation}) {
   const [contactCount, setContactCount] = useState(0);
+  const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
+  this.eventListener = eventEmitter.addListener('onDistancesChanged', (distances) => {
+    //TODO
+  });
   let contactStyles;
   let contactDescription;
   if (contactCount === 0) {
