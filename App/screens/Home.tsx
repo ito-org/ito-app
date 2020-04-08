@@ -166,19 +166,14 @@ export function Home({navigation}) {
   const [contactCount, setContactCount] = useState(0);
   const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
   this.eventListener = eventEmitter.addListener('onDistancesChanged', (distances) => {
-    //TODO
+    setContactCount(distances.length);
   });
-  let contactStyles;
+  let contactStyles = stylesNoContacts;
   let contactDescription;
-  if (contactCount === 0) {
-    contactStyles = stylesNoContacts;
-    contactDescription = 'no contacts around you';
-  } else if (contactCount <= 3) {
-    contactStyles = stylesFewContacts;
-    contactDescription = 'just a few contacts around you';
+  if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
+    contactDescription = 'INFECTED!! PANIC!!';
   } else {
-    contactStyles = stylesManyContacts;
-    contactDescription = 'many contacts around you';
+    contactDescription = 'nice.';
   }
   const radius1Style = StyleSheet.flatten([
     styles.radius1,
@@ -197,7 +192,7 @@ export function Home({navigation}) {
     contactStyles.contacts,
   ]);
   return (
-    <TouchableWithoutFeedback onPress={() => setContactCount(contactCount + 1)}>
+    <TouchableWithoutFeedback onPress={() => console.log(NativeModules.ItoBluetooth.isPossiblyInfected())}>
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
         <View style={styles.lastFetchRow}>
