@@ -18,6 +18,7 @@ import {Loading} from './screens/Loading';
 import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 import {Home} from './screens/Home';
+import {HomeBluetooth} from './screens/HomeBluetooth';
 import {HomeTour1} from './screens/HomeTour1';
 import {HomeTour2} from './screens/HomeTour2';
 import {Endangerment} from './screens/Endangerment';
@@ -49,6 +50,7 @@ const App = () => {
         <Stack.Screen name="HomeTour1" component={HomeTour1} />
         <Stack.Screen name="HomeTour2" component={HomeTour2} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
         <Stack.Screen name="Endangerment" component={Endangerment} />
         <Stack.Screen
           name="BluetoothNotification"
