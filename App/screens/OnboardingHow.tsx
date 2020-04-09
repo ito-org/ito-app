@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, PermissionsAndroid} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
+import AlphaNotice from '../components/AlphaNotice';
 import transform from 'react-native';
 
 const styles = StyleSheet.create({
@@ -61,7 +62,26 @@ const styles = StyleSheet.create({
 export function OnboardingHow({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
+      <View
+        style={{
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          position: 'relative',
+        }}>
+        <Text style={styles.logo}>ito</Text>
+        <AlphaNotice
+          rootStyle={{
+            position: 'absolute',
+            top: 12,
+            left: 48,
+            padding: 0,
+          }}
+          textStyle={{
+            fontSize: 14,
+            lineHeight: 14,
+          }}
+        />
+      </View>
       <View style={styles.explanationRow}>
         <Icon
           name="bluetooth"
@@ -140,7 +160,7 @@ export function OnboardingHow({navigation}) {
           }}
           height={68}
           width={68}
-          viewBox="0 -28 120 180"
+          viewBox="0 -32 120 180"
         />
       </View>
       <View style={styles.bottomButtonContainer}>
