@@ -11,11 +11,12 @@ const styles = StyleSheet.create({
     padding: 12,
     paddingLeft: 16,
     paddingRight: 16,
-    backgroundColor: '#4770e0',
+    backgroundColor: 'white',
     textAlign: 'center',
+    color: '#595959',
   },
   logo: {
-    color: 'white',
+    color: '#7dc6b6',
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
@@ -27,11 +28,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   buttonHow: {
-    backgroundColor: 'white',
+    backgroundColor: '#91e6d3',
     borderRadius: 6,
+    paddingTop: 8,
+    paddingBottom: 8,
   },
   buttonHowTitle: {
-    color: '#4770e0',
+    color: '#2c2c2c',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     paddingTop: 24,
   },
   explanation: {
-    color: 'white',
+    color: '#595959',
     textAlign: 'left',
     fontSize: 18,
     paddingTop: 12,
@@ -62,9 +65,16 @@ export function OnboardingHow({navigation}) {
       <View style={styles.explanationRow}>
         <Icon
           name="bluetooth"
-          size={64}
+          size={40}
           color="white"
-          style={{marginTop: -30}}
+          style={{
+            marginTop: -28,
+            marginRight: 16,
+            borderRadius: 60,
+            color: '#fff',
+            padding: 12,
+            backgroundColor: '#7dc6b6',
+          }}
         />
         <Text style={styles.explanation}>
           we use your phone's bluetooth{'\n'}
@@ -80,13 +90,32 @@ export function OnboardingHow({navigation}) {
         </Text>
         <Icon
           name="smartphone"
-          size={64}
+          size={40}
           color="white"
-          style={{marginTop: -20}}
+          style={{
+            marginTop: -20,
+            marginLeft: 16,
+            borderRadius: 60,
+            color: '#fff',
+            padding: 12,
+            backgroundColor: '#7dc6b6',
+          }}
         />
       </View>
       <View style={styles.explanationRow}>
-        <Icon name="bell" size={64} color="white" style={{marginTop: -20}} />
+        <Icon
+          name="bell"
+          size={40}
+          color="white"
+          style={{
+            marginTop: -20,
+            marginRight: 16,
+            borderRadius: 60,
+            color: '#fff',
+            padding: 12,
+            backgroundColor: '#7dc6b6',
+          }}
+        />
         <Text style={styles.explanation}>
           if someone you encountered{'\n'}
           before got infected, you get a{'\n'}
@@ -101,10 +130,17 @@ export function OnboardingHow({navigation}) {
           you encountered lately know
         </Text>
         <ShieldIcon2
-          style={{marginTop: 10}}
-          height={90}
-          width={90}
-          viewBox="0 0 120 180"
+          style={{
+            marginTop: -32,
+            marginLeft: 16,
+            borderRadius: 60,
+            color: '#fff',
+            padding: 0,
+            backgroundColor: '#7dc6b6',
+          }}
+          height={68}
+          width={68}
+          viewBox="0 -28 120 180"
         />
       </View>
       <View style={styles.bottomButtonContainer}>
@@ -114,12 +150,12 @@ export function OnboardingHow({navigation}) {
             PermissionsAndroid.request(
               PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
               {
-                'title': 'ReactNativeCode Location Permission',
-                'message': 'ReactNativeCode App needs access to your location '
-              }
+                title: 'ReactNativeCode Location Permission',
+                message: 'ReactNativeCode App needs access to your location ',
+              },
             );
-          	navigation.navigate('HomeTour1')
-          	}}
+            navigation.navigate('HomeTour1');
+          }}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}
         />

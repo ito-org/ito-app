@@ -17,7 +17,7 @@ function ShieldIcon2(props: any) {
         stroke="white"
         strokeWidth={0}
         d="M100 60c0 30-40 50-40 50S20 90 20 60V25l40-15 40 15v35zM63 37.25V53h15.75v6H63v15.75h-6V59H41.25v-6H57V37.25h6z"
-        fill="#4770e0"
+        fill="#7dc6b6"
       />
     </Svg>
   );

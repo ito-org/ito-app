@@ -9,17 +9,17 @@ const styles = StyleSheet.create({
     padding: 12,
     paddingLeft: 16,
     paddingRight: 16,
-    backgroundColor: '#4770e0',
+    backgroundColor: 'white',
     textAlign: 'center',
   },
   logo: {
-    color: 'white',
+    color: '#7dc6b6',
     fontSize: 56,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
   subtitle: {
-    color: 'white',
+    color: '#595959',
     fontSize: 18,
     paddingTop: 12,
     paddingBottom: 8,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
   },
   explanation: {
-    color: 'white',
+    color: '#595959',
     textAlign: 'center',
     fontSize: 18,
     paddingTop: 12,
@@ -46,11 +46,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   buttonHow: {
-    backgroundColor: 'white',
+    backgroundColor: '#91e6d3',
     borderRadius: 6,
   },
   buttonHowTitle: {
-    color: '#4770e0',
+    color: '#2c2c2c',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
@@ -62,7 +62,7 @@ export function Onboarding({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
-      <Text style={styles.subtitle}>privacy-first infection tracking</Text>
+      <Text style={styles.subtitle}>track infections, not people!</Text>
       <ShieldIcon style={styles.shield} />
       <Text style={styles.explanation}>
         protect yourself and {'\n'}
