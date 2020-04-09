@@ -29,6 +29,21 @@ import {ConfirmationCode} from './screens/ConfirmationCode';
 
 const Stack = createStackNavigator();
 
+export type RootStackParamList = {
+  Loading: undefined,
+  Onboarding: undefined,
+  OnboardingHow: undefined,
+  HomeTour1: undefined,
+  HomeTour2: undefined,
+  Home: undefined,
+  HomeBluetooth: undefined,
+  Endangerment: undefined,
+  BluetoothNotification: undefined,
+  SymptomInfo: undefined,
+  ConfirmationCode: undefined,
+  DataUpload: undefined
+}
+
 declare var global: {HermesInternal: null | {}};
 
 const REGENERATE_UUID_MINUTES = 30;

@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +22,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Loading({navigation}) {
+type LoadingBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Loading'>
+
+export function Loading({navigation}: {navigation: LoadingBluetoothScreenNavigationProp}) {
   useEffect(() => {
     setTimeout(() => navigation.navigate('Onboarding'), 3000);
   });
