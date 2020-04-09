@@ -2,8 +2,9 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
+import AlphaNotice from '../components/AlphaNotice';
 
 const styles = StyleSheet.create({
   container: {
@@ -60,12 +61,36 @@ const styles = StyleSheet.create({
   },
 });
 
-type OnboardingScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Onboarding'>
+type OnboardingScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Onboarding'
+>;
 
-export function Onboarding({navigation}: {navigation: OnboardingScreenNavigationProp}) {
+export function Onboarding({
+  navigation,
+}: {
+  navigation: OnboardingScreenNavigationProp;
+}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
+      <View
+        style={{
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          position: 'relative',
+        }}>
+        <Text style={styles.logo}>ito</Text>
+        <AlphaNotice
+          rootStyle={{
+            position: 'absolute',
+            top: 24,
+            left: 80,
+          }}
+          textStyle={{
+            fontSize: 24,
+          }}
+        />
+      </View>
       <Text style={styles.subtitle}>track infections, not people!</Text>
       <ShieldIcon style={styles.shield} />
       <Text style={styles.explanation}>
