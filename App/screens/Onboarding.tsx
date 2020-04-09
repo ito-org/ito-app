@@ -3,6 +3,8 @@ import {StyleSheet, View, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
 import AlphaNotice from '../components/AlphaNotice';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +61,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Onboarding({navigation}) {
+type OnboardingScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Onboarding'>
+
+export function Onboarding({navigation}: {navigation: OnboardingScreenNavigationProp}) {
   return (
     <View style={styles.container}>
       <View

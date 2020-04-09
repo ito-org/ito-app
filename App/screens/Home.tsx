@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import {Animated, View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -162,7 +164,9 @@ const stylesManyContacts = StyleSheet.create({
   contacts: {},
 });
 
-export function Home({navigation}) {
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
+
+export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
   const [contactCount, setContactCount] = useState(0);
   const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
   this.eventListener = eventEmitter.addListener('onDistancesChanged', (distances) => {

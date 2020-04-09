@@ -1,7 +1,11 @@
 import React from 'react';
 import {StyleSheet, Button, Text, TextInput} from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
-export class ConfirmationCode extends React.Component {
+type ConfirmationCodeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'ConfirmationCode'>
+
+export class ConfirmationCode extends React.Component<{navigation: ConfirmationCodeScreenNavigationProp}> {
   render() {
     let trashStyle = StyleSheet.create({
       header: {

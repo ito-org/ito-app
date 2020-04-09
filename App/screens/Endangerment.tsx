@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,7 +66,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Endangerment({navigation}) {
+type EndangermentScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Endangerment'>
+
+export function Endangerment({navigation}: {navigation: EndangermentScreenNavigationProp}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
