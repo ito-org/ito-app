@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -135,7 +137,9 @@ const stylesManyContacts = StyleSheet.create({
   contacts: {},
 });
 
-export function HomeBluetooth({navigation}) {
+type HomeBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'HomeBluetooth'>
+
+export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavigationProp}) {
   const [distances, setDistances] = useState([]);
   useEffect(() => {
     console.log('Setting distance event listener');

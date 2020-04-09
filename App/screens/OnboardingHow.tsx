@@ -4,6 +4,8 @@ import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
 import transform from 'react-native';
+import { RootStackParamList } from 'App/App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,7 +57,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export function OnboardingHow({navigation}) {
+type OnboardingHowScreenNavigationProp = StackNavigationProp<RootStackParamList, 'OnboardingHow'>
+
+export function OnboardingHow({navigation}: {navigation: OnboardingHowScreenNavigationProp}) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>ito</Text>
