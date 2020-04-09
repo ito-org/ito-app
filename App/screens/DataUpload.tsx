@@ -23,7 +23,7 @@ export class DataUpload extends React.Component<{navigation: DataUploadScreenNav
         </Text>
         <Button
           title="Back to home"
-          onPress={() => this.props.navigation.navigate('Overview')}
+          onPress={() => this.props.navigation.navigate('Home')}
         />
       </>
     );

@@ -13,7 +13,7 @@ export class SymptomInfo extends React.Component<{navigation: SymptomInfoScreenN
         <Text>Some info what to do if symptoms exist</Text>
         <Button
           title="OK"
-          onPress={() => this.props.navigation.navigate('Overview')}
+          onPress={() => this.props.navigation.navigate('Home')}
         />
       </>
     );
