@@ -5,7 +5,10 @@
 ### Android
 Select "React Native CLI Quickstart" and your OS on [Environment Setup React-Native](https://reactnative.dev/docs/environment-setup).
 
-Don't forget to install the npm dependencies.
+Don't forget to install the npm dependencies:
+```bash
+npm install
+```
 
 To start the React Native Metro server use:
 ```bash
@@ -14,5 +17,5 @@ npm run start
 
 To build the source and install use:
 ```bash
-npm run-android
+npm run android
 ```
