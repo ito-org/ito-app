@@ -4,6 +4,7 @@ import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from 'App/App';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,10 +25,36 @@ const styles = StyleSheet.create({
 
 type LoadingBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Loading'>
 
-export function Loading({navigation}: {navigation: LoadingBluetoothScreenNavigationProp}) {
-  useEffect(() => {
-    setTimeout(() => navigation.navigate('Onboarding'), 3000);
-  });
+export function Loading({ navigation }: { navigation: LoadingBluetoothScreenNavigationProp }) {
+  React.useEffect(() => {
+    const bootstrapAsync = async () => {
+      let userHasSeenOnboarding: boolean;
+
+      try {
+        userHasSeenOnboarding = await AsyncStorage.getItem('userHasSeenOnboarding') == "true";
+      } catch (e) {
+        userHasSeenOnboarding = false;
+      }
+
+      if (userHasSeenOnboarding) {
+        setTimeout(() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'HomeBluetooth' }],
+          }), 500
+        );
+      } else {
+        setTimeout(() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Onboarding' }],
+          }), 500
+        );
+      }
+    };
+
+    bootstrapAsync();
+  }, []);
   return (
     <View style={styles.container}>
       <Image

@@ -4,6 +4,7 @@ import {Button, withTheme} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from 'App/App';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
   container: {
@@ -161,7 +162,11 @@ export function HomeTour2({navigation}: {navigation: HomeTour2BluetoothScreenNav
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
       <View style={styles.bubbleBoxContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('HomeBluetooth')}>
+        <TouchableWithoutFeedback onPress={() => {
+          AsyncStorage.setItem('userHasSeenOnboarding', "true");
+          navigation.navigate('HomeBluetooth');
+        }
+        }>
           <View style={styles.bubbleBox}>
             <Text style={styles.bubbleText}>
               If you think you got infected please report with this button to
