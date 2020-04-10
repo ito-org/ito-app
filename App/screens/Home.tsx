@@ -1,9 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
-import {Animated, View, Text, StyleSheet, TouchableWithoutFeedback, NativeModules, NativeEventEmitter} from 'react-native';
+import React, {useRef, useEffect, useState} from 'react';
+import {
+  Animated,
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 
 const styles = StyleSheet.create({
   container: {
@@ -93,36 +101,29 @@ const styles = StyleSheet.create({
 });
 
 const RefreshView = (props) => {
-  const rotateAnim = useRef(new Animated.Value(0)).current
+  const rotateAnim = useRef(new Animated.Value(0)).current;
   const rotateProp = rotateAnim.interpolate({
     inputRange: [0, 1],
     outputRange: ['360deg', '0deg'],
-  })
+  });
 
   React.useEffect(() => {
-    Animated.timing(
-      rotateAnim,
-      {
-        toValue: 1,
-        duration: 5000,
-        useNativeDriver: true,
-      }
-    ).start();
-  }, [])
+    Animated.timing(rotateAnim, {
+      toValue: 1,
+      duration: 5000,
+      useNativeDriver: true,
+    }).start();
+  }, []);
 
-  return(
+  return (
     <Animated.View
       style={{
         ...props.style,
-        transform: [
-          {rotate: rotateProp},
-          {perspective: 1000},
-        ]
-      }}
-    >
+        transform: [{rotate: rotateProp}, {perspective: 1000}],
+      }}>
       {props.children}
     </Animated.View>
-  )
+  );
 };
 
 const stylesNoContacts = StyleSheet.create({
@@ -164,20 +165,35 @@ const stylesManyContacts = StyleSheet.create({
   contacts: {},
 });
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
-  const [contactCount, setContactCount] = useState(0);
-  const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
-  this.eventListener = eventEmitter.addListener('onDistancesChanged', (distances) => {
-    setContactCount(distances.length);
-  });
-  let contactStyles = stylesNoContacts;
-  let contactDescription;
-  if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
-    contactDescription = 'INFECTED!! PANIC!!';
+  const [distances, setDistances] = useState([]);
+  const [description, setDescription] = useState('no contacts');
+  let eventListener = useRef(null);
+  useEffect(() => {
+    const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
+    eventListener.current = eventEmitter.addListener(
+      'onDistancesChanged',
+      setDistances,
+    );
+    if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
+      setDescription(`INFECTED!! PANIC!! ${distances.length} contacts`);
+    } else {
+      setDescription(`nice. ${distances.length} contacts`);
+    }
+    return () => {
+      eventEmitter.removeListener('onDistancesChanged', eventListener.current);
+      eventListener.current = null;
+    };
+  }, [distances.length]);
+  let contactStyles;
+  if (distances.length === 0) {
+    contactStyles = stylesNoContacts;
+  } else if (distances.length <= 3) {
+    contactStyles = stylesFewContacts;
   } else {
-    contactDescription = 'nice.';
+    contactStyles = stylesManyContacts;
   }
   const radius1Style = StyleSheet.flatten([
     styles.radius1,
@@ -196,7 +212,10 @@ export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
     contactStyles.contacts,
   ]);
   return (
-    <TouchableWithoutFeedback onPress={() => console.log(NativeModules.ItoBluetooth.isPossiblyInfected())}>
+    <TouchableWithoutFeedback
+      onPress={() =>
+        console.log(NativeModules.ItoBluetooth.isPossiblyInfected())
+      }>
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
         <View style={styles.lastFetchRow}>
@@ -210,7 +229,7 @@ export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
           <Text style={radius2Style} />
           <Text style={radius3Style} />
         </View>
-        <Text style={contactsStyle}>{contactDescription}</Text>
+        <Text style={contactsStyle}>{description}</Text>
         <View style={styles.bottomButtonContainer}>
           <Button
             title="I think I'm infected"
