@@ -37,7 +37,7 @@ export function Loading({
 
       try {
         userHasSeenOnboarding =
-          (await AsyncStorage.getItem('userHasSeenOnboarding')) == 'true';
+          (await AsyncStorage.getItem('userHasSeenOnboarding')) === 'true';
       } catch (e) {
         userHasSeenOnboarding = false;
       }
@@ -64,7 +64,7 @@ export function Loading({
     };
 
     bootstrapAsync();
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <Image

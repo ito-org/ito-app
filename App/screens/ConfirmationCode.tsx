@@ -22,7 +22,7 @@ export class ConfirmationCode extends React.Component<{
     // });
     return (
       <>
-        <TextInput placeholder="Enter confirmation code"></TextInput>
+        <TextInput placeholder="Enter confirmation code" />
         <Button
           title="OK"
           onPress={() => this.props.navigation.navigate('DataUpload')}
