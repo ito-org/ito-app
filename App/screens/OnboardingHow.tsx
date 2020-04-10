@@ -4,7 +4,6 @@ import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
 import AlphaNotice from '../components/AlphaNotice';
-import transform from 'react-native';
 import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
 

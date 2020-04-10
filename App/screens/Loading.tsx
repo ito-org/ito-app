@@ -1,7 +1,5 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
-import {Button} from 'react-native-elements';
-import ShieldIcon from '../components/ShieldIcon';
+import React from 'react';
+import {StyleSheet, View, Image} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';

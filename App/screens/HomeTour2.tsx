@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
-import {Button, withTheme} from 'react-native-elements';
+import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';

@@ -1,5 +1,4 @@
 import React from 'react';
-import {TextInput} from 'react-native-gesture-handler';
 import {Button, Text} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';

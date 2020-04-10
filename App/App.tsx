@@ -9,7 +9,6 @@
  */
 import React, {useState, useEffect} from 'react';
 import BackgroundTimer from 'react-native-background-timer';
-import {Text} from 'react-native';
 import 'react-native-get-random-values';
 import {v4} from 'uuid';
 import {NavigationContainer} from '@react-navigation/native';
@@ -26,7 +25,6 @@ import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
-import AsyncStorage from '@react-native-community/async-storage';
 
 const Stack = createStackNavigator();
 
