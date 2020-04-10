@@ -23,7 +23,6 @@ jobs:
         with:
           java-version: '8'
           java-package: jdk
-          # architecture: x64 # (x64 or x86) - defaults to x64
       - name: Install Android SDK
         run: |
           sh ci/install-android-sdk.sh
@@ -51,14 +50,12 @@ jobs:
         id: create_release
         uses: actions/create-release@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+            Changes in this Release:
           draft: true
           prerelease: true
       - name: Upload Release Asset
