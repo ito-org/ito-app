@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
@@ -23,32 +23,44 @@ const styles = StyleSheet.create({
   },
 });
 
-type LoadingBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Loading'>
+type LoadingBluetoothScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Loading'
+>;
 
-export function Loading({ navigation }: { navigation: LoadingBluetoothScreenNavigationProp }) {
+export function Loading({
+  navigation,
+}: {
+  navigation: LoadingBluetoothScreenNavigationProp;
+}) {
   React.useEffect(() => {
     const bootstrapAsync = async () => {
       let userHasSeenOnboarding: boolean;
 
       try {
-        userHasSeenOnboarding = await AsyncStorage.getItem('userHasSeenOnboarding') == "true";
+        userHasSeenOnboarding =
+          (await AsyncStorage.getItem('userHasSeenOnboarding')) == 'true';
       } catch (e) {
         userHasSeenOnboarding = false;
       }
 
       if (userHasSeenOnboarding) {
-        setTimeout(() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'HomeBluetooth' }],
-          }), 500
+        setTimeout(
+          () =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'HomeBluetooth'}],
+            }),
+          500,
         );
       } else {
-        setTimeout(() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'Onboarding' }],
-          }), 500
+        setTimeout(
+          () =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Onboarding'}],
+            }),
+          500,
         );
       }
     };

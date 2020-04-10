@@ -1,11 +1,16 @@
 import React from 'react';
 import {StyleSheet, Button, Text} from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 
-type DataUploadScreenNavigationProp = StackNavigationProp<RootStackParamList, 'DataUpload'>
+type DataUploadScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'DataUpload'
+>;
 
-export class DataUpload extends React.Component<{navigation: DataUploadScreenNavigationProp}> {
+export class DataUpload extends React.Component<{
+  navigation: DataUploadScreenNavigationProp;
+}> {
   render() {
     let trashStyle = StyleSheet.create({
       header: {

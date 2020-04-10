@@ -1,12 +1,17 @@
 import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {Button, Text} from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 
-type SymptomInfoScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SymptomInfo'>
+type SymptomInfoScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'SymptomInfo'
+>;
 
-export class SymptomInfo extends React.Component<{navigation: SymptomInfoScreenNavigationProp}> {
+export class SymptomInfo extends React.Component<{
+  navigation: SymptomInfoScreenNavigationProp;
+}> {
   render() {
     return (
       <>
