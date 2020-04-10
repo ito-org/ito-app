@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
+  img: {
+    width: 120,
+    height: 120,
+  },
 });
 
 type LoadingBluetoothScreenNavigationProp = StackNavigationProp<
@@ -69,7 +73,7 @@ export function Loading({
     <View style={styles.container}>
       <Image
         source={require('../../assets/icons/white_arcs_transparent.png')}
-        style={{width: 120, height: 120}}
+        style={styles.img}
       />
     </View>
   );
