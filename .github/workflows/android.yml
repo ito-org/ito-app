@@ -10,6 +10,7 @@ env:
   ANDROID_KEYSTORE_KEY_ALIAS: 'androiddebugkey'
   ANDROID_KEYSTORE_KEY_PASSWORD: 'android'
   ANDROID_HOME: ~/android-sdk-linux
+  ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
 
 on:
   push:
@@ -30,27 +31,12 @@ jobs:
           sh ci/install-android-sdk.sh
       - name: Install npm dependencies
         run: |
-          yarn
-      - name: Build Android App Bundle
+          npm ci
+      - name: Build APK
         run: |
-          yarn android:bundle
-      - name: Archive Android App Bundle
+          npm run android:build-apk
+      - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
-          name: app-release.aab
-          path: android/app/build/outputs/bundle/release/app-release.aab
-      - name: Build signed APK set
-        run: |
-          bundletool \
-            build-apks \
-            --bundle=android/app/build/outputs/bundle/release/app-release.aab \
-            --output=android/app/build/outputs/bundle/release/app-release.apks \
-            --ks=$ANDROID_KEYSTORE_FILE \
-            --ks-pass=pass:$ANDROID_KEYSTORE_PASSWORD \
-            --ks-key-alias=$ANDROID_KEYSTORE_KEY_ALIAS \
-            --key-pass=pass:$ANDROID_KEYSTORE_KEY_PASSWORD
-      - name: Archive APK set
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apks
-          path: android/app/build/outputs/bundle/release/app-release.apks
+          name: app-release.apk
+          path: $ANDROID_APK_FILE
