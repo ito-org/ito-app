@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
   NativeEventEmitter,
+  EmitterSubscription,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
@@ -170,7 +171,7 @@ type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
   const [distances, setDistances] = useState([]);
   const [description, setDescription] = useState('no contacts');
-  let eventListener = useRef(null);
+  let eventListener = useRef<EmitterSubscription | null>(null);
   useEffect(() => {
     const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
     eventListener.current = eventEmitter.addListener(
@@ -183,7 +184,7 @@ export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
       setDescription(`nice. ${distances.length} contacts`);
     }
     return () => {
-      eventEmitter.removeListener('onDistancesChanged', eventListener.current);
+      eventEmitter.removeListener('onDistancesChanged', setDistances);
       eventListener.current = null;
     };
   }, [distances.length]);
