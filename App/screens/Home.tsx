@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
   NativeEventEmitter,
+  EmitterSubscription,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
@@ -113,7 +114,7 @@ const RefreshView = (props) => {
       duration: 5000,
       useNativeDriver: true,
     }).start();
-  }, []);
+  }, [rotateAnim]);
 
   return (
     <Animated.View
@@ -169,31 +170,17 @@ type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
   const [distances, setDistances] = useState([]);
-  const [description, setDescription] = useState('no contacts');
-  let eventListener = useRef(null);
-  useEffect(() => {
-    const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
-    eventListener.current = eventEmitter.addListener(
-      'onDistancesChanged',
-      setDistances,
-    );
-    if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
-      setDescription(`INFECTED!! PANIC!! ${distances.length} contacts`);
-    } else {
-      setDescription(`nice. ${distances.length} contacts`);
-    }
-    return () => {
-      eventEmitter.removeListener('onDistancesChanged', eventListener.current);
-      eventListener.current = null;
-    };
-  }, [distances.length]);
   let contactStyles;
+  let description;
   if (distances.length === 0) {
     contactStyles = stylesNoContacts;
+    description = 'no contacts';
   } else if (distances.length <= 3) {
     contactStyles = stylesFewContacts;
+    description = 'just a few contacts';
   } else {
     contactStyles = stylesManyContacts;
+    description = 'many contacts';
   }
   const radius1Style = StyleSheet.flatten([
     styles.radius1,
@@ -213,9 +200,13 @@ export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
   ]);
   return (
     <TouchableWithoutFeedback
-      onPress={() =>
-        console.log(NativeModules.ItoBluetooth.isPossiblyInfected())
-      }>
+      onPress={() => {
+        console.log(
+          'infected',
+          NativeModules.ItoBluetooth.isPossiblyInfected(),
+        );
+        setDistances([...distances, 1]);
+      }}>
       <View style={styles.container}>
         <Text style={styles.logo}>ito</Text>
         <View style={styles.lastFetchRow}>
