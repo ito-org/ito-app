@@ -19,3 +19,6 @@ To build the source and install use:
 ```bash
 npm run android
 ```
+
+# Download
+You can find releases on [our releases page](https://github.com/ito-org/react-native-app/releases).
