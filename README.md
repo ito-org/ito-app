@@ -1,6 +1,9 @@
 # ito React Native App
 ![Android](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg)
 
+# Download
+You can find releases on [our releases page](https://github.com/ito-org/react-native-app/releases).
+
 ## Development
 ### Android
 Select "React Native CLI Quickstart" and your OS on [Environment Setup React-Native](https://reactnative.dev/docs/environment-setup).
@@ -20,5 +23,4 @@ To build the source and install use:
 npm run android
 ```
 
-# Download
-You can find releases on [our releases page](https://github.com/ito-org/react-native-app/releases).
+
