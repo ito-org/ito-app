@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, Text, PermissionsAndroid} from 'react-native';
-import {Button} from 'react-native-elements';
+import { StyleSheet, View, Text, PermissionsAndroid, NativeModules } from 'react-native';
+import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
 import AlphaNotice from '../components/AlphaNotice';
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 
 type OnboardingHowScreenNavigationProp = StackNavigationProp<RootStackParamList, 'OnboardingHow'>
 
-export function OnboardingHow({navigation}: {navigation: OnboardingHowScreenNavigationProp}) {
+export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenNavigationProp }) {
   return (
     <View style={styles.container}>
       <View
@@ -170,14 +170,16 @@ export function OnboardingHow({navigation}: {navigation: OnboardingHowScreenNavi
       <View style={styles.bottomButtonContainer}>
         <Button
           title="Get Started"
-          onPress={() => {
-            PermissionsAndroid.request(
+          onPress={async () => {
+            const granted = await PermissionsAndroid.request(
               PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
               {
                 title: 'ReactNativeCode Location Permission',
                 message: 'ReactNativeCode App needs access to your location ',
               },
             );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED)
+              NativeModules.ItoBluetooth.restartTracing();
             navigation.navigate('HomeTour1');
           }}
           titleStyle={styles.buttonHowTitle}
