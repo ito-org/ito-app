@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
-  alphaNoticeRoot: {position: 'absolute', top: 24, left: 80},
-  alphaNoticeText: {fontSize: 24},
+
   subtitle: {
     color: '#595959',
     fontSize: 18,

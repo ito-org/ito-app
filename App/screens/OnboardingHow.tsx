@@ -1,6 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, PermissionsAndroid, NativeModules } from 'react-native';
-import { Button } from 'react-native-elements';
+import {
+  StyleSheet,
+  View,
+  Text,
+  PermissionsAndroid,
+  NativeModules,
+} from 'react-native';
+import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
 import AlphaNotice from '../components/AlphaNotice';
@@ -185,8 +191,9 @@ export function OnboardingHow({
                 message: 'ReactNativeCode App needs access to your location ',
               },
             );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED)
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
               NativeModules.ItoBluetooth.restartTracing();
+            }
             navigation.navigate('HomeTour1');
           }}
           titleStyle={styles.buttonHowTitle}

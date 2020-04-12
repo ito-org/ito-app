@@ -20,6 +20,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
   },
+  logoWrapper: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    position: 'relative',
+  },
+  alphaNoticeRoot: {
+    position: 'absolute',
+    top: 12,
+    left: 48,
+    padding: 0,
+  },
+  alphaNoticeText: {
+    fontSize: 14,
+    lineHeight: 14,
+  },
   logo: {
     color: '#7dc6b6',
     fontSize: 32,
@@ -167,17 +182,17 @@ export function HomeBluetooth({
   const r1Distances = distances.filter((d) => d <= 1.5);
   const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
   const r3Distances = distances.filter((d) => d > 5);
-  let contactDescription;
+  // let contactDescription;
   let contactStyles;
   if (distances.length === 0) {
     contactStyles = stylesNoContacts;
-    contactDescription = 'no contacts around you';
+    // contactDescription = 'no contacts around you';
   } else if (distances.length <= 3) {
     contactStyles = stylesFewContacts;
-    contactDescription = 'just a few contacts around you';
+    // contactDescription = 'just a few contacts around you';
   } else {
     contactStyles = stylesManyContacts;
-    contactDescription = 'many contacts around you';
+    // contactDescription = 'many contacts around you';
   }
   let radius1Style;
   if (r1Distances.length < 1) {
@@ -247,24 +262,11 @@ export function HomeBluetooth({
   return (
     <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
       <View style={styles.container}>
-        <View
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            position: 'relative',
-          }}>
+        <View style={styles.logoWrapper}>
           <Text style={styles.logo}>ito</Text>
           <AlphaNotice
-            rootStyle={{
-              position: 'absolute',
-              top: 12,
-              left: 48,
-              padding: 0,
-            }}
-            textStyle={{
-              fontSize: 14,
-              lineHeight: 14,
-            }}
+            rootStyle={styles.alphaNoticeRoot}
+            textStyle={styles.alphaNoticeText}
           />
         </View>
         <View style={styles.lastFetchRow}>

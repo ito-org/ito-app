@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Animated,
   View,
@@ -6,8 +6,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   NativeModules,
-  NativeEventEmitter,
-  EmitterSubscription,
+  ViewStyle,
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RefreshView = (props) => {
+const RefreshView = (props: {style?: ViewStyle; children: React.ReactNode}) => {
   const rotateAnim = useRef(new Animated.Value(0)).current;
   const rotateProp = rotateAnim.interpolate({
     inputRange: [0, 1],
@@ -169,7 +168,7 @@ const stylesManyContacts = StyleSheet.create({
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 export function Home({navigation}: {navigation: HomeScreenNavigationProp}) {
-  const [distances, setDistances] = useState([]);
+  const [distances, setDistances] = useState<number[]>([]);
   let contactStyles;
   let description;
   if (distances.length === 0) {
