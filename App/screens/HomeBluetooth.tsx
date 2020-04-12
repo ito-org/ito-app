@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -9,18 +9,19 @@ import {
 } from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
+import AlphaNotice from '../components/AlphaNotice';
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: 12,
     flex: 1,
-    backgroundColor: 'hsl(224, 71%, 58%)',
+    backgroundColor: 'white',
     textAlign: 'center',
   },
   logo: {
-    color: 'white',
+    color: '#7dc6b6',
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   lastFetch: {
-    color: 'white',
+    color: '#595959',
     fontSize: 16,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
@@ -40,37 +41,36 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   refreshIcon: {
-    color: 'white',
+    color: '#595959',
   },
   radiusContainer: {
-    marginTop: 16,
-    marginBottom: 16,
+    margin: 0,
+    paddingTop: 16,
+    paddingBottom: 64,
     alignItems: 'center',
+    flex: 10,
   },
   radius1: {
     position: 'absolute',
-    top: 120,
+    top: 135,
     borderRadius: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   radius2: {
     position: 'absolute',
-    top: 60,
+    top: 80,
     borderRadius: 110,
     width: 220,
     height: 220,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
   radius3: {
     borderRadius: 170,
     width: 340,
     height: 340,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
   },
   contacts: {
-    color: 'white',
+    color: '#595959',
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   buttonInfected: {
-    backgroundColor: '#4770e0',
+    backgroundColor: '#91e6d3',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonInfectedTitle: {
-    color: 'white',
+    color: '#2c2c2c',
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
@@ -100,61 +100,73 @@ const styles = StyleSheet.create({
 
 const stylesNoContacts = StyleSheet.create({
   radius1: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: '#7dc6b6',
   },
   radius2: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(135, 202, 187, 0.2)',
   },
   radius3: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {},
 });
 
 const stylesFewContacts = StyleSheet.create({
   radius1: {
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: '#7dc6b6',
   },
   radius2: {
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: 'rgba(136, 202, 187, 0.4)',
   },
   radius3: {
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: 'rgba(136, 202, 187, 0.2)',
   },
   contacts: {},
 });
 
 const stylesManyContacts = StyleSheet.create({
   radius1: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: '#7dc6b6',
   },
   radius2: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(135, 202, 187, 0.6)',
   },
   radius3: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(136, 202, 187, 0.4)',
   },
   contacts: {},
 });
 
-type HomeBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'HomeBluetooth'>
+type HomeBluetoothScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'HomeBluetooth'
+>;
 
-export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavigationProp}) {
-  const [distances, setDistances] = useState([]);
+export function HomeBluetooth({
+  navigation,
+}: {
+  navigation: HomeBluetoothScreenNavigationProp;
+}) {
+  const [distances, setDistances] = useState<never[]>([]);
+  let emitter = useRef<NativeEventEmitter | null>(null);
   useEffect(() => {
     console.log('Setting distance event listener');
-    const eventEmitter = new NativeEventEmitter(NativeModules.ItoBluetooth);
-    const eventListener = eventEmitter.addListener(
-      'onDistancesChanged',
-      (distances) => {
-        console.log('distances changed', distances);
-        setDistances(distances);
-      },
-    );
-  }, []);
-  const radius1Count = distances.filter((d) => d <= 2).length;
-  const radius2Count = distances.filter((d) => d > 2 && d <= 5).length;
-  const radius3Count = distances.filter((d) => d > 5).length;
+    emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
+    const listener = (ds: never[]) => {
+      console.log('distances changed', ds);
+      setDistances(ds);
+    };
+    emitter.current.addListener('onDistancesChanged', listener);
+    return () => {
+      if (emitter.current) {
+        emitter.current.removeListener('onDistancesChanged', listener);
+        emitter.current = null;
+      }
+    };
+  }, [distances.length]);
+  const r1Distances = distances.filter((d) => d <= 1.5);
+  const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
+  const r3Distances = distances.filter((d) => d > 5);
   let contactDescription;
   let contactStyles;
   if (distances.length === 0) {
@@ -168,10 +180,15 @@ export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavi
     contactDescription = 'many contacts around you';
   }
   let radius1Style;
-  if (radius1Count < 1) {
+  if (r1Distances.length < 1) {
     radius1Style = StyleSheet.flatten([
       styles.radius1,
       stylesNoContacts.radius1,
+    ]);
+  } else if (r1Distances.length >= 1 && r1Distances.length < 5) {
+    radius1Style = StyleSheet.flatten([
+      styles.radius1,
+      stylesFewContacts.radius1,
     ]);
   } else {
     radius1Style = StyleSheet.flatten([
@@ -180,10 +197,20 @@ export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavi
     ]);
   }
   let radius2Style;
-  if (radius2Count < 1) {
+  if (r1Distances.length >= 1) {
+    radius2Style = StyleSheet.flatten([
+      styles.radius2,
+      stylesManyContacts.radius2,
+    ]);
+  } else if (r2Distances.length < 1) {
     radius2Style = StyleSheet.flatten([
       styles.radius2,
       stylesNoContacts.radius2,
+    ]);
+  } else if (r2Distances.length >= 1 && r2Distances.length < 5) {
+    radius2Style = StyleSheet.flatten([
+      styles.radius2,
+      stylesFewContacts.radius2,
     ]);
   } else {
     radius2Style = StyleSheet.flatten([
@@ -192,10 +219,15 @@ export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavi
     ]);
   }
   let radius3Style;
-  if (radius3Count < 1) {
+  if (r3Distances.length < 1) {
     radius3Style = StyleSheet.flatten([
       styles.radius3,
       stylesNoContacts.radius3,
+    ]);
+  } else if (r3Distances.length >= 1 && r3Distances.length < 5) {
+    radius3Style = StyleSheet.flatten([
+      styles.radius3,
+      stylesFewContacts.radius3,
     ]);
   } else {
     radius3Style = StyleSheet.flatten([
@@ -207,20 +239,56 @@ export function HomeBluetooth({navigation}: {navigation: HomeBluetoothScreenNavi
     styles.contacts,
     contactStyles.contacts,
   ]);
+  const avgDistance = distances.length
+    ? distances.reduce((prev, cur) => prev + cur, 0) / distances.length
+    : null;
+  const circle2Diameter =
+    avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
   return (
     <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
       <View style={styles.container}>
-        <Text style={styles.logo}>ito</Text>
+        <View
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            position: 'relative',
+          }}>
+          <Text style={styles.logo}>ito</Text>
+          <AlphaNotice
+            rootStyle={{
+              position: 'absolute',
+              top: 12,
+              left: 48,
+              padding: 0,
+            }}
+            textStyle={{
+              fontSize: 14,
+              lineHeight: 14,
+            }}
+          />
+        </View>
         <View style={styles.lastFetchRow}>
           <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
         </View>
         <View style={styles.radiusContainer}>
           <Text style={radius1Style} />
-          <Text style={radius2Style} />
+          <Text
+            style={[
+              radius2Style,
+              {
+                width: circle2Diameter,
+                height: circle2Diameter,
+                borderRadius: circle2Diameter / 2,
+                top: 185 - circle2Diameter / 2,
+              },
+            ]}
+          />
           <Text style={radius3Style} />
         </View>
-        <Text style={contactsStyle}>{contactDescription}</Text>
+        <Text style={contactsStyle}>{`${distances.length} contacts (avg: ${
+          avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
+        })`}</Text>
         <View style={styles.bottomButtonContainer}>
           <Button
             title="I think I'm infected"

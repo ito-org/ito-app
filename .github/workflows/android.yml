@@ -1,0 +1,70 @@
+name: Android
+
+env:
+  ANDROID_COMPILE_SDK: '28'
+  ANDROID_BUILD_TOOLS: '28.0.3'
+  ANDROID_SDK_TOOLS: '4333796'
+  ANDROID_NDK: '20.0.5594570'
+  ANDROID_KEYSTORE_FILE: 'android/app/debug.keystore'
+  ANDROID_KEYSTORE_PASSWORD: 'android'
+  ANDROID_KEYSTORE_KEY_ALIAS: 'androiddebugkey'
+  ANDROID_KEYSTORE_KEY_PASSWORD: 'android'
+  ANDROID_HOME: ~/android-sdk-linux
+  ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '8'
+          java-package: jdk
+      - name: Install Android SDK
+        run: |
+          sh ci/install-android-sdk.sh
+      - name: Install npm dependencies
+        run: |
+          npm ci
+      - name: Build APK
+        run: |
+          npm run android:build-apk
+      - name: Archive APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: ${{ env.ANDROID_APK_FILE }}
+  deploy:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: app-release.apk
+          path: .
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release:
+          draft: true
+          prerelease: true
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./app-release.apk
+          asset_name: app-release.apk
+          asset_content_type: application/zip
