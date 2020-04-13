@@ -260,7 +260,7 @@ export function HomeBluetooth({
   const circle2Diameter =
     avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+    <TouchableWithoutFeedback>
       <View style={styles.container}>
         <View style={styles.logoWrapper}>
           <Text style={styles.logo}>ito</Text>
