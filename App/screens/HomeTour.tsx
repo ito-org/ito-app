@@ -1,24 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
+import AlphaNotice from '../components/AlphaNotice';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 12,
     textAlign: 'center',
-    backgroundColor: 'hsl(224, 51%, 38%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+  },
+  logoWrapper: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    position: 'relative',
   },
   logo: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(167, 39%, 54%)',
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
     marginBottom: 16,
+  },
+  alphaNoticeRoot: {
+    position: 'absolute',
+    top: 12,
+    left: 48,
+    padding: 0,
+  },
+  alphaNoticeText: {
+    fontSize: 14,
+    lineHeight: 14,
   },
   lastFetchRow: {
     flex: 1,
@@ -26,15 +42,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   lastFetch: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(0, 0%, 30%)',
     fontSize: 16,
     fontFamily: 'Ubuntu-R',
     marginRight: 8,
   },
   refreshIcon: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(0, 0%, 30%)',
   },
   bubbleBoxContainer: {
+    position: 'relative',
+    flex: 1,
+    marginLeft: 18,
+    marginRight: 18,
+    marginBottom: -46,
+  },
+  bubbleBoxContainer2: {
     position: 'relative',
     flex: 1,
     marginTop: -158,
@@ -59,7 +82,6 @@ const styles = StyleSheet.create({
     paddingLeft: 14,
     paddingRight: 14,
     fontFamily: 'Ubuntu-R',
-    zIndex: 1,
   },
   bubbleActions: {
     flexDirection: 'row',
@@ -68,14 +90,17 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 4,
     paddingBottom: 4,
-    zIndex: 1,
+  },
+  next: {
+    fontFamily: 'Ubuntu-R',
+    color: 'hsl(167, 39%, 64%)',
   },
   done: {
     fontFamily: 'Ubuntu-R',
-    color: 'hsl(224, 71%, 58%)',
+    color: 'hsl(167, 39%, 64%)',
   },
   nextIcon: {
-    color: 'hsl(224, 71%, 58%)',
+    color: 'hsl(167, 39%, 64%)',
   },
   bubbleTriangle: {
     position: 'absolute',
@@ -101,7 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: 'hsl(167, 20%, 58%)',
   },
   radius2: {
     position: 'absolute',
@@ -109,13 +134,13 @@ const styles = StyleSheet.create({
     borderRadius: 110,
     width: 220,
     height: 220,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(135, 202, 187, 0.2)',
   },
   radius3: {
     borderRadius: 170,
     width: 340,
     height: 340,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {
     color: 'hsl(0, 0%, 80%)',
@@ -125,12 +150,15 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   bottomButtonContainer: {
-    flex: 0.8,
+    flex: 1.7,
     justifyContent: 'flex-end',
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
+  bottomButtonContainer2: {
+    flex: 0.8,
+  },
   buttonInfected: {
-    backgroundColor: 'hsl(224, 51%, 38%)',
+    backgroundColor: 'hsl(167, 35%, 58%)',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,
@@ -138,29 +166,62 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonInfectedTitle: {
-    color: 'hsl(0, 0%, 80%)',
-    letterSpacing: 2,
+    color: '#2c2c2c',
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
+  invisible: {
+    display: 'none',
+  },
 });
-type HomeTour2BluetoothScreenNavigationProp = StackNavigationProp<
+
+type HomeTourScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  'HomeTour2'
+  'HomeTour'
 >;
 
-export function HomeTour2({
+export function HomeTour({
   navigation,
 }: {
-  navigation: HomeTour2BluetoothScreenNavigationProp;
+  navigation: HomeTourScreenNavigationProp;
 }) {
+  const [step, setStep] = useState(1);
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
+      <View style={styles.logoWrapper}>
+        <Text style={styles.logo}>ito</Text>
+        <AlphaNotice
+          rootStyle={styles.alphaNoticeRoot}
+          textStyle={styles.alphaNoticeText}
+        />
+      </View>
       <View style={styles.lastFetchRow}>
         <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+      </View>
+      <View
+        style={[styles.bubbleBoxContainer, step === 1 ? {} : styles.invisible]}>
+        <TouchableWithoutFeedback onPress={() => setStep(2)}>
+          <View style={styles.bubbleBox}>
+            <Text style={styles.bubbleText}>
+              This circle shows you how many ito users you just encountered.
+              Don't worry, it's just an indicator to see if you are in the
+              middle of a lot of ito users or not.
+            </Text>
+            <View style={styles.bubbleActions}>
+              <Text style={styles.next}>next</Text>
+              <Icon name="chevron-right" size={18} style={styles.nextIcon} />
+            </View>
+            <View
+              style={[
+                styles.bubbleTriangle,
+                step === 1 ? {} : styles.invisible,
+              ]}
+            />
+          </View>
+        </TouchableWithoutFeedback>
       </View>
       <View style={styles.radiusContainer}>
         <Text style={styles.radius1} />
@@ -168,7 +229,11 @@ export function HomeTour2({
         <Text style={styles.radius3} />
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
-      <View style={styles.bubbleBoxContainer}>
+      <View
+        style={[
+          styles.bubbleBoxContainer2,
+          step === 2 ? {} : styles.invisible,
+        ]}>
         <TouchableWithoutFeedback
           onPress={() => {
             AsyncStorage.setItem('userHasSeenOnboarding', 'true');
@@ -184,11 +249,20 @@ export function HomeTour2({
               <Text style={styles.done}>done</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
-            <View style={styles.bubbleTriangle} />
+            <View
+              style={[
+                styles.bubbleTriangle,
+                step === 2 ? {} : styles.invisible,
+              ]}
+            />
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <View style={styles.bottomButtonContainer}>
+      <View
+        style={[
+          styles.bottomButtonContainer,
+          step === 2 ? styles.bottomButtonContainer2 : {},
+        ]}>
         <Button
           title="I think I'm infected"
           disabledTitleStyle={styles.buttonInfectedTitle}
@@ -199,4 +273,4 @@ export function HomeTour2({
     </View>
   );
 }
-export default HomeTour2;
+export default HomeTour;
