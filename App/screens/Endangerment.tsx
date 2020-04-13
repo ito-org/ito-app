@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#ffffff',
   },
+  cancel: {
+    position: 'absolute',
+    left: 12,
+    top: 12,
+  },
+  chevronLeftIcon: {},
   logoWrapper: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
   },
   buttonSymptomsTitle: {
     color: '#2c2c2c',
-    letterSpacing: 1,
+    letterSpacing: 1.5,
     textTransform: 'uppercase',
     fontSize: 14,
     marginBottom: 8,
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
   },
   buttonTestedTitle: {
     color: '#2c2c2c',
-    letterSpacing: 1,
+    letterSpacing: 1.5,
     textTransform: 'uppercase',
     fontSize: 14,
     marginBottom: 8,
@@ -93,6 +99,12 @@ export function Endangerment({
 }) {
   return (
     <View style={styles.container}>
+      <View style={styles.cancel}>
+        <Text onPress={() => navigation.navigate('HomeBluetooth')}>
+          <Icon name="chevron-left" size={18} style={styles.chevronLeftIcon} />{' '}
+          cancel
+        </Text>
+      </View>
       <View style={styles.logoWrapper}>
         <Text style={styles.logo}>ito</Text>
         <AlphaNotice
