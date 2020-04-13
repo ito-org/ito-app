@@ -22,6 +22,7 @@ import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
+import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 const Stack = createStackNavigator();
 
@@ -43,7 +44,7 @@ declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   //Uncomment this to show onboarding again
-  //AsyncStorage.setItem('userHasSeenOnboarding', "false");
+  // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
 
   return (
     <NavigationContainer>
