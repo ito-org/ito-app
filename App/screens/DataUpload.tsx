@@ -12,7 +12,7 @@ export class DataUpload extends React.Component<{
   navigation: DataUploadScreenNavigationProp;
 }> {
   render() {
-    let trashStyle = StyleSheet.create({
+    const trashStyle = StyleSheet.create({
       header: {
         textAlign: 'center',
         fontSize: 20,

@@ -163,7 +163,7 @@ export function HomeBluetooth({
   navigation: HomeBluetoothScreenNavigationProp;
 }) {
   const [distances, setDistances] = useState<never[]>([]);
-  let emitter = useRef<NativeEventEmitter | null>(null);
+  const emitter = useRef<NativeEventEmitter | null>(null);
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
