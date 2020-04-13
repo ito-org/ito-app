@@ -5,20 +5,36 @@ import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
+import AlphaNotice from '../components/AlphaNotice';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 12,
     textAlign: 'center',
-    backgroundColor: 'hsl(224, 51%, 38%)',
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+  },
+  logoWrapper: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    position: 'relative',
   },
   logo: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(167, 39%, 54%)',
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
     marginBottom: 16,
+  },
+  alphaNoticeRoot: {
+    position: 'absolute',
+    top: 12,
+    left: 48,
+    padding: 0,
+  },
+  alphaNoticeText: {
+    fontSize: 14,
+    lineHeight: 14,
   },
   lastFetchRow: {
     flex: 1,
@@ -26,13 +42,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   lastFetch: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(0, 0%, 30%)',
     fontSize: 16,
     fontFamily: 'Ubuntu-R',
     marginRight: 8,
   },
   refreshIcon: {
-    color: 'hsl(0, 0%, 90%)',
+    color: 'hsl(0, 0%, 30%)',
   },
   bubbleBoxContainer: {
     position: 'relative',
@@ -77,14 +93,14 @@ const styles = StyleSheet.create({
   },
   next: {
     fontFamily: 'Ubuntu-R',
-    color: 'hsl(224, 61%, 58%)',
+    color: 'hsl(167, 39%, 64%)',
   },
   done: {
     fontFamily: 'Ubuntu-R',
-    color: 'hsl(224, 71%, 58%)',
+    color: 'hsl(167, 39%, 64%)',
   },
   nextIcon: {
-    color: 'hsl(224, 61%, 58%)',
+    color: 'hsl(167, 39%, 64%)',
   },
   bubbleTriangle: {
     position: 'absolute',
@@ -110,7 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: 100,
     height: 100,
-    backgroundColor: 'rgba(255, 255, 255, 0.55)',
+    backgroundColor: 'hsl(167, 20%, 58%)',
   },
   radius2: {
     position: 'absolute',
@@ -118,13 +134,13 @@ const styles = StyleSheet.create({
     borderRadius: 110,
     width: 220,
     height: 220,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(135, 202, 187, 0.2)',
   },
   radius3: {
     borderRadius: 170,
     width: 340,
     height: 340,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {
     color: 'hsl(0, 0%, 80%)',
@@ -142,7 +158,7 @@ const styles = StyleSheet.create({
     flex: 0.8,
   },
   buttonInfected: {
-    backgroundColor: 'hsl(224, 51%, 38%)',
+    backgroundColor: 'hsl(167, 35%, 58%)',
     borderRadius: 6,
     marginBottom: 24,
     marginLeft: 16,
@@ -150,8 +166,8 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonInfectedTitle: {
-    color: 'hsl(0, 0%, 80%)',
-    letterSpacing: 2,
+    color: '#2c2c2c',
+    letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
@@ -174,7 +190,13 @@ export function HomeTour({
   const [step, setStep] = useState(1);
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>ito</Text>
+      <View style={styles.logoWrapper}>
+        <Text style={styles.logo}>ito</Text>
+        <AlphaNotice
+          rootStyle={styles.alphaNoticeRoot}
+          textStyle={styles.alphaNoticeText}
+        />
+      </View>
       <View style={styles.lastFetchRow}>
         <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
