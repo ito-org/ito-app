@@ -15,12 +15,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
   },
+  logoWrapper: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    position: 'relative',
+  },
   logo: {
     color: '#7dc6b6',
     fontSize: 56,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
+
   subtitle: {
     color: '#595959',
     fontSize: 18,
@@ -73,22 +79,11 @@ export function Onboarding({
 }) {
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          position: 'relative',
-        }}>
+      <View style={styles.logoWrapper}>
         <Text style={styles.logo}>ito</Text>
         <AlphaNotice
-          rootStyle={{
-            position: 'absolute',
-            top: 24,
-            left: 80,
-          }}
-          textStyle={{
-            fontSize: 24,
-          }}
+          rootStyle={styles.alphaNoticeRoot}
+          textStyle={styles.alphaNoticeText}
         />
       </View>
       <Text style={styles.subtitle}>track infections, not people!</Text>

@@ -7,11 +7,8 @@
  *
  * @format
  */
-import React, {useState, useEffect} from 'react';
-import BackgroundTimer from 'react-native-background-timer';
-import {Text} from 'react-native';
+import React from 'react';
 import 'react-native-get-random-values';
-import {v4} from 'uuid';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loading} from './screens/Loading';
@@ -26,38 +23,27 @@ import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
-import AsyncStorage from '@react-native-community/async-storage';
 
 const Stack = createStackNavigator();
 
 export type RootStackParamList = {
-  Loading: undefined,
-  Onboarding: undefined,
-  OnboardingHow: undefined,
-  HomeTour1: undefined,
-  HomeTour2: undefined,
-  Home: undefined,
-  HomeBluetooth: undefined,
-  Endangerment: undefined,
-  BluetoothNotification: undefined,
-  SymptomInfo: undefined,
-  ConfirmationCode: undefined,
-  DataUpload: undefined
-}
+  Loading: undefined;
+  Onboarding: undefined;
+  OnboardingHow: undefined;
+  HomeTour1: undefined;
+  HomeTour2: undefined;
+  Home: undefined;
+  HomeBluetooth: undefined;
+  Endangerment: undefined;
+  BluetoothNotification: undefined;
+  SymptomInfo: undefined;
+  ConfirmationCode: undefined;
+  DataUpload: undefined;
+};
 
 declare var global: {HermesInternal: null | {}};
 
-const REGENERATE_UUID_MINUTES = 30;
-
 const App = () => {
-  const [uuid, setUuid] = useState(v4());
-  useEffect(() => {
-    BackgroundTimer.runBackgroundTimer(() => {
-      setUuid(v4());
-    }, REGENERATE_UUID_MINUTES * 60 * 1000);
-    BackgroundTimer.start();
-  }, []);
-
   //Uncomment this to show onboarding again
   //AsyncStorage.setItem('userHasSeenOnboarding', "false");
 
@@ -81,16 +67,6 @@ const App = () => {
         <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
         <Stack.Screen name="DataUpload" component={DataUpload} />
       </Stack.Navigator>
-      {/* <Text
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          textAlign: 'center',
-          color: 'white',
-          backgroundColor: '#444',
-          padding: 4,
-        }}>
-        Your ID: {uuid}
-      </Text> */}
     </NavigationContainer>
   );
 };

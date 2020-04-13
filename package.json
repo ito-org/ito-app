@@ -17,7 +17,6 @@
     "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.2.10",
     "@types/react-native-background-timer": "^2.0.0",
-    "@types/uuid": "^7.0.2",
     "react": "16.11.0",
     "react-native": "0.62.0",
     "react-native-background-timer": "^2.2.0",
@@ -30,8 +29,7 @@
     "react-native-screens": "^2.4.0",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^6.6.0",
-    "util": "^0.12.2",
-    "uuid": "^7.0.3"
+    "util": "^0.12.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -44,12 +42,18 @@
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "jest": {
     "preset": "react-native",

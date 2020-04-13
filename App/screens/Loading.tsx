@@ -1,9 +1,7 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
-import {Button} from 'react-native-elements';
-import ShieldIcon from '../components/ShieldIcon';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'App/App';
+import React from 'react';
+import {StyleSheet, View, Image} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const styles = StyleSheet.create({
@@ -21,45 +19,61 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
+  img: {
+    width: 120,
+    height: 120,
+  },
 });
 
-type LoadingBluetoothScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Loading'>
+type LoadingBluetoothScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Loading'
+>;
 
-export function Loading({ navigation }: { navigation: LoadingBluetoothScreenNavigationProp }) {
+export function Loading({
+  navigation,
+}: {
+  navigation: LoadingBluetoothScreenNavigationProp;
+}) {
   React.useEffect(() => {
     const bootstrapAsync = async () => {
       let userHasSeenOnboarding: boolean;
 
       try {
-        userHasSeenOnboarding = await AsyncStorage.getItem('userHasSeenOnboarding') == "true";
+        userHasSeenOnboarding =
+          (await AsyncStorage.getItem('userHasSeenOnboarding')) === 'true';
       } catch (e) {
         userHasSeenOnboarding = false;
       }
 
       if (userHasSeenOnboarding) {
-        setTimeout(() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'HomeBluetooth' }],
-          }), 500
+        setTimeout(
+          () =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'HomeBluetooth'}],
+            }),
+          500,
         );
       } else {
-        setTimeout(() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'Onboarding' }],
-          }), 500
+        setTimeout(
+          () =>
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Onboarding'}],
+            }),
+          500,
         );
       }
     };
 
     bootstrapAsync();
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <Image
         source={require('../../assets/icons/white_arcs_transparent.png')}
-        style={{width: 120, height: 120}}
+        style={styles.img}
       />
     </View>
   );

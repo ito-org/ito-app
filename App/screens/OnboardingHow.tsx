@@ -1,12 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, Text, PermissionsAndroid, NativeModules } from 'react-native';
-import { Button } from 'react-native-elements';
+import {
+  StyleSheet,
+  View,
+  Text,
+  PermissionsAndroid,
+  NativeModules,
+} from 'react-native';
+import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
 import AlphaNotice from '../components/AlphaNotice';
-import transform from 'react-native';
-import { RootStackParamList } from 'App/App';
-import { StackNavigationProp } from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,12 +23,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#595959',
   },
+  logoWrapper: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    position: 'relative',
+  },
   logo: {
     color: '#7dc6b6',
     fontSize: 32,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
     marginBottom: 8,
+  },
+  alphaNoticeRoot: {
+    position: 'absolute',
+    top: 12,
+    left: 48,
+    padding: 0,
+  },
+  alphaNoticeText: {
+    fontSize: 14,
+    lineHeight: 14,
   },
   bottomButtonContainer: {
     flex: 1,
@@ -59,31 +79,57 @@ const styles = StyleSheet.create({
     paddingBottom: 38,
     fontFamily: 'Ubuntu-R',
   },
+  bluetoothIcon: {
+    marginTop: -28,
+    marginRight: 16,
+    borderRadius: 60,
+    color: '#fff',
+    padding: 12,
+    backgroundColor: '#7dc6b6',
+  },
+  smartphoneIcon: {
+    marginTop: -20,
+    marginLeft: 16,
+    borderRadius: 60,
+    color: '#fff',
+    padding: 12,
+    backgroundColor: '#7dc6b6',
+  },
+  bellIcon: {
+    marginTop: -20,
+    marginRight: 16,
+    borderRadius: 60,
+    color: '#fff',
+    padding: 12,
+    backgroundColor: '#7dc6b6',
+  },
+  shieldIcon: {
+    marginTop: -32,
+    marginLeft: 16,
+    borderRadius: 60,
+    color: '#fff',
+    padding: 0,
+    backgroundColor: '#7dc6b6',
+  },
 });
 
-type OnboardingHowScreenNavigationProp = StackNavigationProp<RootStackParamList, 'OnboardingHow'>
+type OnboardingHowScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'OnboardingHow'
+>;
 
-export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenNavigationProp }) {
+export function OnboardingHow({
+  navigation,
+}: {
+  navigation: OnboardingHowScreenNavigationProp;
+}) {
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          position: 'relative',
-        }}>
+      <View style={styles.logoWrapper}>
         <Text style={styles.logo}>ito</Text>
         <AlphaNotice
-          rootStyle={{
-            position: 'absolute',
-            top: 12,
-            left: 48,
-            padding: 0,
-          }}
-          textStyle={{
-            fontSize: 14,
-            lineHeight: 14,
-          }}
+          rootStyle={styles.alphaNoticeRoot}
+          textStyle={styles.alphaNoticeText}
         />
       </View>
       <View style={styles.explanationRow}>
@@ -91,14 +137,7 @@ export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenN
           name="bluetooth"
           size={40}
           color="white"
-          style={{
-            marginTop: -28,
-            marginRight: 16,
-            borderRadius: 60,
-            color: '#fff',
-            padding: 12,
-            backgroundColor: '#7dc6b6',
-          }}
+          style={styles.bluetoothIcon}
         />
         <Text style={styles.explanation}>
           we use your phone's bluetooth{'\n'}
@@ -116,30 +155,11 @@ export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenN
           name="smartphone"
           size={40}
           color="white"
-          style={{
-            marginTop: -20,
-            marginLeft: 16,
-            borderRadius: 60,
-            color: '#fff',
-            padding: 12,
-            backgroundColor: '#7dc6b6',
-          }}
+          style={styles.smartphoneIcon}
         />
       </View>
       <View style={styles.explanationRow}>
-        <Icon
-          name="bell"
-          size={40}
-          color="white"
-          style={{
-            marginTop: -20,
-            marginRight: 16,
-            borderRadius: 60,
-            color: '#fff',
-            padding: 12,
-            backgroundColor: '#7dc6b6',
-          }}
-        />
+        <Icon name="bell" size={40} color="white" style={styles.bellIcon} />
         <Text style={styles.explanation}>
           if someone you encountered{'\n'}
           before got infected, you get a{'\n'}
@@ -154,14 +174,7 @@ export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenN
           you encountered lately know
         </Text>
         <ShieldIcon2
-          style={{
-            marginTop: -32,
-            marginLeft: 16,
-            borderRadius: 60,
-            color: '#fff',
-            padding: 0,
-            backgroundColor: '#7dc6b6',
-          }}
+          style={styles.shieldIcon}
           height={68}
           width={68}
           viewBox="0 -32 120 180"
@@ -178,8 +191,9 @@ export function OnboardingHow({ navigation }: { navigation: OnboardingHowScreenN
                 message: 'ReactNativeCode App needs access to your location ',
               },
             );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED)
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
               NativeModules.ItoBluetooth.restartTracing();
+            }
             navigation.navigate('HomeTour1');
           }}
           titleStyle={styles.buttonHowTitle}
