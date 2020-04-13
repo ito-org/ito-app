@@ -50,30 +50,14 @@ const styles = StyleSheet.create({
   refreshIcon: {
     color: 'hsl(0, 0%, 30%)',
   },
-  bubbleBoxContainer: {
-    position: 'relative',
-    flex: 1,
-    marginLeft: 18,
-    marginRight: 18,
-    marginBottom: -46,
-  },
-  bubbleBoxContainer2: {
-    position: 'relative',
-    flex: 1,
-    marginTop: -158,
-    marginLeft: 18,
-    marginRight: 18,
-    zIndex: 1,
-  },
   bubbleBox: {
     position: 'absolute',
     backgroundColor: 'white',
-    top: 0,
-    left: 0,
-    right: 0,
     flex: 1,
     paddingTop: 6,
     paddingBottom: 6,
+    marginLeft: 18,
+    marginRight: 18,
     borderRadius: 12,
     flexDirection: 'column',
     zIndex: 1,
@@ -90,6 +74,12 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 4,
     paddingBottom: 4,
+  },
+  firstBubble: {
+    top: 0,
+  },
+  secondBubble: {
+    bottom: 90,
   },
   next: {
     fontFamily: 'Ubuntu-R',
@@ -143,24 +133,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {
-    color: 'hsl(0, 0%, 80%)',
-    fontSize: 14,
+    color: 'hsl(0, 0%, 30%)',
+    fontSize: 16,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-B',
+    fontFamily: 'Ubuntu-R',
     marginBottom: 32,
+    flex: 0.3,
   },
   bottomButtonContainer: {
-    flex: 1.7,
-    justifyContent: 'flex-end',
+    flex: 0.5,
     backgroundColor: 'hsl(0, 0%, 70%)',
-  },
-  bottomButtonContainer2: {
-    flex: 0.8,
   },
   buttonInfected: {
     backgroundColor: 'hsl(167, 35%, 58%)',
     borderRadius: 6,
-    marginBottom: 24,
+    marginTop: 24,
     marginLeft: 16,
     marginRight: 16,
     padding: 12,
@@ -171,9 +158,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
-  },
-  invisible: {
-    display: 'none',
   },
 });
 
@@ -201,45 +185,36 @@ export function HomeTour({
         <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
-      <View
-        style={[styles.bubbleBoxContainer, step === 1 ? {} : styles.invisible]}>
-        <TouchableWithoutFeedback onPress={() => setStep(2)}>
-          <View style={styles.bubbleBox}>
-            <Text style={styles.bubbleText}>
-              This circle shows you how many ito users you just encountered.
-              Don't worry, it's just an indicator to see if you are in the
-              middle of a lot of ito users or not.
-            </Text>
-            <View style={styles.bubbleActions}>
-              <Text style={styles.next}>next</Text>
-              <Icon name="chevron-right" size={18} style={styles.nextIcon} />
-            </View>
-            <View
-              style={[
-                styles.bubbleTriangle,
-                step === 1 ? {} : styles.invisible,
-              ]}
-            />
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
+
       <View style={styles.radiusContainer}>
+        {step === 1 && (
+          <TouchableWithoutFeedback onPress={() => setStep(2)}>
+            <View style={[styles.bubbleBox, styles.firstBubble]}>
+              <Text style={styles.bubbleText}>
+                This circle shows you how many ito users you just encountered.
+                Don't worry, it's just an indicator to see if you are in the
+                middle of a lot of ito users or not.
+              </Text>
+              <View style={styles.bubbleActions}>
+                <Text style={styles.next}>next</Text>
+                <Icon name="chevron-right" size={18} style={styles.nextIcon} />
+              </View>
+              <View style={styles.bubbleTriangle} />
+            </View>
+          </TouchableWithoutFeedback>
+        )}
         <Text style={styles.radius1} />
         <Text style={styles.radius2} />
         <Text style={styles.radius3} />
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
-      <View
-        style={[
-          styles.bubbleBoxContainer2,
-          step === 2 ? {} : styles.invisible,
-        ]}>
+      {step === 2 && (
         <TouchableWithoutFeedback
           onPress={() => {
             AsyncStorage.setItem('userHasSeenOnboarding', 'true');
             navigation.navigate('HomeBluetooth');
           }}>
-          <View style={styles.bubbleBox}>
+          <View style={[styles.bubbleBox, styles.secondBubble]}>
             <Text style={styles.bubbleText}>
               If you think you got infected please report with this button to
               get more information on what to do next. This also helps us inform
@@ -249,20 +224,11 @@ export function HomeTour({
               <Text style={styles.done}>done</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
-            <View
-              style={[
-                styles.bubbleTriangle,
-                step === 2 ? {} : styles.invisible,
-              ]}
-            />
+            <View style={styles.bubbleTriangle} />
           </View>
         </TouchableWithoutFeedback>
-      </View>
-      <View
-        style={[
-          styles.bottomButtonContainer,
-          step === 2 ? styles.bottomButtonContainer2 : {},
-        ]}>
+      )}
+      <View style={styles.bottomButtonContainer}>
         <Button
           title="I think I'm infected"
           disabledTitleStyle={styles.buttonInfectedTitle}
