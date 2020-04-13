@@ -2,7 +2,7 @@
 ![Android](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg) 
 [![Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/latest/app-release.apk)](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk)
 
-# Download
+## Try it out
 You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk) For the app to recognize other devices, make sure to enable Bluetooth.
 
 ## Development
