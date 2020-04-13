@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
+  alphaNoticeRoot: {position: 'absolute', top: 24, left: 80},
+  alphaNoticeText: {fontSize: 24},
 });
 
 type OnboardingScreenNavigationProp = StackNavigationProp<

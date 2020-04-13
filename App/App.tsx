@@ -41,7 +41,7 @@ export type RootStackParamList = {
   DataUpload: undefined;
 };
 
-declare var global: {HermesInternal: null | {}};
+declare const global: {HermesInternal: null | {}};
 
 const App = () => {
   //Uncomment this to show onboarding again
