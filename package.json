@@ -47,12 +47,13 @@
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.8.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "pretty-quick --staged && npm run lint"
     }
   },
   "jest": {
