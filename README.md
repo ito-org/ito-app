@@ -2,7 +2,7 @@
 ![Android](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg)
 
 # Download
-You can find releases on [our releases page](https://github.com/ito-org/react-native-app/releases).
+You can find Android alpha releases on [our releases page](https://github.com/ito-org/react-native-app/releases).
 
 ## Development
 ### Android
