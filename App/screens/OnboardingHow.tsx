@@ -194,7 +194,7 @@ export function OnboardingHow({
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
               NativeModules.ItoBluetooth.restartTracing();
             }
-            navigation.navigate('HomeTour1');
+            navigation.navigate('HomeTour');
           }}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}

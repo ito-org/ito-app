@@ -16,8 +16,7 @@ import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 import {Home} from './screens/Home';
 import {HomeBluetooth} from './screens/HomeBluetooth';
-import {HomeTour1} from './screens/HomeTour1';
-import {HomeTour2} from './screens/HomeTour2';
+import {HomeTour} from './screens/HomeTour';
 import {Endangerment} from './screens/Endangerment';
 import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
@@ -30,8 +29,7 @@ export type RootStackParamList = {
   Loading: undefined;
   Onboarding: undefined;
   OnboardingHow: undefined;
-  HomeTour1: undefined;
-  HomeTour2: undefined;
+  HomeTour: undefined;
   Home: undefined;
   HomeBluetooth: undefined;
   Endangerment: undefined;
@@ -53,8 +51,7 @@ const App = () => {
         <Stack.Screen name="Loading" component={Loading} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
-        <Stack.Screen name="HomeTour1" component={HomeTour1} />
-        <Stack.Screen name="HomeTour2" component={HomeTour2} />
+        <Stack.Screen name="HomeTour" component={HomeTour} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
         <Stack.Screen name="Endangerment" component={Endangerment} />
