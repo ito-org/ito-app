@@ -60,7 +60,7 @@ export function Loading({
           () =>
             navigation.reset({
               index: 0,
-              routes: [{name: 'Onboarding'}],
+              routes: [{name: 'AlphaWarning'}],
             }),
           500,
         );
