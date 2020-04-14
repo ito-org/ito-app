@@ -28,7 +28,7 @@ export class DataUpload extends React.Component<{
         </Text>
         <Button
           title="Back to home"
-          onPress={() => navigation.navigate('HomeBluetooth')}
+          onPress={() => this.props.navigation.navigate('HomeBluetooth')}
         />
       </>
     );
