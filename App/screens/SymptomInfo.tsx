@@ -125,7 +125,7 @@ export function SymptomInfo({
       />
       <Button
         title="I have a positive test result"
-        onPress={() => navigation.navigate('HomeBluetooth')}
+        onPress={() => navigation.navigate('ConfirmationCode')}
         titleStyle={styles.buttonOtherTitle}
         buttonStyle={styles.buttonOther}
       />
