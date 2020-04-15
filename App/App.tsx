@@ -39,6 +39,7 @@ export type RootStackParamList = {
   SymptomInfo: undefined;
   ConfirmationCode: undefined;
   DataUpload: undefined;
+  AlphaPositiveResult: undefined;
 };
 
 declare const global: {HermesInternal: null | {}};
