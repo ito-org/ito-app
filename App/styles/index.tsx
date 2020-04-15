@@ -14,3 +14,37 @@ export const global = StyleSheet.create({
   },
 });
 export default global;
+
+export const design = {
+  explanation: {
+    fontSize: 18,
+    color: '#595959',
+    fontFamily: 'Ubuntu-R',
+  },
+  coloredButton: {
+    backgroundColor: '#91e6d3',
+
+    borderRadius: 6,
+    padding: 12,
+  },
+  inversedButton: {
+    backgroundColor: '#ffffff',
+    borderColor: '#7dc6b6',
+    borderWidth: 2,
+    borderRadius: 6,
+    padding: 12,
+    color: '#2c2c2c',
+  },
+  buttonText: {
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    fontSize: 14,
+    fontFamily: 'Ubuntu-M',
+  },
+  buttonOpenAppTitle: {
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    fontSize: 14,
+    fontFamily: 'Ubuntu-M',
+  },
+};
