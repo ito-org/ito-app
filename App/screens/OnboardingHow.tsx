@@ -16,7 +16,6 @@ import {BasicButton} from '../components/BasicButton';
 import {global} from '../styles';
 
 const styles = StyleSheet.create({
-  container: {},
   bottomButtonContainer: {
     marginBottom: 16,
   },
@@ -81,7 +80,7 @@ export function OnboardingHow({
   navigation: OnboardingHowScreenNavigationProp;
 }) {
   return (
-    <View style={[global.container, styles.container]}>
+    <View style={global.container}>
       <Logo />
       <View style={styles.explanationRow}>
         <Icon
@@ -131,24 +130,22 @@ export function OnboardingHow({
           viewBox="0 -32 120 180"
         />
       </View>
-      <View style={styles.bottomButtonContainer}>
-        <BasicButton
-          title="Get Started"
-          onPress={async () => {
-            const granted = await PermissionsAndroid.request(
-              PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-              {
-                title: 'ReactNativeCode Location Permission',
-                message: 'ReactNativeCode App needs access to your location ',
-              },
-            );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-              NativeModules.ItoBluetooth.restartTracing();
-            }
-            navigation.navigate('HomeTour');
-          }}
-        />
-      </View>
+      <BasicButton
+        title="Get Started"
+        onPress={async () => {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            {
+              title: 'ReactNativeCode Location Permission',
+              message: 'ReactNativeCode App needs access to your location ',
+            },
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            NativeModules.ItoBluetooth.restartTracing();
+          }
+          navigation.navigate('HomeTour');
+        }}
+      />
     </View>
   );
 }

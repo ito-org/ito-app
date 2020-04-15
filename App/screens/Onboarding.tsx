@@ -6,16 +6,9 @@ import {RootStackParamList} from 'App/App';
 import {Logo} from '../components/Logo';
 import {BasicButton} from '../components/BasicButton';
 
+import {global} from '../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    backgroundColor: 'white',
-    textAlign: 'center',
-    justifyContent: 'space-between',
-  },
   subtitle: {
     color: '#595959',
     fontSize: 18,
@@ -41,9 +34,6 @@ const styles = StyleSheet.create({
     paddingBottom: 38,
     fontFamily: 'Ubuntu-R',
   },
-  bottomButtonContainer: {
-    marginBottom: 16,
-  },
 });
 
 type OnboardingScreenNavigationProp = StackNavigationProp<
@@ -57,7 +47,7 @@ export function Onboarding({
   navigation: OnboardingScreenNavigationProp;
 }) {
   return (
-    <View style={styles.container}>
+    <View style={global.container}>
       <Logo />
       <View style={styles.explanationContainer}>
         <Text style={styles.subtitle}>track infections, not people!</Text>
@@ -72,12 +62,10 @@ export function Onboarding({
           about your health status
         </Text>
       </View>
-      <View style={styles.bottomButtonContainer}>
-        <BasicButton
-          title="How does this work?"
-          onPress={() => navigation.navigate('OnboardingHow')}
-        />
-      </View>
+      <BasicButton
+        title="How does this work?"
+        onPress={() => navigation.navigate('OnboardingHow')}
+      />
     </View>
   );
 }
