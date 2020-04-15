@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     padding: 12,
     backgroundColor: 'white',
     textAlign: 'center',
+    justifyContent: 'space-between',
   },
   logoWrapper: {
     marginLeft: 'auto',
@@ -34,20 +35,27 @@ const styles = StyleSheet.create({
   subtitle: {
     color: '#595959',
     fontSize: 18,
+    fontWeight: '300',
     paddingTop: 12,
     paddingBottom: 8,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'Ubuntu-L',
   },
   generalText: {
     color: '#595959',
     fontSize: 18,
     paddingTop: 16,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
+    fontFamily: 'UbuntuMono-R',
+  },
+  githubLink: {
+    textDecorationLine: 'underline',
   },
   alphaNoticeRoot: {marginLeft: 'auto', marginRight: 'auto', margin: 16},
   alphaNoticeText: {fontSize: 60},
+  bottomButtonContainer: {
+    marginBottom: 16,
+  },
   buttonHow: {
     backgroundColor: '#91e6d3',
     borderRadius: 6,
@@ -59,11 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
-  bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 16,
-  },
 });
 
 export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
@@ -71,24 +74,26 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.logoWrapper}>
         <Text style={styles.logo}>ito</Text>
+        <Text style={styles.subtitle}>track infections, not people!</Text>
+        <AlphaNotice
+          rootStyle={styles.alphaNoticeRoot}
+          textStyle={styles.alphaNoticeText}
+        />
       </View>
-      <Text style={styles.subtitle}>track infections, not people!</Text>
-      <AlphaNotice
-        rootStyle={styles.alphaNoticeRoot}
-        textStyle={styles.alphaNoticeText}
-      />
-      <Text style={styles.generalText}>
-        This version is for demonstration purpose only.
-      </Text>
-      <Text style={styles.generalText}>
-        Not all features are implemented yet nor is everything audited.
-      </Text>
-      <Text style={styles.generalText}>
-        Please review the app, have a look at the code and report issues, bugs
-        or general feedback at
-      </Text>
+      <View>
+        <Text style={styles.generalText}>
+          This version is for demonstration purpose only.
+        </Text>
+        <Text style={styles.generalText}>
+          Not all features are implemented yet nor is everything audited.
+        </Text>
+        <Text style={styles.generalText}>
+          Please review the app, have a look at the code and report issues, bugs
+          or general feedback at
+        </Text>
+      </View>
       <Text
-        style={styles.generalText}
+        style={[styles.generalText, styles.githubLink]}
         onPress={() =>
           Linking.openURL('https://github.com/ito-org/react-native-app/issues')
         }>

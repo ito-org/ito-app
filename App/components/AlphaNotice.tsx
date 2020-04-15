@@ -3,7 +3,7 @@ import {StyleSheet, View, Text} from 'react-native';
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: 'red',
+    backgroundColor: '#FF3E3E',
   },
   text: {
     color: 'white',
