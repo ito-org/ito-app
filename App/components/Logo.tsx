@@ -23,15 +23,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
   },
+  hidden: {
+    display: 'none',
+  },
 });
 
-export const Logo: React.FC = () => {
+interface LogoProps {
+  showAlpha: boolean;
+}
+
+export const Logo: React.FC<LogoProps> = ({showAlpha = true}) => {
   return (
     <View style={styles.logoWrapper}>
       <Text style={styles.logo}>ito</Text>
       <AlphaNotice
-        rootStyle={styles.alphaNoticeRoot}
-        textStyle={styles.alphaNoticeText}
+        rootStyle={[styles.alphaNoticeRoot, showAlpha ? {} : styles.hidden]}
+        textStyle={[styles.alphaNoticeText, showAlpha ? {} : styles.hidden]}
       />
     </View>
   );

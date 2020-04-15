@@ -3,9 +3,7 @@ import {Text, View, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {BasicButton} from '../components/BasicButton';
-import {AlphaNotice} from '../components/AlphaNotice';
-import Icon from 'react-native-vector-icons/Feather';
-import {Logo} from '../components/Logo';
+import {Header} from '../components/Header';
 
 import {global} from '../styles';
 
@@ -57,19 +55,7 @@ export function AlphaPositiveResult({
 }) {
   return (
     <View style={[global.container, styles.container]}>
-      <View style={styles.cancel}>
-        <Text onPress={() => navigation.navigate('Endangerment')}>
-          <Icon name="chevron-left" size={18} style={styles.chevronLeftIcon} />{' '}
-          cancel
-        </Text>
-      </View>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-      </View>
-      <AlphaNotice
-        rootStyle={styles.alphaNoticeRoot}
-        textStyle={styles.alphaNoticeText}
-      />
+      <Header />
       <Text style={styles.explanation}>
         For testing purposes you can simulate a positive test result. After
         pressing the button, your phone's TCNs will be marked as positive and
