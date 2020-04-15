@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {Logo} from '../components/Logo';
+import {BasicButton} from '../components/BasicButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     backgroundColor: 'white',
     textAlign: 'center',
+    justifyContent: 'space-between',
   },
   subtitle: {
     color: '#595959',
@@ -29,6 +30,9 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
+  explanationContainer: {
+    flex: 1,
+  },
   explanation: {
     color: '#595959',
     textAlign: 'center',
@@ -38,20 +42,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-R',
   },
   bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
     marginBottom: 16,
-  },
-  buttonHow: {
-    backgroundColor: '#91e6d3',
-    borderRadius: 6,
-  },
-  buttonHowTitle: {
-    color: '#2c2c2c',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
   },
 });
 
@@ -68,23 +59,23 @@ export function Onboarding({
   return (
     <View style={styles.container}>
       <Logo />
-      <Text style={styles.subtitle}>track infections, not people!</Text>
-      <ShieldIcon style={styles.shield} />
-      <Text style={styles.explanation}>
-        protect yourself and {'\n'}
-        the people surrounding you {'\n'}
-        {'\n'}
-        ito doesn't track any personal {'\n'}
-        or location data {'\n'}- {'\n'}
-        we just need to know {'\n'}
-        about your health status
-      </Text>
+      <View style={styles.explanationContainer}>
+        <Text style={styles.subtitle}>track infections, not people!</Text>
+        <ShieldIcon style={styles.shield} />
+        <Text style={styles.explanation}>
+          protect yourself and {'\n'}
+          the people surrounding you {'\n'}
+          {'\n'}
+          ito doesn't track any personal {'\n'}
+          or location data {'\n'}- {'\n'}
+          we just need to know {'\n'}
+          about your health status
+        </Text>
+      </View>
       <View style={styles.bottomButtonContainer}>
-        <Button
+        <BasicButton
           title="How does this work?"
           onPress={() => navigation.navigate('OnboardingHow')}
-          titleStyle={styles.buttonHowTitle}
-          buttonStyle={styles.buttonHow}
         />
       </View>
     </View>
