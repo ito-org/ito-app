@@ -22,3 +22,4 @@ export const Logo: React.FC<LogoProps> = ({style = {}}) => {
     </View>
   );
 };
+export default Logo;

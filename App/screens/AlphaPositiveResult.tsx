@@ -55,7 +55,11 @@ export function AlphaPositiveResult({
 }) {
   return (
     <View style={[global.container, styles.container]}>
-      <Header />
+      <Header
+        showNavigate={true}
+        navigateTitle="cancel"
+        onNavigate={() => navigation.goBack()}
+      />
       <Text style={styles.explanation}>
         For testing purposes you can simulate a positive test result. After
         pressing the button, your phone's TCNs will be marked as positive and

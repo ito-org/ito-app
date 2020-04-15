@@ -31,3 +31,4 @@ export const BasicButton: React.FC<BasicButtonProps> = ({onPress, title}) => {
     />
   );
 };
+export default BasicButton;

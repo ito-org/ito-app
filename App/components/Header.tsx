@@ -1,9 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  NativeSyntheticEvent,
+  NativeTouchEvent,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {NavigationButton} from './NavigationButton';
 import {Logo} from './Logo';
 import {AlphaNotice} from './AlphaNotice';
+import {HeaderStyleInterpolators} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   root: {
@@ -32,22 +38,31 @@ const styles = StyleSheet.create({
 
 interface HeaderProps {
   showAlpha?: boolean;
+  showNavigate?: boolean;
+  onNavigate?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  navigateTitle?: string;
   style?: object;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   showAlpha = true,
+  showNavigate = false,
+  onNavigate,
+  navigateTitle = '',
   style = {},
 }) => {
   return (
     <View style={[styles.root, style]}>
-      <NavigationButton
-        onPress={() => {
-          /** eslint disable-line */
-        }}
-        title="cancel"
-        style={styles.navigationButton}
-      />
+      {showNavigate ? (
+        <NavigationButton
+          onPress={
+            /* eslint-disable @typescript-eslint/no-non-null-assertion */
+            onNavigate!
+          }
+          title={navigateTitle}
+          style={styles.navigationButton}
+        />
+      ) : null}
       <View style={styles.logoWrapper}>
         <Logo style={styles.logo} />
         <AlphaNotice
@@ -59,3 +74,4 @@ export const Header: React.FC<HeaderProps> = ({
     </View>
   );
 };
+export default Header;

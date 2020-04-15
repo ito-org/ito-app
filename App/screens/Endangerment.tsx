@@ -3,41 +3,14 @@ import {View, StyleSheet, Text, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
-import AlphaNotice from '../components/AlphaNotice';
+import Header from '../components/Header';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    paddingTop: 8,
     backgroundColor: '#ffffff',
-  },
-  cancel: {
-    position: 'absolute',
-    left: 12,
-    top: 12,
-  },
-  chevronLeftIcon: {},
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
   },
   header: {
     fontSize: 18,
@@ -99,19 +72,11 @@ export function Endangerment({
 }) {
   return (
     <View style={styles.container}>
-      <View style={styles.cancel}>
-        <Text onPress={() => navigation.navigate('HomeBluetooth')}>
-          <Icon name="chevron-left" size={18} style={styles.chevronLeftIcon} />{' '}
-          cancel
-        </Text>
-      </View>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Header
+        showNavigate={true}
+        navigateTitle="cancel"
+        onNavigate={() => navigation.goBack()}
+      />
       <Text style={styles.header}>
         Tell us if you have symptoms or if you{'\n'}
         have a positive test result

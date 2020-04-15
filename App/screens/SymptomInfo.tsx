@@ -2,43 +2,15 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {Button} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Feather';
 import {RootStackParamList} from 'App/App';
-import AlphaNotice from '../components/AlphaNotice';
+import Header from '../components/Header';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 8,
     padding: 16,
     backgroundColor: '#ffffff',
-  },
-  cancel: {
-    position: 'absolute',
-    left: 12,
-    top: 12,
-  },
-  chevronLeftIcon: {},
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
   },
   explanation: {
     fontSize: 18,
@@ -91,19 +63,11 @@ export function SymptomInfo({
 }) {
   return (
     <View style={styles.container}>
-      <View style={styles.cancel}>
-        <Text onPress={() => navigation.navigate('Endangerment')}>
-          <Icon name="chevron-left" size={18} style={styles.chevronLeftIcon} />{' '}
-          cancel
-        </Text>
-      </View>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Header
+        showNavigate={true}
+        navigateTitle="cancel"
+        onNavigate={() => navigation.goBack()}
+      />
       <Text style={styles.explanation}>
         Please check if your symptoms and situation are similar to a COVID-19
         infection.{'\n'}
