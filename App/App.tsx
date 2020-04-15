@@ -22,6 +22,7 @@ import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
+import {AlphaPositiveResult} from './screens/AlphaPositiveResult';
 import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 const Stack = createStackNavigator();
@@ -64,6 +65,10 @@ const App = () => {
         />
 
         <Stack.Screen name="SymptomInfo" component={SymptomInfo} />
+        <Stack.Screen
+          name="AlphaPositiveResult"
+          component={AlphaPositiveResult}
+        />
         <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
         <Stack.Screen name="DataUpload" component={DataUpload} />
       </Stack.Navigator>

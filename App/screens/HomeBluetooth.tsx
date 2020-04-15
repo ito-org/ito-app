@@ -16,7 +16,6 @@ import AlphaNotice from '../components/AlphaNotice';
 import {global} from '../styles';
 
 const styles = StyleSheet.create({
-  container: {},
   logoWrapper: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -258,7 +257,7 @@ export function HomeBluetooth({
     avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
   return (
     <TouchableWithoutFeedback>
-      <View style={[global.container, styles.container]}>
+      <View style={global.container}>
         <View style={styles.logoWrapper}>
           <Text style={styles.logo}>ito</Text>
           <AlphaNotice
@@ -288,14 +287,12 @@ export function HomeBluetooth({
         <Text style={contactsStyle}>{`${distances.length} contacts (avg: ${
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
-        <View style={styles.bottomButtonContainer}>
-          <Button
-            title="I think I'm infected"
-            onPress={() => navigation.navigate('Endangerment')}
-            titleStyle={styles.buttonInfectedTitle}
-            buttonStyle={styles.buttonInfected}
-          />
-        </View>
+        <Button
+          title="I think I'm infected"
+          onPress={() => navigation.navigate('Endangerment')}
+          titleStyle={styles.buttonInfectedTitle}
+          buttonStyle={styles.buttonInfected}
+        />
       </View>
     </TouchableWithoutFeedback>
   );
