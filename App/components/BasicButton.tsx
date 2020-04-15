@@ -2,32 +2,73 @@ import React from 'react';
 import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
 
-const styles = StyleSheet.create({
-  buttonHow: {
-    backgroundColor: '#91e6d3',
-    borderRadius: 6,
+const designStyles = {
+  titleFilled: {
+    color: '#595959',
   },
-  buttonHowTitle: {
+  titleOutlined: {
     color: '#2c2c2c',
+  },
+  buttonFilled: {
+    backgroundColor: '#91e6d3',
+  },
+  buttonOutlined: {
+    backgroundColor: '#fff',
+  },
+};
+
+const styles = StyleSheet.create({
+  buttonTitle: {
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
+  },
+  button: {
+    borderRadius: 6,
+    borderColor: '#91e6d3',
+    borderStyle: 'solid',
+    borderWidth: 1,
   },
 });
 
 interface BasicButtonProps {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
+  variant?: 'filled' | 'outlined';
+  textStyle?: object;
+  buttonStyle?: object;
 }
 
-export const BasicButton: React.FC<BasicButtonProps> = ({onPress, title}) => {
+const VARIANT_SUFFIXES = {
+  filled: 'Filled',
+  outlined: 'Outlined',
+};
+
+export const BasicButton: React.FC<BasicButtonProps> = ({
+  onPress,
+  title,
+  variant = 'filled',
+  textStyle: titleStyleProp = {},
+  buttonStyle: buttonStyleProp = {},
+}) => {
+  const variantSuffix = VARIANT_SUFFIXES[variant];
+  const buttonStyle = {
+    ...styles.button,
+    ...designStyles[`button${variantSuffix}`],
+    ...buttonStyleProp,
+  };
+  const titleStyle = {
+    ...styles.buttonTitle,
+    ...designStyles[`title${variantSuffix}`],
+    ...titleStyleProp,
+  };
   return (
     <Button
       title={title}
       onPress={onPress}
-      titleStyle={styles.buttonHowTitle}
-      buttonStyle={styles.buttonHow}
+      titleStyle={titleStyle}
+      buttonStyle={buttonStyle}
     />
   );
 };

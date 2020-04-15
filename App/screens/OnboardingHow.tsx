@@ -16,55 +16,22 @@ import {BasicButton} from '../components/BasicButton';
 import {global} from '../styles';
 
 const styles = StyleSheet.create({
-  bottomButtonContainer: {
-    marginBottom: 16,
-  },
   explanationRow: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     textAlign: 'left',
     alignItems: 'center',
-    paddingTop: 24,
   },
   explanation: {
     color: '#595959',
     textAlign: 'left',
     fontSize: 18,
-    paddingTop: 12,
-    paddingBottom: 38,
     fontFamily: 'Ubuntu-R',
   },
-  bluetoothIcon: {
-    marginTop: -28,
-    marginRight: 16,
+  icon: {
     borderRadius: 60,
     color: '#fff',
     padding: 12,
-    backgroundColor: '#7dc6b6',
-  },
-  smartphoneIcon: {
-    marginTop: -20,
-    marginLeft: 16,
-    borderRadius: 60,
-    color: '#fff',
-    padding: 12,
-    backgroundColor: '#7dc6b6',
-  },
-  bellIcon: {
-    marginTop: -20,
-    marginRight: 16,
-    borderRadius: 60,
-    color: '#fff',
-    padding: 12,
-    backgroundColor: '#7dc6b6',
-  },
-  shieldIcon: {
-    marginTop: -32,
-    marginLeft: 16,
-    borderRadius: 60,
-    color: '#fff',
-    padding: 0,
     backgroundColor: '#7dc6b6',
   },
 });
@@ -81,12 +48,7 @@ export const OnboardingHow: React.FC<{
     <View style={global.container}>
       <Logo />
       <View style={styles.explanationRow}>
-        <Icon
-          name="bluetooth"
-          size={40}
-          color="white"
-          style={styles.bluetoothIcon}
-        />
+        <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
         <Text style={styles.explanation}>
           we use your phone's bluetooth{'\n'}
           to let your phone see every{'\n'}
@@ -99,15 +61,10 @@ export const OnboardingHow: React.FC<{
           phones you encountered. this{'\n'}
           data is just on your phone
         </Text>
-        <Icon
-          name="smartphone"
-          size={40}
-          color="white"
-          style={styles.smartphoneIcon}
-        />
+        <Icon name="smartphone" size={40} color="white" style={styles.icon} />
       </View>
       <View style={styles.explanationRow}>
-        <Icon name="bell" size={40} color="white" style={styles.bellIcon} />
+        <Icon name="bell" size={40} color="white" style={styles.icon} />
         <Text style={styles.explanation}>
           if someone you encountered{'\n'}
           before got infected, you get a{'\n'}
@@ -122,7 +79,7 @@ export const OnboardingHow: React.FC<{
           you encountered lately know
         </Text>
         <ShieldIcon2
-          style={styles.shieldIcon}
+          style={styles.icon}
           height={68}
           width={68}
           viewBox="0 -32 120 180"
