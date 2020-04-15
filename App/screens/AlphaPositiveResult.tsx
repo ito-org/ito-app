@@ -79,6 +79,7 @@ export function AlphaPositiveResult({
       </Text>
       <View style={styles.buttonContainer}>
         <BasicButton
+          styleVariant="outlined"
           title="Release positive test result"
           onPress={() => navigation.navigate('ConfirmationCode')}
         />

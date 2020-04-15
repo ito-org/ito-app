@@ -3,22 +3,22 @@ import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
 
 const corporateButtonStyles = {
-  textFilled: {
+  titleFilled: {
     color: '#595959',
   },
-  textTransparent: {
+  titleOutlined: {
     color: '#2c2c2c',
   },
   buttonFilled: {
     backgroundColor: '#91e6d3',
   },
-  buttonTransparent: {
+  buttonOutlined: {
     backgroundColor: '#fff',
   },
 };
 
 const styles = StyleSheet.create({
-  buttonText: {
+  buttonTitle: {
     letterSpacing: 1,
     textTransform: 'uppercase',
     fontSize: 14,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 interface BasicButtonProps {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
-  styleType?: 'title' | 'normal';
+  styleVariant?: 'filled' | 'outlined';
   textStyle?: any;
   buttonStyle?: any;
 }
@@ -43,32 +43,27 @@ interface BasicButtonProps {
 export const BasicButton: React.FC<BasicButtonProps> = ({
   onPress,
   title,
-  styleType,
-  textStyle,
-  buttonStyle,
+  styleVariant,
+  textStyle = {},
+  buttonStyle = {},
 }) => {
-  let mButtonStyle = styles.button;
-  let mButtonTextStyle = styles.buttonText;
+  let mButtonStyle = {...styles.button, ...buttonStyle};
+  let mButtonTitleStyle = {...styles.buttonTitle, ...textStyle};
 
-  if (buttonStyle !== undefined)
-    mButtonStyle = {...styles.button, ...buttonStyle};
-  if (textStyle !== undefined)
-    mButtonTextStyle = {...styles.buttonText, ...textStyle};
-
-  if (styleType === 'title') {
-    mButtonTextStyle = {
-      ...mButtonTextStyle,
-      ...corporateButtonStyles.textFilled,
+  if (styleVariant === 'filled') {
+    mButtonTitleStyle = {
+      ...mButtonTitleStyle,
+      ...corporateButtonStyles.titleFilled,
     };
     mButtonStyle = {...mButtonStyle, ...corporateButtonStyles.buttonFilled};
   } else {
-    mButtonTextStyle = {
-      ...mButtonTextStyle,
-      ...corporateButtonStyles.textTransparent,
+    mButtonTitleStyle = {
+      ...mButtonTitleStyle,
+      ...corporateButtonStyles.titleOutlined,
     };
     mButtonStyle = {
       ...mButtonStyle,
-      ...corporateButtonStyles.buttonTransparent,
+      ...corporateButtonStyles.buttonOutlined,
     };
   }
 
@@ -76,7 +71,7 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
     <Button
       title={title}
       onPress={onPress}
-      titleStyle={mButtonTextStyle}
+      titleStyle={mButtonTitleStyle}
       buttonStyle={mButtonStyle}
     />
   );

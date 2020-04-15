@@ -37,6 +37,7 @@ export function ConfirmationCode({
         verify your positive test result.
       </Text>
       <BasicButton
+        styleVariant="filled"
         title="Test verification code entered"
         onPress={() => navigation.navigate('DataUpload')}
       />

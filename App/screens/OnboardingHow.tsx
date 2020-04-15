@@ -88,6 +88,7 @@ export function OnboardingHow({
         />
       </View>
       <BasicButton
+        styleVariant="filled"
         title="Get Started"
         onPress={async () => {
           const granted = await PermissionsAndroid.request(

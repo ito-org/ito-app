@@ -63,6 +63,7 @@ export function Onboarding({
         </Text>
       </View>
       <BasicButton
+        styleVariant="filled"
         title="How does this work?"
         onPress={() => navigation.navigate('OnboardingHow')}
       />
