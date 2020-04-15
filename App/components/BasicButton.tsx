@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 interface BasicButtonProps {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
-  styleType: 'title' | 'normal';
+  styleType?: 'title' | 'normal';
   textStyle?: any;
   buttonStyle?: any;
 }
@@ -49,9 +49,10 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
 }) => {
   let mButtonStyle = styles.button;
   let mButtonTextStyle = styles.buttonText;
-  if (buttonStyle != undefined)
+
+  if (buttonStyle !== undefined)
     mButtonStyle = {...styles.button, ...buttonStyle};
-  if (textStyle != undefined)
+  if (textStyle !== undefined)
     mButtonTextStyle = {...styles.buttonText, ...textStyle};
 
   if (styleType === 'title') {
