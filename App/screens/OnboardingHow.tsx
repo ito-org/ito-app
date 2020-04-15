@@ -6,12 +6,12 @@ import {
   PermissionsAndroid,
   NativeModules,
 } from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
-import AlphaNotice from '../components/AlphaNotice';
+import {Logo} from '../components/Logo';
 import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {BasicButton} from '../components/BasicButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,46 +22,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
     color: '#595959',
-  },
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 8,
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
+    justifyContent: 'space-between',
   },
   bottomButtonContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
     marginBottom: 16,
-  },
-  buttonHow: {
-    backgroundColor: '#91e6d3',
-    borderRadius: 6,
-    paddingTop: 8,
-    paddingBottom: 8,
-  },
-  buttonHowTitle: {
-    color: '#2c2c2c',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
   },
   explanationRow: {
     flex: 1,
@@ -125,13 +89,7 @@ export function OnboardingHow({
 }) {
   return (
     <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Logo />
       <View style={styles.explanationRow}>
         <Icon
           name="bluetooth"
@@ -181,7 +139,7 @@ export function OnboardingHow({
         />
       </View>
       <View style={styles.bottomButtonContainer}>
-        <Button
+        <BasicButton
           title="Get Started"
           onPress={async () => {
             const granted = await PermissionsAndroid.request(
@@ -196,8 +154,6 @@ export function OnboardingHow({
             }
             navigation.navigate('HomeTour');
           }}
-          titleStyle={styles.buttonHowTitle}
-          buttonStyle={styles.buttonHow}
         />
       </View>
     </View>
