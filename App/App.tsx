@@ -12,6 +12,7 @@ import 'react-native-get-random-values';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Loading} from './screens/Loading';
+import {AlphaWarning} from './screens/AlphaWarning';
 import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 // import {Home} from './screens/Home';
@@ -28,6 +29,7 @@ const Stack = createStackNavigator();
 
 export type RootStackParamList = {
   Loading: undefined;
+  AlphaWarning: undefined;
   Onboarding: undefined;
   OnboardingHow: undefined;
   HomeTour: undefined;
@@ -50,6 +52,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Loading" headerMode="none">
         <Stack.Screen name="Loading" component={Loading} />
+        <Stack.Screen name="AlphaWarning" component={AlphaWarning} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
         <Stack.Screen name="HomeTour" component={HomeTour} />
