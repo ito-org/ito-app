@@ -13,13 +13,10 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AlphaNotice from '../components/AlphaNotice';
 
+import {global} from '../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 12,
-    flex: 1,
-    backgroundColor: 'white',
-    textAlign: 'center',
-  },
+  container: {},
   logoWrapper: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -261,7 +258,7 @@ export function HomeBluetooth({
     avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
   return (
     <TouchableWithoutFeedback>
-      <View style={styles.container}>
+      <View style={[global.container, styles.container]}>
         <View style={styles.logoWrapper}>
           <Text style={styles.logo}>ito</Text>
           <AlphaNotice

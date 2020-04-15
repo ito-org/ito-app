@@ -7,7 +7,7 @@
  *
  * @format
  */
-import React from 'react';
+import React, {useEffect} from 'react';
 import 'react-native-get-random-values';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -45,8 +45,10 @@ export type RootStackParamList = {
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
-  //Uncomment this to show onboarding again
-  // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
+  useEffect(() => {
+    // Uncomment this to show onboarding again
+    // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
+  });
 
   return (
     <NavigationContainer>

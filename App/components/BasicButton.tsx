@@ -3,9 +3,6 @@ import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
 
 const styles = StyleSheet.create({
-  bottomButtonContainer: {
-    marginBottom: 16,
-  },
   buttonHow: {
     backgroundColor: '#91e6d3',
     borderRadius: 6,

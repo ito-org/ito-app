@@ -13,17 +13,10 @@ import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BasicButton} from '../components/BasicButton';
 
+import {global} from '../styles';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    backgroundColor: 'white',
-    textAlign: 'center',
-    color: '#595959',
-    justifyContent: 'space-between',
-  },
+  container: {},
   bottomButtonContainer: {
     marginBottom: 16,
   },
@@ -88,7 +81,7 @@ export function OnboardingHow({
   navigation: OnboardingHowScreenNavigationProp;
 }) {
   return (
-    <View style={styles.container}>
+    <View style={[global.container, styles.container]}>
       <Logo />
       <View style={styles.explanationRow}>
         <Icon
