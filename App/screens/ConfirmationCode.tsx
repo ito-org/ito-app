@@ -25,11 +25,9 @@ type ConfirmationCodeScreenNavigationProp = StackNavigationProp<
   'ConfirmationCode'
 >;
 
-export function ConfirmationCode({
-  navigation,
-}: {
+export const ConfirmationCode: React.FC<{
   navigation: ConfirmationCodeScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={[global.container, styles.container]}>
       <Text style={styles.explanation}>
@@ -38,8 +36,9 @@ export function ConfirmationCode({
       </Text>
       <BasicButton
         title="Test verification code entered"
-        onPress={() => navigation.navigate('DataUpload')}
+        onPress={(): void => navigation.navigate('DataUpload')}
       />
     </View>
   );
-}
+};
+export default ConfirmationCode;

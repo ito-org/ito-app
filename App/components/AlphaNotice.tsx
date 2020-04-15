@@ -14,11 +14,20 @@ const styles = StyleSheet.create({
   },
 });
 
-export function AlphaNotice({rootStyle = {}, textStyle = {}, ...other}) {
+interface AlphaNoticeProps {
+  rootStyle: object;
+  textStyle: object;
+}
+
+export const AlphaNotice: React.FC<AlphaNoticeProps> = ({
+  rootStyle = {},
+  textStyle = {},
+  ...other
+}) => {
   return (
     <View style={[styles.root, rootStyle]} {...other}>
       <Text style={[styles.text, textStyle]}>alpha</Text>
     </View>
   );
-}
+};
 export default AlphaNotice;

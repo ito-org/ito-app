@@ -56,17 +56,15 @@ type SymptomInfoScreenNavigationProp = StackNavigationProp<
   'SymptomInfo'
 >;
 
-export function SymptomInfo({
-  navigation,
-}: {
+export const SymptomInfo: React.FC<{
   navigation: SymptomInfoScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header
         showNavigate={true}
         navigateTitle="cancel"
-        onNavigate={() => navigation.goBack()}
+        onNavigate={(): void => navigation.goBack()}
       />
       <Text style={styles.explanation}>
         Please check if your symptoms and situation are similar to a COVID-19
@@ -77,22 +75,22 @@ export function SymptomInfo({
       </Text>
       <Button
         title="Open designated app"
-        onPress={() => navigation.navigate('HomeBluetooth')}
+        onPress={(): void => navigation.navigate('HomeBluetooth')}
         titleStyle={styles.buttonOpenAppTitle}
         buttonStyle={styles.buttonOpenApp}
       />
       <Button
         title="Looks like I'm not infected"
-        onPress={() => navigation.navigate('HomeBluetooth')}
+        onPress={(): void => navigation.navigate('HomeBluetooth')}
         titleStyle={styles.buttonOtherTitle}
         buttonStyle={styles.buttonOther}
       />
       <Button
         title="I have a positive test result"
-        onPress={() => navigation.navigate('AlphaPositiveResult')}
+        onPress={(): void => navigation.navigate('AlphaPositiveResult')}
         titleStyle={styles.buttonOtherTitle}
         buttonStyle={styles.buttonOther}
       />
     </View>
   );
-}
+};

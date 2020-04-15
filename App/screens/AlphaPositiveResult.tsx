@@ -48,17 +48,15 @@ type AlphaPositiveResultScreenNavigationProp = StackNavigationProp<
   'AlphaPositiveResult'
 >;
 
-export function AlphaPositiveResult({
-  navigation,
-}: {
+export const AlphaPositiveResult: React.FC<{
   navigation: AlphaPositiveResultScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={[global.container, styles.container]}>
       <Header
         showNavigate={true}
         navigateTitle="cancel"
-        onNavigate={() => navigation.goBack()}
+        onNavigate={(): void => navigation.goBack()}
       />
       <Text style={styles.explanation}>
         For testing purposes you can simulate a positive test result. After
@@ -70,9 +68,9 @@ export function AlphaPositiveResult({
       <View style={styles.buttonContainer}>
         <BasicButton
           title="Release positive test result"
-          onPress={() => navigation.navigate('ConfirmationCode')}
+          onPress={(): void => navigation.navigate('ConfirmationCode')}
         />
       </View>
     </View>
   );
-}
+};

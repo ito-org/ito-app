@@ -41,11 +41,9 @@ type OnboardingScreenNavigationProp = StackNavigationProp<
   'Onboarding'
 >;
 
-export function Onboarding({
-  navigation,
-}: {
+export const Onboarding: React.FC<{
   navigation: OnboardingScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={global.container}>
       <View style={{marginLeft: 'auto', marginRight: 'auto'}}>
@@ -66,9 +64,9 @@ export function Onboarding({
       </View>
       <BasicButton
         title="How does this work?"
-        onPress={() => navigation.navigate('OnboardingHow')}
+        onPress={(): void => navigation.navigate('OnboardingHow')}
       />
     </View>
   );
-}
+};
 export default Onboarding;

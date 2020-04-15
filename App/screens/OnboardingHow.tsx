@@ -74,11 +74,9 @@ type OnboardingHowScreenNavigationProp = StackNavigationProp<
   'OnboardingHow'
 >;
 
-export function OnboardingHow({
-  navigation,
-}: {
+export const OnboardingHow: React.FC<{
   navigation: OnboardingHowScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={global.container}>
       <Logo />
@@ -148,4 +146,4 @@ export function OnboardingHow({
       />
     </View>
   );
-}
+};

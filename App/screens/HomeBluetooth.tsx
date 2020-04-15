@@ -153,22 +153,20 @@ type HomeBluetoothScreenNavigationProp = StackNavigationProp<
   'HomeBluetooth'
 >;
 
-export function HomeBluetooth({
-  navigation,
-}: {
+export const HomeBluetooth: React.FC<{
   navigation: HomeBluetoothScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   const [distances, setDistances] = useState<never[]>([]);
   const emitter = useRef<NativeEventEmitter | null>(null);
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
-    const listener = (ds: never[]) => {
+    const listener = (ds: never[]): void => {
       console.log('distances changed', ds);
       setDistances(ds);
     };
     emitter.current.addListener('onDistancesChanged', listener);
-    return () => {
+    return (): void => {
       if (emitter.current) {
         emitter.current.removeListener('onDistancesChanged', listener);
         emitter.current = null;
@@ -289,12 +287,12 @@ export function HomeBluetooth({
         })`}</Text>
         <Button
           title="I think I'm infected"
-          onPress={() => navigation.navigate('Endangerment')}
+          onPress={(): void => navigation.navigate('Endangerment')}
           titleStyle={styles.buttonInfectedTitle}
           buttonStyle={styles.buttonInfected}
         />
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
 export default HomeBluetooth;

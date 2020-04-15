@@ -1,7 +1,5 @@
 import React from 'react';
 
-export class BluetoothNotification extends React.Component {
-  render() {
-    return <></>;
-  }
-}
+export const BluetoothNotification: React.FC = () => {
+  return <></>;
+};

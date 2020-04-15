@@ -8,29 +8,28 @@ type DataUploadScreenNavigationProp = StackNavigationProp<
   'DataUpload'
 >;
 
-export class DataUpload extends React.Component<{
+export const DataUpload: React.FC<{
   navigation: DataUploadScreenNavigationProp;
-}> {
-  render() {
-    const trashStyle = StyleSheet.create({
-      header: {
-        textAlign: 'center',
-        fontSize: 20,
-        padding: 5,
-        paddingBottom: 50,
-      },
-    });
-    return (
-      <>
-        <Text style={trashStyle.header}>
-          Data got Uploaded {'\n'}
-          Thanks for sharing this info!
-        </Text>
-        <Button
-          title="Back to home"
-          onPress={() => this.props.navigation.navigate('HomeBluetooth')}
-        />
-      </>
-    );
-  }
-}
+}> = ({navigation}) => {
+  const trashStyle = StyleSheet.create({
+    header: {
+      textAlign: 'center',
+      fontSize: 20,
+      padding: 5,
+      paddingBottom: 50,
+    },
+  });
+  return (
+    <>
+      <Text style={trashStyle.header}>
+        Data got Uploaded {'\n'}
+        Thanks for sharing this info!
+      </Text>
+      <Button
+        title="Back to home"
+        onPress={(): void => navigation.navigate('HomeBluetooth')}
+      />
+    </>
+  );
+};
+export default DataUpload;

@@ -65,24 +65,22 @@ type EndangermentScreenNavigationProp = StackNavigationProp<
   'Endangerment'
 >;
 
-export function Endangerment({
-  navigation,
-}: {
+export const Endangerment: React.FC<{
   navigation: EndangermentScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header
         showNavigate={true}
         navigateTitle="cancel"
-        onNavigate={() => navigation.goBack()}
+        onNavigate={(): void => navigation.goBack()}
       />
       <Text style={styles.header}>
         Tell us if you have symptoms or if you{'\n'}
         have a positive test result
       </Text>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('SymptomInfo')}>
+        onPress={(): void => navigation.navigate('SymptomInfo')}>
         <View style={styles.buttonSymptoms}>
           <Text style={styles.buttonSymptomsTitle}>
             I have typical symptoms
@@ -95,7 +93,7 @@ export function Endangerment({
         </View>
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('AlphaPositiveResult')}>
+        onPress={(): void => navigation.navigate('AlphaPositiveResult')}>
         <View style={styles.buttonTested}>
           <Text style={styles.buttonTestedTitle}>I have a positive result</Text>
           <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
@@ -107,6 +105,6 @@ export function Endangerment({
       </TouchableWithoutFeedback>
     </View>
   );
-}
+};
 
 export default Endangerment;
