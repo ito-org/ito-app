@@ -5,6 +5,8 @@ import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {RootStackParamList} from 'App/App';
 import AlphaNotice from '../components/AlphaNotice';
+import {design} from '../styles/index';
+import {BasicButton} from '../components/BasicButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,53 +31,22 @@ const styles = StyleSheet.create({
     left: 48,
     padding: 0,
   },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
-  },
+  alphaNoticeText: design.alphaNoticeText,
+  logo: design.logo,
   explanation: {
-    fontSize: 18,
     padding: 5,
     paddingTop: 64,
     paddingBottom: 50,
-    color: '#595959',
-    fontFamily: 'Ubuntu-R',
     lineHeight: 26,
+    ...design.explanation,
   },
-  buttonOpenApp: {
-    backgroundColor: '#91e6d3',
-    borderRadius: 6,
+  titleButtonLayout: {
     marginBottom: 48,
-    padding: 12,
+    marginLeft: 8,
+    marginRight: 8,
   },
-  buttonOpenAppTitle: {
-    color: '#2c2c2c',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
-  },
-  buttonOther: {
-    backgroundColor: '#ffffff',
-    borderColor: '#7dc6b6',
-    borderWidth: 2,
-    borderRadius: 6,
-    marginBottom: 8,
-    padding: 12,
-  },
-  buttonOtherTitle: {
-    color: '#595959',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
+  normalButtonLayout: {
+    margin: 8,
   },
 });
 
@@ -111,23 +82,22 @@ export function SymptomInfo({
         To do a self-assessed check first, please head over to your country's
         designated app:
       </Text>
-      <Button
+      <BasicButton
+        buttonStyle={styles.titleButtonLayout}
         title="Open designated app"
         onPress={() => navigation.navigate('HomeBluetooth')}
-        titleStyle={styles.buttonOpenAppTitle}
-        buttonStyle={styles.buttonOpenApp}
       />
-      <Button
+      <BasicButton
+        variant="outlined"
+        buttonStyle={styles.normalButtonLayout}
         title="Looks like I'm not infected"
         onPress={() => navigation.navigate('HomeBluetooth')}
-        titleStyle={styles.buttonOtherTitle}
-        buttonStyle={styles.buttonOther}
       />
-      <Button
+      <BasicButton
+        variant="outlined"
+        buttonStyle={styles.normalButtonLayout}
         title="I have a positive test result"
         onPress={() => navigation.navigate('AlphaPositiveResult')}
-        titleStyle={styles.buttonOtherTitle}
-        buttonStyle={styles.buttonOther}
       />
     </View>
   );

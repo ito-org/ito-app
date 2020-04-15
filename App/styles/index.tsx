@@ -14,3 +14,22 @@ export const global = StyleSheet.create({
   },
 });
 export default global;
+
+export const design = {
+  explanation: {
+    fontSize: 18,
+    color: '#595959',
+    fontFamily: 'Ubuntu-R',
+  },
+  alphaNoticeText: {
+    fontSize: 14,
+    lineHeight: 14,
+  },
+  logo: {
+    color: '#7dc6b6',
+    fontSize: 32,
+    textAlign: 'center',
+    fontFamily: 'Righteous-Regular',
+    marginBottom: 16,
+  },
+};
