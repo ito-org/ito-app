@@ -130,7 +130,7 @@ export function Endangerment({
         </View>
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
-        onPress={() => navigation.navigate('ConfirmationCode')}>
+        onPress={() => navigation.navigate('AlphaPositiveResult')}>
         <View style={styles.buttonTested}>
           <Text style={styles.buttonTestedTitle}>I have a positive result</Text>
           <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
