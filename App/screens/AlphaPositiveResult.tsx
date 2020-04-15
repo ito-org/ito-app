@@ -4,6 +4,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {BasicButton} from '../components/BasicButton';
 import {Header} from '../components/Header';
+import {AlphaNotice} from '../components/AlphaNotice';
 
 import {global, design} from '../styles';
 
@@ -25,10 +26,12 @@ const styles = StyleSheet.create({
   alphaNoticeRoot: {marginLeft: 'auto', marginRight: 'auto', margin: 16},
   alphaNoticeText: {fontSize: 30},
   explanation: {
-    textAlign: 'center',
-    paddingTop: 12,
-    paddingBottom: 38,
+    textAlign: 'left',
+    paddingTop: 36,
+    paddingBottom: 64,
     ...design.explanation,
+    fontSize: 18,
+    fontFamily: 'UbuntuMono-R',
   },
   buttonContainer: {
     marginBottom: 16,
@@ -49,6 +52,13 @@ export const AlphaPositiveResult: React.FC<{
         showNavigate={true}
         navigateTitle="cancel"
         onNavigate={(): void => navigation.goBack()}
+        showHelp={true}
+        showAlpha={false}
+      />
+
+      <AlphaNotice
+        rootStyle={styles.alphaNoticeRoot}
+        textStyle={styles.alphaNoticeText}
       />
       <Text style={styles.explanation}>
         For testing purposes you can simulate a positive test result. After

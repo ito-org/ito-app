@@ -186,7 +186,7 @@ export const HomeTour: React.FC<{
 
       <View style={styles.radiusContainer}>
         {step === 1 && (
-          <TouchableWithoutFeedback onPress={() => setStep(2)}>
+          <TouchableWithoutFeedback onPress={(): void => setStep(2)}>
             <View style={[styles.bubbleBox, styles.firstBubble]}>
               <Text style={styles.bubbleText}>
                 This circle shows you how many ito users you just encountered.

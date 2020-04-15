@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
-import {Logo} from '../components/Logo';
+import {Header} from '../components/Header';
 import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BasicButton} from '../components/BasicButton';
@@ -46,7 +46,7 @@ export const OnboardingHow: React.FC<{
 }> = ({navigation}) => {
   return (
     <View style={global.container}>
-      <Logo />
+      <Header />
       <View style={styles.explanationRow}>
         <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
         <Text style={styles.explanation}>

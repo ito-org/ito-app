@@ -4,6 +4,7 @@ import ShieldIcon from '../components/ShieldIcon';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {Logo} from '../components/Logo';
+import {AlphaNotice} from '../components/AlphaNotice';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
@@ -34,6 +35,9 @@ const styles = StyleSheet.create({
     paddingBottom: 38,
     fontFamily: 'Ubuntu-R',
   },
+  logo: {fontSize: 60},
+  alphaNotice: {position: 'absolute', top: 26, right: -86},
+  alphaNoticeText: {fontSize: 24},
 });
 
 type OnboardingScreenNavigationProp = StackNavigationProp<
@@ -47,7 +51,11 @@ export const Onboarding: React.FC<{
   return (
     <View style={global.container}>
       <View style={{marginLeft: 'auto', marginRight: 'auto'}}>
-        <Logo />
+        <Logo textStyle={styles.logo} />
+        <AlphaNotice
+          rootStyle={styles.alphaNotice}
+          textStyle={styles.alphaNoticeText}
+        />
       </View>
       <View style={styles.explanationContainer}>
         <Text style={styles.subtitle}>track infections, not people!</Text>

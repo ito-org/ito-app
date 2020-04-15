@@ -12,13 +12,14 @@ const styles = StyleSheet.create({
 });
 
 interface LogoProps {
-  style?: object;
+  rootStyle?: object;
+  textStyle?: object;
 }
 
-export const Logo: React.FC<LogoProps> = ({style = {}}) => {
+export const Logo: React.FC<LogoProps> = ({rootStyle = {}, textStyle = {}}) => {
   return (
-    <View style={[styles.root, style]}>
-      <Text style={styles.logo}>ito</Text>
+    <View style={[styles.root, rootStyle]}>
+      <Text style={[styles.logo, textStyle]}>ito</Text>
     </View>
   );
 };

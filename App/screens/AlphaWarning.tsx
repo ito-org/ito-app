@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     color: '#7dc6b6',
-    fontSize: 56,
+    fontSize: 60,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },

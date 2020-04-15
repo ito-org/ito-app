@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
         />
       ) : null}
       <View style={styles.logoWrapper}>
-        <Logo textStyle={styles.logo} />
+        <Logo rootStyle={styles.logo} />
         <AlphaNotice
           rootStyle={[styles.alphaNoticeRoot, showAlpha ? {} : styles.hidden]}
           textStyle={[styles.alphaNoticeText, showAlpha ? {} : styles.hidden]}
