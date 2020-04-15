@@ -4,7 +4,7 @@ import {Button} from 'react-native-elements';
 import ShieldIcon from '../components/ShieldIcon';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
-import AlphaNotice from '../components/AlphaNotice';
+import {Logo} from '../components/Logo';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,18 +15,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
   },
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 56,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-  },
-
   subtitle: {
     color: '#595959',
     fontSize: 18,
@@ -65,8 +53,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
-  alphaNoticeRoot: {position: 'absolute', top: 24, left: 80},
-  alphaNoticeText: {fontSize: 24},
 });
 
 type OnboardingScreenNavigationProp = StackNavigationProp<
@@ -81,13 +67,7 @@ export function Onboarding({
 }) {
   return (
     <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Logo />
       <Text style={styles.subtitle}>track infections, not people!</Text>
       <ShieldIcon style={styles.shield} />
       <Text style={styles.explanation}>

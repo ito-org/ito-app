@@ -9,7 +9,7 @@ import {
 import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import ShieldIcon2 from '../components/ShieldIcon2';
-import AlphaNotice from '../components/AlphaNotice';
+import {Logo} from '../components/Logo';
 import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
 
@@ -22,28 +22,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
     color: '#595959',
-  },
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 8,
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
   },
   bottomButtonContainer: {
     flex: 1,
@@ -125,13 +103,7 @@ export function OnboardingHow({
 }) {
   return (
     <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Logo />
       <View style={styles.explanationRow}>
         <Icon
           name="bluetooth"
