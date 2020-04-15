@@ -83,19 +83,18 @@ export function SymptomInfo({
         designated app:
       </Text>
       <BasicButton
-        styleVariant="filled"
         buttonStyle={styles.titleButtonLayout}
         title="Open designated app"
         onPress={() => navigation.navigate('HomeBluetooth')}
       />
       <BasicButton
-        styleVariant="outlined"
+        variant="outlined"
         buttonStyle={styles.normalButtonLayout}
         title="Looks like I'm not infected"
         onPress={() => navigation.navigate('HomeBluetooth')}
       />
       <BasicButton
-        styleVariant="outlined"
+        variant="outlined"
         buttonStyle={styles.normalButtonLayout}
         title="I have a positive test result"
         onPress={() => navigation.navigate('AlphaPositiveResult')}

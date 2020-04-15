@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
 
-const corporateButtonStyles = {
+const designStyles = {
   titleFilled: {
     color: '#595959',
   },
@@ -35,44 +35,40 @@ const styles = StyleSheet.create({
 interface BasicButtonProps {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
-  styleVariant?: 'filled' | 'outlined';
-  textStyle?: any;
-  buttonStyle?: any;
+  variant?: 'filled' | 'outlined';
+  textStyle?: object;
+  buttonStyle?: object;
 }
+
+const VARIANT_SUFFIXES = {
+  filled: 'Filled',
+  outlined: 'Outlined',
+};
 
 export const BasicButton: React.FC<BasicButtonProps> = ({
   onPress,
   title,
-  styleVariant,
-  textStyle = {},
-  buttonStyle = {},
+  variant = 'filled',
+  textStyle: titleStyleProp = {},
+  buttonStyle: buttonStyleProp = {},
 }) => {
-  let mButtonStyle = {...styles.button, ...buttonStyle};
-  let mButtonTitleStyle = {...styles.buttonTitle, ...textStyle};
-
-  if (styleVariant === 'filled') {
-    mButtonTitleStyle = {
-      ...mButtonTitleStyle,
-      ...corporateButtonStyles.titleFilled,
-    };
-    mButtonStyle = {...mButtonStyle, ...corporateButtonStyles.buttonFilled};
-  } else {
-    mButtonTitleStyle = {
-      ...mButtonTitleStyle,
-      ...corporateButtonStyles.titleOutlined,
-    };
-    mButtonStyle = {
-      ...mButtonStyle,
-      ...corporateButtonStyles.buttonOutlined,
-    };
-  }
-
+  const variantSuffix = VARIANT_SUFFIXES[variant];
+  const buttonStyle = {
+    ...styles.button,
+    ...designStyles[`button${variantSuffix}`],
+    ...buttonStyleProp,
+  };
+  const titleStyle = {
+    ...styles.buttonTitle,
+    ...designStyles[`title${variantSuffix}`],
+    ...titleStyleProp,
+  };
   return (
     <Button
       title={title}
       onPress={onPress}
-      titleStyle={mButtonTitleStyle}
-      buttonStyle={mButtonStyle}
+      titleStyle={titleStyle}
+      buttonStyle={buttonStyle}
     />
   );
 };
