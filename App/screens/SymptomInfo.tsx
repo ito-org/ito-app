@@ -31,17 +31,8 @@ const styles = StyleSheet.create({
     left: 48,
     padding: 0,
   },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
-  },
+  alphaNoticeText: design.alphaNoticeText,
+  logo: design.logo,
   explanation: {
     padding: 5,
     paddingTop: 64,

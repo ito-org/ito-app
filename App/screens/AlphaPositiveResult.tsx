@@ -7,7 +7,7 @@ import {AlphaNotice} from '../components/AlphaNotice';
 import Icon from 'react-native-vector-icons/Feather';
 import {Logo} from '../components/Logo';
 
-import {global} from '../styles';
+import {global, design} from '../styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,22 +23,14 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     position: 'relative',
   },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
-  },
+  logo: design.logo,
   alphaNoticeRoot: {marginLeft: 'auto', marginRight: 'auto', margin: 16},
   alphaNoticeText: {fontSize: 30},
   explanation: {
-    color: '#595959',
     textAlign: 'center',
-    fontSize: 18,
     paddingTop: 12,
     paddingBottom: 38,
-    fontFamily: 'UbuntuMono-R',
+    ...design.explanation,
   },
   buttonContainer: {
     marginBottom: 16,
@@ -79,7 +71,7 @@ export function AlphaPositiveResult({
       </Text>
       <View style={styles.buttonContainer}>
         <BasicButton
-          styleVariant="outlined"
+          styleVariant="filled"
           title="Release positive test result"
           onPress={() => navigation.navigate('ConfirmationCode')}
         />

@@ -21,30 +21,15 @@ export const design = {
     color: '#595959',
     fontFamily: 'Ubuntu-R',
   },
-  coloredButton: {
-    backgroundColor: '#91e6d3',
-
-    borderRadius: 6,
-    padding: 12,
-  },
-  inversedButton: {
-    backgroundColor: '#ffffff',
-    borderColor: '#7dc6b6',
-    borderWidth: 2,
-    borderRadius: 6,
-    padding: 12,
-    color: '#2c2c2c',
-  },
-  buttonText: {
-    letterSpacing: 1,
-    textTransform: 'uppercase',
+  alphaNoticeText: {
     fontSize: 14,
-    fontFamily: 'Ubuntu-M',
+    lineHeight: 14,
   },
-  buttonOpenAppTitle: {
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
+  logo: {
+    color: '#7dc6b6',
+    fontSize: 32,
+    textAlign: 'center',
+    fontFamily: 'Righteous-Regular',
+    marginBottom: 16,
   },
 };
