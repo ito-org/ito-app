@@ -48,7 +48,9 @@ export function Onboarding({
 }) {
   return (
     <View style={global.container}>
-      <Logo />
+      <View style={{marginLeft: 'auto', marginRight: 'auto'}}>
+        <Logo />
+      </View>
       <View style={styles.explanationContainer}>
         <Text style={styles.subtitle}>track infections, not people!</Text>
         <ShieldIcon style={styles.shield} />

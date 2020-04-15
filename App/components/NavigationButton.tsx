@@ -8,15 +8,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-interface NavigationButton {
-  onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
-  title: string;
-}
 const styles = StyleSheet.create({
   wrapper: {
     position: 'absolute',
-    left: 12,
-    top: 12,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -26,12 +20,19 @@ const styles = StyleSheet.create({
   },
 });
 
+interface NavigationButton {
+  onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  title: string;
+  style?: object;
+}
+
 export const NavigationButton: React.FC<NavigationButton> = ({
   onPress,
   title,
+  style = {},
 }) => {
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, style]}>
       <Icon name="chevron-left" size={18} />
       <Text style={styles.text} onPress={onPress}>
         {' ' + title}
