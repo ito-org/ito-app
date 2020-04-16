@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Feather';
 import {NavigationButton} from './NavigationButton';
 import {Logo} from './Logo';
 import {AlphaNotice} from './AlphaNotice';
-import {HeaderStyleInterpolators} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   root: {
@@ -35,30 +34,26 @@ const styles = StyleSheet.create({
 
 interface HeaderProps {
   showAlpha?: boolean;
-  showNavigate?: boolean;
   showHelp?: boolean;
-  onNavigate?: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
-  navigateTitle?: string;
   style?: object;
+  navigation?: {
+    title: string;
+    fn: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  };
 }
 
 export const Header: React.FC<HeaderProps> = ({
   showAlpha = true,
-  showNavigate = false,
   showHelp = false,
-  onNavigate,
-  navigateTitle = '',
+  navigation,
   style = {},
 }) => {
   return (
     <View style={[styles.root, style]}>
-      {showNavigate ? (
+      {navigation ? (
         <NavigationButton
-          onPress={
-            /* eslint-disable @typescript-eslint/no-non-null-assertion */
-            onNavigate!
-          }
-          title={navigateTitle}
+          onPress={navigation.fn}
+          title={navigation.title}
           style={styles.navigationButton}
         />
       ) : null}

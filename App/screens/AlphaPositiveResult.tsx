@@ -49,9 +49,10 @@ export const AlphaPositiveResult: React.FC<{
   return (
     <View style={[global.container, styles.container]}>
       <Header
-        showNavigate={true}
-        navigateTitle="cancel"
-        onNavigate={(): void => navigation.goBack()}
+        navigation={{
+          title: 'cancel',
+          fn: (): void => navigation.goBack(),
+        }}
         showHelp={true}
         showAlpha={false}
       />

@@ -71,9 +71,10 @@ export const Endangerment: React.FC<{
   return (
     <View style={styles.container}>
       <Header
-        showNavigate={true}
-        navigateTitle="cancel"
-        onNavigate={(): void => navigation.goBack()}
+        navigation={{
+          title: 'cancel',
+          fn: (): void => navigation.goBack(),
+        }}
       />
       <Text style={styles.header}>
         Tell us if you have symptoms or if you{'\n'}

@@ -41,9 +41,10 @@ export const SymptomInfo: React.FC<{
   return (
     <View style={styles.container}>
       <Header
-        showNavigate={true}
-        navigateTitle="cancel"
-        onNavigate={(): void => navigation.goBack()}
+        navigation={{
+          title: 'cancel',
+          fn: (): void => navigation.goBack(),
+        }}
       />
       <Text style={styles.explanation}>
         Please check if your symptoms and situation are similar to a COVID-19
