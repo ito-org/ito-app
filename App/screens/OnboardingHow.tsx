@@ -14,6 +14,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
+import {IconTextBox} from '../components/IconTextBox';
 
 const styles = StyleSheet.create({
   explanationRow: {
@@ -49,30 +50,26 @@ export function OnboardingHow({
   return (
     <View style={global.container}>
       <Logo />
-      <View style={styles.explanationRow}>
-        <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}>
-          we use your phone's bluetooth{'\n'}
-          to let your phone see every{'\n'}
-          other ito user around you
-        </Text>
-      </View>
-      <View style={styles.explanationRow}>
-        <Text style={styles.explanation}>
-          your phone saves which other{'\n'}
-          phones you encountered. this{'\n'}
-          data is just on your phone
-        </Text>
-        <Icon name="smartphone" size={40} color="white" style={styles.icon} />
-      </View>
+
+      <IconTextBox name="bluetooth">
+        we use your phone's bluetooth{'\n'}
+        to let your phone see every{'\n'}
+        other ito user around you
+      </IconTextBox>
+      <IconTextBox name="smartphone">
+        your phone saves which other{'\n'}
+        phones you encountered. this{'\n'}
+        data is just on your phone
+      </IconTextBox>
+      <IconTextBox name="smartphone">
+        if someone you encountered{'\n'}
+        before got infected, you get a{'\n'}
+        notification with information{'\n'}
+        on what to do
+      </IconTextBox>
       <View style={styles.explanationRow}>
         <Icon name="bell" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}>
-          if someone you encountered{'\n'}
-          before got infected, you get a{'\n'}
-          notification with information{'\n'}
-          on what to do
-        </Text>
+        <Text style={styles.explanation}></Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>

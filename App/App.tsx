@@ -46,7 +46,7 @@ declare const global: {HermesInternal: null | {}};
 const App = () => {
   useEffect(() => {
     // Uncomment this to show onboarding again
-    // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
+    AsyncStorage.setItem('userHasSeenOnboarding', 'false');
   });
 
   return (
