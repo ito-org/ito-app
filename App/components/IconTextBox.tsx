@@ -30,6 +30,7 @@ const ALIGNMENT = {left: 'flex-start', right: 'flext-end'};
 interface IconTextBoxProps {
   children: ReactNode;
   name: string;
+  align?: 'left' | 'right';
   size?: number;
   color?: string;
 }
@@ -37,13 +38,23 @@ interface IconTextBoxProps {
 export const IconTextBox: React.FC<IconTextBoxProps> = ({
   children,
   name,
+  align = 'left',
   size = 40,
   color = 'white',
 }) => {
-  return (
-    <View style={styles.explanationRow}>
-      <Icon name={name} size={size} color={color} style={styles.icon} />
-      <Text style={styles.explanation}>{children}</Text>
-    </View>
-  );
+  // TODO: declarative approach needs to be implemented either via variables or stylesheet
+  if (align === 'left')
+    return (
+      <View style={styles.explanationRow}>
+        <Icon name={name} size={size} color={color} style={styles.icon} />
+        <Text style={styles.explanation}>{children}</Text>
+      </View>
+    );
+  else
+    return (
+      <View style={styles.explanationRow}>
+        <Text style={styles.explanation}>{children}</Text>
+        <Icon name={name} size={size} color={color} style={styles.icon} />
+      </View>
+    );
 };

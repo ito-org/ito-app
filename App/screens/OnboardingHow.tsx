@@ -51,26 +51,28 @@ export function OnboardingHow({
     <View style={global.container}>
       <Logo />
 
-      <IconTextBox name="bluetooth">
+      <IconTextBox name="bluetooth" align="right">
         we use your phone's bluetooth{'\n'}
         to let your phone see every{'\n'}
         other ito user around you
       </IconTextBox>
-      <IconTextBox name="smartphone">
+      <IconTextBox name="smartphone" align="left">
         your phone saves which other{'\n'}
         phones you encountered. this{'\n'}
         data is just on your phone
       </IconTextBox>
-      <IconTextBox name="smartphone">
+      <IconTextBox name="smartphone" align="right">
         if someone you encountered{'\n'}
         before got infected, you get a{'\n'}
         notification with information{'\n'}
         on what to do
       </IconTextBox>
-      <View style={styles.explanationRow}>
-        <Icon name="bell" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}></Text>
-      </View>
+      <IconTextBox name="smartphone" align="left">
+        if someone you encountered{'\n'}
+        before got infected, you get a{'\n'}
+        notification with information{'\n'}
+        on what to do
+      </IconTextBox>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>
           if you got infected and tested{'\n'}
