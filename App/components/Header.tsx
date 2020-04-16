@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '25%',
     right: -60,
-    minWidth: 52,
+    minWidth: 56,
   },
   alphaNoticeText: {
     fontSize: 14,
