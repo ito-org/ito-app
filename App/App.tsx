@@ -39,11 +39,12 @@ export type RootStackParamList = {
   SymptomInfo: undefined;
   ConfirmationCode: undefined;
   DataUpload: undefined;
+  AlphaPositiveResult: undefined;
 };
 
 declare const global: {HermesInternal: null | {}};
 
-const App = () => {
+export const App: React.FC<void> = () => {
   useEffect(() => {
     // Uncomment this to show onboarding again
     // AsyncStorage.setItem('userHasSeenOnboarding', 'false');

@@ -3,9 +3,8 @@ import {Text, View, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {BasicButton} from '../components/BasicButton';
+import {Header} from '../components/Header';
 import {AlphaNotice} from '../components/AlphaNotice';
-import Icon from 'react-native-vector-icons/Feather';
-import {Logo} from '../components/Logo';
 
 import {global, design} from '../styles';
 
@@ -27,10 +26,12 @@ const styles = StyleSheet.create({
   alphaNoticeRoot: {marginLeft: 'auto', marginRight: 'auto', margin: 16},
   alphaNoticeText: {fontSize: 30},
   explanation: {
-    textAlign: 'center',
-    paddingTop: 12,
-    paddingBottom: 38,
+    textAlign: 'left',
+    paddingTop: 36,
+    paddingBottom: 64,
     ...design.explanation,
+    fontSize: 18,
+    fontFamily: 'UbuntuMono-R',
   },
   buttonContainer: {
     marginBottom: 16,
@@ -42,22 +43,20 @@ type AlphaPositiveResultScreenNavigationProp = StackNavigationProp<
   'AlphaPositiveResult'
 >;
 
-export function AlphaPositiveResult({
-  navigation,
-}: {
+export const AlphaPositiveResult: React.FC<{
   navigation: AlphaPositiveResultScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={[global.container, styles.container]}>
-      <View style={styles.cancel}>
-        <Text onPress={() => navigation.navigate('Endangerment')}>
-          <Icon name="chevron-left" size={18} style={styles.chevronLeftIcon} />{' '}
-          cancel
-        </Text>
-      </View>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-      </View>
+      <Header
+        navigation={{
+          title: 'cancel',
+          fn: (): void => navigation.goBack(),
+        }}
+        showHelp={true}
+        showAlpha={false}
+      />
+
       <AlphaNotice
         rootStyle={styles.alphaNoticeRoot}
         textStyle={styles.alphaNoticeText}
@@ -72,9 +71,9 @@ export function AlphaPositiveResult({
       <View style={styles.buttonContainer}>
         <BasicButton
           title="Release positive test result"
-          onPress={() => navigation.navigate('ConfirmationCode')}
+          onPress={(): void => navigation.navigate('ConfirmationCode')}
         />
       </View>
     </View>
   );
-}
+};

@@ -5,9 +5,9 @@
  * @format
  */
 
-module.exports = {
+export default {
   transformer: {
-    getTransformOptions: async () => ({
+    getTransformOptions: async (): Promise<object> => ({
       transform: {
         experimentalImportSupport: false,
         inlineRequires: false,

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     color: '#7dc6b6',
-    fontSize: 56,
+    fontSize: 60,
     textAlign: 'center',
     fontFamily: 'Righteous-Regular',
   },
@@ -94,7 +94,7 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       </View>
       <Text
         style={[styles.generalText, styles.githubLink]}
-        onPress={() =>
+        onPress={(): Promise<void> =>
           Linking.openURL('https://github.com/ito-org/react-native-app/issues')
         }>
         https://github.com/ito-org/react-native-app/issues
@@ -102,7 +102,7 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       <View style={styles.bottomButtonContainer}>
         <Button
           title="ok, let´s start"
-          onPress={() => navigation.navigate('Onboarding')}
+          onPress={(): void => navigation.navigate('Onboarding')}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}
         />

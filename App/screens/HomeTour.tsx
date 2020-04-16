@@ -166,11 +166,9 @@ type HomeTourScreenNavigationProp = StackNavigationProp<
   'HomeTour'
 >;
 
-export function HomeTour({
-  navigation,
-}: {
+export const HomeTour: React.FC<{
   navigation: HomeTourScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   const [step, setStep] = useState(1);
   return (
     <View style={styles.container}>
@@ -188,7 +186,7 @@ export function HomeTour({
 
       <View style={styles.radiusContainer}>
         {step === 1 && (
-          <TouchableWithoutFeedback onPress={() => setStep(2)}>
+          <TouchableWithoutFeedback onPress={(): void => setStep(2)}>
             <View style={[styles.bubbleBox, styles.firstBubble]}>
               <Text style={styles.bubbleText}>
                 This circle shows you how many ito users you just encountered.
@@ -210,7 +208,7 @@ export function HomeTour({
       <Text style={styles.contacts}>just a few contacts around you</Text>
       {step === 2 && (
         <TouchableWithoutFeedback
-          onPress={() => {
+          onPress={(): void => {
             AsyncStorage.setItem('userHasSeenOnboarding', 'true');
             navigation.navigate('HomeBluetooth');
           }}>
@@ -238,5 +236,5 @@ export function HomeTour({
       </View>
     </View>
   );
-}
+};
 export default HomeTour;

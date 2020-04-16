@@ -11,33 +11,11 @@ import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
-import AlphaNotice from '../components/AlphaNotice';
+import Header from '../components/Header';
 
 import {global} from '../styles';
 
 const styles = StyleSheet.create({
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
-  logo: {
-    color: '#7dc6b6',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
-  },
   lastFetchRow: {
     flex: 1,
     flexDirection: 'row',
@@ -153,22 +131,20 @@ type HomeBluetoothScreenNavigationProp = StackNavigationProp<
   'HomeBluetooth'
 >;
 
-export function HomeBluetooth({
-  navigation,
-}: {
+export const HomeBluetooth: React.FC<{
   navigation: HomeBluetoothScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   const [distances, setDistances] = useState<never[]>([]);
   const emitter = useRef<NativeEventEmitter | null>(null);
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
-    const listener = (ds: never[]) => {
+    const listener = (ds: never[]): void => {
       console.log('distances changed', ds);
       setDistances(ds);
     };
     emitter.current.addListener('onDistancesChanged', listener);
-    return () => {
+    return (): void => {
       if (emitter.current) {
         emitter.current.removeListener('onDistancesChanged', listener);
         emitter.current = null;
@@ -258,13 +234,7 @@ export function HomeBluetooth({
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
-        <View style={styles.logoWrapper}>
-          <Text style={styles.logo}>ito</Text>
-          <AlphaNotice
-            rootStyle={styles.alphaNoticeRoot}
-            textStyle={styles.alphaNoticeText}
-          />
-        </View>
+        <Header showHelp={true} />
         <View style={styles.lastFetchRow}>
           <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
@@ -289,12 +259,12 @@ export function HomeBluetooth({
         })`}</Text>
         <Button
           title="I think I'm infected"
-          onPress={() => navigation.navigate('Endangerment')}
+          onPress={(): void => navigation.navigate('Endangerment')}
           titleStyle={styles.buttonInfectedTitle}
           buttonStyle={styles.buttonInfected}
         />
       </View>
     </TouchableWithoutFeedback>
   );
-}
+};
 export default HomeBluetooth;

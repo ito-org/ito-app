@@ -30,13 +30,11 @@ type LoadingBluetoothScreenNavigationProp = StackNavigationProp<
   'Loading'
 >;
 
-export function Loading({
-  navigation,
-}: {
+export const Loading: React.FC<{
   navigation: LoadingBluetoothScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   React.useEffect(() => {
-    const bootstrapAsync = async () => {
+    const bootstrapAsync: () => void = async () => {
       let userHasSeenOnboarding: boolean;
 
       try {
@@ -77,5 +75,5 @@ export function Loading({
       />
     </View>
   );
-}
+};
 export default Loading;

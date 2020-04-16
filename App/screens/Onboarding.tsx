@@ -4,6 +4,7 @@ import ShieldIcon from '../components/ShieldIcon';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {Logo} from '../components/Logo';
+import {AlphaNotice} from '../components/AlphaNotice';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
@@ -34,6 +35,10 @@ const styles = StyleSheet.create({
     paddingBottom: 38,
     fontFamily: 'Ubuntu-R',
   },
+  logo: {fontSize: 60},
+  logoWrapper: {marginLeft: 'auto', marginRight: 'auto'},
+  alphaNotice: {position: 'absolute', top: 26, right: -86},
+  alphaNoticeText: {fontSize: 24},
 });
 
 type OnboardingScreenNavigationProp = StackNavigationProp<
@@ -41,14 +46,18 @@ type OnboardingScreenNavigationProp = StackNavigationProp<
   'Onboarding'
 >;
 
-export function Onboarding({
-  navigation,
-}: {
+export const Onboarding: React.FC<{
   navigation: OnboardingScreenNavigationProp;
-}) {
+}> = ({navigation}) => {
   return (
     <View style={global.container}>
-      <Logo />
+      <View style={styles.logoWrapper}>
+        <Logo textStyle={styles.logo} />
+        <AlphaNotice
+          rootStyle={styles.alphaNotice}
+          textStyle={styles.alphaNoticeText}
+        />
+      </View>
       <View style={styles.explanationContainer}>
         <Text style={styles.subtitle}>track infections, not people!</Text>
         <ShieldIcon style={styles.shield} />
@@ -64,9 +73,9 @@ export function Onboarding({
       </View>
       <BasicButton
         title="How does this work?"
-        onPress={() => navigation.navigate('OnboardingHow')}
+        onPress={(): void => navigation.navigate('OnboardingHow')}
       />
     </View>
   );
-}
+};
 export default Onboarding;
