@@ -42,19 +42,21 @@ export const IconTextBox: React.FC<IconTextBoxProps> = ({
   size = 40,
   color = 'white',
 }) => {
-  // TODO: declarative approach needs to be implemented either via variables or stylesheet
-  if (align === 'left')
-    return (
-      <View style={styles.explanationRow}>
-        <Icon name={name} size={size} color={color} style={styles.icon} />
-        <Text style={styles.explanation}>{children}</Text>
-      </View>
-    );
-  else
-    return (
-      <View style={styles.explanationRow}>
-        <Text style={styles.explanation}>{children}</Text>
-        <Icon name={name} size={size} color={color} style={styles.icon} />
-      </View>
-    );
+  const left = (
+    <View style={styles.explanationRow}>
+      <Icon name={name} size={size} color={color} style={styles.icon} />
+      <Text style={styles.explanation}>{children}</Text>
+    </View>
+  );
+
+  const right = (
+    <View style={styles.explanationRow}>
+      <Text style={styles.explanation}>{children}</Text>
+      <Icon name={name} size={size} color={color} style={styles.icon} />
+    </View>
+  );
+
+  const component = align === 'left' ? left : right;
+
+  return component;
 };
