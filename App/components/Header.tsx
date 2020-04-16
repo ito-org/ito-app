@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
   },
-  hidden: {
-    display: 'none',
-  },
 });
 
 interface HeaderProps {
@@ -67,10 +64,12 @@ export const Header: React.FC<HeaderProps> = ({
       ) : null}
       <View style={styles.logoWrapper}>
         <Logo textStyle={styles.logo} />
-        <AlphaNotice
-          rootStyle={[styles.alphaNoticeRoot, showAlpha ? {} : styles.hidden]}
-          textStyle={[styles.alphaNoticeText, showAlpha ? {} : styles.hidden]}
-        />
+        {showAlpha ? (
+          <AlphaNotice
+            rootStyle={styles.alphaNoticeRoot}
+            textStyle={styles.alphaNoticeText}
+          />
+        ) : null}
       </View>
       {showHelp ? (
         <Icon style={styles.questionMark} name="help-circle" size={24} />
