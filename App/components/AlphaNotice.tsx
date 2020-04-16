@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontFamily: 'UbuntuMono-R',
-    padding: 8,
-    paddingTop: 4,
-    paddingBottom: 4,
+    padding: 4,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
 });
 
