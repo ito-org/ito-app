@@ -91,8 +91,11 @@ export const OnboardingHow: React.FC<{
           const granted = await PermissionsAndroid.request(
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
             {
-              title: 'ReactNativeCode Location Permission',
-              message: 'ReactNativeCode App needs access to your location ',
+              title: 'We need your consent',
+              message:
+                'ito needs to have access to your location to find other ito devices.\n\n' +
+                'This will allow others around you to see that you are running ito.',
+              buttonPositive: 'Continue',
             },
           );
           if (granted === PermissionsAndroid.RESULTS.GRANTED) {
