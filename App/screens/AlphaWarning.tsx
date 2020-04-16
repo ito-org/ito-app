@@ -94,7 +94,7 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       </View>
       <Text
         style={[styles.generalText, styles.githubLink]}
-        onPress={(): Promise<any> =>
+        onPress={(): Promise<void> =>
           Linking.openURL('https://github.com/ito-org/react-native-app/issues')
         }>
         https://github.com/ito-org/react-native-app/issues

@@ -87,7 +87,7 @@ export const OnboardingHow: React.FC<{
       </View>
       <BasicButton
         title="Get Started"
-        onPress={async () => {
+        onPress={async (): Promise<void> => {
           const granted = await PermissionsAndroid.request(
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
             {

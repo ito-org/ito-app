@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-R',
   },
   logo: {fontSize: 60},
+  logoWrapper: {marginLeft: 'auto', marginRight: 'auto'},
   alphaNotice: {position: 'absolute', top: 26, right: -86},
   alphaNoticeText: {fontSize: 24},
 });
@@ -50,7 +51,7 @@ export const Onboarding: React.FC<{
 }> = ({navigation}) => {
   return (
     <View style={global.container}>
-      <View style={{marginLeft: 'auto', marginRight: 'auto'}}>
+      <View style={styles.logoWrapper}>
         <Logo textStyle={styles.logo} />
         <AlphaNotice
           rootStyle={styles.alphaNotice}
