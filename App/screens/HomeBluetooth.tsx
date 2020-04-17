@@ -136,6 +136,15 @@ export const HomeBluetooth: React.FC<{
 }> = ({navigation}) => {
   const [distances, setDistances] = useState<never[]>([]);
   const emitter = useRef<NativeEventEmitter | null>(null);
+  const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
+  console.log(latestFetchTime);
+  const latestFetchDate =
+    latestFetchTime === '-1' ? null : new Date(latestFetchTime * 1000);
+  console.log(latestFetchDate);
+  const latestFetch =
+    latestFetchDate === null
+      ? 'never'
+      : `today ${latestFetchDate.getHours()}:${latestFetchDate.getMinutes()}`;
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
@@ -236,7 +245,7 @@ export const HomeBluetooth: React.FC<{
       <View style={global.container}>
         <Header showHelp={true} />
         <View style={styles.lastFetchRow}>
-          <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+          <Text style={styles.lastFetch}>Last ID fetch: {latestFetch}</Text>
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
         </View>
         <View style={styles.radiusContainer}>
