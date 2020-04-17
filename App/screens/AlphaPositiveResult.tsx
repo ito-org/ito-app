@@ -71,7 +71,7 @@ export const AlphaPositiveResult: React.FC<{
       <View style={styles.buttonContainer}>
         <BasicButton
           title="Release positive test result"
-          onPress={(): void => navigation.navigate('ConfirmationCode')}
+          onPress={(): void => navigation.navigate('DataUpload')}
         />
       </View>
     </View>
