@@ -23,8 +23,8 @@ import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
 import {AlphaPositiveResult} from './screens/AlphaPositiveResult';
+import {IDMatch} from './screens/IDMatch';
 import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
-import './language';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +41,7 @@ export type RootStackParamList = {
   ConfirmationCode: undefined;
   DataUpload: undefined;
   AlphaPositiveResult: undefined;
+  IDMatch: undefined;
 };
 
 declare const global: {HermesInternal: null | {}};
@@ -66,6 +67,7 @@ export const App: React.FC<void> = () => {
             name="BluetoothNotification"
             component={BluetoothNotification}
           />
+          <Stack.Screen name="IDMatch" component={IDMatch} />
 
           <Stack.Screen name="SymptomInfo" component={SymptomInfo} />
           <Stack.Screen
