@@ -259,7 +259,14 @@ export const HomeBluetooth: React.FC<{
         })`}</Text>
         <Button
           title="I think I'm infected"
-          onPress={(): void => navigation.navigate('Endangerment')}
+          onPress={(): void => {
+            navigation.navigate('Endangerment');
+            console.log(NativeModules.ItoBluetooth);
+            console.log(
+              'latestFetchTime',
+              NativeModules.ItoBluetooth.getLatestFetchTime(),
+            );
+          }}
           titleStyle={styles.buttonInfectedTitle}
           buttonStyle={styles.buttonInfected}
         />
