@@ -139,7 +139,7 @@ export const HomeBluetooth: React.FC<{
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
   console.log(latestFetchTime);
   const latestFetchDate =
-    latestFetchTime === '-1' ? null : new Date(latestFetchTime * 1000);
+    latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
   console.log(latestFetchDate);
   const latestFetch =
     latestFetchDate === null
