@@ -14,6 +14,8 @@ import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
 
 import {global} from '../styles';
+import BasicButton from '../components/BasicButton';
+import {BlurBackground} from '../components/BackgroundBlur';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -85,6 +87,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Ubuntu-M',
   },
+  IDMatchPopup: {
+    backgroundColor: 'white',
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 16,
+    zIndex: 2,
+  },
+  IDMatchText: {
+    fontFamily: 'Ubuntu-R',
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 16,
+  },
 });
 
 const stylesNoContacts = StyleSheet.create({
@@ -135,6 +150,8 @@ export const HomeBluetooth: React.FC<{
   navigation: HomeBluetoothScreenNavigationProp;
 }> = ({navigation}) => {
   const [distances, setDistances] = useState<never[]>([]);
+  const [showIDMatch, setIDMatchShow] = useState<boolean>(false);
+  const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
   const emitter = useRef<NativeEventEmitter | null>(null);
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
   console.log(latestFetchTime);
@@ -163,13 +180,18 @@ export const HomeBluetooth: React.FC<{
 
   useEffect(() => {
     function refresh(): void {
-      if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
-        navigation.navigate('IDMatch');
+      if (NativeModules.ItoBluetooth.isPossiblyInfected() && !hasSeenIDMatch) {
+        setIDMatchShow(true);
       }
     }
     const interval = setInterval(refresh, 2500);
-    return () => clearInterval(interval);
-  }, [navigation]);
+    return (): void => clearInterval(interval);
+  }, [navigation, hasSeenIDMatch]);
+
+  const closeIDMatch = (): void => {
+    setIDMatchShow(false);
+    setIDMatchSeen(true);
+  };
 
   const r1Distances = distances.filter((d) => d <= 1.5);
   const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
@@ -254,6 +276,19 @@ export const HomeBluetooth: React.FC<{
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
+        {showIDMatch && (
+          <BlurBackground>
+            <View style={styles.IDMatchPopup}>
+              <Text style={styles.IDMatchText}>
+                We just discovered you have been in contact with a COVID-19
+                case.
+                {'\n'}
+                Don't panic!
+              </Text>
+              <BasicButton title="What to do next?" onPress={closeIDMatch} />
+            </View>
+          </BlurBackground>
+        )}
         <Header showHelp={true} />
         <View style={styles.lastFetchRow}>
           <Text style={styles.lastFetch}>Last ID fetch: {latestFetch}</Text>
