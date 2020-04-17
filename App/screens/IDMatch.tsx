@@ -178,7 +178,12 @@ export const IDMatch: React.FC<{
         />
       </View>
       <View style={styles.lastFetchRow}>
-        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Text style={styles.lastFetch}>
+          <FormattedMessage
+            id="idMatch.lastID"
+            defaultMessage={`Last ID fetch: today 11:04`}
+          />
+        </Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
 
@@ -187,7 +192,12 @@ export const IDMatch: React.FC<{
         <Text style={styles.radius2} />
         <Text style={styles.radius3} />
       </View>
-      <Text style={styles.contacts}>just a few contacts around you</Text>
+      <Text style={styles.contacts}>
+        <FormattedMessage
+            id="idMatch.contactsAroundYou"
+            defaultMessage={`just a few contacts around you`}
+          />
+        </Text>
       <View style={styles.bottomButtonContainer}>
         <Button
           title="I think I'm infected"
@@ -212,9 +222,12 @@ export const IDMatch: React.FC<{
             textAlign: 'center',
             marginBottom: 16,
           }}>
-          We just discovered you have been in contact with a COVID-19 case.
-          {'\n'}
-          Don't panic!
+          <FormattedMessage
+            id="idMatch.matchedMessage"
+            defaultMessage={`We just discovered you have been in contact with a COVID-19 case.
+            <br />
+            Don't panic!`}
+          />
         </Text>
         <BasicButton
           title="What to do next?"

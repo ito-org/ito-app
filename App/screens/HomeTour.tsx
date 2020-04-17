@@ -180,7 +180,12 @@ export const HomeTour: React.FC<{
         />
       </View>
       <View style={styles.lastFetchRow}>
-        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Text style={styles.lastFetch}>
+          <FormattedMessage
+            id="homeTour.lastID"
+            defaultMessage={`Last ID fetch: today 11:04`}
+          />
+        </Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
 
@@ -189,9 +194,12 @@ export const HomeTour: React.FC<{
           <TouchableWithoutFeedback onPress={(): void => setStep(2)}>
             <View style={[styles.bubbleBox, styles.firstBubble]}>
               <Text style={styles.bubbleText}>
-                This circle shows you how many ito users you just encountered.
-                Don't worry, it's just an indicator to see if you are in the
-                middle of a lot of ito users or not.
+                <FormattedMessage
+                  id="homeTour.circleDescription"
+                  defaultMessage={` This circle shows you how many ito users you just encountered.
+                  Don't worry, it's just an indicator to see if you are in the
+                  middle of a lot of ito users or not.`}
+                />
               </Text>
               <View style={styles.bubbleActions}>
                 <Text style={styles.next}>next</Text>
@@ -205,7 +213,12 @@ export const HomeTour: React.FC<{
         <Text style={styles.radius2} />
         <Text style={styles.radius3} />
       </View>
-      <Text style={styles.contacts}>just a few contacts around you</Text>
+      <Text style={styles.contacts}>
+        <FormattedMessage
+          id="homeTour.contactsAroundYou"
+          defaultMessage={`just a few contacts around you`}
+        />
+      </Text>
       {step === 2 && (
         <TouchableWithoutFeedback
           onPress={(): void => {
@@ -214,12 +227,20 @@ export const HomeTour: React.FC<{
           }}>
           <View style={[styles.bubbleBox, styles.secondBubble]}>
             <Text style={styles.bubbleText}>
-              If you think you got infected please report with this button to
+            <FormattedMessage
+              id="homeTour.thinkGotInfected"
+              defaultMessage={`If you think you got infected please report with this button to
               get more information on what to do next. This also helps us inform
-              other ito users about their possible risk.
+              other ito users about their possible risk.`}
+            />
             </Text>
             <View style={styles.bubbleActions}>
-              <Text style={styles.done}>done</Text>
+              <Text style={styles.done}>
+                <FormattedMessage
+                  id="buttom.done"
+                  defaultMessage={`done`}
+                />
+              </Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
             <View style={styles.bubbleTriangle} />

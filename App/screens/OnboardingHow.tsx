@@ -50,33 +50,45 @@ export const OnboardingHow: React.FC<{
       <View style={styles.explanationRow}>
         <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
         <Text style={styles.explanation}>
-          we use your phone's bluetooth{'\n'}
-          to let your phone see every{'\n'}
-          other ito user around you
+          <FormattedMessage
+            id="onboardingHow.useYourBluetooth"
+            defaultMessage={`we use your phone's bluetooth <br />
+            to let your phone see every <br />
+            other ito user around you `}
+          />
         </Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>
-          your phone saves which other{'\n'}
-          phones you encountered. this{'\n'}
-          data is just on your phone
+          <FormattedMessage
+            id="onboardingHow.useYourBluetooth"
+            defaultMessage={`your phone saves which other <br />
+            phones you encountered. this <br />
+            data is just on your phone`}
+          />
         </Text>
         <Icon name="smartphone" size={40} color="white" style={styles.icon} />
       </View>
       <View style={styles.explanationRow}>
         <Icon name="bell" size={40} color="white" style={styles.icon} />
         <Text style={styles.explanation}>
-          if someone you encountered{'\n'}
-          before got infected, you get a{'\n'}
-          notification with information{'\n'}
-          on what to do
+          <FormattedMessage
+            id="onboardingHow.someoneEncountered"
+            defaultMessage={`if someone you encountered<br />
+            before got infected, you get a<br />
+            notification with information<br />
+            on what to do`}
+          />
         </Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>
-          if you got infected and tested{'\n'}
-          positive you can let everybody{'\n'}
-          you encountered lately know
+          <FormattedMessage
+            id="onboardingHow.gotInfected"
+            defaultMessage={`if you got infected and tested <br />
+            positive you can let everybody <br />
+            you encountered lately know`}
+          />
         </Text>
         <ShieldIcon2
           style={styles.icon}

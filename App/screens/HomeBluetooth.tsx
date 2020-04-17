@@ -279,10 +279,13 @@ export const HomeBluetooth: React.FC<{
           <BlurBackground>
             <View style={styles.IDMatchPopup}>
               <Text style={styles.IDMatchText}>
-                We just discovered you have been in contact with a COVID-19
-                case.
-                {'\n'}
-                Don't panic!
+                <FormattedMessage
+                  id="buttom.done"
+                  defaultMessage={`We just discovered you have been in contact with a COVID-19
+                  case.
+                  <br />
+                  Don't panic!`}
+                />
               </Text>
               <BasicButton title="What to do next?" onPress={closeIDMatch} />
             </View>

@@ -47,11 +47,14 @@ export const SymptomInfo: React.FC<{
         }}
       />
       <Text style={styles.explanation}>
-        Please check if your symptoms and situation are similar to a COVID-19
-        infection.{'\n'}
-        {'\n'}
-        To do a self-assessed check first, please head over to your country's
-        designated app:
+        <FormattedMessage
+          id="symptomInfo.checkSymptoms"
+          defaultMessage={`Please check if your symptoms and situation are similar to a COVID-19
+          infection. <br />
+          <br />
+          To do a self-assessed check first, please head over to your country's
+          designated app: `}
+        />
       </Text>
       <BasicButton
         buttonStyle={styles.titleButtonLayout}

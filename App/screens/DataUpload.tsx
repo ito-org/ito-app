@@ -35,10 +35,13 @@ export const DataUpload: React.FC<{
         showHelp={true}
       />
       <Text style={styles.thanks}>
-        Thanks for sharing your{'\n'}
-        verified test result. {'\n'}
-        {'\n'}
-        Get well soon!
+        <FormattedMessage
+          id="dataUpload.thanksForSharing"
+          defaultMessage={`Thanks for sharing your<br />
+          verified test result. <br />
+          <br />
+          Get well soon!`}
+        />
       </Text>
     </View>
   );

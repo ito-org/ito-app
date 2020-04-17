@@ -62,11 +62,14 @@ export const AlphaPositiveResult: React.FC<{
         textStyle={styles.alphaNoticeText}
       />
       <Text style={styles.explanation}>
-        For testing purposes you can simulate a positive test result. After
-        pressing the button, your phone's TCNs will be marked as positive and
-        uploaded to the server.{'\n'}
-        {'\n'}
-        Every ito user now at risk of an infection will be notified.
+        <FormattedMessage
+          id="alphaPositiveResult.testingPurposes"
+          defaultMessage={`For testing purposes you can simulate a positive test result. After
+          pressing the button, your phone's TCNs will be marked as positive and
+          uploaded to the server.<br />
+          <br />
+          Every ito user now at risk of an infection will be notified.`}
+        />
       </Text>
       <View style={styles.buttonContainer}>
         <BasicButton

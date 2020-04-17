@@ -77,30 +77,47 @@ export const Endangerment: React.FC<{
         }}
       />
       <Text style={styles.header}>
-        Tell us if you have symptoms or if you{'\n'}
-        have a positive test result
+        <FormattedMessage
+          id="endagerment.tellUs"
+          defaultMessage={`Tell us if you have symptoms or if you <br />
+          have a positive test result`}
+        />
       </Text>
       <TouchableWithoutFeedback
         onPress={(): void => navigation.navigate('SymptomInfo')}>
         <View style={styles.buttonSymptoms}>
           <Text style={styles.buttonSymptomsTitle}>
-            I have typical symptoms
+            <FormattedMessage
+              id="endagerment.haveSymptoms"
+              defaultMessage={`I have typical symptoms`}
+            />
           </Text>
           <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
           <Text>
-            Don't worry!{'\n'}
-            We will help you figure out what to do next.
+            <FormattedMessage
+              id="endagerment.dontWorry"
+              defaultMessage={`Don't worry!<br />
+              We will help you figure out what to do next.`}
+            />
           </Text>
         </View>
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
         onPress={(): void => navigation.navigate('AlphaPositiveResult')}>
         <View style={styles.buttonTested}>
-          <Text style={styles.buttonTestedTitle}>I have a positive result</Text>
+          <Text style={styles.buttonTestedTitle}>
+            <FormattedMessage
+              id="endagerment.positiveResult"
+              defaultMessage={`I have a positive result`}
+            />
+            </Text>
           <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
           <Text>
-            If you got a positive result from your doctor or authorities please
-            let us know to help everybody else stay healthy.
+            <FormattedMessage
+              id="endagerment.positiveResult"
+              defaultMessage={`If you got a positive result from your doctor or authorities please
+              let us know to help everybody else stay healthy.`}
+            />
           </Text>
         </View>
       </TouchableWithoutFeedback>

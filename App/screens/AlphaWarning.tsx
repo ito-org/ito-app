@@ -74,7 +74,12 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.logoWrapper}>
         <Text style={styles.logo}>ito</Text>
-        <Text style={styles.subtitle}>track infections, not people!</Text>
+        <Text style={styles.subtitle}>
+          <FormattedMessage
+            id="alphaWarning.slogan"
+            defaultMessage={`track infections, not people!`}
+          />
+        </Text>
         <AlphaNotice
           rootStyle={styles.alphaNoticeRoot}
           textStyle={styles.alphaNoticeText}
@@ -82,14 +87,23 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       </View>
       <View>
         <Text style={styles.generalText}>
-          This version is for demonstration purpose only.
+          <FormattedMessage
+            id="alphaWarning.demonstation"
+            defaultMessage={`This version is for demonstration purpose only.`}
+          />
         </Text>
         <Text style={styles.generalText}>
-          Not all features are implemented yet nor is everything audited.
+          <FormattedMessage
+            id="alphaWarning.features"
+            defaultMessage={`Not all features are implemented yet nor is everything audited.`}
+          />
         </Text>
         <Text style={styles.generalText}>
-          Please review the app, have a look at the code and report issues, bugs
-          or general feedback at
+          <FormattedMessage
+            id="alphaWarning.reviewApp"
+            defaultMessage={`Please review the app, have a look at the code and report issues, bugs
+            or general feedback at`}
+          />
         </Text>
       </View>
       <Text

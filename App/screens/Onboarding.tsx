@@ -59,16 +59,24 @@ export const Onboarding: React.FC<{
         />
       </View>
       <View style={styles.explanationContainer}>
-        <Text style={styles.subtitle}>track infections, not people!</Text>
+        <Text style={styles.subtitle}>
+          <FormattedMessage
+            id="onboarding.slogan"
+            defaultMessage={`track infections, not people!`}
+          />
+        </Text>
         <ShieldIcon style={styles.shield} />
         <Text style={styles.explanation}>
-          protect yourself and {'\n'}
-          the people surrounding you {'\n'}
-          {'\n'}
-          ito doesn't track any personal {'\n'}
-          or location data {'\n'}- {'\n'}
-          we just need to know {'\n'}
-          about your health status
+          <FormattedMessage
+            id="onboarding.slogan"
+            defaultMessage={`protect yourself and <br />
+            the people surrounding you <br />
+            <br />
+            ito doesn't track any personal <br />
+            or location data <br /> - <br />
+            we just need to know <br />
+            about your health status`}
+          />
         </Text>
       </View>
       <BasicButton

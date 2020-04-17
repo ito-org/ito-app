@@ -31,8 +31,11 @@ export const ConfirmationCode: React.FC<{
   return (
     <View style={[global.container, styles.container]}>
       <Text style={styles.explanation}>
-        Please scan the QR Code you got with your test or enter the result ID to
-        verify your positive test result.
+        <FormattedMessage
+          id="confirmationCode.scanQRCode"
+          defaultMessage={`Please scan the QR Code you got with your test or enter the result ID to
+          verify your positive test result.`}
+        />
       </Text>
       <BasicButton
         title="Test verification code entered"
