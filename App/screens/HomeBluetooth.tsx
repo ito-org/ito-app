@@ -160,6 +160,17 @@ export const HomeBluetooth: React.FC<{
       }
     };
   }, [distances.length]);
+
+  useEffect(() => {
+    function refresh(): void {
+      if (NativeModules.ItoBluetooth.isPossiblyInfected()) {
+        navigation.navigate('IDMatch');
+      }
+    }
+    const interval = setInterval(refresh, 2500);
+    return () => clearInterval(interval);
+  }, [navigation]);
+
   const r1Distances = distances.filter((d) => d <= 1.5);
   const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
   const r3Distances = distances.filter((d) => d > 5);
