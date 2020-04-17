@@ -7,7 +7,7 @@
  *
  * @format
  */
-import React, {useEffect} from 'react';
+import React, {useEffect, Suspense} from 'react';
 import 'react-native-get-random-values';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -24,6 +24,7 @@ import {DataUpload} from './screens/DataUpload';
 import {ConfirmationCode} from './screens/ConfirmationCode';
 import {AlphaPositiveResult} from './screens/AlphaPositiveResult';
 import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
+import './language';
 
 const Stack = createStackNavigator();
 
@@ -47,33 +48,35 @@ declare const global: {HermesInternal: null | {}};
 export const App: React.FC<void> = () => {
   useEffect(() => {
     // Uncomment this to show onboarding again
-    // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
+    AsyncStorage.setItem('userHasSeenOnboarding', 'false');
   });
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Loading" headerMode="none">
-        <Stack.Screen name="Loading" component={Loading} />
-        <Stack.Screen name="AlphaWarning" component={AlphaWarning} />
-        <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
-        <Stack.Screen name="HomeTour" component={HomeTour} />
-        <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
-        <Stack.Screen name="Endangerment" component={Endangerment} />
-        <Stack.Screen
-          name="BluetoothNotification"
-          component={BluetoothNotification}
-        />
+    <Suspense fallback={null}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Loading" headerMode="none">
+          <Stack.Screen name="Loading" component={Loading} />
+          <Stack.Screen name="AlphaWarning" component={AlphaWarning} />
+          <Stack.Screen name="Onboarding" component={Onboarding} />
+          <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
+          <Stack.Screen name="HomeTour" component={HomeTour} />
+          <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
+          <Stack.Screen name="Endangerment" component={Endangerment} />
+          <Stack.Screen
+            name="BluetoothNotification"
+            component={BluetoothNotification}
+          />
 
-        <Stack.Screen name="SymptomInfo" component={SymptomInfo} />
-        <Stack.Screen
-          name="AlphaPositiveResult"
-          component={AlphaPositiveResult}
-        />
-        <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
-        <Stack.Screen name="DataUpload" component={DataUpload} />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen name="SymptomInfo" component={SymptomInfo} />
+          <Stack.Screen
+            name="AlphaPositiveResult"
+            component={AlphaPositiveResult}
+          />
+          <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
+          <Stack.Screen name="DataUpload" component={DataUpload} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Suspense>
   );
 };
 
