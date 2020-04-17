@@ -140,11 +140,10 @@ export const HomeBluetooth: React.FC<{
   console.log(latestFetchTime);
   const latestFetchDate =
     latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
-  console.log(latestFetchDate);
   const latestFetch =
     latestFetchDate === null
       ? 'never'
-      : `today ${latestFetchDate.getHours()}:${latestFetchDate.getMinutes()}`;
+      : `today ${latestFetchDate.toTimeString().substr(0, 5)}`;
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
