@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Linking} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
 import {design} from '../styles/index';
 import {BasicButton} from '../components/BasicButton';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,36 +39,33 @@ type SymptomInfoScreenNavigationProp = StackNavigationProp<
 export const SymptomInfo: React.FC<{
   navigation: SymptomInfoScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <Header
         navigation={{
-          title: 'cancel',
+          title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
       />
-      <Text style={styles.explanation}>
-        Please check if your symptoms and situation are similar to a COVID-19
-        infection.{'\n'}
-        {'\n'}
-        To do a self-assessed check first, please head over to your country's
-        designated app:
-      </Text>
+      <Text style={styles.explanation}>{t('symptomInfo.explanation')}</Text>
       <BasicButton
         buttonStyle={styles.titleButtonLayout}
-        title="Open designated app"
+        title={t('symptomInfo.buttonTitleOpenDesignatedApp')}
+        onPress={(): Promise<void> =>
+          Linking.openURL(t('symptomInfo.selfTestUrl'))
+        }
+      />
+      <BasicButton
+        variant="outlined"
+        buttonStyle={styles.normalButtonLayout}
+        title={t('symptomInfo.buttonTitleNotInfected')}
         onPress={(): void => navigation.navigate('HomeBluetooth')}
       />
       <BasicButton
         variant="outlined"
         buttonStyle={styles.normalButtonLayout}
-        title="Looks like I'm not infected"
-        onPress={(): void => navigation.navigate('HomeBluetooth')}
-      />
-      <BasicButton
-        variant="outlined"
-        buttonStyle={styles.normalButtonLayout}
-        title="I have a positive test result"
+        title={t('symptomInfo.buttonTitlePositiveTest')}
         onPress={(): void => navigation.navigate('AlphaPositiveResult')}
       />
     </View>

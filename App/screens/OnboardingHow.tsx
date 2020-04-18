@@ -14,6 +14,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   explanationRow: {
@@ -44,40 +45,25 @@ type OnboardingHowScreenNavigationProp = StackNavigationProp<
 export const OnboardingHow: React.FC<{
   navigation: OnboardingHowScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={global.container}>
       <Header />
       <View style={styles.explanationRow}>
         <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}>
-          we use your phone's bluetooth{'\n'}
-          to let your phone see every{'\n'}
-          other ito user around you
-        </Text>
+        <Text style={styles.explanation}>{t('onboardingHow.bluetooth')}</Text>
       </View>
       <View style={styles.explanationRow}>
-        <Text style={styles.explanation}>
-          your phone saves which other{'\n'}
-          phones you encountered. this{'\n'}
-          data is just on your phone
-        </Text>
+        <Text style={styles.explanation}>{t('onboardingHow.smartphone')}</Text>
         <Icon name="smartphone" size={40} color="white" style={styles.icon} />
       </View>
       <View style={styles.explanationRow}>
         <Icon name="bell" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}>
-          if someone you encountered{'\n'}
-          before got infected, you get a{'\n'}
-          notification with information{'\n'}
-          on what to do
-        </Text>
+        <Text style={styles.explanation}>{t('onboardingHow.bell')}</Text>
       </View>
       <View style={styles.explanationRow}>
-        <Text style={styles.explanation}>
-          if you got infected and tested{'\n'}
-          positive you can let everybody{'\n'}
-          you encountered lately know
-        </Text>
+        <Text style={styles.explanation}>{t('onboardingHow.shield2')}</Text>
         <ShieldIcon2
           style={styles.icon}
           height={68}
@@ -86,7 +72,7 @@ export const OnboardingHow: React.FC<{
         />
       </View>
       <BasicButton
-        title="Get Started"
+        title={t('onboardingHow.buttonTitleGetStarted')}
         onPress={async (): Promise<void> => {
           const granted = await PermissionsAndroid.request(
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,

@@ -7,6 +7,7 @@ import {Header} from '../components/Header';
 import {AlphaNotice} from '../components/AlphaNotice';
 
 import {global, design} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,11 +47,13 @@ type AlphaPositiveResultScreenNavigationProp = StackNavigationProp<
 export const AlphaPositiveResult: React.FC<{
   navigation: AlphaPositiveResultScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={[global.container, styles.container]}>
       <Header
         navigation={{
-          title: 'cancel',
+          title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
         showHelp={true}
@@ -62,23 +65,19 @@ export const AlphaPositiveResult: React.FC<{
         textStyle={styles.alphaNoticeText}
       />
       <Text style={styles.explanation}>
-        For testing purposes you can simulate a positive test result. After
-        pressing the button, your phone's TCNs will be marked as positive and
-        uploaded to the server.{'\n'}
-        {'\n'}
-        Every ito user now at risk of an infection will be notified.
+        {t('alphaPositiveResult.testingPurposes')}
       </Text>
       <View style={styles.buttonContainer}>
         <BasicButton
-          title="Release positive test result"
+          title={t('alphaPositiveResult.buttonTitleReleaseResult')}
           onPress={(): void => {
             const now = Date.now() / 1000;
             const sevenDaysAgo = now - 7 * 24 * 60 * 60;
             NativeModules.ItoBluetooth.publishBeaconUUIDs(
               sevenDaysAgo,
               now,
-              (...argss) => {
-                console.log('uploaded', argss);
+              (success: boolean) => {
+                console.log('upload ' + success ? 'succeeded' : 'failed');
               },
             );
             navigation.navigate('DataUpload');

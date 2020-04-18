@@ -4,6 +4,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
 import {global} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   thanks: {
@@ -25,6 +26,8 @@ type DataUploadScreenNavigationProp = StackNavigationProp<
 export const DataUpload: React.FC<{
   navigation: DataUploadScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={global.container}>
       <Header
@@ -34,12 +37,7 @@ export const DataUpload: React.FC<{
         }}
         showHelp={true}
       />
-      <Text style={styles.thanks}>
-        Thanks for sharing your{'\n'}
-        verified test result. {'\n'}
-        {'\n'}
-        Get well soon!
-      </Text>
+      <Text style={styles.thanks}>{t('dataUpload.thanks')}</Text>
     </View>
   );
 };

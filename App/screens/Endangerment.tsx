@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -68,40 +69,34 @@ type EndangermentScreenNavigationProp = StackNavigationProp<
 export const Endangerment: React.FC<{
   navigation: EndangermentScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <Header
         navigation={{
-          title: 'cancel',
+          title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
       />
-      <Text style={styles.header}>
-        Tell us if you have symptoms or if you{'\n'}
-        have a positive test result
-      </Text>
+      <Text style={styles.header}>{t('endangerment.info')}</Text>
       <TouchableWithoutFeedback
         onPress={(): void => navigation.navigate('SymptomInfo')}>
         <View style={styles.buttonSymptoms}>
           <Text style={styles.buttonSymptomsTitle}>
-            I have typical symptoms
+            {t('endangerment.symptomsTitle')}
           </Text>
           <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
-          <Text>
-            Don't worry!{'\n'}
-            We will help you figure out what to do next.
-          </Text>
+          <Text>{t('endangerment.symptomsText')}</Text>
         </View>
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback
         onPress={(): void => navigation.navigate('AlphaPositiveResult')}>
         <View style={styles.buttonTested}>
-          <Text style={styles.buttonTestedTitle}>I have a positive result</Text>
-          <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
-          <Text>
-            If you got a positive result from your doctor or authorities please
-            let us know to help everybody else stay healthy.
+          <Text style={styles.buttonTestedTitle}>
+            {t('endangerment.positiveResultTitle')}
           </Text>
+          <Icon name="arrow-right" size={18} style={styles.arrowRightIcon} />
+          <Text>{t('endangerment.positiveResultText')}</Text>
         </View>
       </TouchableWithoutFeedback>
     </View>

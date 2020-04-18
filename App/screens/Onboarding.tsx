@@ -8,6 +8,7 @@ import {AlphaNotice} from '../components/AlphaNotice';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   subtitle: {
@@ -49,6 +50,8 @@ type OnboardingScreenNavigationProp = StackNavigationProp<
 export const Onboarding: React.FC<{
   navigation: OnboardingScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={global.container}>
       <View style={styles.logoWrapper}>
@@ -59,20 +62,12 @@ export const Onboarding: React.FC<{
         />
       </View>
       <View style={styles.explanationContainer}>
-        <Text style={styles.subtitle}>track infections, not people!</Text>
+        <Text style={styles.subtitle}>{t('onboarding.motto')}</Text>
         <ShieldIcon style={styles.shield} />
-        <Text style={styles.explanation}>
-          protect yourself and {'\n'}
-          the people surrounding you {'\n'}
-          {'\n'}
-          ito doesn't track any personal {'\n'}
-          or location data {'\n'}- {'\n'}
-          we just need to know {'\n'}
-          about your health status
-        </Text>
+        <Text style={styles.explanation}>{t('onboarding.welcomeMessage')}</Text>
       </View>
       <BasicButton
-        title="How does this work?"
+        title={t('onboarding.tutorial')}
         onPress={(): void => navigation.navigate('OnboardingHow')}
       />
     </View>

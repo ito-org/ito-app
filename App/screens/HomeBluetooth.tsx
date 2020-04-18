@@ -16,6 +16,7 @@ import Header from '../components/Header';
 import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -149,6 +150,7 @@ type HomeBluetoothScreenNavigationProp = StackNavigationProp<
 export const HomeBluetooth: React.FC<{
   navigation: HomeBluetoothScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
   const [distances, setDistances] = useState<never[]>([]);
   const [showIDMatch, setIDMatchShow] = useState<boolean>(false);
   const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
@@ -159,8 +161,8 @@ export const HomeBluetooth: React.FC<{
     latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
   const latestFetch =
     latestFetchDate === null
-      ? 'never'
-      : `today ${latestFetchDate.toTimeString().substr(0, 5)}`;
+      ? t('home.never')
+      : `${t('home.today')} ${latestFetchDate.toTimeString().substr(0, 5)}`;
   useEffect(() => {
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
@@ -279,18 +281,17 @@ export const HomeBluetooth: React.FC<{
           <BlurBackground>
             <View style={styles.IDMatchPopup}>
               <Text style={styles.IDMatchText}>
-                We just discovered you have been in contact with a COVID-19
-                case.
-                {'\n'}
-                Don't panic!
+                {t('home.alertContactDiscovered')}
               </Text>
-              <BasicButton title="What to do next?" onPress={closeIDMatch} />
+              <BasicButton title={t('home.whatNext')} onPress={closeIDMatch} />
             </View>
           </BlurBackground>
         )}
         <Header showHelp={true} />
         <View style={styles.lastFetchRow}>
-          <Text style={styles.lastFetch}>Last ID fetch: {latestFetch}</Text>
+          <Text style={styles.lastFetch}>
+            {t('home.lastIdFetch')}: {latestFetch}
+          </Text>
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
         </View>
         <View style={styles.radiusContainer}>
@@ -308,11 +309,13 @@ export const HomeBluetooth: React.FC<{
           />
           <Text style={radius3Style} />
         </View>
-        <Text style={contactsStyle}>{`${distances.length} contacts (avg: ${
+        <Text style={contactsStyle}>{`${distances.length} ${t(
+          'home.contacts',
+        )} (avg: ${
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
         <Button
-          title="I think I'm infected"
+          title={t('home.buttonTitleInfected')}
           onPress={(): void => navigation.navigate('Endangerment')}
           titleStyle={styles.buttonInfectedTitle}
           buttonStyle={styles.buttonInfected}
