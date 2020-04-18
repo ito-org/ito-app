@@ -27,23 +27,25 @@ function getSystemLocale(): string {
   return locale;
 }
 
+const resources = {en, nl};
+
 function getLangPrefix(lng: string): string {
-  let prefix = 'xx';
+  let prefix = 'en';
   if (lng.indexOf('_') > -1) {
     prefix = lng.split('_')[0];
   } else if (lng.indexOf('-') > -1) {
     prefix = lng.split('-')[0];
   }
 
+  if (!resources.hasOwnProperty(prefix)) {
+    // reset to English if language is not supported
+    prefix = 'en';
+  }
   return prefix;
 }
 
-const resources = {
-  en: en,
-  nl: nl,
-};
-
-console.log(getSystemLocale());
+console.log('System Locale', getSystemLocale());
+console.log('Lang Prefix', getLangPrefix(getSystemLocale()));
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next

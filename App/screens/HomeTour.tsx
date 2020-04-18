@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
 import AlphaNotice from '../components/AlphaNotice';
+import BasicButton from '../components/BasicButton';
 import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   firstBubble: {
-    top: 0,
+    top: -6,
   },
   secondBubble: {
-    bottom: 90,
+    bottom: 78,
   },
   next: {
     fontFamily: 'Ubuntu-R',
@@ -142,16 +142,16 @@ const styles = StyleSheet.create({
     flex: 0.3,
   },
   bottomButtonContainer: {
-    flex: 0.5,
+    paddingTop: 16,
+    paddingBottom: 16,
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
   buttonInfected: {
     backgroundColor: 'hsl(167, 35%, 58%)',
+    borderColor: 'hsl(167, 35%, 58%)',
     borderRadius: 6,
-    marginTop: 24,
     marginLeft: 16,
     marginRight: 16,
-    padding: 12,
   },
   buttonInfectedTitle: {
     color: '#2c2c2c',
@@ -223,7 +223,7 @@ export const HomeTour: React.FC<{
         </TouchableWithoutFeedback>
       )}
       <View style={styles.bottomButtonContainer}>
-        <Button
+        <BasicButton
           title={t('homeTour.buttonTitleInfected')}
           disabledTitleStyle={styles.buttonInfectedTitle}
           disabledStyle={styles.buttonInfected}
