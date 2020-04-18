@@ -13,10 +13,10 @@
       "buttonTitleReleaseResult": "Meld een positief testresultaat"
     },
     "onboardingHow": {
-      "bluetooth": "we gebruiken bluetooth van\nje telefoon om je telefoon elke\nandere ito-gebruiker om\nje heen te laten zien",
-      "smartphone": "uw telefoon slaat op welke\nandere telefoons u bent\ntegengekomen. deze gegevens\nstaan ​​gewoon op je telefoon",
-      "bell": "als iemand die je eerder\ntegenkwam geïnfecteerd is\ngeraakt, krijg je eenmelding\nmet informatie over wat\nje moet doen",
-      "shield2": "als je geïnfecteerd bent\ngeraakt en positief getest bent\nkun je het laten weten aan\niedereen die je de laatste tijd\nbent tegengekomen",
+      "bluetooth": "we gebruiken bluetooth van\nuw telefoon om de telefoon elke\nandere ito-gebruiker om\nu heen te laten zien",
+      "smartphone": "uw telefoon slaat op welke\nandere telefoons u bent\ntegengekomen. deze gegevens\nstaan ​​gewoon op uw telefoon",
+      "bell": "als iemand die u eerder\ntegenkwam geïnfecteerd is\ngeraakt, krijgt u eenmelding\nmet informatie over wat\nu moet doen",
+      "shield2": "als u geïnfecteerd bent\ngeraakt en positief getest bent\nkun u het laten weten aan\niedereen die u de laatste tijd\nbent tegengekomen",
       "buttonTitleGetStarted": "Beginnen"
     },
     "alphaWarning": {
@@ -33,7 +33,7 @@
       "thanks": "Bedankt voor het delen van uw\ngeverifieerde testresultaat.\n\nBeterschap!"
     },
     "homeTour": {
-      "circle": "Deze cirkel laat zien hoeveel ito-gebruikers je net bent tegengekomen. Maak je geen zorgen, het is slechts een indicator om te zien of je midden in veel ito-gebruikers zit of niet.",
+      "circle": "Deze cirkel laat zien hoeveel ito-gebruikers u net bent tegengekomen. Maakt u zich geen zorgen, het is slechts een indicator om te zien of u veel ito-gebruikers om u heen heeft of niet.",
       "report": "Als u denkt dat u geïnfecteerd bent geraakt, meld dit dan met deze knop voor meer informatie over wat u vervolgens moet doen. Dit helpt ons ook om andere ito-gebruikers te informeren over hun mogelijke risico.",
       "next": "volgende",
       "done": "klaar",
@@ -43,7 +43,7 @@
       "lastIdFetch": "Laatste ID-ophaal",
       "today": "vandaag",
       "never": "nooit",
-      "alertContactDiscovered": "We hebben net ontdekt dat u in contact bent geweest met een COVID-19 zaak.\nGeen paniek!",
+      "alertContactDiscovered": "We hebben net ontdekt dat u in contact bent geweest met een COVID-19 zaak.\nGeen paniek.",
       "whatNext": "Wat nu te doen?",
       "contacts": "contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben"
@@ -51,7 +51,7 @@
     "endangerment": {
       "info": "Vertel ons of u symptomen heeft of dat u een positief testresultaat heeft",
       "symptomsTitle": "Ik heb typische symptomen",
-      "symptomsText": "Maak je geen zorgen!\nWe zullen u helpen uit te zoeken wat u vervolgens moet doen.",
+      "symptomsText": "Maakt u zich geen zorgen!\nWe zullen u helpen uit te zoeken wat u vervolgens moet doen.",
       "positiveResultTitle": "Ik heb een positief resultaat",
       "positiveResultText": "Als u een positief resultaat heeft gekregen van uw arts of autoriteiten, laat het ons dan weten zodat alle anderen gezond kunnen blijven."
     },
