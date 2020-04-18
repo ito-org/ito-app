@@ -4,19 +4,19 @@
       "cancel": "annuleren"
     },
     "onboarding": {
-      "motto": "volg infecties, niet mensen!",
-      "welcomeMessage": "bescherm uzelf en\nde mensen om u heen\n\nito houdt geen persoonlijke\nof locatiegegevens bij \n-\nwe moeten alleen\nweten over uw gezondheidsstatus",
+      "motto": "volg infecties, geen mensen!",
+      "welcomeMessage": "bescherm uzelf en\nde mensen om u heen\n\nito houdt geen persoonlijke\nof locatiegegevens bij \n-\nwe hebben alleen informatie nodig\nover uw gezondheidsstatus",
       "tutorial": "Hoe werkt dit?"
     },
     "alphaPositiveResult": {
       "testingPurposes": "Voor testdoeleinden kunt u een positief testresultaat simuleren. Nadat u op de knop hebt gedrukt, worden de TCN's van uw telefoon gemarkeerd als positief en geüpload naar de server.\n\nElke ito-gebruiker die nu het risico loopt op een infectie, wordt op de hoogte gebracht.",
-      "buttonTitleReleaseResult": "Laat een positief testresultaat vrij"
+      "buttonTitleReleaseResult": "Meld een positief testresultaat"
     },
     "onboardingHow": {
       "bluetooth": "we gebruiken bluetooth van\nje telefoon om je telefoon elke\nandere ito-gebruiker om\nje heen te laten zien",
       "smartphone": "uw telefoon slaat op welke\nandere telefoons u bent\ntegengekomen. deze gegevens\nstaan ​​gewoon op je telefoon",
       "bell": "als iemand die je eerder\ntegenkwam geïnfecteerd is\ngeraakt, krijg je eenmelding\nmet informatie over wat\nje moet doen",
-      "shield2": "als je geïnfecteerd bent\ngeraakt en positief getest\nhebt kun je iedereen die je de\nlaatste tijd bent tegengekomen\nhet laten weten",
+      "shield2": "als je geïnfecteerd bent\ngeraakt en positief getest bent\nkun je  het laten weten aan\niedereen die je de laatste tijd bent\ntegengekomen",
       "buttonTitleGetStarted": "Beginnen"
     },
     "alphaWarning": {
