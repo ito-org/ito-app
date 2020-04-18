@@ -14,6 +14,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   explanationRow: {
@@ -44,16 +45,14 @@ type OnboardingHowScreenNavigationProp = StackNavigationProp<
 export const OnboardingHow: React.FC<{
   navigation: OnboardingHowScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={global.container}>
       <Header />
       <View style={styles.explanationRow}>
         <Icon name="bluetooth" size={40} color="white" style={styles.icon} />
-        <Text style={styles.explanation}>
-          we use your phone's bluetooth{'\n'}
-          to let your phone see every{'\n'}
-          other ito user around you
-        </Text>
+        <Text style={styles.explanation}>{t('onboardingHow.bluetooth')}</Text>
       </View>
       <View style={styles.explanationRow}>
         <Text style={styles.explanation}>

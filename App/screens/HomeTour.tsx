@@ -6,6 +6,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
 import AlphaNotice from '../components/AlphaNotice';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -170,6 +171,7 @@ export const HomeTour: React.FC<{
   navigation: HomeTourScreenNavigationProp;
 }> = ({navigation}) => {
   const [step, setStep] = useState(1);
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.logoWrapper}>
@@ -188,11 +190,7 @@ export const HomeTour: React.FC<{
         {step === 1 && (
           <TouchableWithoutFeedback onPress={(): void => setStep(2)}>
             <View style={[styles.bubbleBox, styles.firstBubble]}>
-              <Text style={styles.bubbleText}>
-                This circle shows you how many ito users you just encountered.
-                Don't worry, it's just an indicator to see if you are in the
-                middle of a lot of ito users or not.
-              </Text>
+              <Text style={styles.bubbleText}>{t('homeTour.circle')}</Text>
               <View style={styles.bubbleActions}>
                 <Text style={styles.next}>next</Text>
                 <Icon name="chevron-right" size={18} style={styles.nextIcon} />
@@ -213,11 +211,7 @@ export const HomeTour: React.FC<{
             navigation.navigate('HomeBluetooth');
           }}>
           <View style={[styles.bubbleBox, styles.secondBubble]}>
-            <Text style={styles.bubbleText}>
-              If you think you got infected please report with this button to
-              get more information on what to do next. This also helps us inform
-              other ito users about their possible risk.
-            </Text>
+            <Text style={styles.bubbleText}>{t('homeTour.report')}</Text>
             <View style={styles.bubbleActions}>
               <Text style={styles.done}>done</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
@@ -228,7 +222,7 @@ export const HomeTour: React.FC<{
       )}
       <View style={styles.bottomButtonContainer}>
         <Button
-          title="I think I'm infected"
+          title={t('homeTour.buttonTitleInfected')}
           disabledTitleStyle={styles.buttonInfectedTitle}
           disabledStyle={styles.buttonInfected}
           disabled

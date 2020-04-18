@@ -5,6 +5,7 @@ import {RootStackParamList} from 'App/App';
 import {BasicButton} from '../components/BasicButton';
 
 import {global} from '../styles';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,14 +29,12 @@ type ConfirmationCodeScreenNavigationProp = StackNavigationProp<
 export const ConfirmationCode: React.FC<{
   navigation: ConfirmationCodeScreenNavigationProp;
 }> = ({navigation}) => {
+  const {t} = useTranslation();
   return (
     <View style={[global.container, styles.container]}>
-      <Text style={styles.explanation}>
-        Please scan the QR Code you got with your test or enter the result ID to
-        verify your positive test result.
-      </Text>
+      <Text style={styles.explanation}>{t('confirmationCode.enterCode')}</Text>
       <BasicButton
-        title="Test verification code entered"
+        title={t('confirmationCode.buttonTitleSubmit')}
         onPress={(): void => navigation.navigate('DataUpload')}
       />
     </View>

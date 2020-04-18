@@ -64,18 +64,10 @@ export const Onboarding: React.FC<{
       <View style={styles.explanationContainer}>
         <Text style={styles.subtitle}>{t('onboarding.motto')}</Text>
         <ShieldIcon style={styles.shield} />
-        <Text style={styles.explanation}>
-          protect yourself and {'\n'}
-          the people surrounding you {'\n'}
-          {'\n'}
-          ito doesn't track any personal {'\n'}
-          or location data {'\n'}- {'\n'}
-          we just need to know {'\n'}
-          about your health status
-        </Text>
+        <Text style={styles.explanation}>{t('onboarding.welcomeMessage')}</Text>
       </View>
       <BasicButton
-        title="How does this work?"
+        title={t('onboarding.tutorial')}
         onPress={(): void => navigation.navigate('OnboardingHow')}
       />
     </View>
