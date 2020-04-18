@@ -62,7 +62,7 @@ export const Onboarding: React.FC<{
         />
       </View>
       <View style={styles.explanationContainer}>
-        <Text style={styles.subtitle}>{t('motto')}</Text>
+        <Text style={styles.subtitle}>{t('onboarding.motto')}</Text>
         <ShieldIcon style={styles.shield} />
         <Text style={styles.explanation}>
           protect yourself and {'\n'}
