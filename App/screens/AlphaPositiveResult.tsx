@@ -69,7 +69,7 @@ export const AlphaPositiveResult: React.FC<{
       </Text>
       <View style={styles.buttonContainer}>
         <BasicButton
-          title="Release positive test result"
+          title={t('alphaPositiveResult.buttonTitleReleaseResult')}
           onPress={(): void => {
             const now = Date.now() / 1000;
             const sevenDaysAgo = now - 7 * 24 * 60 * 60;

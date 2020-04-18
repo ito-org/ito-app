@@ -99,7 +99,7 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       </Text>
       <View style={styles.bottomButtonContainer}>
         <Button
-          title="ok, let´s start"
+          title={t('alphaWarning.start')}
           onPress={(): void => navigation.navigate('Onboarding')}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}

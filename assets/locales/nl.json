@@ -1,0 +1,44 @@
+{
+  "translation": {
+    "onboarding": {
+      "motto": "volg infecties, niet mensen!",
+      "welcomeMessage": "bescherm uzelf en\nde mensen om u heen\n\nito houdt geen persoonlijke\nof locatiegegevens bij \n-\nwe moeten alleen\nweten over uw gezondheidsstatus",
+      "tutorial": "Hoe werkt dit?"
+    },
+    "alphaPositiveResult": {
+      "testingPurposes": "Voor testdoeleinden kunt u een positief testresultaat simuleren. Nadat u op de knop hebt gedrukt, worden de TCN's van uw telefoon gemarkeerd als positief en geüpload naar de server.\n\nElke ito-gebruiker die nu het risico loopt op een infectie, wordt op de hoogte gebracht.",
+      "buttonTitleReleaseResult": "Laat een positief testresultaat vrij"
+    },
+    "onboardingHow": {
+      "bluetooth": "we gebruiken bluetooth van\nje telefoon om je telefoon elke\nandere ito-gebruiker om\nje heen te laten zien",
+      "smartphone": "uw telefoon slaat op welke\nandere telefoons u bent\ntegengekomen. deze gegevens\nstaan ​​gewoon op je telefoon",
+      "bell": "als iemand die je eerder\ntegenkwam geïnfecteerd is\ngeraakt, krijg je eenmelding\nmet informatie over wat\nje moet doen",
+      "shield2": "als je geïnfecteerd bent\ngeraakt en positief getest\nhebt kun je iedereen die je de\nlaatste tijd bent tegengekomen\nhet laten weten"
+    },
+    "alphaWarning": {
+      "demoPurpose": "Deze versie is alleen voor demonstratiedoeleinden.",
+      "notFullyImplemented": "Nog niet alle functies zijn geïmplementeerd en ook niet alles wordt gecontroleerd.",
+      "review": "Bekijk de app, bekijk de code en meld problemen, bugs of algemene feedback op",
+      "start": "oke, laten we beginnen"
+    },
+    "confimationCode": {
+      "enterCode": "Scan de QR-code die u bij uw test hebt ontvangen of voer de resultaat-ID in om uw positieve testresultaat te verifiëren.",
+      "buttonTitleSubmit": "Testverificatiecode ingevoerd"
+    },
+    "dataUpload": {
+      "thanks": "Bedankt voor het delen van uw\ngeverifieerde testresultaat.\n\nBeterschap!"
+    },
+    "homeTour": {
+      "circle": "Deze cirkel laat zien hoeveel ito-gebruikers je net bent tegengekomen. Maak je geen zorgen, het is slechts een indicator om te zien of je midden in veel ito-gebruikers zit of niet.",
+      "report": "Als u denkt dat u geïnfecteerd bent geraakt, meld dit dan met deze knop voor meer informatie over wat u vervolgens moet doen. Dit helpt ons ook om andere ito-gebruikers te informeren over hun mogelijke risico.",
+      "buttonTitleInfected": "Ik denk dat ik besmet ben"
+    },
+    "endangerment": {
+      "info": "Vertel ons of u symptomen heeft of dat u\neen positief testresultaat heeft",
+      "symptomsTitle": "Ik heb typische symptomen",
+      "symptomsText": "Maak je geen zorgen!\nWe zullen u helpen uit te zoeken wat u vervolgens moet doen.",
+      "positiveResultTitle": "Ik heb een positief resultaat",
+      "positiveResultText": "Als u een positief resultaat heeft gekregen van uw arts of autoriteiten, laat het ons dan weten zodat alle anderen gezond kunnen blijven."
+    }
+  }
+}
