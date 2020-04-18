@@ -72,7 +72,7 @@ export const OnboardingHow: React.FC<{
         />
       </View>
       <BasicButton
-        title="Get Started"
+        title={t('onboardingHow.buttonTitleGetStarted')}
         onPress={async (): Promise<void> => {
           const granted = await PermissionsAndroid.request(
             PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,

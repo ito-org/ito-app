@@ -50,7 +50,7 @@ type OnboardingScreenNavigationProp = StackNavigationProp<
 export const Onboarding: React.FC<{
   navigation: OnboardingScreenNavigationProp;
 }> = ({navigation}) => {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <View style={global.container}>

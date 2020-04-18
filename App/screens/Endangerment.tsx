@@ -74,7 +74,7 @@ export const Endangerment: React.FC<{
     <View style={styles.container}>
       <Header
         navigation={{
-          title: 'cancel',
+          title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
       />

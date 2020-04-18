@@ -49,7 +49,7 @@ declare const global: {HermesInternal: null | {}};
 export const App: React.FC<void> = () => {
   useEffect(() => {
     // Uncomment this to show onboarding again
-    AsyncStorage.setItem('userHasSeenOnboarding', 'false');
+    // AsyncStorage.setItem('userHasSeenOnboarding', 'false');
   });
 
   return (

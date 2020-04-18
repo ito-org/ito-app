@@ -182,7 +182,9 @@ export const HomeTour: React.FC<{
         />
       </View>
       <View style={styles.lastFetchRow}>
-        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Text style={styles.lastFetch}>
+          {t('home.lastIdFetch')}: {t('home.today')} 11:04
+        </Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
 
@@ -192,7 +194,7 @@ export const HomeTour: React.FC<{
             <View style={[styles.bubbleBox, styles.firstBubble]}>
               <Text style={styles.bubbleText}>{t('homeTour.circle')}</Text>
               <View style={styles.bubbleActions}>
-                <Text style={styles.next}>next</Text>
+                <Text style={styles.next}>{t('homeTour.next')}</Text>
                 <Icon name="chevron-right" size={18} style={styles.nextIcon} />
               </View>
               <View style={styles.bubbleTriangle} />
@@ -213,7 +215,7 @@ export const HomeTour: React.FC<{
           <View style={[styles.bubbleBox, styles.secondBubble]}>
             <Text style={styles.bubbleText}>{t('homeTour.report')}</Text>
             <View style={styles.bubbleActions}>
-              <Text style={styles.done}>done</Text>
+              <Text style={styles.done}>{t('homeTour.done')}</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
             <View style={styles.bubbleTriangle} />

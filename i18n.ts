@@ -5,7 +5,7 @@ import nl from './assets/locales/nl';
 
 import {NativeModules} from 'react-native';
 
-function getSystemLocale() {
+function getSystemLocale(): string {
   let locale;
   // iOS
   if (
@@ -27,7 +27,7 @@ function getSystemLocale() {
   return locale;
 }
 
-function getLangPrefix(lng) {
+function getLangPrefix(lng: string): string {
   let prefix = 'xx';
   if (lng.indexOf('_') > -1) {
     prefix = lng.split('_')[0];

@@ -53,7 +53,7 @@ export const AlphaPositiveResult: React.FC<{
     <View style={[global.container, styles.container]}>
       <Header
         navigation={{
-          title: 'cancel',
+          title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
         showHelp={true}
@@ -76,8 +76,8 @@ export const AlphaPositiveResult: React.FC<{
             NativeModules.ItoBluetooth.publishBeaconUUIDs(
               sevenDaysAgo,
               now,
-              (...argss) => {
-                console.log('uploaded', argss);
+              (success: boolean) => {
+                console.log('upload ' + success ? 'succeeded' : 'failed');
               },
             );
             navigation.navigate('DataUpload');
