@@ -13,28 +13,28 @@
       "buttonTitleReleaseResult": "Verwerk positief test resultaat"
     },
     "onboardingHow": {
-      "bluetooth": "We gebruiken je mobiel's bluetooth\nom uw mobiel alle andere\nito gebruikers om u heen te laten zien\n(en omgekeerd)",
-      "smartphone": "Uw mobiel onthoudt welke andere\nmobieltjes u hebt ontmoet. Deze\ndata staat alleen op uw mobiel",
-      "bell": "Wanneer iemand die u eerder hebt ontmoet\nbesmet is geraakt, dan krijg u\n bericht met wat te doen",
-      "shield2": "Als u bent besmet en positief\nbent getest dan kunt u iedereen\ndie u recent hebt ontmoet dit laten weten",
+      "bluetooth": "We gebruiken de Bluetooth functionaliteit\nom je mobiel alle andere\ngebruikers van deze app om je heen te laten zien\n(en omgekeerd)",
+      "smartphone": "Jouw mobiel onthoudt welke andere\nmobieltjes je hebt ontmoet. Deze\ndata staat alleen op jouw mobiel",
+      "bell": "Wanneer iemand die je eerder hebt ontmoet\nbesmet is geraakt, dan krijg je bericht\n met daarin meer informatie over wat je moet doen",
+      "shield2": "Als je bent besmet en positief\nbent getest dan kun je iedereen\ndie je recent hebt ontmoet dit laten weten",
       "buttonTitleGetStarted": "Begin"
     },
     "alphaWarning": {
       "demoPurpose": "Deze versie is alleen voor demonstratie-doeleinden.",
       "notFullyImplemented": "Niet alle functionaliteit is geimplementeerd en getest",
-      "review": "Test u a.u.b de app en check de code. Rapporteer problemen, bugs en algemene feedback aan",
+      "review": "Test a.u.b de app en check de code. Rapporteer problemen, bugs en algemene feedback aan",
       "start": "ok, begin"
     },
     "confimationCode": {
-      "enterCode": "A.u.b. scan de QR code die u van uw test hebt gekregen, of typ de ID van uw test-resultaat om uw positieve resultaat te verifieren",
+      "enterCode": "A.u.b. scan de QR code die je van jouw test hebt gekregen, of vul het ID van jouw test-resultaat in om je positieve resultaat te verifieren",
       "buttonTitleSubmit": "Ja, ik heb de test verificatie code ingegeven"
     },
     "dataUpload": {
-      "thanks": "Bedankt voor het delen\n van uw geverifieerde test resultaat.\n\nVoorspoedige beterschap!"
+      "thanks": "Bedankt voor het delen\n van je geverifieerde test resultaat.\n\nVoorspoedige beterschap!"
     },
     "homeTour": {
-      "circle": "De cirkel laat zien hoeveel ito gebruikers u recentelijk hebt ontmoet. Dat is prima! Dit laat alleen zien hoeveel ito gebruikers er in uw buurt zijn",
-      "report": "Als u denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt u ook aan anderen dat zij risiko lopen.",
+      "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima! Dit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn",
+      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
       "next": "volgende",
       "done": "klaar",
       "buttonTitleInfected": "ik denk dat ik besmet ben"
@@ -43,23 +43,23 @@
       "lastIdFetch": "Meest recente ID fetch",
       "today": "vandaag",
       "never": "nooit",
-      "alertContactDiscovered": "We hebben net ontdekt dat u dichtbij een Covid-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
+      "alertContactDiscovered": "We hebben zojuist ontdekt dat je dichtbij een Covid-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
       "whatNext": "Volgende stap",
       "contacts": "contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben"
     },
     "endangerment": {
-      "info": "Vertel of u symptomen heeft of een\npositieve Covid-19 test resultaat hebt",
+      "info": "Vertel of je symptomen heeft of een\npositieve Covid-19 test resultaat hebt",
       "symptomsTitle": "Ik heb typische Covid-19 symptomen",
-      "symptomsText": "Geen probleem! We helpen u\n met de volgende stappen.",
+      "symptomsText": "Geen probleem! We helpen jeu\n met de volgende stappen.",
       "positiveResultTitle": "Ik heb een positief Covid-19 test resultaat",
-      "positiveResultText": "Als u een positief resultaat heeft van de dokter of de autoriteiten\n laat het ons aub weten dan kunnen\n wij helpen verspeiding te voorkomen."
+      "positiveResultText": "Als je een positief resultaat hebt gekregen van een arts of de autoriteiten\n laat het ons aub weten dan kunnen\n wij helpen verspeiding te voorkomen."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
-      "explanation": "Check aub of u symptomen en situatie overeenkoment met een Covid-19 besmetting.\n\nOm een zelf-check te doen, gaat u naar de Nederlandse Covid-19 zelf-check app:",
-      "buttonTitleOpenDesignatedApp": "Open Nederalndse Covid-19 zelf-check app",
-      "buttonTitleNotInfected": "Lijkt erop dat ik NIET besmet ben",
+      "explanation": "Check aub of je symptomen hebt die overeenkomen met een Covid-19 besmetting.\n\nOm een zelf-check te doen, ga je naar de Nederlandse Covid-19 zelf-check app:",
+      "buttonTitleOpenDesignatedApp": "Open Nederlandse Covid-19 zelf-check app",
+      "buttonTitleNotInfected": "Het lijkt erop dat ik NIET besmet ben",
       "buttonTitlePositiveTest": "Ik heb een positief Covid-19 test resultaat"
     }
   }
