@@ -1,6 +1,7 @@
 # ito React Native App
-![Android](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg) 
-[![Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk)
+![Android Build](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg) 
+[![Android Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk)
+![License](https://img.shields.io/github/license/ito-org/react-native-app)
 
 ## Try it out
 You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk) For the app to recognize other devices, make sure to enable Bluetooth.
