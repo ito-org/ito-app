@@ -26,6 +26,7 @@ import {AlphaPositiveResult} from './screens/AlphaPositiveResult';
 import {IDMatch} from './screens/IDMatch';
 import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
 import {PositiveResult} from './screens/PositiveResult';
+import {Upload} from './screens/Upload';
 
 const Stack = createStackNavigator();
 
@@ -44,6 +45,7 @@ export type RootStackParamList = {
   AlphaPositiveResult: undefined;
   IDMatch: undefined;
   PositiveResult: undefined;
+  Upload: undefined;
 };
 
 declare const global: {HermesInternal: null | {}};
@@ -66,6 +68,7 @@ export const App: React.FC<void> = () => {
           <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
           <Stack.Screen name="Endangerment" component={Endangerment} />
           <Stack.Screen name="PositiveResult" component={PositiveResult} />
+          <Stack.Screen name="Upload" component={Upload} />
           <Stack.Screen
             name="BluetoothNotification"
             component={BluetoothNotification}

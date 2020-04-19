@@ -90,7 +90,7 @@ export const PositiveResult: React.FC<{
       <BasicButton
         title={t('positiveResult.buttonTitleOk')}
         variant="outlined"
-        onPress={() => navigation.navigate('DataUpload')}
+        onPress={() => navigation.navigate('Upload')}
       />
     </View>
   );

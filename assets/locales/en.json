@@ -70,6 +70,10 @@
       "buttonTitleOk": "Upload data",
       "camPermissionTitle": "Permission to use camera",
       "camPermissionText": "We need your permission to use your camera"
+    },
+    "uploadData": {
+      "info": "uploading test verification...\nthis might take a while",
+      "buttonTitleCancel": "cancel upload"
     }
   }
 }
