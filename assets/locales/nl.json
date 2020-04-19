@@ -1,7 +1,8 @@
 {
   "translation": {
     "global": {
-      "cancel": "Annuleer"
+      "cancel": "Annuleer",
+      "ok": "Ok"
     },
     "onboarding": {
       "motto": "Volg het virus, niet de mensen!",
@@ -61,6 +62,12 @@
       "buttonTitleOpenDesignatedApp": "Open Nederlandse Covid-19 zelf-check app",
       "buttonTitleNotInfected": "Het lijkt erop dat ik NIET besmet ben",
       "buttonTitlePositiveTest": "Ik heb een positief Covid-19 test resultaat"
+    },
+    "positiveResult": {
+      "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
+      "textPlaceholderEnterCode": "Vul verificatiecode in",
+      "cameraMessage": "Schakel aub camera in",
+      "buttonTitleOk": "Upload data"
     }
   }
 }

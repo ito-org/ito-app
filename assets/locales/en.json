@@ -1,7 +1,8 @@
 {
   "translation": {
     "global": {
-      "cancel": "cancel"
+      "cancel": "cancel",
+      "ok": "ok"
     },
     "onboarding": {
       "motto": "track infections, not people!",
@@ -61,6 +62,14 @@
       "buttonTitleOpenDesignatedApp": "Open designated app",
       "buttonTitleNotInfected": "Looks like I'm not infected",
       "buttonTitlePositiveTest": "I have a positive test result"
+    },
+    "positiveResult": {
+      "instruction": "Please scan the QR Code you got with your test or enter the result ID to verfiy your positive test result.",
+      "textPlaceholderEnterCode": "Enter verification code",
+      "cameraMessage": "Please enable camera",
+      "buttonTitleOk": "Upload data",
+      "camPermissionTitle": "Permission to use camera",
+      "camPermissionText": "We need your permission to use your camera"
     }
   }
 }
