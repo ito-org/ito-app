@@ -1,7 +1,8 @@
 {
   "translation": {
     "global": {
-      "cancel": "Annuleer"
+      "cancel": "Annuleer",
+      "ok": "Ok"
     },
     "onboarding": {
       "motto": "Volg het virus, niet de mensen!",
