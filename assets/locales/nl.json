@@ -13,10 +13,10 @@
       "buttonTitleReleaseResult": "Verwerk positief test resultaat"
     },
     "onboardingHow": {
-      "bluetooth": "We gebruiken de Bluetooth functionaliteit\nom je mobiel alle andere\ngebruikers van deze app om je heen te laten zien\n(en omgekeerd)",
-      "smartphone": "Jouw mobiel onthoudt welke andere\nmobieltjes je hebt ontmoet. Deze\ndata staat alleen op jouw mobiel",
-      "bell": "Wanneer iemand die je eerder hebt ontmoet\nbesmet is geraakt, dan krijg je bericht\n met daarin meer informatie over wat je moet doen",
-      "shield2": "Als je bent besmet en positief\nbent getest dan kun je iedereen\ndie je recent hebt ontmoet dit laten weten",
+      "bluetooth": "We gebruiken de Bluetooth\nfunctionaliteit om je mobiel\nalle andere gebruikers van deze\napp om je heen te laten zien",
+      "smartphone": "Jouw mobiel onthoudt welke\nandere mobieltjes je hebt\nontmoet. Deze data staat\nalleen op jouw mobiel",
+      "bell": "Wanneer iemand die je eerder\nhebt ontmoet besmet is geraakt,\ndan krijg je bericht met daarin meer\ninformatie over wat je moet doen",
+      "shield2": "Als je bent besmet en positief\nbent getest dan kun je iedereen\ndie je recent hebt ontmoet dit\nlaten weten",
       "buttonTitleGetStarted": "Begin"
     },
     "alphaWarning": {
