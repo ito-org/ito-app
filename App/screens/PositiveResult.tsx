@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     alignSelf: 'center',
     textAlign: 'center',
+    color: '#595959',
   },
   enterCode: {
     marginLeft: 10,
@@ -38,9 +39,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textInput: {
-    backgroundColor: '#91e6d3',
-    textDecorationLine: 'underline',
     fontFamily: 'Ubuntu-R',
+    backgroundColor: '#91e6d3',
+    color: '#595959',
+    borderBottomWidth: 1,
   },
 });
 
