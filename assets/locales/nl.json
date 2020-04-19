@@ -13,10 +13,10 @@
       "buttonTitleReleaseResult": "Verwerk positief test resultaat"
     },
     "onboardingHow": {
-      "bluetooth": "We gebruiken de Bluetooth\nfunctionaliteit om je mobiel\nalle andere gebruikers van deze\napp om je heen te laten zien",
-      "smartphone": "Jouw mobiel onthoudt welke\nandere mobieltjes je hebt\nontmoet. Deze data staat\nalleen op jouw mobiel",
-      "bell": "Wanneer iemand die je eerder\nhebt ontmoet besmet is geraakt,\ndan krijg je bericht met daarin meer\ninformatie over wat je moet doen",
-      "shield2": "Als je bent besmet en positief\nbent getest dan kun je iedereen\ndie je recent hebt ontmoet dit\nlaten weten",
+      "bluetooth": "we gebruiken de Bluetooth functionaliteit om je mobiel\nalle andere gebruikers van\ndeze app om je heen te\nlaten zien",
+      "smartphone": "jouw mobiel onthoudt welke\nandere mobieltjes je hebt\nontmoet. deze data staat\nalleen op jouw mobiel",
+      "bell": "wanneer iemand die je eerder\nhebt ontmoet besmet is\ngeraakt, dan krijg je bericht\nmet daarin meer informatie\nover wat je moet doen",
+      "shield2": "als je bent besmet en\npositief bent getest dan kun\nje iedereen die je recent hebt\nontmoet dit laten weten",
       "buttonTitleGetStarted": "Begin"
     },
     "alphaWarning": {
@@ -33,8 +33,8 @@
       "thanks": "Bedankt voor het delen\n van je geverifieerde test resultaat.\n\nVoorspoedige beterschap!"
     },
     "homeTour": {
-      "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima! Dit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn",
-      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meld je ook aan anderen dat zij risico lopen.",
+      "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima!\nDit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn.",
+      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
       "next": "volgende",
       "done": "klaar",
       "buttonTitleInfected": "ik denk dat ik besmet ben"
@@ -51,9 +51,9 @@
     "endangerment": {
       "info": "Vertel of je symptomen of een\npositieve Covid-19 test resultaat hebt",
       "symptomsTitle": "Ik heb typische Covid-19 symptomen",
-      "symptomsText": "Geen probleem! We helpen jeu\n met de volgende stappen.",
+      "symptomsText": "Geen probleem! We helpen jeu\nmet de volgende stappen.",
       "positiveResultTitle": "Ik heb een positief Covid-19 test resultaat",
-      "positiveResultText": "Als je een positief resultaat hebt gekregen van een arts of de autoriteiten\n laat het ons aub weten dan kunnen\n wij helpen verspeiding te voorkomen."
+      "positiveResultText": "Als je een positief resultaat hebt gekregen\nvan een arts of de autoriteiten\nlaat het ons aub weten dan kunnen\nwij helpen verspeiding te voorkomen."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
