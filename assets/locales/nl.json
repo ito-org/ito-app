@@ -21,12 +21,12 @@
     },
     "alphaWarning": {
       "demoPurpose": "Deze versie is alleen voor demonstratie-doeleinden.",
-      "notFullyImplemented": "Niet alle functionaliteit is geimplementeerd en getest",
+      "notFullyImplemented": "Nog niet alle functionaliteiten zijn geïmplementeerd en goedgekeurd door de benodigde autoriteiten",
       "review": "Test a.u.b de app en check de code. Rapporteer problemen, bugs en algemene feedback aan",
       "start": "ok, begin"
     },
     "confimationCode": {
-      "enterCode": "A.u.b. scan de QR code die je van jouw test hebt gekregen, of vul het ID van jouw test-resultaat in om je positieve resultaat te verifieren",
+      "enterCode": "Scan de QR code die je van jouw test hebt gekregen, of vul het ID van jouw test-resultaat in om je positieve resultaat te verifieren",
       "buttonTitleSubmit": "Ja, ik heb de test verificatie code ingegeven"
     },
     "dataUpload": {
@@ -34,7 +34,7 @@
     },
     "homeTour": {
       "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima! Dit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn",
-      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
+      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meld je ook aan anderen dat zij risico lopen.",
       "next": "volgende",
       "done": "klaar",
       "buttonTitleInfected": "ik denk dat ik besmet ben"
@@ -49,7 +49,7 @@
       "buttonTitleInfected": "Ik denk dat ik besmet ben"
     },
     "endangerment": {
-      "info": "Vertel of je symptomen heeft of een\npositieve Covid-19 test resultaat hebt",
+      "info": "Vertel of je symptomen hebt of een\npositieve Covid-19 test resultaat hebt",
       "symptomsTitle": "Ik heb typische Covid-19 symptomen",
       "symptomsText": "Geen probleem! We helpen jeu\n met de volgende stappen.",
       "positiveResultTitle": "Ik heb een positief Covid-19 test resultaat",
