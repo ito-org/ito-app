@@ -63,7 +63,7 @@
       "buttonTitlePositiveTest": "Ik heb een positief Covid-19 test resultaat"
     },
     "positiveResult": {
-      "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul het ID van het resultaat in, om je test resultaat te verifiëren",
+      "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
       "textPlaceholderEnterCode": "Vul verificatiecode in",
       "cameraMessage": "Schakel aub camera in",
       "buttonTitleOk": "Upload data"
