@@ -65,7 +65,8 @@
     "positiveResult": {
       "instruction": "Please scan the QR Code you got with your test or enter the result ID to verfiy your positive test result.",
       "textPlaceholderEnterCode": "Enter verification code",
-      "cameraMessage": "Please enable camera"
+      "cameraMessage": "Please enable camera",
+      "buttonTitleOk": "Upload data"
     }
   }
 }

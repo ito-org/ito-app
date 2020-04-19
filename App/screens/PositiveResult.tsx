@@ -7,6 +7,7 @@ import {View, StyleSheet, Text} from 'react-native';
 import global, {design} from '../styles';
 import Icon from 'react-native-vector-icons/Feather';
 import {TextInput} from 'react-native-gesture-handler';
+import BasicButton from '../components/BasicButton';
 
 type PositiveResultScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -29,8 +30,8 @@ const styles = StyleSheet.create({
     color: '#595959',
   },
   enterCode: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 20,
+    marginRight: 20,
     marginBottom: 100,
   },
   centered: {
@@ -51,7 +52,6 @@ export const PositiveResult: React.FC<{
 }> = ({navigation}) => {
   const {t} = useTranslation();
 
-  //TODO: navigation.navigate('DataUpload') after entering key or qr
   return (
     <View style={[global.container]}>
       <Header
@@ -74,6 +74,11 @@ export const PositiveResult: React.FC<{
       <TextInput
         style={[styles.textInput, styles.enterCode]}
         placeholder={t('positiveResult.textPlaceholderEnterCode')}
+      />
+      <BasicButton
+        title={t('positiveResult.buttonTitleOk')}
+        variant="outlined"
+        onPress={() => navigation.navigate('DataUpload')}
       />
     </View>
   );
