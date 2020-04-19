@@ -34,17 +34,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 100,
   },
-  centered: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textInput: {
-    fontFamily: 'Ubuntu-R',
-    backgroundColor: '#91e6d3',
-    color: '#595959',
-    borderBottomWidth: 1,
-  },
 });
 
 export const PositiveResult: React.FC<{
@@ -63,7 +52,7 @@ export const PositiveResult: React.FC<{
         showAlpha={false}
       />
       <Text style={design.explanation}>{t('positiveResult.instruction')}</Text>
-      <View style={[styles.centered]}>
+      <View style={design.center}>
         <Icon name="camera" style={styles.icon} size={80}>
           {'\n'}
           <Text style={design.explanation}>
@@ -72,7 +61,7 @@ export const PositiveResult: React.FC<{
         </Icon>
       </View>
       <TextInput
-        style={[styles.textInput, styles.enterCode]}
+        style={[design.textInput, styles.enterCode]}
         placeholder={t('positiveResult.textPlaceholderEnterCode')}
       />
       <BasicButton

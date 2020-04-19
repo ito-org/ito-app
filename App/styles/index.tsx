@@ -32,4 +32,15 @@ export const design = {
     fontFamily: 'Righteous-Regular',
     marginBottom: 16,
   },
+  textInput: {
+    fontFamily: 'Ubuntu-R',
+    backgroundColor: '#91e6d3',
+    color: '#595959',
+    borderBottomWidth: 1,
+  },
+  center: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 };
