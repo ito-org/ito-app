@@ -80,7 +80,7 @@ export const AlphaPositiveResult: React.FC<{
                 console.log('upload ' + success ? 'succeeded' : 'failed');
               },
             );
-            navigation.navigate('DataUpload');
+            navigation.navigate('PositiveResult');
           }}
         />
       </View>
