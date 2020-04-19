@@ -6,6 +6,8 @@
 ## Try it out
 You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk) For the app to recognize other devices, make sure to enable Bluetooth.
 
+Also, the location icon commonly referred to by "GPS" needs to be active to be able to scan for other devices. We do not use this to locate you.
+
 ## Development
 ### User flow
 
