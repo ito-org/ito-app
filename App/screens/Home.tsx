@@ -118,6 +118,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-R',
     color: '#595959',
   },
+  visible: {opacity: 1},
+  invisible: {opacity: 0},
 });
 
 const stylesNoContacts = StyleSheet.create({
@@ -160,12 +162,6 @@ const stylesManyContacts = StyleSheet.create({
 });
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
-
-const invisibleCircles = {opacity: 0};
-const visibleCircles = undefined;
-
-const toggleTracingIcon = (prev: string): string =>
-  prev === 'play' ? 'pause' : 'play';
 
 export const Home: React.FC<{
   navigation: HomeScreenNavigationProp;
@@ -295,19 +291,7 @@ export const Home: React.FC<{
   const circle2Diameter =
     avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
 
-  const [toggleTracingButtonIcon, setToggleTracingButtonIcon] = useState(
-    'pause',
-  );
-
-  const [circleVisibility, setCircleVisibility] = useState<undefined | {}>(
-    visibleCircles,
-  );
-
-  const [pausedTextVisibility, setPausedTextVisibility] = useState<{
-    opacity: number;
-  }>({
-    opacity: 0,
-  });
+  const [isBLERunning, setIsBLERunning] = useState(true);
 
   return (
     <TouchableWithoutFeedback>
@@ -339,25 +323,19 @@ export const Home: React.FC<{
         </View>
         <View style={styles.radiusContainer}>
           <Icon
-            name={toggleTracingButtonIcon}
+            name={isBLERunning ? 'pause' : 'play'}
             style={styles.radius1Icon}
             size={30}
             onPress={(): void => {
-              setToggleTracingButtonIcon(
-                toggleTracingIcon(toggleTracingButtonIcon),
-              );
-              setCircleVisibility(
-                circleVisibility === visibleCircles
-                  ? invisibleCircles
-                  : visibleCircles,
-              );
-              setPausedTextVisibility({
-                opacity: pausedTextVisibility.opacity === 0 ? 1 : 0,
-              });
+              setIsBLERunning(() => !isBLERunning);
             }}
           />
           <Text style={[radius1Style]} />
-          <Text style={[styles.pausedText, pausedTextVisibility]}>
+          <Text
+            style={[
+              styles.pausedText,
+              isBLERunning ? styles.invisible : styles.visible,
+            ]}>
             app is paused {'\n'}press to resume collection
           </Text>
           <Text
@@ -369,10 +347,15 @@ export const Home: React.FC<{
                 borderRadius: circle2Diameter / 2,
                 top: 185 - circle2Diameter / 2,
               },
-              circleVisibility,
+              isBLERunning ? styles.visible : styles.invisible,
             ]}
           />
-          <Text style={[radius3Style, circleVisibility]} />
+          <Text
+            style={[
+              radius3Style,
+              isBLERunning ? styles.visible : styles.invisible,
+            ]}
+          />
         </View>
         <Text style={contactsStyle}>{`${distances.length} ${t(
           'home.contacts',
