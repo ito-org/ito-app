@@ -17,7 +17,6 @@ import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
-import {Circle} from 'react-native-svg';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
