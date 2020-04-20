@@ -1,10 +1,10 @@
 # ito React Native App
 ![Android Build](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg) 
-[![Android Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk)
+[![Android Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest)
 ![License](https://img.shields.io/github/license/ito-org/react-native-app)
 
 ## Try it out
-You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest/download/app-release.apk) For the app to recognize other devices, make sure to enable Bluetooth.
+You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest) For the app to recognize other devices, make sure to enable Bluetooth.
 
 Also, the location icon commonly referred to by "GPS" needs to be active to be able to scan for other devices. We do not use this to locate you.
 
