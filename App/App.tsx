@@ -16,6 +16,7 @@ import {AlphaWarning} from './screens/AlphaWarning';
 import {Onboarding} from './screens/Onboarding';
 import {OnboardingHow} from './screens/OnboardingHow';
 import {HomeBluetooth} from './screens/HomeBluetooth';
+import {HomeTourOLD} from './screens/HomeTourOLD';
 import {HomeTour} from './screens/HomeTour';
 import {Endangerment} from './screens/Endangerment';
 import {BluetoothNotification} from './screens/BluetoothNotification';
@@ -35,6 +36,7 @@ export type RootStackParamList = {
   AlphaWarning: undefined;
   Onboarding: undefined;
   OnboardingHow: undefined;
+  HomeTour_OLD: undefined;
   HomeTour: undefined;
   HomeBluetooth: undefined;
   Endangerment: undefined;
@@ -65,6 +67,7 @@ export const App: React.FC<void> = () => {
           <Stack.Screen name="Onboarding" component={Onboarding} />
           <Stack.Screen name="OnboardingHow" component={OnboardingHow} />
           <Stack.Screen name="HomeTour" component={HomeTour} />
+          <Stack.Screen name="HomeTourOLD" component={HomeTourOLD} />
           <Stack.Screen name="HomeBluetooth" component={HomeBluetooth} />
           <Stack.Screen name="Endangerment" component={Endangerment} />
           <Stack.Screen name="PositiveResult" component={PositiveResult} />

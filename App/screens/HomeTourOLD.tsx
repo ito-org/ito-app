@@ -80,9 +80,6 @@ const styles = StyleSheet.create({
     top: -6,
   },
   secondBubble: {
-    top: 230,
-  },
-  thirdBubble: {
     bottom: 78,
   },
   next: {
@@ -110,39 +107,14 @@ const styles = StyleSheet.create({
     borderTopWidth: 24,
     alignSelf: 'center',
   },
-  bubbleTriangleTop: {
-    position: 'absolute',
-    width: 0,
-    height: 0,
-    top: -24,
-    transform: [{rotateX: '180deg'}],
-    borderTopColor: 'white',
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-    borderLeftWidth: 24,
-    borderRightWidth: 24,
-    borderTopWidth: 24,
-    alignSelf: 'center',
-  },
   radiusContainer: {
     marginBottom: 16,
     alignItems: 'center',
-  },
-  radius1Icon: {
-    position: 'absolute',
-    top: 155,
-    paddingLeft: 35,
-    width: 100,
-    height: 100,
-    zIndex: 3,
   },
   radius1: {
     position: 'absolute',
     top: 120,
     borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'black',
     width: 100,
     height: 100,
     backgroundColor: 'hsl(167, 20%, 58%)',
@@ -190,13 +162,13 @@ const styles = StyleSheet.create({
   },
 });
 
-type HomeTourScreenNavigationProp = StackNavigationProp<
+type HomeTourOLDScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  'HomeTour'
+  'HomeTour_OLD'
 >;
 
-export const HomeTour: React.FC<{
-  navigation: HomeTourScreenNavigationProp;
+export const HomeTourOLD: React.FC<{
+  navigation: HomeTour_OLDScreenNavigationProp;
 }> = ({navigation}) => {
   const [step, setStep] = useState(1);
   const {t} = useTranslation();
@@ -229,31 +201,18 @@ export const HomeTour: React.FC<{
             </View>
           </TouchableWithoutFeedback>
         )}
-        {step === 2 && (
-          <TouchableWithoutFeedback onPress={(): void => setStep(3)}>
-            <View style={[styles.bubbleBox, styles.secondBubble]}>
-              <View style={styles.bubbleTriangleTop} />
-              <Text style={styles.bubbleText}>{t('homeTour.pause')}</Text>
-              <View style={styles.bubbleActions}>
-                <Text style={styles.done}>{t('homeTour.next')}</Text>
-                <Icon name="chevron-right" size={18} style={styles.nextIcon} />
-              </View>
-            </View>
-          </TouchableWithoutFeedback>
-        )}
         <Text style={styles.radius1} />
-        <Icon name="pause" style={styles.radius1Icon} size={30}></Icon>
         <Text style={styles.radius2} />
         <Text style={styles.radius3} />
       </View>
       <Text style={styles.contacts}>just a few contacts around you</Text>
-      {step === 3 && (
+      {step === 2 && (
         <TouchableWithoutFeedback
           onPress={(): void => {
             AsyncStorage.setItem('userHasSeenOnboarding', 'true');
             navigation.navigate('HomeBluetooth');
           }}>
-          <View style={[styles.bubbleBox, styles.thirdBubble]}>
+          <View style={[styles.bubbleBox, styles.secondBubble]}>
             <Text style={styles.bubbleText}>{t('homeTour.report')}</Text>
             <View style={styles.bubbleActions}>
               <Text style={styles.done}>{t('homeTour.done')}</Text>
@@ -274,4 +233,4 @@ export const HomeTour: React.FC<{
     </View>
   );
 };
-export default HomeTour;
+export default HomeTourOLD;
