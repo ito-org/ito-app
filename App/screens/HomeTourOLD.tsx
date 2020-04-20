@@ -168,7 +168,7 @@ type HomeTourOLDScreenNavigationProp = StackNavigationProp<
 >;
 
 export const HomeTourOLD: React.FC<{
-  navigation: HomeTour_OLDScreenNavigationProp;
+  navigation: HomeTourOLDScreenNavigationProp;
 }> = ({navigation}) => {
   const [step, setStep] = useState(1);
   const {t} = useTranslation();
