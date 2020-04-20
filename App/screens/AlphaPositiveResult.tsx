@@ -52,7 +52,7 @@ export const AlphaPositiveResult: React.FC<{
   return (
     <View style={[global.container, styles.container]}>
       <Header
-        navigation={{
+        navigationButton={{
           title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}

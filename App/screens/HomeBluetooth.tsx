@@ -290,7 +290,7 @@ export const HomeBluetooth: React.FC<{
         )}
         <Header
           showHelp={true}
-          navigation={{
+          navigationButton={{
             title: 'new Home',
             fn: () => {
               navigation.navigate('Home');

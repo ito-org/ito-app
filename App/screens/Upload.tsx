@@ -64,7 +64,7 @@ export const Upload: React.FC<{
   return (
     <View style={[global.container]}>
       <Header
-        navigation={{
+        navigationButton={{
           title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
