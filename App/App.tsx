@@ -21,7 +21,6 @@ import {Endangerment} from './screens/Endangerment';
 import {BluetoothNotification} from './screens/BluetoothNotification';
 import {SymptomInfo} from './screens/SymptomInfo';
 import {DataUpload} from './screens/DataUpload';
-import {ConfirmationCode} from './screens/ConfirmationCode';
 import {AlphaPositiveResult} from './screens/AlphaPositiveResult';
 import {IDMatch} from './screens/IDMatch';
 import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -41,7 +40,6 @@ export type RootStackParamList = {
   Endangerment: undefined;
   BluetoothNotification: undefined;
   SymptomInfo: undefined;
-  ConfirmationCode: undefined;
   DataUpload: undefined;
   AlphaPositiveResult: undefined;
   IDMatch: undefined;
@@ -83,7 +81,6 @@ export const App: React.FC<void> = () => {
             name="AlphaPositiveResult"
             component={AlphaPositiveResult}
           />
-          <Stack.Screen name="ConfirmationCode" component={ConfirmationCode} />
           <Stack.Screen name="DataUpload" component={DataUpload} />
         </Stack.Navigator>
       </NavigationContainer>

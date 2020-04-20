@@ -156,7 +156,7 @@ export const HomeBluetooth: React.FC<{
   const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
   const emitter = useRef<NativeEventEmitter | null>(null);
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
-  console.log(latestFetchTime);
+  console.log('Latest fetch time:', latestFetchTime);
   const latestFetchDate =
     latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
   const latestFetch =
@@ -167,7 +167,7 @@ export const HomeBluetooth: React.FC<{
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
     const listener = (ds: never[]): void => {
-      console.log('distances changed', ds);
+      console.log('Distances changed:', ds);
       setDistances(ds);
     };
     emitter.current.addListener('onDistancesChanged', listener);
