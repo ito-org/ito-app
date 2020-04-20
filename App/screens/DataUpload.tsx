@@ -31,7 +31,7 @@ export const DataUpload: React.FC<{
   return (
     <View style={global.container}>
       <Header
-        navigation={{
+        navigationButton={{
           title: 'home',
           fn: (): void => navigation.navigate('HomeBluetooth'),
         }}

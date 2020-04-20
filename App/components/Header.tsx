@@ -9,6 +9,8 @@ import Icon from 'react-native-vector-icons/Feather';
 import {NavigationButton} from './NavigationButton';
 import {Logo} from './Logo';
 import {AlphaNotice} from './AlphaNotice';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   root: {
@@ -36,7 +38,7 @@ interface HeaderProps {
   showAlpha?: boolean;
   showHelp?: boolean;
   style?: object;
-  navigation?: {
+  navigationButton?: {
     title: string;
     fn: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   };
@@ -45,15 +47,17 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   showAlpha = true,
   showHelp = false,
-  navigation,
+  navigationButton,
   style = {},
 }) => {
+  const {navigate} = useNavigation();
+
   return (
     <View style={[styles.root, style]}>
-      {navigation ? (
+      {navigationButton ? (
         <NavigationButton
-          onPress={navigation.fn}
-          title={navigation.title}
+          onPress={navigationButton.fn}
+          title={navigationButton.title}
           style={styles.navigationButton}
         />
       ) : null}
@@ -67,7 +71,12 @@ export const Header: React.FC<HeaderProps> = ({
         ) : null}
       </View>
       {showHelp ? (
-        <Icon style={styles.questionMark} name="help-circle" size={24} />
+        <Icon
+          style={styles.questionMark}
+          name="help-circle"
+          size={24}
+          onPress={() => navigate('Onboarding')}
+        />
       ) : null}
     </View>
   );
