@@ -165,10 +165,8 @@ type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 const invisibleCircles = {opacity: 0};
 const visibleCircles = undefined;
 
-const toggleTracingIcon = (prev: string): string => {
-  if (prev == 'play') return 'pause';
-  else return 'play';
-};
+const toggleTracingIcon = (prev: string): string =>
+  prev === 'play' ? 'pause' : 'play';
 
 export const Home: React.FC<{
   navigation: HomeScreenNavigationProp;
@@ -179,7 +177,7 @@ export const Home: React.FC<{
   const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
   const emitter = useRef<NativeEventEmitter | null>(null);
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
-  console.log(latestFetchTime);
+  console.log('Latest fetch time:', latestFetchTime);
   const latestFetchDate =
     latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
   const latestFetch =
@@ -190,7 +188,7 @@ export const Home: React.FC<{
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
     const listener = (ds: never[]): void => {
-      console.log('distances changed', ds);
+      console.log('Distances changed:', ds);
       setDistances(ds);
     };
     emitter.current.addListener('onDistancesChanged', listener);
@@ -329,7 +327,7 @@ export const Home: React.FC<{
           showHelp={true}
           navigation={{
             title: 'old Home',
-            fn: () => {
+            fn: (): void => {
               navigation.navigate('HomeBluetooth');
             },
           }}
@@ -345,21 +343,20 @@ export const Home: React.FC<{
             name={toggleTracingButtonIcon}
             style={styles.radius1Icon}
             size={30}
-            onPress={() => {
+            onPress={(): void => {
               setToggleTracingButtonIcon(
                 toggleTracingIcon(toggleTracingButtonIcon),
               );
-              setCircleVisibility(() => {
-                if (circleVisibility === visibleCircles)
-                  return invisibleCircles;
-                else return visibleCircles;
+              setCircleVisibility(
+                circleVisibility === visibleCircles
+                  ? invisibleCircles
+                  : visibleCircles,
+              );
+              setPausedTextVisibility({
+                opacity: pausedTextVisibility.opacity === 0 ? 1 : 0,
               });
-
-              setPausedTextVisibility(() => {
-                if (pausedTextVisibility.opacity === 0) return {opacity: 1};
-                else return {opacity: 0};
-              });
-            }}></Icon>
+            }}
+          />
           <Text style={[radius1Style]} />
           <Text style={[styles.pausedText, pausedTextVisibility]}>
             app is paused {'\n'}press to resume collection
