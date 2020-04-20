@@ -327,7 +327,7 @@ export const Home: React.FC<{
             style={styles.radius1Icon}
             size={30}
             onPress={(): void => {
-              setIsBLERunning(() => !isBLERunning);
+              setIsBLERunning((): boolean => !isBLERunning);
             }}
           />
           <Text style={[radius1Style]} />
