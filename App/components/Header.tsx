@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Feather';
 import {NavigationButton} from './NavigationButton';
 import {Logo} from './Logo';
 import {AlphaNotice} from './AlphaNotice';
-import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
