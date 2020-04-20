@@ -46,8 +46,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 135,
     borderRadius: 50,
+    borderWidth: 5,
+    borderColor: 'black',
     width: 100,
     height: 100,
+  },
+  radius1Icon: {
+    position: 'absolute',
+    top: 170,
+    paddingLeft: 35,
+    width: 100,
+    height: 100,
+    zIndex: 3,
   },
   radius2: {
     position: 'absolute',
@@ -142,13 +152,15 @@ const stylesManyContacts = StyleSheet.create({
   contacts: {},
 });
 
-type HomeBluetoothScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'HomeBluetooth'
->;
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
-export const HomeBluetooth: React.FC<{
-  navigation: HomeBluetoothScreenNavigationProp;
+const toggleTracingIcon = (prev: string): string => {
+  if (prev == 'play') return 'pause';
+  else return 'play';
+};
+
+export const Home: React.FC<{
+  navigation: HomeScreenNavigationProp;
 }> = ({navigation}) => {
   const {t} = useTranslation();
   const [distances, setDistances] = useState<never[]>([]);
@@ -156,7 +168,7 @@ export const HomeBluetooth: React.FC<{
   const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
   const emitter = useRef<NativeEventEmitter | null>(null);
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
-  console.log('Latest fetch time:', latestFetchTime);
+  console.log(latestFetchTime);
   const latestFetchDate =
     latestFetchTime === -1 ? null : new Date(latestFetchTime * 1000);
   const latestFetch =
@@ -167,7 +179,7 @@ export const HomeBluetooth: React.FC<{
     console.log('Setting distance event listener');
     emitter.current = new NativeEventEmitter(NativeModules.ItoBluetooth);
     const listener = (ds: never[]): void => {
-      console.log('Distances changed:', ds);
+      console.log('distances changed', ds);
       setDistances(ds);
     };
     emitter.current.addListener('onDistancesChanged', listener);
@@ -275,6 +287,10 @@ export const HomeBluetooth: React.FC<{
   const circle2Diameter =
     avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
 
+  const [toggleTracingButtonIcon, setToggleTracingButtonIcon] = useState(
+    'pause',
+  );
+
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
@@ -291,9 +307,9 @@ export const HomeBluetooth: React.FC<{
         <Header
           showHelp={true}
           navigation={{
-            title: 'new Home',
+            title: 'old Home',
             fn: () => {
-              navigation.navigate('Home');
+              navigation.navigate('HomeBluetooth');
             },
           }}
         />
@@ -304,6 +320,15 @@ export const HomeBluetooth: React.FC<{
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
         </View>
         <View style={styles.radiusContainer}>
+          <Icon
+            name={toggleTracingButtonIcon}
+            style={styles.radius1Icon}
+            size={30}
+            onPress={() => {
+              setToggleTracingButtonIcon(
+                toggleTracingIcon(toggleTracingButtonIcon),
+              );
+            }}></Icon>
           <Text style={radius1Style} />
           <Text
             style={[
@@ -333,4 +358,4 @@ export const HomeBluetooth: React.FC<{
     </TouchableWithoutFeedback>
   );
 };
-export default HomeBluetooth;
+export default Home;

@@ -1,14 +1,16 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode, useState, useEffect} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../App';
 import {useTranslation} from 'react-i18next';
 import {Header} from '../components/Header';
-import {View, StyleSheet, Text, Dimensions} from 'react-native';
+import {View, StyleSheet, Text, Dimensions, NativeModules} from 'react-native';
 import global, {design} from '../styles';
 import Icon from 'react-native-vector-icons/Feather';
 import {TextInput} from 'react-native-gesture-handler';
 import {RNCamera} from 'react-native-camera';
 import BasicButton from '../components/BasicButton';
+
+const {ItoBluetooth} = NativeModules;
 
 type PositiveResultScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -42,6 +44,23 @@ export const PositiveResult: React.FC<{
 }> = ({navigation}) => {
   const {t} = useTranslation();
 
+  const [uploadSuccess, setUploadSuccess] = useState(null);
+  useEffect(() => {
+    if (uploadSuccess === null) {
+      return;
+    }
+    if (uploadSuccess) {
+      console.log('TCN Upload succeeded');
+      setTimeout((): void => {
+        navigation.navigate('DataUpload');
+      }, 1000);
+    } else {
+      console.warn('TCN Upload failed');
+      setTimeout((): void => {
+        navigation.navigate('DataUpload');
+      }, 1000);
+    }
+  }, [navigation, uploadSuccess]);
   return (
     <View style={[global.container]}>
       <Header
@@ -66,12 +85,16 @@ export const PositiveResult: React.FC<{
             buttonPositive: t('global.ok'),
             buttonNegative: t('global.cancel'),
           }}
-          onBarCodeRead={(data) => {
-            console.warn(data);
+          onBarCodeRead={(data: object): void => {
+            console.warn('onBarCodeRead:', data);
           }}>
-          {({camera, status, recordAudioPermissionStatus}): ReactNode => {
-            console.log(status);
-            if (status !== 'READY')
+          {({
+            camera: _camera,
+            status,
+            recordAudioPermissionStatus: _recordAudioPermissionStatus,
+          }): ReactNode => {
+            console.log('RNCamera status:', status);
+            if (status !== 'READY') {
               return (
                 <Icon name="camera" style={styles.icon} size={80}>
                   {'\n'}
@@ -80,6 +103,7 @@ export const PositiveResult: React.FC<{
                   </Text>
                 </Icon>
               );
+            }
           }}
         </RNCamera>
       </View>
@@ -90,7 +114,23 @@ export const PositiveResult: React.FC<{
       <BasicButton
         title={t('positiveResult.buttonTitleOk')}
         variant="outlined"
-        onPress={() => navigation.navigate('DataUpload')}
+        onPress={(): void => {
+          // allows uploading again when going back / visiting the screen anew
+          // going back should be prevented once actual verification is implemented
+          setUploadSuccess(null);
+          // TODO: make timeframe for uploading TCNS configurable
+          const now = Date.now() / 1000;
+          const sevenDaysAgo = now - 7 * 24 * 60 * 60;
+          // FIXME: store this timeout and clear it to allow cancelling
+          setTimeout(() => {
+            ItoBluetooth.publishBeaconUUIDs(
+              sevenDaysAgo,
+              now,
+              setUploadSuccess,
+            );
+          }, 2000);
+          navigation.navigate('Upload');
+        }}
       />
     </View>
   );
