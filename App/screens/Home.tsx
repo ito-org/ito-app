@@ -17,6 +17,8 @@ import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
+import ShieldIcon from '../components/ShieldIcon';
+import {BottomMenu, MenuItem} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -368,8 +370,17 @@ export const Home: React.FC<{
           titleStyle={styles.buttonInfectedTitle}
           buttonStyle={styles.buttonInfected}
         />
+        <BottomMenu menuItems={menuItems}></BottomMenu>
       </View>
     </TouchableWithoutFeedback>
   );
 };
+
+const menuItems: MenuItem[] = [
+  {title: 'Tracing', icon: 'hexagon', active: true},
+  {title: 'Infected?', icon: 'sun', active: false},
+  {title: 'Help', icon: 'help-circle', active: false},
+  {title: 'About ito', icon: 'info', active: false},
+];
+
 export default Home;
