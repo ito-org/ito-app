@@ -17,6 +17,7 @@ import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
+import {Circle} from 'react-native-svg';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -153,6 +154,9 @@ const stylesManyContacts = StyleSheet.create({
 });
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+const invisibleCircles = {opacity: 0};
+const visibleCircles = undefined;
 
 const toggleTracingIcon = (prev: string): string => {
   if (prev == 'play') return 'pause';
@@ -291,6 +295,10 @@ export const Home: React.FC<{
     'pause',
   );
 
+  const [circleVisibility, setCircleVisibility] = useState<undefined | {}>(
+    StyleSheet.flatten([visibleCircles]),
+  );
+
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
@@ -328,8 +336,13 @@ export const Home: React.FC<{
               setToggleTracingButtonIcon(
                 toggleTracingIcon(toggleTracingButtonIcon),
               );
+              setCircleVisibility(() => {
+                if (circleVisibility === visibleCircles)
+                  return invisibleCircles;
+                else return visibleCircles;
+              });
             }}></Icon>
-          <Text style={radius1Style} />
+          <Text style={[radius1Style]} />
           <Text
             style={[
               radius2Style,
@@ -339,9 +352,10 @@ export const Home: React.FC<{
                 borderRadius: circle2Diameter / 2,
                 top: 185 - circle2Diameter / 2,
               },
+              circleVisibility,
             ]}
           />
-          <Text style={radius3Style} />
+          <Text style={[radius3Style, circleVisibility]} />
         </View>
         <Text style={contactsStyle}>{`${distances.length} ${t(
           'home.contacts',
