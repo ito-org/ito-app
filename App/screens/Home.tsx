@@ -112,6 +112,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 16,
   },
+  pausedText: {
+    position: 'absolute',
+    top: 300,
+    textAlign: 'center',
+    fontFamily: 'Ubuntu-R',
+    color: '#595959',
+  },
 });
 
 const stylesNoContacts = StyleSheet.create({
@@ -296,8 +303,14 @@ export const Home: React.FC<{
   );
 
   const [circleVisibility, setCircleVisibility] = useState<undefined | {}>(
-    StyleSheet.flatten([visibleCircles]),
+    visibleCircles,
   );
+
+  const [pausedTextVisibility, setPausedTextVisibility] = useState<{
+    opacity: number;
+  }>({
+    opacity: 0,
+  });
 
   return (
     <TouchableWithoutFeedback>
@@ -341,8 +354,16 @@ export const Home: React.FC<{
                   return invisibleCircles;
                 else return visibleCircles;
               });
+
+              setPausedTextVisibility(() => {
+                if (pausedTextVisibility.opacity === 0) return {opacity: 1};
+                else return {opacity: 0};
+              });
             }}></Icon>
           <Text style={[radius1Style]} />
+          <Text style={[styles.pausedText, pausedTextVisibility]}>
+            app is paused {'\n'}press to resume collection
+          </Text>
           <Text
             style={[
               radius2Style,
