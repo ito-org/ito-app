@@ -1,18 +1,10 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../App';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Dimensions,
-  Easing,
-  Animated,
-} from 'react-native';
+import {StyleSheet, View, Text, Animated} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import global, {design} from '../styles';
 import Icon from 'react-native-vector-icons/Feather';
-import {TextInput} from 'react-native-gesture-handler';
 import BasicButton from '../components/BasicButton';
 import Header from '../components/Header';
 
@@ -59,7 +51,7 @@ export const Upload: React.FC<{
   const animatedStyle = {
     transform: [{rotate: rotation}],
   };
-  const startAnimation = () => {
+  const startAnimation = (): void => {
     animRotation.setValue(0);
     Animated.timing(animRotation, {
       toValue: 1,
@@ -87,11 +79,8 @@ export const Upload: React.FC<{
         title={t('uploadData.buttonTitleCancel')}
         variant="outlined"
         buttonStyle={styles.cancelButton}
-        onPress={() => navigation.navigate('DataUpload')}
+        onPress={(): void => navigation.goBack()}
       />
-      {
-        // TODO: navigation for mock-up purposes
-      }
     </View>
   );
 };

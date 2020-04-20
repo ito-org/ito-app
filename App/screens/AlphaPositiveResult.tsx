@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, NativeModules} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import {BasicButton} from '../components/BasicButton';
@@ -70,18 +70,7 @@ export const AlphaPositiveResult: React.FC<{
       <View style={styles.buttonContainer}>
         <BasicButton
           title={t('alphaPositiveResult.buttonTitleReleaseResult')}
-          onPress={(): void => {
-            const now = Date.now() / 1000;
-            const sevenDaysAgo = now - 7 * 24 * 60 * 60;
-            NativeModules.ItoBluetooth.publishBeaconUUIDs(
-              sevenDaysAgo,
-              now,
-              (success: boolean) => {
-                console.log('upload ' + success ? 'succeeded' : 'failed');
-              },
-            );
-            navigation.navigate('PositiveResult');
-          }}
+          onPress={(): void => navigation.navigate('PositiveResult')}
         />
       </View>
     </View>
