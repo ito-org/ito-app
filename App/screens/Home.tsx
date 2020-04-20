@@ -154,10 +154,8 @@ const stylesManyContacts = StyleSheet.create({
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
-const toggleTracingIcon = (prev: string): string => {
-  if (prev == 'play') return 'pause';
-  else return 'play';
-};
+const toggleTracingIcon = (prev: string): string =>
+  prev === 'play' ? 'pause' : 'play';
 
 export const Home: React.FC<{
   navigation: HomeScreenNavigationProp;
@@ -308,7 +306,7 @@ export const Home: React.FC<{
           showHelp={true}
           navigationButton={{
             title: 'old Home',
-            fn: () => {
+            fn: (): void => {
               navigation.navigate('HomeBluetooth');
             },
           }}
@@ -324,11 +322,12 @@ export const Home: React.FC<{
             name={toggleTracingButtonIcon}
             style={styles.radius1Icon}
             size={30}
-            onPress={() => {
+            onPress={(): void => {
               setToggleTracingButtonIcon(
                 toggleTracingIcon(toggleTracingButtonIcon),
               );
-            }}></Icon>
+            }}
+          />
           <Text style={radius1Style} />
           <Text
             style={[
