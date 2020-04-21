@@ -12,12 +12,16 @@ env:
   ANDROID_HOME: ~/android-sdk-linux
   ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
 
-on: 
+on:
+  pull_request:
+    branches:
+      - master
   push:
     paths-ignore: 
       - '.github/**'
       - '**.md'
       - 'LICENSE'
+      - 'APP/**'
 
 jobs:
   build:
@@ -30,15 +34,18 @@ jobs:
         with:
           java-version: '8'
           java-package: jdk
+          
       - name: Install Android SDK
-        run: |
-          sh ci/install-android-sdk.sh
+        run: sh ci/install-android-sdk.sh
+        
+      - uses: bahmutov/npm-install@v1
+        
       - name: Install npm dependencies
-        run: |
-          npm ci
+        run: npm ci
+        
       - name: Build APK
-        run: |
-          npm run android:build-apk
+        run: npm run android:build-apk
+        
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
