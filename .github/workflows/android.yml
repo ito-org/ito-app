@@ -21,7 +21,7 @@ on:
       - '.github/**'
       - '**.md'
       - 'LICENSE'
-      - 'APP/**'
+      - 'App/**'
 
 jobs:
   build:
