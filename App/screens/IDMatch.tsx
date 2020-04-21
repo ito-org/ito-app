@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -218,7 +218,7 @@ export const IDMatch: React.FC<{
         </Text>
         <BasicButton
           title="What to do next?"
-          onPress={() => navigation.navigate('HomeBluetooth')}
+          onPress={(): void => navigation.navigate('HomeBluetooth')}
         />
       </View>
     </View>
