@@ -12,13 +12,20 @@ env:
   ANDROID_HOME: ~/android-sdk-linux
   ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
 
-on: push
+on: 
+  push:
+    paths-ignore: 
+      - '.github/**'
+      - '**.md'
+      - 'LICENSE'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - uses: actions/setup-java@v1
         with:
           java-version: '8'
