@@ -17,7 +17,6 @@ import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
-import ShieldIcon from '../components/ShieldIcon';
 import {BottomMenu, MenuItem} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
@@ -78,27 +77,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
-    marginBottom: 32,
+    marginBottom: 300,
   },
   bottomButtonContainer: {
     flex: 3,
     justifyContent: 'flex-end',
     backgroundColor: 'white',
-  },
-  buttonInfected: {
-    backgroundColor: '#91e6d3',
-    borderRadius: 6,
-    marginBottom: 24,
-    marginLeft: 16,
-    marginRight: 16,
-    padding: 12,
-  },
-  buttonInfectedTitle: {
-    color: '#2c2c2c',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
   },
   IDMatchPopup: {
     backgroundColor: 'white',
@@ -295,6 +279,20 @@ export const Home: React.FC<{
 
   const [isBLERunning, setIsBLERunning] = useState(true);
 
+  const menuItems: MenuItem[] = [
+    {title: 'Tracing', icon: 'hexagon', active: true},
+    {
+      title: 'Infected?',
+      icon: 'sun',
+      active: false,
+      fn: () => {
+        navigation.navigate('Endangerment');
+      },
+    },
+    {title: 'Help', icon: 'help-circle', active: false},
+    {title: 'About ito', icon: 'info', active: false},
+  ];
+
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
@@ -359,28 +357,18 @@ export const Home: React.FC<{
             ]}
           />
         </View>
-        <Text style={contactsStyle}>{`${distances.length} ${t(
-          'home.contacts',
-        )} (avg: ${
+        <Text
+          style={[
+            contactsStyle,
+            isBLERunning ? styles.visible : styles.invisible,
+          ]}>{`${distances.length} ${t('home.contacts')} (avg: ${
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
-        <Button
-          title={t('home.buttonTitleInfected')}
-          onPress={(): void => navigation.navigate('Endangerment')}
-          titleStyle={styles.buttonInfectedTitle}
-          buttonStyle={styles.buttonInfected}
-        />
+
         <BottomMenu menuItems={menuItems}></BottomMenu>
       </View>
     </TouchableWithoutFeedback>
   );
 };
-
-const menuItems: MenuItem[] = [
-  {title: 'Tracing', icon: 'hexagon', active: true},
-  {title: 'Infected?', icon: 'sun', active: false},
-  {title: 'Help', icon: 'help-circle', active: false},
-  {title: 'About ito', icon: 'info', active: false},
-];
 
 export default Home;
