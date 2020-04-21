@@ -49,7 +49,7 @@ export const BottomMenu: React.FC<BottomMenuProps> = ({menuItems}) => {
   const [isActive, setIsActive] = useState(menuItems.map((v) => v.active));
 
   const activateItem = (idx: number) =>
-    isActive.map((_, i) => (i == idx ? true : false));
+    isActive.map((_, i) => (i === idx ? true : false));
 
   return (
     <View style={bottomMenu.container}>
