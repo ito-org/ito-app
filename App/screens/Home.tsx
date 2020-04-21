@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
-    marginBottom: 300,
+    marginBottom: 100,
   },
   bottomButtonContainer: {
     flex: 3,
@@ -285,7 +285,7 @@ export const Home: React.FC<{
       title: 'Infected?',
       icon: 'sun',
       active: false,
-      fn: () => {
+      fn: (): void => {
         navigation.navigate('Endangerment');
       },
     },
@@ -365,7 +365,7 @@ export const Home: React.FC<{
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
 
-        <BottomMenu menuItems={menuItems}></BottomMenu>
+        <BottomMenu menuItems={menuItems} />
       </View>
     </TouchableWithoutFeedback>
   );
