@@ -16,6 +16,10 @@ on:
   pull_request:
     branches:
       - master
+    paths-ignore: 
+      - '.github/**'
+      - '**.md'
+      - 'LICENSE'
   push:
     paths-ignore: 
       - '.github/**'
