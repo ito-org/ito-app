@@ -51,6 +51,7 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
   variant = 'filled',
   textStyle: titleStyleProp = {},
   buttonStyle: buttonStyleProp = {},
+  ...other
 }) => {
   const variantSuffix = VARIANT_SUFFIXES[variant];
   const buttonStyle = {
@@ -69,6 +70,7 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
       onPress={onPress}
       titleStyle={titleStyle}
       buttonStyle={buttonStyle}
+      {...other}
     />
   );
 };

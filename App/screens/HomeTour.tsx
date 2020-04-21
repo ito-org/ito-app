@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import AsyncStorage from '@react-native-community/async-storage';
 import AlphaNotice from '../components/AlphaNotice';
+import BasicButton from '../components/BasicButton';
+import {useTranslation} from 'react-i18next';
 
 const styles = StyleSheet.create({
   container: {
@@ -76,10 +77,10 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   firstBubble: {
-    top: 0,
+    top: -6,
   },
   secondBubble: {
-    bottom: 90,
+    bottom: 78,
   },
   next: {
     fontFamily: 'Ubuntu-R',
@@ -141,16 +142,16 @@ const styles = StyleSheet.create({
     flex: 0.3,
   },
   bottomButtonContainer: {
-    flex: 0.5,
+    paddingTop: 16,
+    paddingBottom: 16,
     backgroundColor: 'hsl(0, 0%, 70%)',
   },
   buttonInfected: {
     backgroundColor: 'hsl(167, 35%, 58%)',
+    borderColor: 'hsl(167, 35%, 58%)',
     borderRadius: 6,
-    marginTop: 24,
     marginLeft: 16,
     marginRight: 16,
-    padding: 12,
   },
   buttonInfectedTitle: {
     color: '#2c2c2c',
@@ -170,6 +171,7 @@ export const HomeTour: React.FC<{
   navigation: HomeTourScreenNavigationProp;
 }> = ({navigation}) => {
   const [step, setStep] = useState(1);
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.logoWrapper}>
@@ -180,7 +182,9 @@ export const HomeTour: React.FC<{
         />
       </View>
       <View style={styles.lastFetchRow}>
-        <Text style={styles.lastFetch}>Last ID fetch: today 11:04</Text>
+        <Text style={styles.lastFetch}>
+          {t('home.lastIdFetch')}: {t('home.today')} 11:04
+        </Text>
         <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
       </View>
 
@@ -188,13 +192,9 @@ export const HomeTour: React.FC<{
         {step === 1 && (
           <TouchableWithoutFeedback onPress={(): void => setStep(2)}>
             <View style={[styles.bubbleBox, styles.firstBubble]}>
-              <Text style={styles.bubbleText}>
-                This circle shows you how many ito users you just encountered.
-                Don't worry, it's just an indicator to see if you are in the
-                middle of a lot of ito users or not.
-              </Text>
+              <Text style={styles.bubbleText}>{t('homeTour.circle')}</Text>
               <View style={styles.bubbleActions}>
-                <Text style={styles.next}>next</Text>
+                <Text style={styles.next}>{t('homeTour.next')}</Text>
                 <Icon name="chevron-right" size={18} style={styles.nextIcon} />
               </View>
               <View style={styles.bubbleTriangle} />
@@ -213,13 +213,9 @@ export const HomeTour: React.FC<{
             navigation.navigate('HomeBluetooth');
           }}>
           <View style={[styles.bubbleBox, styles.secondBubble]}>
-            <Text style={styles.bubbleText}>
-              If you think you got infected please report with this button to
-              get more information on what to do next. This also helps us inform
-              other ito users about their possible risk.
-            </Text>
+            <Text style={styles.bubbleText}>{t('homeTour.report')}</Text>
             <View style={styles.bubbleActions}>
-              <Text style={styles.done}>done</Text>
+              <Text style={styles.done}>{t('homeTour.done')}</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
             <View style={styles.bubbleTriangle} />
@@ -227,8 +223,8 @@ export const HomeTour: React.FC<{
         </TouchableWithoutFeedback>
       )}
       <View style={styles.bottomButtonContainer}>
-        <Button
-          title="I think I'm infected"
+        <BasicButton
+          title={t('homeTour.buttonTitleInfected')}
           disabledTitleStyle={styles.buttonInfectedTitle}
           disabledStyle={styles.buttonInfected}
           disabled

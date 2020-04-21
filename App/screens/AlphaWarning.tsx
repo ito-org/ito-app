@@ -4,6 +4,7 @@ import {Button} from 'react-native-elements';
 import {RootStackParamList} from 'App/App';
 import {StackNavigationProp} from '@react-navigation/stack';
 import AlphaNotice from '../components/AlphaNotice';
+import {useTranslation} from 'react-i18next';
 
 type AlphaWarningScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -70,6 +71,8 @@ const styles = StyleSheet.create({
 });
 
 export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
       <View style={styles.logoWrapper}>
@@ -81,16 +84,11 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
         />
       </View>
       <View>
+        <Text style={styles.generalText}>{t('alphaWarning.demoPurpose')}</Text>
         <Text style={styles.generalText}>
-          This version is for demonstration purpose only.
+          {t('alphaWarning.notFullyImplemented')}
         </Text>
-        <Text style={styles.generalText}>
-          Not all features are implemented yet nor is everything audited.
-        </Text>
-        <Text style={styles.generalText}>
-          Please review the app, have a look at the code and report issues, bugs
-          or general feedback at
-        </Text>
+        <Text style={styles.generalText}>{t('alphaWarning.review')}</Text>
       </View>
       <Text
         style={[styles.generalText, styles.githubLink]}
@@ -101,7 +99,7 @@ export const AlphaWarning: React.FC<AlphaWarningProps> = ({navigation}) => {
       </Text>
       <View style={styles.bottomButtonContainer}>
         <Button
-          title="ok, let´s start"
+          title={t('alphaWarning.start')}
           onPress={(): void => navigation.navigate('Onboarding')}
           titleStyle={styles.buttonHowTitle}
           buttonStyle={styles.buttonHow}
