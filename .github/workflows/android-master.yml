@@ -1,4 +1,4 @@
-name: Android
+name: Android Pull Request & Master CI
 
 env:
   ANDROID_COMPILE_SDK: '28'
@@ -21,6 +21,8 @@ on:
       - '**.md'
       - 'LICENSE'
   push:
+    branches:
+      - master
     paths-ignore: 
       - '.github/**'
       - '**.md'
@@ -29,6 +31,7 @@ on:
 
 jobs:
   build:
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -38,24 +41,21 @@ jobs:
         with:
           java-version: '8'
           java-package: jdk
-          
       - name: Install Android SDK
         run: sh ci/install-android-sdk.sh
-        
       - uses: bahmutov/npm-install@v1
-        
       - name: Install npm dependencies
         run: npm ci
-        
       - name: Build APK
         run: npm run android:build-apk
-        
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
           path: ${{ env.ANDROID_APK_FILE }}
+      
   deploy:
+    name: Deploy APK as release
     needs: build
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
