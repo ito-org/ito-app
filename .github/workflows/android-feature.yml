@@ -40,7 +40,5 @@ jobs:
       - name: Install Android SDK
         run: sh ci/install-android-sdk.sh
       - uses: bahmutov/npm-install@v1
-      - name: Install npm dependencies
-        run: npm ci
       - name: Test Application
         run: npm run test
