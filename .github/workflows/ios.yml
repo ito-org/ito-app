@@ -1,0 +1,113 @@
+name: iOS
+
+env:
+  IOS_SDK: 'iphoneos13.4'
+  EXPORT_OPTIONS_PLIST: './exportOptionsDev.plist'
+
+
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro Max']
+        scheme: ['ReactNativeApp']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+          with:
+            repository: ito-org/ios-certificates
+            token: ${{ secrets.ACCESS_TOKEN }}
+            path: '/ios-certificates'
+      - name: Install gpg
+        run: brew install gnupg
+      - name: Decrypt ios certificates
+        run: ./ci/decrypt-ios-certificates.sh
+        env:
+          IOS_CERTIFICATES_PASSPHRASE: ${{ secrets.IOS_CERTIFICATES_PASSPHRASE }}  
+      - name: Prepare ios certificates
+        run: ./ci/prepare-ios-certificates.sh
+        env:
+          IOS_PROVISIONING_PROFILE_GUID: ${{ secrets.IOS_PROVISIONING_PROFILE_GUID }}
+            
+      # - name: Switch XCode Version
+      #   run: sudo xcode-select -s /Applications/Xcode_11.2.app
+      - name: Cache npm
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache-
+      - name: Install npm
+        run: |
+          npm ci
+      - name: Cache pods
+        uses: actions/cache@v1
+        with:
+          path: ios/Pods
+          key: ${{ runner.OS }}-pods-cache-${{ hashFiles('**/ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-pods-cache-
+      - name: Install pods
+        run: |
+          cd ios
+          pod install
+        shell: bash
+
+      - name: Build archive
+        run: |
+          xcodebuild -workspace ReactNativeApp.xcworkspace \
+           archive \
+           -scheme ReactNativeApp \
+           -archivePath ./build/ReactNativeApp.xcarchive
+
+      - name: Build ipa
+        run: |
+          xcodebuild -exportArchive \
+           -archivePath ./build/ReactNativeApp.xcarchive \ 
+           -exportPath ./build/ReactNativeApp \
+           -exportOptionsPlist ${{ env.EXPORT_OPTIONS_PLIST }}
+           
+      - name: Archive IPA
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.ipa
+          path: ./build/ReactNativeApp/ReactNativeApp.ipa
+          
+  # deploy:
+  #   needs: build
+  #   if: startsWith(github.ref, 'refs/tags/')
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/download-artifact@v1
+  #       with:
+  #         name: app-release.apk
+  #         path: .
+  #     - name: Get the version
+  #       id: get_version
+  #       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+  #     - name: Create Release
+  #       id: create_release
+  #       uses: actions/create-release@latest
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         tag_name: ${{ github.ref }}
+  #         release_name: Release ${{ github.ref }}
+  #         body: |
+  #           Changes in this Release:
+  #         draft: true
+  #         prerelease: true
+  #     - name: Upload Release Asset
+  #       id: upload-release-asset
+  #       uses: actions/upload-release-asset@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         upload_url: ${{ steps.create_release.outputs.upload_url }}
+  #         asset_path: ./app-release.apk
+  #         asset_name: ito-app-${{ steps.get_version.outputs.VERSION }}.apk
+  #         asset_content_type: application/zip

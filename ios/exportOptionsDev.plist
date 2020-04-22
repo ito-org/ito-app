@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>development</string>
+    <key>signingStyle</key>
+    <string>manual</string>
+    <key>teamID</key>
+    <string>SELFSIGNED</string>
+    <key>signingCertificate</key>
+    <string>Ito self-signed</string>
+    <key>provisioningProfiles</key>
+    <dict>
+      <key>SELFSIGNED.com.ito.app</key>
+      <string>D0DD9EFE-AAA2-468F-B7B8-493A2C4866BA</string>
+    </dict>
+  </dict>
+</plist>
