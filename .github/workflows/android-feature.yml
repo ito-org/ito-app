@@ -1,0 +1,44 @@
+name: Android Feature Branch CI
+
+env:
+  ANDROID_COMPILE_SDK: '28'
+  ANDROID_BUILD_TOOLS: '28.0.3'
+  ANDROID_SDK_TOOLS: '4333796'
+  ANDROID_NDK: '20.0.5594570'
+  ANDROID_KEYSTORE_FILE: 'android/app/debug.keystore'
+  ANDROID_KEYSTORE_PASSWORD: 'android'
+  ANDROID_KEYSTORE_KEY_ALIAS: 'androiddebugkey'
+  ANDROID_KEYSTORE_KEY_PASSWORD: 'android'
+  ANDROID_HOME: ~/android-sdk-linux
+  ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+      - '!release*'
+    paths-ignore: 
+      - '.github/**'
+      - '**.md'
+      - 'LICENSE'
+      - 'App/**'
+
+jobs:
+  test:
+    name: Run build for testing
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '8'
+          java-package: jdk
+      - name: Install Android SDK
+        run: sh ci/install-android-sdk.sh
+      - uses: bahmutov/npm-install@v1
+      - name: Test Application
+        run: npm run test
