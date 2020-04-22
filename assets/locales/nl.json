@@ -67,7 +67,13 @@
       "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
       "textPlaceholderEnterCode": "Vul verificatiecode in",
       "cameraMessage": "Schakel aub camera in",
-      "buttonTitleOk": "Upload data"
+      "buttonTitleOk": "Upload data",
+      "camPermissionTitle": "Permission to use camera",
+      "camPermissionText": "We need your permission to use your camera"
+    },
+    "uploadData": {
+      "info": "uploading test verification...\nthis might take a while",
+      "buttonTitleCancel": "cancel upload"
     }
   }
 }
