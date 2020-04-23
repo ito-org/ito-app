@@ -41,30 +41,30 @@
       "buttonTitleInfected": "Ich glaube, ich bin infiziert!"
     },
     "home": {
-      "lastIdFetch": "Letzte Kontakt ID",
+      "lastIdFetch": "Zuletzt aktualisiert",
       "today": "heute",
       "never": "noch nicht",
       "alertContactDiscovered": "Du warst in Kontakt mit einem Infizierten\nKeine Panik!",
       "whatNext": "Was soll ich jetzt tun?",
       "contacts": "Kontakte",
-      "buttonTitleInfected": "Ich glaube, ich bin Infiziert"
+      "buttonTitleInfected": "Ich glaube, ich bin infiziert"
     },
     "endangerment": {
-      "info": "Melde bitte, wenn Du Sypmtome hast oder\nein positives Testergebnis",
+      "info": "Melde bitte, wenn Du Symptome oder\nein positives Testergebnis hast",
       "symptomsTitle": "Ich habe typische Symptome",
       "symptomsText": "Keine Sorge!\nito hilft Dir herauszufinden, was als Nächstes zu tun ist.",
-      "positiveResultTitle": "Ich habe ein positives Ergebnis",
-      "positiveResultText": "Wenn ein positives Ergebnis eines Artzes oder der Gesundheitsbehörde vorliegt\nlass es bitte ito wissen, damit alle andere gewarnt werden und daheim bleiben können."
+      "positiveResultTitle": "Ich wurde positiv getestet",
+      "positiveResultText": "Wenn ein positives Ergebnis eines Arztes oder der Gesundheitsbehörde vorliegt,\nlass es bitte ito wissen, damit alle andere gewarnt werden und daheim bleiben können."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
       "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur vorgesehenen App:",
       "buttonTitleOpenDesignatedApp": "Öffne die vorgesehene App",
       "buttonTitleNotInfected": "Ich bin vermutlich nicht infiziert",
-      "buttonTitlePositiveTest": "I bin positiv getestet"
+      "buttonTitlePositiveTest": "Ich wurde positiv getestet"
     },
     "positiveResult": {
-      "instruction": "Please scan the QR Code you got with your test or enter the result ID to verfiy your positive test result.",
+      "instruction": "Bitte scanne den QR-Code, der mit deinem Testergebnis versendet wurde oder gib die entsprechende Kennzahl zur Überprüfung des Testresultats ein.",
       "textPlaceholderEnterCode": "Bitte Bestätigungscode eingeben",
       "cameraMessage": "Bitte Kamera einschalten",
       "buttonTitleOk": "Daten hochladen",
