@@ -1,0 +1,79 @@
+{
+  "translation": {
+    "global": {
+      "cancel": "abbrechen",
+      "ok": "ok"
+    },
+    "onboarding": {
+      "motto": "Wir verfolgen Infektionen, nicht Menschen!",
+      "welcomeMessage": "Schütze Dich und\ndie Menschen in Deiner Nähe\n\nito verfolgt keine persönlichen\noder ortsbezogenen Daten\n- \nwir benötigen nur\nDeinen Gesundheitszustand",
+      "tutorial": "Wie funktioniert ito?"
+    },
+    "alphaPositiveResult": {
+      "testingPurposes": "Es können zu Testzwecken positive Testergebnisse simuliert werden. Nach der Meldung werden die TCNs des Handys positiv markiert und auf den Server übertragen.\n\nJeder andere ito-Nutzer wird dann über ein Infektionsrisiko informiert.",
+      "buttonTitleReleaseResult": "Positiven Test verschicken"
+    },
+    "onboardingHow": {
+      "bluetooth": "ito benutzt bluetooth\nto um andere ito-User\nin der Nähe zu finden",
+      "smartphone": "Jedes Handy merkt sich\ndie anderen Handys. Diese\nInformation verbleibt nur auf den beteiligten Handys",
+      "bell": "Wenn ein Kontakt\nals infiziert getestet wird, bekommt jeder\nrelevante Kontakt eine Nachricht\nwas zu tun ist",
+      "shield2": "Wer infiziert und positiv getestet ist\nkann alle Kontakte\nder letzten Zeit warnen",
+      "buttonTitleGetStarted": "Kann losgehen"
+    },
+    "alphaWarning": {
+      "demoPurpose": "Dies ist nur eine Demoversion.",
+      "notFullyImplemented": "Nicht alle Funktionen sind implementiert oder geprüft.",
+      "review": "Bitte prüft die App, schaut in den Code und berichtet Schwierigkeiten, Fehler oder allgemeines Feedback an",
+      "start": "ok, es kann losgehen!"
+    },
+    "confimationCode": {
+      "enterCode": "Für die Bestätigung des positiven Testergebnisses bitte QR scannen oder die ErgebnisID eingeben.",
+      "buttonTitleSubmit": "Testergebnis bestätigen"
+    },
+    "dataUpload": {
+      "thanks": "Vielen Dank für die Mitteilung\ndes bestätigten Testergebnisses.\n\nGute Besserung!"
+    },
+    "homeTour": {
+      "circle": "Dieser Kreis zeigt wieviele ito-User Du getroffen hast. Keine Sorge, es zeigt nur an, ob Du inmitten anderer ito-User bist oder nicht.",
+      "report": "Bei Infektionsverdacht melde das bitte mit diesem Button und folge den weiteren Anweisnugen. Das hilft auch anderen ito-Usern, die den Verdacht mitgeteilt bekommen.",
+      "next": "weiter",
+      "done": "fertig",
+      "buttonTitleInfected": "Ich glaube, ich bin infiziert!"
+    },
+    "home": {
+      "lastIdFetch": "Letzte Kontakt ID",
+      "today": "heute",
+      "never": "noch nicht",
+      "alertContactDiscovered": "Du warst in Kontakt mit einem Infizierten\nKeine Panik!",
+      "whatNext": "Was soll ich jetzt tun?",
+      "contacts": "Kontakte",
+      "buttonTitleInfected": "Ich glaube, ich bin Infiziert"
+    },
+    "endangerment": {
+      "info": "Melde bitte, wenn Du Sypmtome hast oder\nein positives Testergebnis",
+      "symptomsTitle": "Ich habe typische Symptome",
+      "symptomsText": "Keine Sorge!\nito hilft Dir herauszufinden, was als Nächstes zu tun ist.",
+      "positiveResultTitle": "Ich habe ein positives Ergebnis",
+      "positiveResultText": "Wenn ein positives Ergebnis eines Artzes oder der Gesundheitsbehörde vorliegt\nlass es bitte ito wissen, damit alle andere gewarnt werden und daheim bleiben können."
+    },
+    "symptomInfo": {
+      "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
+      "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur vorgesehenen App:",
+      "buttonTitleOpenDesignatedApp": "Öffne die vorgesehene App",
+      "buttonTitleNotInfected": "Ich bin vermutlich nicht infiziert",
+      "buttonTitlePositiveTest": "I bin positiv getestet"
+    },
+    "positiveResult": {
+      "instruction": "Please scan the QR Code you got with your test or enter the result ID to verfiy your positive test result.",
+      "textPlaceholderEnterCode": "Bitte Bestätigungscode eingeben",
+      "cameraMessage": "Bitte Kamera einschalten",
+      "buttonTitleOk": "Daten hochladen",
+      "camPermissionTitle": "Kameraberechtigung",
+      "camPermissionText": "ito braucht die Kameraberechtigung"
+    },
+    "uploadData": {
+      "info": "Lade Test-Bestätigung hoch...\ndas kann etwas dauern",
+      "buttonTitleCancel": "Upload abbrechen"
+    }
+  }
+}
