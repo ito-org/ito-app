@@ -20,7 +20,7 @@
     "i18next-xhr-backend": "^3.2.2",
     "react": "16.11.0",
     "react-i18next": "^11.3.4",
-    "react-native": "0.62.0",
+    "react-native": "0.62.2",
     "react-native-background-timer": "^2.2.0",
     "react-native-camera": "^3.23.1",
     "react-native-elements": "^1.2.7",
