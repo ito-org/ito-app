@@ -6,7 +6,7 @@
 
 ## Try it out
 
-You can find Android alpha releases on our releases page. [Click here to download the latest release.](https://github.com/ito-org/react-native-app/releases/latest) For the app to recognize other devices, make sure to enable Bluetooth.
+You can find Android alpha releases on our releases page. [Click here to find the latest release.](https://github.com/ito-org/react-native-app/releases/latest) For the app to recognize other devices, make sure to enable Bluetooth.
 
 ## Architecture
 
