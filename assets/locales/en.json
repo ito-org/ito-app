@@ -48,7 +48,11 @@
       "alertContactDiscovered": "We just discovered you have been in contact with a COVID-19 case.\nDon't panic!",
       "whatNext": "What to do next?",
       "contacts": "contacts",
-      "buttonTitleInfected": "I think I'm infected"
+      "buttonTitleInfected": "I think I'm infected",
+      "popup_info": {
+        "text": "You percieve COVID-19 symptoms or have a positive test result?",
+        "button": "Take next steps"
+      }
     },
     "endangerment": {
       "info": "Tell us if you have symptoms or if you\nhave a positive test result",

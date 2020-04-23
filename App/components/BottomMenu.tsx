@@ -14,6 +14,7 @@ const bottomMenu = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     height: 70,
+    fontFamily: 'Ubuntu-R',
   },
   iconContainer: {
     paddingTop: 5,

@@ -14,13 +14,19 @@ const styles = StyleSheet.create({
     bottom: 5,
     width: 10,
   },
+  text: {
+    color: '#595959',
+    fontFamily: 'Ubuntu-R',
+    paddingBottom: 30,
+  },
   info: {
-    backgroundColor: 'red',
-    height: 160,
+    backgroundColor: 'rgba(135, 202, 187, 0.2)',
   },
   infoButton: {
-    backgroundColor: 'red',
-    height: 160,
+    backgroundColor: '#91e6d3',
+  },
+  infoButtonText: {
+    color: '#595959',
   },
 });
 
@@ -42,10 +48,11 @@ export const ButtonPopup: React.FC<ButtonPopupProps> = ({
   const textColoring = styles.info;
   return (
     <View style={[styles.container, textColoring, style]}>
-      <Text>{children}</Text>
+      <Text style={styles.text}>{children}</Text>
       <View style={{alignItems: 'flex-end'}}>
         <Button
-          style={(styles.button, buttonColoring)}
+          buttonStyle={(styles.button, buttonColoring)}
+          titleStyle={styles.infoButtonText}
           title={button.title}
           onPress={() => button.fn()}
         />

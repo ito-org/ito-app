@@ -351,8 +351,13 @@ export const Home: React.FC<{
         })`}</Text>
         <ButtonPopup
           style={styles.popup}
-          button={{fn: () => {}, title: 'Ok thanks'}}>
-          <Text>Hey hoehehehe</Text>
+          button={{
+            fn: () => {
+              navigation.navigate('Endangerment');
+            },
+            title: t('home.popup_info.button'),
+          }}>
+          <Text>{t('home.popup_info.text')}</Text>
         </ButtonPopup>
         <BottomMenu navigation={navigation} activate="Tracing"></BottomMenu>
       </View>
