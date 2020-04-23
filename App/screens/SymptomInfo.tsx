@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import {design} from '../styles/index';
 import {BasicButton} from '../components/BasicButton';
 import {useTranslation} from 'react-i18next';
+import {BottomMenu} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
   container: {

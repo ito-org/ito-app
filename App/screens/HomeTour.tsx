@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import AlphaNotice from '../components/AlphaNotice';
 import BasicButton from '../components/BasicButton';
 import {useTranslation} from 'react-i18next';
+import {BottomMenu} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
   container: {
@@ -124,6 +125,9 @@ const styles = StyleSheet.create({
     borderRightWidth: 24,
     borderTopWidth: 24,
     alignSelf: 'center',
+  },
+  bubbleTriangleLeft: {
+    left: 100,
   },
   radiusContainer: {
     marginBottom: 16,
@@ -251,7 +255,7 @@ export const HomeTour: React.FC<{
         <TouchableWithoutFeedback
           onPress={(): void => {
             AsyncStorage.setItem('userHasSeenOnboarding', 'true');
-            navigation.navigate('HomeBluetooth');
+            navigation.navigate('Home');
           }}>
           <View style={[styles.bubbleBox, styles.thirdBubble]}>
             <Text style={styles.bubbleText}>{t('homeTour.report')}</Text>
@@ -259,7 +263,7 @@ export const HomeTour: React.FC<{
               <Text style={styles.done}>{t('homeTour.done')}</Text>
               <Icon name="chevron-right" size={18} style={styles.nextIcon} />
             </View>
-            <View style={styles.bubbleTriangle} />
+            <View style={[styles.bubbleTriangle, styles.bubbleTriangleLeft]} />
           </View>
         </TouchableWithoutFeedback>
       )}
@@ -271,6 +275,7 @@ export const HomeTour: React.FC<{
           disabled
         />
       </View>
+      <BottomMenu activate={'Tracing'}></BottomMenu>
     </View>
   );
 };
