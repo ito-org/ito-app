@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from 'App/App';
 
 const bottomMenu = StyleSheet.create({
   container: {
@@ -41,19 +43,70 @@ export interface MenuItem {
 }
 
 interface BottomMenuProps {
-  menuItems: MenuItem[];
+  menuItems?: MenuItem[];
+  navigation?: StackNavigationProp<RootStackParamList, any>;
+  activate?: string;
 }
 
-export const BottomMenu: React.FC<BottomMenuProps> = ({menuItems}) => {
-  console.log(menuItems);
-  const [isActive, setIsActive] = useState(menuItems.map((v) => v.active));
+export const BottomMenu: React.FC<BottomMenuProps> = ({
+  menuItems,
+  navigation,
+  activate = 'Tracing',
+}) => {
+  /* TODO: 
+  just to get v2 up and running 
+    if and only if this version of the 
+    UI will be used, this component 
+    should include a nested navigation 
+    and not be injected manually in every screen
+  */
+  const predefinedMenuItems = [
+    {
+      title: 'Tracing',
+      icon: 'hexagon',
+      active: false,
+      fn: () => {
+        navigation?.navigate('Home');
+      },
+    },
+    {
+      title: 'Infected?',
+      icon: 'sun',
+      active: false,
+      fn: () => {
+        navigation?.navigate('Endangerment');
+      },
+    },
+    {
+      title: 'Help',
+      icon: 'help-circle',
+      active: false,
+      fn: () => {
+        navigation?.navigate('Onboarding');
+      },
+    },
+    {
+      title: 'About ito',
+      icon: 'info',
+      active: false,
+    },
+  ];
+
+  const items = menuItems ? menuItems : predefinedMenuItems;
+  const [isActive, setIsActive] = useState(
+    items.map((v) => {
+      console.log(v.title + ' == ' + activate + ' ?');
+      console.log(v.active || v.title === activate);
+      return v.active || v.title === activate;
+    }),
+  );
 
   const activateItem = (idx: number) =>
     isActive.map((_, i) => (i === idx ? true : false));
 
   return (
     <View style={bottomMenu.container}>
-      {menuItems.map((item, idx) => {
+      {items.map((item, idx) => {
         return (
           <View
             key={idx}

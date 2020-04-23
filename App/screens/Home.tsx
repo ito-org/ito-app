@@ -279,20 +279,6 @@ export const Home: React.FC<{
 
   const [isBLERunning, setIsBLERunning] = useState(true);
 
-  const menuItems: MenuItem[] = [
-    {title: 'Tracing', icon: 'hexagon', active: true},
-    {
-      title: 'Infected?',
-      icon: 'sun',
-      active: false,
-      fn: () => {
-        navigation.navigate('Endangerment');
-      },
-    },
-    {title: 'Help', icon: 'help-circle', active: false},
-    {title: 'About ito', icon: 'info', active: false},
-  ];
-
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
@@ -365,7 +351,7 @@ export const Home: React.FC<{
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
 
-        <BottomMenu menuItems={menuItems}></BottomMenu>
+        <BottomMenu navigation={navigation} activate="Tracing"></BottomMenu>
       </View>
     </TouchableWithoutFeedback>
   );

@@ -5,6 +5,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
 import {useTranslation} from 'react-i18next';
+import {BottomMenu} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
   container: {
@@ -99,6 +100,7 @@ export const Endangerment: React.FC<{
           <Text>{t('endangerment.positiveResultText')}</Text>
         </View>
       </TouchableWithoutFeedback>
+      <BottomMenu navigation={navigation} activate="Infected"></BottomMenu>
     </View>
   );
 };
