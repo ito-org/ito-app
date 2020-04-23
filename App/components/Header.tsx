@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 interface HeaderProps {
   showAlpha?: boolean;
   showHelp?: boolean;
+  showShare?: boolean;
   style?: object;
   navigationButton?: {
     title: string;
@@ -46,6 +47,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   showAlpha = true,
   showHelp = false,
+  showShare = true,
   navigationButton,
   style = {},
 }) => {
@@ -75,6 +77,14 @@ export const Header: React.FC<HeaderProps> = ({
           name="help-circle"
           size={24}
           onPress={() => navigate('Onboarding')}
+        />
+      ) : null}
+      {showShare ? (
+        <Icon
+          style={styles.questionMark}
+          name="share-2"
+          size={24}
+          //onPress={() => navigate('Onboarding')}
         />
       ) : null}
     </View>

@@ -57,7 +57,6 @@ export const AlphaPositiveResult: React.FC<{
           title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
-        showHelp={true}
         showAlpha={false}
       />
 

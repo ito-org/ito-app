@@ -69,7 +69,6 @@ export const PositiveResult: React.FC<{
           title: t('global.cancel'),
           fn: (): void => navigation.goBack(),
         }}
-        showHelp={true}
         showAlpha={true}
       />
       <Text style={design.explanation}>{t('positiveResult.instruction')}</Text>

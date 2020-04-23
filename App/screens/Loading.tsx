@@ -46,7 +46,7 @@ export const Loading: React.FC<{
           () =>
             navigation.reset({
               index: 0,
-              routes: [{name: 'HomeBluetooth'}],
+              routes: [{name: 'Home'}],
             }),
           500,
         );

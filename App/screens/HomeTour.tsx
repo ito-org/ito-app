@@ -8,35 +8,15 @@ import AlphaNotice from '../components/AlphaNotice';
 import BasicButton from '../components/BasicButton';
 import {useTranslation} from 'react-i18next';
 import {BottomMenu} from '../components/BottomMenu';
+import Header from '../components/Header';
+import global from '../styles';
 
 const styles = StyleSheet.create({
   container: {
+    ...global.container,
     flex: 1,
-    paddingTop: 12,
     textAlign: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.15)',
-  },
-  logoWrapper: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    position: 'relative',
-  },
-  logo: {
-    color: 'hsl(167, 39%, 54%)',
-    fontSize: 32,
-    textAlign: 'center',
-    fontFamily: 'Righteous-Regular',
-    marginBottom: 16,
-  },
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: 12,
-    left: 48,
-    padding: 0,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
   },
   lastFetchRow: {
     flex: 1,
@@ -130,8 +110,11 @@ const styles = StyleSheet.create({
     left: 100,
   },
   radiusContainer: {
-    marginBottom: 16,
+    margin: 0,
+    paddingTop: 16,
+    paddingBottom: 64,
     alignItems: 'center',
+    flex: 10,
   },
   radius1Icon: {
     position: 'absolute',
@@ -166,12 +149,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {
-    color: 'hsl(0, 0%, 30%)',
-    fontSize: 16,
+    color: '#595959',
+    fontSize: 18,
     textAlign: 'center',
-    fontFamily: 'Ubuntu-R',
-    marginBottom: 32,
-    flex: 0.3,
+    fontFamily: 'Ubuntu-B',
+    marginBottom: 300,
   },
   bottomButtonContainer: {
     paddingTop: 16,
@@ -206,13 +188,8 @@ export const HomeTour: React.FC<{
   const {t} = useTranslation();
   return (
     <View style={styles.container}>
-      <View style={styles.logoWrapper}>
-        <Text style={styles.logo}>ito</Text>
-        <AlphaNotice
-          rootStyle={styles.alphaNoticeRoot}
-          textStyle={styles.alphaNoticeText}
-        />
-      </View>
+      <Header />
+
       <View style={styles.lastFetchRow}>
         <Text style={styles.lastFetch}>
           {t('home.lastIdFetch')}: {t('home.today')} 11:04
@@ -250,7 +227,9 @@ export const HomeTour: React.FC<{
         <Text style={styles.radius2} />
         <Text style={styles.radius3} />
       </View>
-      <Text style={styles.contacts}>just a few contacts around you</Text>
+      {
+        // <Text style={styles.contacts}>just a few contacts around you</Text>
+      }
       {step === 3 && (
         <TouchableWithoutFeedback
           onPress={(): void => {
@@ -267,14 +246,8 @@ export const HomeTour: React.FC<{
           </View>
         </TouchableWithoutFeedback>
       )}
-      <View style={styles.bottomButtonContainer}>
-        <BasicButton
-          title={t('homeTour.buttonTitleInfected')}
-          disabledTitleStyle={styles.buttonInfectedTitle}
-          disabledStyle={styles.buttonInfected}
-          disabled
-        />
-      </View>
+      <Text style={[styles.contacts]}>0 {t('home.contacts')} (avg: n/a)</Text>
+
       <BottomMenu activate={'Tracing'}></BottomMenu>
     </View>
   );

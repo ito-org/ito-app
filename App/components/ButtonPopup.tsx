@@ -1,17 +1,55 @@
-import React, {useState} from 'react';
+import React, {useState, ReactNode} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from 'App/App';
+import {Button} from 'react-native-elements';
 
-interface BottomMenuProps {
-  navigation?: StackNavigationProp<RootStackParamList, any>;
-  activate?: string;
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: 5,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+  button: {
+    alignItems: 'flex-end',
+    bottom: 5,
+    width: 10,
+  },
+  info: {
+    backgroundColor: 'red',
+    height: 160,
+  },
+  infoButton: {
+    backgroundColor: 'red',
+    height: 160,
+  },
+});
+
+interface ButtonPopupProps {
+  children: ReactNode;
+  button: {
+    fn: () => void;
+    title: string;
+  };
+  style?: object;
 }
 
-export const BottomMenu: React.FC<BottomMenuProps> = ({
-  navigation,
-  activate,
+export const ButtonPopup: React.FC<ButtonPopupProps> = ({
+  children,
+  button,
+  style,
 }) => {
-  return <View></View>;
+  const buttonColoring = styles.infoButton;
+  const textColoring = styles.info;
+  return (
+    <View style={[styles.container, textColoring, style]}>
+      <Text>{children}</Text>
+      <View style={{alignItems: 'flex-end'}}>
+        <Button
+          style={(styles.button, buttonColoring)}
+          title={button.title}
+          onPress={() => button.fn()}
+        />
+      </View>
+    </View>
+  );
 };

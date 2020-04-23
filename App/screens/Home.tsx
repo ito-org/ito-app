@@ -18,6 +18,7 @@ import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
 import {BottomMenu, MenuItem} from '../components/BottomMenu';
+import {ButtonPopup} from '../components/ButtonPopup';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -106,6 +107,12 @@ const styles = StyleSheet.create({
   },
   visible: {opacity: 1},
   invisible: {opacity: 0},
+  popup: {
+    position: 'absolute',
+    bottom: 100,
+    left: 20,
+    right: 20,
+  },
 });
 
 const stylesNoContacts = StyleSheet.create({
@@ -292,15 +299,7 @@ export const Home: React.FC<{
             </View>
           </BlurBackground>
         )}
-        <Header
-          showHelp={true}
-          navigationButton={{
-            title: 'old Home',
-            fn: (): void => {
-              navigation.navigate('HomeBluetooth');
-            },
-          }}
-        />
+        <Header />
         <View style={styles.lastFetchRow}>
           <Text style={styles.lastFetch}>
             {t('home.lastIdFetch')}: {latestFetch}
@@ -350,7 +349,11 @@ export const Home: React.FC<{
           ]}>{`${distances.length} ${t('home.contacts')} (avg: ${
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
         })`}</Text>
-
+        <ButtonPopup
+          style={styles.popup}
+          button={{fn: () => {}, title: 'Ok thanks'}}>
+          <Text>Hey hoehehehe</Text>
+        </ButtonPopup>
         <BottomMenu navigation={navigation} activate="Tracing"></BottomMenu>
       </View>
     </TouchableWithoutFeedback>
