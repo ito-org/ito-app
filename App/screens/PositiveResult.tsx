@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {TextInput} from 'react-native-gesture-handler';
 import {RNCamera} from 'react-native-camera';
 import BasicButton from '../components/BasicButton';
+import {BottomMenu} from '../components/BottomMenu';
 
 const {ItoBluetooth} = NativeModules;
 
@@ -114,6 +115,7 @@ export const PositiveResult: React.FC<{
       <BasicButton
         title={t('positiveResult.buttonTitleOk')}
         variant="outlined"
+        buttonStyle={[design.bottomOffset, design.bottomOffset]}
         onPress={(): void => {
           // allows uploading again when going back / visiting the screen anew
           // going back should be prevented once actual verification is implemented
@@ -132,6 +134,7 @@ export const PositiveResult: React.FC<{
           navigation.navigate('Upload');
         }}
       />
+      <BottomMenu navigation={navigation} activate="Infected?"></BottomMenu>
     </View>
   );
 };

@@ -100,7 +100,7 @@ export const Endangerment: React.FC<{
           <Text>{t('endangerment.positiveResultText')}</Text>
         </View>
       </TouchableWithoutFeedback>
-      <BottomMenu navigation={navigation} activate="Infected"></BottomMenu>
+      <BottomMenu navigation={navigation} activate="Infected?"></BottomMenu>
     </View>
   );
 };

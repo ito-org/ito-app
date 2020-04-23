@@ -51,7 +51,7 @@ interface BottomMenuProps {
 export const BottomMenu: React.FC<BottomMenuProps> = ({
   menuItems,
   navigation,
-  activate = 'Tracing',
+  activate,
 }) => {
   /* TODO: 
   just to get v2 up and running 
@@ -94,11 +94,7 @@ export const BottomMenu: React.FC<BottomMenuProps> = ({
 
   const items = menuItems ? menuItems : predefinedMenuItems;
   const [isActive, setIsActive] = useState(
-    items.map((v) => {
-      console.log(v.title + ' == ' + activate + ' ?');
-      console.log(v.active || v.title === activate);
-      return v.active || v.title === activate;
-    }),
+    items.map((v) => v.active || v.title === activate),
   );
 
   const activateItem = (idx: number) =>
@@ -119,8 +115,8 @@ export const BottomMenu: React.FC<BottomMenuProps> = ({
               style={bottomMenu.icon}
               size={iconSize}
               onPress={() => {
-                item.fn && item.fn();
-                setIsActive(activateItem(idx));
+                item.fn && !item.active && item.fn();
+                // setIsActive(activateItem(idx)); // DON'T REMOVE WILL BE RELEVANT IF FULLY IMPLEMENTED
               }}></Icon>
             <Text>{item.title}</Text>
           </View>

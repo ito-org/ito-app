@@ -68,6 +68,7 @@ export const SymptomInfo: React.FC<{
         title={t('symptomInfo.buttonTitlePositiveTest')}
         onPress={(): void => navigation.navigate('AlphaPositiveResult')}
       />
+      <BottomMenu navigation={navigation} activate="Infected?"></BottomMenu>
     </View>
   );
 };

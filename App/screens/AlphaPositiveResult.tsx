@@ -8,6 +8,7 @@ import {AlphaNotice} from '../components/AlphaNotice';
 
 import {global, design} from '../styles';
 import {useTranslation} from 'react-i18next';
+import {BottomMenu} from '../components/BottomMenu';
 
 const styles = StyleSheet.create({
   container: {
@@ -73,6 +74,7 @@ export const AlphaPositiveResult: React.FC<{
           onPress={(): void => navigation.navigate('PositiveResult')}
         />
       </View>
+      <BottomMenu navigation={navigation} activate="Infected?"></BottomMenu>
     </View>
   );
 };

@@ -43,4 +43,7 @@ export const design = {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  bottomOffset: {
+    bottom: 70,
+  },
 };
