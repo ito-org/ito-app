@@ -36,7 +36,7 @@ export type RootStackParamList = {
   AlphaWarning: undefined;
   Onboarding: undefined;
   OnboardingHow: undefined;
-  HomeTour_OLD: undefined;
+  HomeTourOLD: undefined;
   HomeTour: undefined;
   HomeBluetooth: undefined;
   Endangerment: undefined;

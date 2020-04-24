@@ -36,6 +36,7 @@
     "homeTour": {
       "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima!\nDit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn.",
       "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
+      "pause": "A click in the middle of the circle will stop the broadcast of your TCN. You can simply reactivate it by clicking it again.",
       "next": "volgende",
       "done": "klaar",
       "buttonTitleInfected": "ik denk dat ik besmet ben"
@@ -47,7 +48,11 @@
       "alertContactDiscovered": "We hebben zojuist ontdekt dat je dichtbij een Covid-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
       "whatNext": "Volgende stap",
       "contacts": "contacten",
-      "buttonTitleInfected": "Ik denk dat ik besmet ben"
+      "buttonTitleInfected": "Ik denk dat ik besmet ben",
+      "popup_info": {
+        "text": "You percieve COVID-19 symptoms or have a positive test result?",
+        "button": "Take next steps"
+      }
     },
     "endangerment": {
       "info": "Vertel of je symptomen of een\npositieve Covid-19 test resultaat hebt",
