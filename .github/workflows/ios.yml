@@ -1,0 +1,104 @@
+name: iOS
+
+env:
+  IOS_CERTIFICATES_REPO: 'ito-org/ios-certificates'
+  IOS_OUTPUT_FOLDER: './ios/build/ReactNativeApp'
+  IOS_PROVISIONING_PROFILE_GUID: 'D0DD9EFE-AAA2-468F-B7B8-493A2C4866BA'
+  EXPORT_OPTIONS_PLIST: './ios/exportOptionsDev.plist'
+
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        scheme: ['ReactNativeApp']
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ env.IOS_CERTIFICATES_REPO }}
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: './ios-certificates'
+      - name: Install cocoapods
+        run: gem install cocoapods --pre
+      - name: Decrypt ios certificates
+        run: sh ./ci/decrypt-ios-certificates.sh
+        env:
+          IOS_CERTIFICATES_PASSPHRASE: ${{ secrets.IOS_CERTIFICATES_PASSPHRASE }}  
+      - name: Prepare ios certificates
+        run: sh ./ci/prepare-ios-certificates.sh
+        env:
+          IOS_PROVISIONING_PROFILE_GUID: ${{ env.IOS_PROVISIONING_PROFILE_GUID }}     
+      - name: Install npm
+        run: |
+          npm ci
+      - name: Install pods
+        run: |
+          pod install --project-directory=./ios
+        shell: bash
+
+      - name: Build archive
+        run: |
+          sh ./ci/ios-unlock-keychain.sh
+          xcodebuild -workspace ./ios/ReactNativeApp.xcworkspace \
+           archive \
+           -scheme ${{ matrix.scheme }} \
+           -archivePath ./ios/build/ReactNativeApp.xcarchive \
+           CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+        env:
+          IOS_PROVISIONING_PROFILE_GUID: ${{ secrets.IOS_PROVISIONING_PROFILE_GUID }}
+          CODE_SIGN_IDENTITY: ''
+          CODE_SIGNING_REQUIRED: 'NO'
+          CODE_SIGNING_ALLOWED: 'NO'
+
+      - name: Build ipa
+        run: |
+          sh ./ci/ios-unlock-keychain.sh
+          xcodebuild -exportArchive \
+           -archivePath ./ios/build/ReactNativeApp.xcarchive \
+           -exportPath ${{ env.IOS_OUTPUT_FOLDER }} \
+           -exportOptionsPlist ${{ env.EXPORT_OPTIONS_PLIST }}
+           
+      - name: Upload ipa artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.ipa
+          path: ${{ env.IOS_OUTPUT_FOLDER }}/ReactNativeApp.ipa
+
+
+  deploy:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: app-release.ipa
+          path: .
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release:
+          draft: true
+          prerelease: true
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./ReactNativeApp.ipa
+          asset_name: ito-app-${{ steps.get_version.outputs.VERSION }}.ipa
+          asset_content_type: application/zip
