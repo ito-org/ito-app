@@ -21,6 +21,8 @@ on:
       - '**.md'
       - 'LICENSE'
   push:
+    tags:
+      - v*
     branches:
       - master
     paths-ignore: 
