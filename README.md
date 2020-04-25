@@ -123,10 +123,10 @@ The CI pipeline is implemented using GitHub Actions.
 
 ### Android
 
-- Build (runs on every push):
+- Build (pull requests against `master`, `master` pushes, `*-android` tag pushes):
   - install the Android SDK
   - build an APK
-- Deploy (runs only on git tags):
+- Deploy (`master` pushes, `*-android` tag pushes):
   - create a [GitHub release](https://github.com/ito-org/react-native-app/releases)
   - Upload the APK as release asset
 

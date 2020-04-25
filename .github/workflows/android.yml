@@ -1,4 +1,4 @@
-name: Android Pull Request & Master CI
+name: Android
 
 env:
   ANDROID_COMPILE_SDK: '28'
@@ -16,19 +16,14 @@ on:
   pull_request:
     branches:
       - master
-    paths-ignore: 
-      - '.github/**'
+    paths-ignore:
       - '**.md'
       - 'LICENSE'
   push:
     tags:
-      - v*
+      - '*-android'
     branches:
       - master
-    paths-ignore: 
-      - '.github/**'
-      - '**.md'
-      - 'LICENSE'
 
 jobs:
   build:
@@ -44,15 +39,18 @@ jobs:
           java-package: jdk
       - name: Install Android SDK
         run: sh ci/install-android-sdk.sh
-      - uses: bahmutov/npm-install@v1
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
       - name: Build APK
         run: npm run android:build-apk
+      # Tests currently disabled because of broken test setup
+      # - name: Run tests
+      #   run: npm run test
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
           path: ${{ env.ANDROID_APK_FILE }}
-      
   deploy:
     name: Deploy APK as release
     needs: build
@@ -78,8 +76,7 @@ jobs:
             Changes in this Release:
           draft: true
           prerelease: true
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: Upload release asset with version number in filename
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -87,4 +84,13 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./app-release.apk
           asset_name: ito-app-${{ steps.get_version.outputs.VERSION }}.apk
+          asset_content_type: application/zip
+      - name: Upload release asset with static name (linked from homepage)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./app-release.apk
+          asset_name: ito-app.apk
           asset_content_type: application/zip
