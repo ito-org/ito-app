@@ -1,6 +1,7 @@
 # ito React Native App
 
 ![Android Build](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg)
+![iOS](https://github.com/ito-org/react-native-app/workflows/iOS/badge.svg)
 [![Android Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest)
 ![License](https://img.shields.io/github/license/ito-org/react-native-app)
 
