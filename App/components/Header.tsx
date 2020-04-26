@@ -76,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({
           style={styles.questionMark}
           name="help-circle"
           size={24}
-          onPress={() => navigate('Onboarding')}
+          onPress={(): void => navigate('Onboarding')}
         />
       ) : null}
       {showShare ? (

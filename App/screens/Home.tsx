@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
-    marginBottom: 300,
+    marginBottom: 100,
   },
   bottomButtonContainer: {
     flex: 3,

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/**'
+      - '**.md'
+      - 'LICENSE'
+  push:
+    paths-ignore:
+      - '.github/**'
+      - '**.md'
+      - 'LICENSE'
+
+jobs:
+  lint:
+    if: contains(github.event.commits[0].message, '[skip ci]') == false
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: recursive
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Run ESLint
+        run: npm run lint

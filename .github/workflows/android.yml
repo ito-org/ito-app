@@ -12,32 +12,47 @@ env:
   ANDROID_HOME: ~/android-sdk-linux
   ANDROID_APK_FILE: 'android/app/build/outputs/apk/release/app-release.apk'
 
-on: push
+on:
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  push:
+    tags:
+      - '*-android'
+    branches:
+      - master
 
 jobs:
   build:
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - uses: actions/setup-java@v1
         with:
           java-version: '8'
           java-package: jdk
       - name: Install Android SDK
-        run: |
-          sh ci/install-android-sdk.sh
-      - name: Install npm dependencies
-        run: |
-          npm ci
+        run: sh ci/install-android-sdk.sh
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
       - name: Build APK
-        run: |
-          npm run android:build-apk
+        run: npm run android:build-apk
+      # Tests currently disabled because of broken test setup
+      # - name: Run tests
+      #   run: npm run test
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
           name: app-release.apk
           path: ${{ env.ANDROID_APK_FILE }}
   deploy:
+    name: Deploy APK as release
     needs: build
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
@@ -61,8 +76,7 @@ jobs:
             Changes in this Release:
           draft: true
           prerelease: true
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: Upload release asset with version number in filename
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -70,4 +84,13 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./app-release.apk
           asset_name: ito-app-${{ steps.get_version.outputs.VERSION }}.apk
+          asset_content_type: application/zip
+      - name: Upload release asset with static name (linked from homepage)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./app-release.apk
+          asset_name: ito-app.apk
           asset_content_type: application/zip

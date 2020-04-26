@@ -5,7 +5,7 @@
       "ok": "Ok"
     },
     "onboarding": {
-      "motto": "Volg het virus, niet de mensen!",
+      "motto": "Volg het virus, niet de mensen.",
       "welcomeMessage": "bescherm jezelf en\n de mensen om je heen\n\nito traceert geen persoonlijke data\noch je locatie\n\nwe hoeven alleen je gezondheids\n-status te kennen",
       "tutorial": "Hoe werkt het?"
     },
@@ -72,7 +72,13 @@
       "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
       "textPlaceholderEnterCode": "Vul verificatiecode in",
       "cameraMessage": "Schakel aub camera in",
-      "buttonTitleOk": "Upload data"
+      "buttonTitleOk": "Upload data",
+      "camPermissionTitle": "Permission to use camera",
+      "camPermissionText": "We need your permission to use your camera"
+    },
+    "uploadData": {
+      "info": "uploading test verification...\nthis might take a while",
+      "buttonTitleCancel": "cancel upload"
     }
   }
 }

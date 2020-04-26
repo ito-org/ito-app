@@ -292,7 +292,7 @@ export const HomeBluetooth: React.FC<{
           showHelp={true}
           navigationButton={{
             title: 'new Home',
-            fn: () => {
+            fn: (): void => {
               navigation.navigate('Home');
             },
           }}
