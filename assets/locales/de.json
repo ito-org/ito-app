@@ -64,7 +64,7 @@
     "symptomInfo": {
       "selfTestUrl": "https://covapp.charite.de",
       "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur vorgesehenen App:",
-      "buttonTitleOpenDesignatedApp": "Öffne die vorgesehene App",
+      "buttonTitleOpenDesignatedApp": "CovApp der Charité öffnen",
       "buttonTitleNotInfected": "Ich bin vermutlich nicht infiziert",
       "buttonTitlePositiveTest": "Ich wurde positiv getestet"
     },
