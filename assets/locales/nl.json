@@ -36,7 +36,7 @@
     "homeTour": {
       "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima!\nDit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn.",
       "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
-      "pause": "The pause button lets you pause the tracing. For example, if you are wearing medical safety gear or if you are in another situation where you want to pause the app.",
+      "pause": "Met de pauzeer-knop kan je het traceringsproces pauzeren. De pauzeer-knop gebruik je bijvoorbeeld wanneer je beschermende kleding draagt of wanneer je in een andere situatie bent waarin je de app wilt pauzeren.",
       "next": "volgende",
       "done": "klaar",
       "buttonTitleInfected": "ik denk dat ik besmet ben"
@@ -50,7 +50,7 @@
       "contacts": "contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben",
       "popup_info": {
-        "text": "You perceive COVID-19 symptoms or have a positive test result?",
+        "text": "Vertoon je symptomen van COVID-19 of heb je een positief testresultaat gekregen?",
         "button": "Take next steps"
       }
     },
