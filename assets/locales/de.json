@@ -34,8 +34,9 @@
       "thanks": "Vielen Dank für die Mitteilung\ndes bestätigten Testergebnisses.\n\nGute Besserung!"
     },
     "homeTour": {
-      "circle": "Dieser Kreis zeigt an, wieviele ito-Nutzer du getroffen hast. Keine Sorge, es zeigt nur an, ob du inmitten anderer ito-User bist oder nicht.",
-      "report": "Bei Infektionsverdacht melde das bitte mit diesem Button und folge den weiteren Anweisnugen. Das hilft auch anderen ito-Usern, die den Verdacht mitgeteilt bekommen.",
+      "circle": "Dieser Kreis zeigt an, wieviele ito-Nutzer Du gerade getroffen hast. Keine Sorge: er dient nur zur Anzeige, ob du inmitten anderer ito-Nutzer bist oder nicht.",
+      "report": "Bei Infektionsverdacht melde das bitte mit diesem Button und folge den weiteren Anweisungen. Das hilft auch anderen ito-Nutzern, die den Verdacht mitgeteilt bekommen.",
+      "pause": "Der Pause-Button erlaubt es Dir, das Tracing zu pausieren. Zum Beispiel, wenn Du medizinische Schutzausrüstung trägst oder in einer anderen Situation bist, in der du die App pausieren möchtest.",
       "next": "weiter",
       "done": "fertig",
       "buttonTitleInfected": "Ich glaube, ich bin infiziert!"
@@ -47,7 +48,11 @@
       "alertContactDiscovered": "Du warst in Kontakt mit einem Infizierten\nKeine Panik!",
       "whatNext": "Was soll ich jetzt tun?",
       "contacts": "Kontakte",
-      "buttonTitleInfected": "Ich glaube, ich bin infiziert"
+      "buttonTitleInfected": "Ich glaube, ich bin infiziert",
+      "popup_info": {
+        "text": "Du hast COVID-19-Symptome oder ein positives Testergebnis?",
+        "button": "Weitere Schritte unternehmen"
+      }
     },
     "endangerment": {
       "info": "Melde bitte, wenn Du Symptome oder\nein positives Testergebnis hast",
@@ -57,7 +62,7 @@
       "positiveResultText": "Wenn ein positives Ergebnis eines Arztes oder der Gesundheitsbehörde vorliegt,\nlass es bitte ito wissen, damit alle andere gewarnt werden und daheim bleiben können."
     },
     "symptomInfo": {
-      "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
+      "selfTestUrl": "https://covapp.charite.de",
       "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur vorgesehenen App:",
       "buttonTitleOpenDesignatedApp": "Öffne die vorgesehene App",
       "buttonTitleNotInfected": "Ich bin vermutlich nicht infiziert",
