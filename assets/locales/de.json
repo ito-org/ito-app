@@ -6,7 +6,7 @@
     },
     "onboarding": {
       "motto": "track infections, not people.",
-      "welcomeMessage": "schütze Dich und\ndie Menschen in Deiner Nähe\n\nito verfolgt keine persönlichen\noder ortsbezogenen Daten\n- \nwir benötigen nur\ndeinen Gesundheitszustand",
+      "welcomeMessage": "schütze Dich und\ndie Menschen in deiner Nähe\n\nito verfolgt keine persönlichen\noder ortsbezogenen Daten\n- \nwir benötigen nur\ndeinen Gesundheitszustand",
       "tutorial": "Wie funktioniert ito?"
     },
     "alphaPositiveResult": {
@@ -34,9 +34,9 @@
       "thanks": "Vielen Dank für die Mitteilung\ndes bestätigten Testergebnisses.\n\nGute Besserung!"
     },
     "homeTour": {
-      "circle": "Dieser Kreis zeigt an, wieviele ito-Nutzer Du gerade getroffen hast. Keine Sorge: er dient nur zur Anzeige, ob du inmitten anderer ito-Nutzer bist oder nicht.",
+      "circle": "Dieser Kreis zeigt an, wieviele ito-Nutzer Du gerade getroffen hast. Keine Sorge: er dient nur zur Anzeige, ob Du inmitten anderer ito-Nutzer bist oder nicht.",
       "report": "Bei Infektionsverdacht melde das bitte mit diesem Button und folge den weiteren Anweisungen. Das hilft auch anderen ito-Nutzern, die den Verdacht mitgeteilt bekommen.",
-      "pause": "Der Pause-Button erlaubt es Dir, das Tracing zu pausieren. Zum Beispiel, wenn Du medizinische Schutzausrüstung trägst oder in einer anderen Situation bist, in der du die App pausieren möchtest.",
+      "pause": "Der Pause-Button erlaubt es Dir, das Tracing zu pausieren. Zum Beispiel, wenn Du medizinische Schutzausrüstung trägst oder in einer anderen Situation bist, in der Du die App pausieren möchtest.",
       "next": "weiter",
       "done": "fertig",
       "buttonTitleInfected": "Ich glaube, ich bin infiziert!"
@@ -63,7 +63,7 @@
     },
     "symptomInfo": {
       "selfTestUrl": "https://covapp.charite.de",
-      "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur vorgesehenen App:",
+      "explanation": "Bitte prüfe, ob die Symptome und die Umstände zu einer COVID-19 Infektion passen.\n\nUm das selber zu prüfen, wechsele bitte zur dafür vorgesehenen App:",
       "buttonTitleOpenDesignatedApp": "CovApp der Charité öffnen",
       "buttonTitleNotInfected": "Ich bin vermutlich nicht infiziert",
       "buttonTitlePositiveTest": "Ich wurde positiv getestet"
