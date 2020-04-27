@@ -5,7 +5,7 @@
       "ok": "Ok"
     },
     "onboarding": {
-      "motto": "Volg infecties, geen personen.",
+      "motto": "volg infecties, geen personen.",
       "welcomeMessage": "Bescherm uzelf en\nde mensen om u heen!\n\nITO traceert geen persoonlijke data,\nnoch uw locatie.\n\nDe app hoeft alleen uw gezondheids\n-status te kennen.",
       "tutorial": "Hoe werkt het?"
     },
@@ -14,10 +14,10 @@
       "buttonTitleReleaseResult": "Simuleer een positief testresultaat"
     },
     "onboardingHow": {
-      "bluetooth": "De app maakt gebruik van Bluetooth\n-technologie om de aanwezigheid van\nmensen in uw buurt te\nregistreren.",
-      "smartphone": "Deze registraties worden op uw\ntoestel opgeslagen in een zogenoemde\n‘historie van gepasseerde mensen’.",
-      "bell": "Wanneer iemand uit deze historie\naangeeft geïnfecteerd te zijn\nzal de app berekenen hoe groot\nde kans is dat u ook\ngeïnfecteerd bent.",
-      "shield2": "De app geeft u adviezen en\nzet u aan tot het nemen van vervolgstappen.\nOok kunt u andere appgebruikers\nanoniem laten weten\nwanneer u besmet bent.",
+      "bluetooth": "De app gebruikt Bluetooth\n-technologie om de aanwezigheid\nvan mensen in uw buurt te\nregistreren.",
+      "smartphone": "Deze registraties worden\nop uw toestel opgeslagen.",
+      "bell": "Wanneer iemand aangeeft\ngeïnfecteerd te zijn krijgt\nu een bericht hierover.",
+      "shield2": "Laatandere appgebruikers\nanoniem weten\nwanneer u besmet bent.",
       "buttonTitleGetStarted": "Begin"
     },
     "alphaWarning": {
@@ -42,7 +42,7 @@
       "buttonTitleInfected": "Ik denk dat ik besmet ben"
     },
     "home": {
-      "lastIdFetch": "Laatste server-synchronisatie",
+      "lastIdFetch": "Laatste update",
       "today": "Vandaag",
       "never": "Nog nooit",
       "alertContactDiscovered": "De app heeft zojuist ontdekt dat u in de buurt van een besmet persoon geweest bent.\nKalm aan! Geen paniek!",
@@ -50,16 +50,16 @@
       "contacts": "Contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben",
       "popup_info": {
-        "text": "Vertoont u symptomen van COVID-19 of heeft u een positief testresultaat gekregen?",
+        "text": "Vertoont u symptomen of heeft u een positief testresultaat gekregen?",
         "button": "Neem vervolgstappen"
       }
     },
     "endangerment": {
-      "info": "Laat weten of u symptomen of een\npositief COVID-19 testresultaat heeft ontvangen",
+      "info": "Laat weten of u symptomen vertoont\nof een positief testresultaat heeft",
       "symptomsTitle": "Ik heb typische COVID-19 symptomen",
-      "symptomsText": "Geen probleem! Wij helpen u\nmet het nemen van\nvervolgstappen.",
+      "symptomsText": "Geen probleem,\nWij helpen u verder!",
       "positiveResultTitle": "Ik heb een positief COVID-19 testresultaat ontvangen",
-      "positiveResultText": "Als u een positief testresultaat heeft ontvangen\nvan uw arts of andere autoriteit\nlaat dit ons dan zo snel mogelijk weten.\nWij zullen vervolgens de mensen uit\nde historie van gepasseerde mensen\nop de hoogte brengen (wanneer dit nodig is)."
+      "positiveResultText": "Als u een positief testresultaat heeft ontvangen laat dit ons dan zo snel mogelijk weten. Wij zullen vervolgens de mensen uit de historie van gepasseerde mensen op de hoogte brengen (wanneer dit nodig is)."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
