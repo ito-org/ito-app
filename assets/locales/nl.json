@@ -45,36 +45,36 @@
       "lastIdFetch": "Meest recente ID fetch",
       "today": "vandaag",
       "never": "nooit",
-      "alertContactDiscovered": "We hebben zojuist ontdekt dat je dichtbij een Covid-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
+      "alertContactDiscovered": "We hebben zojuist ontdekt dat je dichtbij een COVID-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
       "whatNext": "Volgende stap",
       "contacts": "contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben",
       "popup_info": {
         "text": "Vertoon je symptomen van COVID-19 of heb je een positief testresultaat gekregen?",
-        "button": "Take next steps"
+        "button": "Neem vervolgstappen"
       }
     },
     "endangerment": {
-      "info": "Vertel of je symptomen of een\npositieve Covid-19 test resultaat hebt",
-      "symptomsTitle": "Ik heb typische Covid-19 symptomen",
+      "info": "Vertel of je symptomen of een\npositief COVID-19 testresultaat hebt",
+      "symptomsTitle": "Ik heb typische COVID-19 symptomen",
       "symptomsText": "Geen probleem! We helpen jeu\nmet de volgende stappen.",
-      "positiveResultTitle": "Ik heb een positief Covid-19 test resultaat",
+      "positiveResultTitle": "Ik heb een positief COVID-19 test resultaat",
       "positiveResultText": "Als je een positief resultaat hebt gekregen\nvan een arts of de autoriteiten\nlaat het ons aub weten dan kunnen\nwij helpen verspeiding te voorkomen."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
-      "explanation": "Check aub of je symptomen hebt die overeenkomen met een Covid-19 besmetting.\n\nOm een zelf-check te doen, ga je naar de Nederlandse Covid-19 zelf-check app:",
-      "buttonTitleOpenDesignatedApp": "Open Nederlandse Covid-19 zelf-check app",
+      "explanation": "Check aub of je symptomen hebt die overeenkomen met een COVID-19 besmetting.\n\nOm een zelf-check te doen, ga je naar de Nederlandse COVID-19 zelf-check app:",
+      "buttonTitleOpenDesignatedApp": "Open Nederlandse COVID-19 zelf-check app",
       "buttonTitleNotInfected": "Het lijkt erop dat ik NIET besmet ben",
-      "buttonTitlePositiveTest": "Ik heb een positief Covid-19 test resultaat"
+      "buttonTitlePositiveTest": "Ik heb een positief COVID-19 test resultaat"
     },
     "positiveResult": {
       "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
       "textPlaceholderEnterCode": "Vul verificatiecode in",
-      "cameraMessage": "Schakel aub camera in",
+      "cameraMessage": "Schakel alsjeblieft je camera in",
       "buttonTitleOk": "Upload data",
-      "camPermissionTitle": "Permission to use camera",
-      "camPermissionText": "We need your permission to use your camera"
+      "camPermissionTitle": "Toegang voor het gebruik van je camera",
+      "camPermissionText": "We hebben toegang nodig tot je camera"
     },
     "uploadData": {
       "info": "uploading test verification...\nthis might take a while",
