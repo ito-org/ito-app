@@ -5,80 +5,80 @@
       "ok": "Ok"
     },
     "onboarding": {
-      "motto": "Volg het virus, niet de mensen.",
-      "welcomeMessage": "bescherm jezelf en\n de mensen om je heen\n\nito traceert geen persoonlijke data\noch je locatie\n\nwe hoeven alleen je gezondheids\n-status te kennen",
+      "motto": "volg infecties, geen personen.",
+      "welcomeMessage": "Bescherm uzelf en\nde mensen om u heen!\n\nITO traceert geen persoonlijke data,\nnoch uw locatie.\n\nDe app hoeft alleen uw gezondheids\n-status te kennen.",
       "tutorial": "Hoe werkt het?"
     },
     "alphaPositiveResult": {
-      "testingPurposes": "Om de App te testen kun je een positief Corona test-resultaat simuleren. Nadat je de knop hebt gedrukt is je mobiel's TCN gemarkeerd als 'positief' en ge-upload naar de server.\n\nIedere ito-gebruiker die nu risico op besmetting loopt wordt op de hoogte gebracht",
-      "buttonTitleReleaseResult": "Verwerk positief test resultaat"
+      "testingPurposes": "Om de App te testen kunt u een positief testresultaat simuleren. Nadat u de knop heeft ingedrukt wordt uw mobiel's TCN (Tijdelijke Contact Nummer) gemarkeerd als 'positief' en wordt geüpload naar de server.\n\nIedere ITO-gebruiker die een risico loopt wordt op de hoogte gebracht.",
+      "buttonTitleReleaseResult": "Simuleer een positief testresultaat"
     },
     "onboardingHow": {
-      "bluetooth": "we gebruiken de Bluetooth functionaliteit om je mobiel\nalle andere gebruikers van\ndeze app om je heen te\nlaten zien",
-      "smartphone": "jouw mobiel onthoudt welke\nandere mobieltjes je hebt\nontmoet. deze data staat\nalleen op jouw mobiel",
-      "bell": "wanneer iemand die je eerder\nhebt ontmoet besmet is\ngeraakt, dan krijg je bericht\nmet daarin meer informatie\nover wat je moet doen",
-      "shield2": "als je bent besmet en\npositief bent getest dan kun\nje iedereen die je recent hebt\nontmoet dit laten weten",
+      "bluetooth": "De app gebruikt Bluetooth\n-technologie om de aanwezigheid\nvan mensen in uw buurt te\nregistreren.",
+      "smartphone": "Deze registraties worden\nop uw toestel opgeslagen.",
+      "bell": "Wanneer iemand aangeeft\ngeïnfecteerd te zijn krijgt\nu een bericht hierover.",
+      "shield2": "Laat andere appgebruikers\nanoniem weten\nwanneer u besmet bent.",
       "buttonTitleGetStarted": "Begin"
     },
     "alphaWarning": {
       "demoPurpose": "Deze versie is alleen voor demonstratie-doeleinden.",
-      "notFullyImplemented": "Nog niet alle functionaliteit is geïmplementeerd en goedgekeurd door de benodigde autoriteiten",
-      "review": "Test a.u.b de app en check de code. Rapporteer problemen, bugs en algemene feedback aan",
+      "notFullyImplemented": "Nog niet alle functionaliteiten zijn geïmplementeerd en/of goedgekeurd door de GGD en Nederlandse overheid.",
+      "review": "Wij vragen u de app te testen op fouten (bugs) en vragen u om uw feedback. Als u wilt kunt u ook de code nakijken op Github (zie link hieronder).",
       "start": "ok, begin"
     },
     "confimationCode": {
-      "enterCode": "Scan de QR code die je bij jouw testresultaat hebt gekregen, of vul het ID van jouw test-resultaat in om je positieve resultaat te verifiëren",
-      "buttonTitleSubmit": "Ja, ik heb de test verificatie code ingegeven"
+      "enterCode": "Scan alstublieft de QR code die u bij de test heeft gekregen, of vul handmatig de ID van het testresultaat in om een besmetting te verifiëren.",
+      "buttonTitleSubmit": "Ja, ik heb de verificatiecode ingevoerd."
     },
     "dataUpload": {
-      "thanks": "Bedankt voor het delen\n van je geverifieerde test resultaat.\n\nVoorspoedige beterschap!"
+      "thanks": "Bedankt voor het delen\nvan uw geverifieerde testresultaat.\n\nVeel beterschap gewenst!"
     },
     "homeTour": {
-      "circle": "De cirkel laat zien hoeveel ito gebruikers je recentelijk hebt ontmoet. Dat is prima!\nDit laat alleen zien hoeveel ito gebruikers er in jouw buurt zijn.",
-      "report": "Als je denkt besmet te zijn, druk dan op deze knop om meer informatie te krijgen over wat te doen. Hiermee meldt je ook aan anderen dat zij risico lopen.",
-      "pause": "The pause button lets you pause the tracing. For example, if you are wearing medical safety gear or if you are in another situation where you want to pause the app.",
-      "next": "volgende",
-      "done": "klaar",
-      "buttonTitleInfected": "ik denk dat ik besmet ben"
+      "circle": "De cirkel laat zien hoeveel ITO gebruikers u recentelijk heeft ontmoet en laat zien hoeveel ITO gebruikers er momenteel in uw buurt zijn.",
+      "report": "Als u denkt besmet te zijn, druk dan op deze knop om vervolgstappen te nemen. In dit menu meldt u aan anderen dat zij wellicht risico lopen.",
+      "pause": "Met de pauzeer-knop kunt u het traceringsproces pauzeren. De pauzeer-knop gebruikt u bijvoorbeeld wanneer u beschermende kleding draagt of wanneer u in een andere situatie bent waarin u de app wilt pauzeren.",
+      "next": "Volgende",
+      "done": "Klaar",
+      "buttonTitleInfected": "Ik denk dat ik besmet ben"
     },
     "home": {
-      "lastIdFetch": "Meest recente ID fetch",
-      "today": "vandaag",
-      "never": "nooit",
-      "alertContactDiscovered": "We hebben zojuist ontdekt dat je dichtbij een Covid-19 geval bent geweest.\n Dat is geen reden voor paniek hoor",
+      "lastIdFetch": "Laatste update",
+      "today": "Vandaag",
+      "never": "Nog nooit",
+      "alertContactDiscovered": "De app heeft zojuist ontdekt dat u in de buurt van een besmet persoon geweest bent.\nKalm aan! Geen paniek!",
       "whatNext": "Volgende stap",
-      "contacts": "contacten",
+      "contacts": "Contacten",
       "buttonTitleInfected": "Ik denk dat ik besmet ben",
       "popup_info": {
-        "text": "You perceive COVID-19 symptoms or have a positive test result?",
-        "button": "Take next steps"
+        "text": "Vertoont u symptomen of heeft u een positief testresultaat gekregen?",
+        "button": "Neem vervolgstappen"
       }
     },
     "endangerment": {
-      "info": "Vertel of je symptomen of een\npositieve Covid-19 test resultaat hebt",
-      "symptomsTitle": "Ik heb typische Covid-19 symptomen",
-      "symptomsText": "Geen probleem! We helpen jeu\nmet de volgende stappen.",
-      "positiveResultTitle": "Ik heb een positief Covid-19 test resultaat",
-      "positiveResultText": "Als je een positief resultaat hebt gekregen\nvan een arts of de autoriteiten\nlaat het ons aub weten dan kunnen\nwij helpen verspeiding te voorkomen."
+      "info": "Laat weten of u symptomen vertoont\nof een positief testresultaat heeft",
+      "symptomsTitle": "Ik heb typische COVID-19 symptomen",
+      "symptomsText": "Geen probleem,\nWij helpen u verder!",
+      "positiveResultTitle": "Ik heb een positief COVID-19 testresultaat ontvangen",
+      "positiveResultText": "Als u een positief testresultaat heeft ontvangen laat dit ons dan zo snel mogelijk weten. Wij zullen vervolgens de mensen uit de historie van gepasseerde mensen op de hoogte brengen (wanneer dit nodig is)."
     },
     "symptomInfo": {
       "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
-      "explanation": "Check aub of je symptomen hebt die overeenkomen met een Covid-19 besmetting.\n\nOm een zelf-check te doen, ga je naar de Nederlandse Covid-19 zelf-check app:",
-      "buttonTitleOpenDesignatedApp": "Open Nederlandse Covid-19 zelf-check app",
+      "explanation": "Check alstublieft of u symptomen vertoont die overeenkomen met een COVID-19 besmetting.\n\nU kunt een zelf-check doen met behulp van de Nederlandse COVID-19 zelf-check app:",
+      "buttonTitleOpenDesignatedApp": "Open de COVID-19 zelf-check app",
       "buttonTitleNotInfected": "Het lijkt erop dat ik NIET besmet ben",
-      "buttonTitlePositiveTest": "Ik heb een positief Covid-19 test resultaat"
+      "buttonTitlePositiveTest": "Ik heb een positief COVID-19 test resultaat"
     },
     "positiveResult": {
-      "instruction": "Scan aub de QR code die je bij je test hebt gekregen, of vul de ID van het resultaat in, om die te verifiëren",
-      "textPlaceholderEnterCode": "Vul verificatiecode in",
-      "cameraMessage": "Schakel aub camera in",
-      "buttonTitleOk": "Upload data",
-      "camPermissionTitle": "Permission to use camera",
-      "camPermissionText": "We need your permission to use your camera"
+      "instruction": "Scan alstublieft de QR code die u bij de test heeft gekregen, of vul handmatig de ID van het testresultaat in om een besmetting te verifiëren.",
+      "textPlaceholderEnterCode": "Vul de verificatiecode handmatig in",
+      "cameraMessage": "Schakel alsjeblieft uw camera in",
+      "buttonTitleOk": "Simuleer testresultaat",
+      "camPermissionTitle": "Toegang voor het gebruik van uw camera",
+      "camPermissionText": "De app heeft toegang nodig tot uw camera"
     },
     "uploadData": {
-      "info": "uploading test verification...\nthis might take a while",
-      "buttonTitleCancel": "cancel upload"
+      "info": "U testresultaat wordt geanonimiseerd geüpload naar de server...\nDit kan even duren.",
+      "buttonTitleCancel": "Uploaden annuleren."
     }
   }
 }
