@@ -1,7 +1,7 @@
 # ito React Native App
 
 ![Android Build](https://github.com/ito-org/ito-app/workflows/Android/badge.svg)
-[![Android Downloads](https://img.shields.io/github/downloads/ito-org/ito-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest)
+[![Android Downloads](https://img.shields.io/github/downloads/ito-org/ito-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/ito-app/releases/latest)
 ![License](https://img.shields.io/github/license/ito-org/ito-app)
 
 ## Try it out
@@ -12,11 +12,11 @@ You can find Android alpha releases on our releases page. [Click here to find th
 
     +--------------------------------+
     |                                |
-    |       react-native-app         |
+    |            ito-app             |
     |                                |
     | +----------------------------+ |     +----------------+
     | |                            | |     |                |
-    | | react-native-ito-bluetooth +------>+   api-backend  |
+    | |      react-native-ito      +------>+   api-backend  |
     | |          library           | |     |                |
     | +----------------------------+ |     +----------------+
     +--------------------------------+
