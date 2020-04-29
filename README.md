@@ -1,28 +1,28 @@
 # ito React Native App
 
-![Android Build](https://github.com/ito-org/react-native-app/workflows/Android/badge.svg)
-[![Android Downloads](https://img.shields.io/github/downloads/ito-org/react-native-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/react-native-app/releases/latest)
-![License](https://img.shields.io/github/license/ito-org/react-native-app)
+![Android Build](https://github.com/ito-org/ito-app/workflows/Android/badge.svg)
+[![Android Downloads](https://img.shields.io/github/downloads/ito-org/ito-app/total?color=%237dc6b6&logo=Android)](https://github.com/ito-org/ito-app/releases/latest)
+![License](https://img.shields.io/github/license/ito-org/ito-app)
 
 ## Try it out
 
-You can find Android alpha releases on our releases page. [Click here to find the latest release.](https://github.com/ito-org/react-native-app/releases/latest) For the app to recognize other devices, make sure to enable Bluetooth.
+You can find Android alpha releases on our releases page. [Click here to find the latest release.](https://github.com/ito-org/ito-app/releases/latest) For the app to recognize other devices, make sure to enable Bluetooth.
 
 ## Architecture
 
     +--------------------------------+
     |                                |
-    |       react-native-app         |
+    |            ito-app             |
     |                                |
     | +----------------------------+ |     +----------------+
     | |                            | |     |                |
-    | | react-native-ito-bluetooth +------>+   api-backend  |
+    | |      react-native-ito      +------>+   api-backend  |
     | |          library           | |     |                |
     | +----------------------------+ |     +----------------+
     +--------------------------------+
 
-- `react-native-app`: React Native app implementation
-- [`react-native-ito-bluetooth`](https://github.com/ito-org/react-native-ito-bluetooth): React Native library, which contains native code for handling bluetooth and network communication with the backend. The library is used by the app as an NPM dependency. The exact version is pinned in `package-lock.json`.
+- `ito-app` (this repository): React Native app implementation
+- [`react-native-ito`](https://github.com/ito-org/react-native-ito): React Native library, which contains native code for handling bluetooth and network communication with the backend. The library is used by the app as an NPM dependency. The exact version is pinned in `package-lock.json`.
 - [`api-backend`](https://github.com/ito-org/api-backend): This is the hosted backend implementation. This is work in progress and will replace the old [`backend-sqlite`](https://github.com/ito-org/backend-sqlite) implementation, that is currently used by the app.
 
 ## Development
@@ -84,21 +84,21 @@ npm run ios
 
 ### Run the app with a locally modified library
 
-Check out `react-native-ito-bluetooth` and execute:
+Check out `react-native-ito` and execute:
 
 ```sh
 npm link
 ```
 
-Then, go to your local checkout of `react-native-app` and execute:
+Then, go to your local checkout of `ito-app` and execute:
 
 ```sh
-npm link react-native-ito-bluetooth
+npm link react-native-ito
 ```
 
-This will override `node_modules/react-native-ito-bluetooth` with a symbolic link to your local checkout of `react-native-ito-bluetooth`. Now your local checkout of the library will appear to be an installed dependency in the `node_modules` folder of the app and will be recognized as such during build.
+This will override `node_modules/react-native-ito` with a symbolic link to your local checkout of `react-native-ito`. Now your local checkout of the library will appear to be an installed dependency in the `node_modules` folder of the app and will be recognized as such during build.
 
-Keep in mind, that after modifying library code, you might need to remove the `build` folders (e.g. `android/build`) in your `react-native-ito-bluetooth` checkout. This will force the app project to rebuild the library.
+Keep in mind, that after modifying library code, you might need to remove the `build` folders (e.g. `android/build`) in your `react-native-ito` checkout. This will force the app project to rebuild the library.
 
 Now you can build and start the app and it will use your locally modified library code:
 
