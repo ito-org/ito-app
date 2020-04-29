@@ -21,7 +21,7 @@ You can find Android alpha releases on our releases page. [Click here to find th
     | +----------------------------+ |     +----------------+
     +--------------------------------+
 
-- `ito-app`: React Native app implementation
+- `ito-app` (this repository): React Native app implementation
 - [`react-native-ito`](https://github.com/ito-org/react-native-ito): React Native library, which contains native code for handling bluetooth and network communication with the backend. The library is used by the app as an NPM dependency. The exact version is pinned in `package-lock.json`.
 - [`api-backend`](https://github.com/ito-org/api-backend): This is the hosted backend implementation. This is work in progress and will replace the old [`backend-sqlite`](https://github.com/ito-org/backend-sqlite) implementation, that is currently used by the app.
 
@@ -90,7 +90,7 @@ Check out `react-native-ito` and execute:
 npm link
 ```
 
-Then, go to your local checkout of `react-native-app` and execute:
+Then, go to your local checkout of `ito-app` and execute:
 
 ```sh
 npm link react-native-ito
