@@ -46,7 +46,7 @@ export const Loading: React.FC<{
           () =>
             navigation.reset({
               index: 0,
-              routes: [{name: 'Bluetooth'}],
+              routes: [{name: 'Home'}],
             }),
           500,
         );
@@ -55,7 +55,7 @@ export const Loading: React.FC<{
           () =>
             navigation.reset({
               index: 0,
-              routes: [{name: 'Bluetooth'}],
+              routes: [{name: 'AlphaWarning'}],
             }),
           500,
         );
