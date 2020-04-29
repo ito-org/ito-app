@@ -3,6 +3,7 @@ import {initReactI18next} from 'react-i18next';
 import en from './assets/locales/en';
 import nl from './assets/locales/nl';
 import de from './assets/locales/de';
+import bn from './assets/locales/bn';
 
 import {NativeModules} from 'react-native';
 
@@ -28,7 +29,7 @@ function getSystemLocale(): string {
   return locale;
 }
 
-const resources = {en, nl, de};
+const resources = {en, nl, de, bn};
 
 function getLangPrefix(lng: string): string {
   let prefix = 'en';
