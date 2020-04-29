@@ -1,4 +1,8 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 // Naming from design in figma
 export const colorPaletteMintGrey = {
@@ -11,12 +15,30 @@ export const colorPaletteMintGrey = {
   grey0: '#FFFFFF',
 };
 
+export const global = StyleSheet.create({
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    flex: 0.45,
+    textAlign: 'center',
+  },
+  col: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+  },
+  center: {
+    justifyContent: 'center',
+    alignSelf: 'baseline',
+  },
+});
+
 const width: number = Dimensions.get('window').width;
 const height: number = Dimensions.get('window').height;
 export const wPercent = (flexVal: number) => {
-  return flexVal * width;
+  return wp(flexVal * 100);
 };
 
 export const hPercent = (flexVal: number) => {
-  return flexVal * height;
+  return hp(flexVal * 100);
 };
