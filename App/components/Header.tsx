@@ -1,92 +1,62 @@
 import React from 'react';
 import {
-  View,
-  StyleSheet,
   NativeSyntheticEvent,
   NativeTouchEvent,
+  StyleSheet,
+  View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import {global, wPercent} from '../styles/style-v3';
 import {NavigationButton} from './NavigationButton';
-import {Logo} from './Logo';
-import {AlphaNotice} from './AlphaNotice';
-import {useNavigation} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
-  root: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  navigationButton: {},
-  logoWrapper: {marginLeft: 'auto', marginRight: 'auto'},
-  logo: {padding: 0},
-  questionMark: {},
-  alphaNoticeRoot: {
-    position: 'absolute',
-    top: '25%',
-    right: -60,
-    minWidth: 56,
-  },
-  alphaNoticeText: {
-    fontSize: 14,
-    lineHeight: 14,
-  },
+  left: {flex: 0.5, justifyContent: 'center'},
+  right: {flex: 0.5, justifyContent: 'center'},
+  leftButton: {left: wPercent(0.01)},
+  rightButton: {right: wPercent(0.01)},
+  font: {...global.textSubtitle},
 });
 
 interface HeaderProps {
-  showAlpha?: boolean;
-  showHelp?: boolean;
-  showShare?: boolean;
   style?: object;
-  navigationButton?: {
+  leftNavigtion?: {
+    title: string;
+    fn: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
+  };
+  rightNavigtion?: {
     title: string;
     fn: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   };
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  showAlpha = true,
-  showHelp = false,
-  showShare = true,
-  navigationButton,
+  leftNavigtion,
+  rightNavigtion,
   style = {},
 }) => {
-  const {navigate} = useNavigation();
-
   return (
-    <View style={[styles.root, style]}>
-      {navigationButton ? (
-        <NavigationButton
-          onPress={navigationButton.fn}
-          title={navigationButton.title}
-          style={styles.navigationButton}
-        />
-      ) : null}
-      <View style={styles.logoWrapper}>
-        <Logo textStyle={styles.logo} />
-        {showAlpha ? (
-          <AlphaNotice
-            rootStyle={styles.alphaNoticeRoot}
-            textStyle={styles.alphaNoticeText}
+    <View style={[global.row, {flex: 0.05}, style]}>
+      <View style={styles.left}>
+        {leftNavigtion ? (
+          <NavigationButton
+            direction="left"
+            onPress={leftNavigtion.fn}
+            title={leftNavigtion.title}
+            style={styles.leftButton}
+            textStyle={styles.font}
           />
         ) : null}
       </View>
-      {showHelp ? (
-        <Icon
-          style={styles.questionMark}
-          name="help-circle"
-          size={24}
-          onPress={(): void => navigate('Onboarding')}
-        />
-      ) : null}
-      {showShare ? (
-        <Icon
-          style={styles.questionMark}
-          name="share-2"
-          size={24}
-          //onPress={() => navigate('Onboarding')}
-        />
-      ) : null}
+      <View style={styles.right}>
+        {rightNavigtion ? (
+          <NavigationButton
+            direction="right"
+            onPress={rightNavigtion.fn}
+            title={rightNavigtion.title}
+            style={styles.rightButton}
+            textStyle={styles.font}
+          />
+        ) : null}
+      </View>
     </View>
   );
 };

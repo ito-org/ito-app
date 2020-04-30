@@ -63,6 +63,11 @@ export const global = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
   },
+  textTitle: {
+    textAlign: 'center',
+    fontSize: hPercent(0.05),
+    fontFamily: 'Ubuntu',
+  },
   textSubtitle: {
     textAlign: 'center',
     fontSize: hPercent(0.03),

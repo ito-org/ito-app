@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "home": {
+      "noContacts": "No recent contact detected",
+      "noContactsSub": "Based on your data, it seems recently nobody came near your",
+      "infected": "I think I'm infected",
+      "learnMore": "Learn more",
+      "pause": "Pause contact tracing"
+    }
+  }
+}

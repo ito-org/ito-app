@@ -43,7 +43,7 @@ export const Home: React.FC<{navigation: HomeScreenProp}> = ({navigation}) => {
         <View style={[global.col, {flex: 1, justifyContent: 'space-around'}]}>
           <BasicButton
             title="I think I'm infected"
-            onPress={(): void => undefined}
+            onPress={(): void => navigation.navigate('Infected')}
           />
           <BasicButton title="Learn more" onPress={(): void => undefined} />
           <BasicButton

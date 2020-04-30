@@ -14,9 +14,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  text: {
-    lineHeight: 15,
+    textAlignVertical: 'center',
   },
 });
 
@@ -24,19 +22,24 @@ interface NavigationButton {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
   style?: object;
+  textStyle?: object;
+  direction: 'left' | 'right';
 }
 
 export const NavigationButton: React.FC<NavigationButton> = ({
   onPress,
+  direction,
   title,
   style = {},
+  textStyle = {},
 }) => {
   return (
     <View style={[styles.wrapper, style]}>
-      <Icon name="chevron-left" size={18} />
-      <Text style={styles.text} onPress={onPress}>
+      {direction == 'left' ? <Icon name="chevron-left" size={18} /> : null}
+      <Text style={textStyle} onPress={onPress}>
         {' ' + title}
       </Text>
+      {direction == 'right' ? <Icon name="chevron-right" size={18} /> : null}
     </View>
   );
 };

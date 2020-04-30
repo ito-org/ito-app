@@ -14,6 +14,7 @@ import 'react-native-get-random-values';
 import {Bluetooth} from './screens/Bluetooth';
 import {Home} from './screens/Home';
 import {Loading} from './screens/Loading';
+import {Infected} from './screens/Infected';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export type RootStackParamList = {
   Loading: undefined;
   Bluetooth: undefined;
   Home: undefined;
+  Infected: undefined;
 };
 
 declare const global: {HermesInternal: null | {}};
@@ -38,6 +40,7 @@ export const App: React.FC<void> = () => {
           <Stack.Screen name="Loading" component={Loading} />
           <Stack.Screen name="Bluetooth" component={Bluetooth} />
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Infected" component={Infected} />
         </Stack.Navigator>
       </NavigationContainer>
     </Suspense>
