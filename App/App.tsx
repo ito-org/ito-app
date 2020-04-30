@@ -7,14 +7,13 @@
  *
  * @format
  */
-import React, {useEffect, Suspense} from 'react';
-import 'react-native-get-random-values';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Loading} from './screens/Loading';
-import AsyncStorage from '@react-native-community/async-storage'; // eslint-disable-line @typescript-eslint/no-unused-vars
-import {Home} from './screens/Home';
+import React, {Suspense, useEffect} from 'react';
+import 'react-native-get-random-values';
 import {Bluetooth} from './screens/Bluetooth';
+import {Home} from './screens/Home';
+import {Loading} from './screens/Loading';
 
 const Stack = createStackNavigator();
 

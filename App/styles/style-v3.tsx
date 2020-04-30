@@ -19,17 +19,16 @@ export const global = StyleSheet.create({
   row: {
     display: 'flex',
     flexDirection: 'row',
-    flex: 0.45,
     textAlign: 'center',
   },
   col: {
     display: 'flex',
     flexDirection: 'column',
-    flex: 1,
+    textAlign: 'center',
   },
   center: {
     justifyContent: 'center',
-    alignSelf: 'baseline',
+    textAlign: 'center',
   },
 });
 

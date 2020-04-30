@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  wPercent,
-  colorPaletteMintGrey,
-  hPercent,
-  global,
-} from '../styles/style-v3';
+import {wPercent, colorPaletteMintGrey, hPercent} from '../styles/style-v3';
 import Svg, {
   Circle,
   LinearGradient,
@@ -17,62 +12,65 @@ const circRad = {
   c1: wPercent(1.125) / 2,
   c2: wPercent(0.825) / 2,
   c3: wPercent(0.5) / 2,
-  c4: wPercent(0.15) / 2,
-  c5: wPercent(0.1) / 2,
+  c4: wPercent(0.25) / 2,
+  c4inner: wPercent(0.0) / 2,
+  c5: wPercent(0.075) / 2,
 };
 
-const svg = {
-  cx: hPercent(global.row.flex) / 2,
-  cxOffset: hPercent(0.02),
-};
+interface RadarProp {
+  flexWidth: number;
+}
 
-const radar = {
-  circle1: {
-    r: circRad.c1,
-    cx: wPercent(0.5),
-    cy: svg.cx + svg.cxOffset,
-    stroke: colorPaletteMintGrey.primary500,
-    strokeOpacity: 0.12,
-  },
-  circle2: {
-    r: circRad.c2,
-    cx: wPercent(0.5),
-    cy: svg.cx + svg.cxOffset,
-    stroke: colorPaletteMintGrey.primary500,
-    strokeOpacity: 0.25,
-  },
-  circle3: {
-    r: circRad.c3,
-    cx: wPercent(0.5),
-    cy: svg.cx + svg.cxOffset,
-    stroke: colorPaletteMintGrey.primary500,
-    strokeOpacity: 0.5,
-  },
-  circle4: {
-    r: circRad.c4,
-    cx: wPercent(0.5),
-    cy: svg.cx + svg.cxOffset,
-    stroke: colorPaletteMintGrey.primary500,
-    strokeWidth: circRad.c4 - circRad.c5,
-    strokeOpacity: 0.1,
-  },
-  circle5: {
-    r: wPercent(0.05),
-    cx: wPercent(0.5),
-    cy: svg.cx + svg.cxOffset,
-    stroke: '#FFF',
-    strokeWidth: 0,
-  },
-};
+export const Radar: React.FC<RadarProp> = ({flexWidth}) => {
+  const svg = {
+    cx: hPercent(flexWidth) / 2,
+    cxOffset: hPercent(0.02),
+  };
 
-interface RadarProp {}
+  const radar = {
+    circle1: {
+      r: circRad.c1,
+      cx: wPercent(0.5),
+      cy: svg.cx + svg.cxOffset,
+      stroke: colorPaletteMintGrey.primary500,
+      strokeOpacity: 0.12,
+    },
+    circle2: {
+      r: circRad.c2,
+      cx: wPercent(0.5),
+      cy: svg.cx + svg.cxOffset,
+      stroke: colorPaletteMintGrey.primary500,
+      strokeOpacity: 0.25,
+    },
+    circle3: {
+      r: circRad.c3,
+      cx: wPercent(0.5),
+      cy: svg.cx + svg.cxOffset,
+      stroke: colorPaletteMintGrey.primary500,
+      strokeOpacity: 0.5,
+    },
+    circle4: {
+      r: circRad.c4,
+      cx: wPercent(0.5),
+      cy: svg.cx + svg.cxOffset,
+      stroke: colorPaletteMintGrey.primary500,
+      strokeWidth: circRad.c4 - circRad.c4inner,
+      strokeOpacity: 1,
+    },
+    circle5: {
+      r: wPercent(0.05),
+      cx: wPercent(0.5),
+      cy: svg.cx + svg.cxOffset,
+      stroke: '#FFF',
+      strokeWidth: 0,
+    },
+  };
 
-export const Radar: React.FC<RadarProp> = () => {
   return (
-    <Svg>
-      <RadialGradient id="myGradient">
+    <Svg style={{backgroundColor: 'white'}}>
+      <RadialGradient id="gradCirc5">
         <Stop offset="0%" stopColor={colorPaletteMintGrey.primary500} />
-        <Stop offset="100%" stopColor={colorPaletteMintGrey.grey0} />
+        <Stop offset="80%" stopColor={colorPaletteMintGrey.grey0} />
       </RadialGradient>
 
       <Circle
@@ -100,7 +98,7 @@ export const Radar: React.FC<RadarProp> = () => {
         cx={radar.circle4.cx}
         cy={radar.circle4.cy}
         r={radar.circle4.r}
-        stroke="url(#myGradient)"
+        stroke="url(#gradCirc5)"
         strokeOpacity={radar.circle4.strokeOpacity}
         strokeWidth={radar.circle4.strokeWidth}
       />

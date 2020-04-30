@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
+import {wPercent, hPercent} from '../styles/style-v3';
 
 const designStyles = {
   titleFilled: {
@@ -29,6 +30,9 @@ const styles = StyleSheet.create({
     borderColor: '#91e6d3',
     borderStyle: 'solid',
     borderWidth: 1,
+    width: wPercent(0.634375),
+    height: hPercent(0.077),
+    left: wPercent(1) / 2 - wPercent(0.634375) / 2,
   },
 });
 
