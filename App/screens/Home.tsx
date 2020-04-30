@@ -38,9 +38,15 @@ export const Home: React.FC<{navigation: HomeScreenProp}> = ({navigation}) => {
       </View>
       <View style={[global.row, global.center, {flex: 0.35}]}>
         <View style={[global.col, {flex: 1, justifyContent: 'space-around'}]}>
-          <BasicButton title="I think I'm infected" onPress={() => {}} />
-          <BasicButton title="Learn more" onPress={() => {}} />
-          <BasicButton title="Pause contact tracing" onPress={() => {}} />
+          <BasicButton
+            title="I think I'm infected"
+            onPress={(): void => undefined}
+          />
+          <BasicButton title="Learn more" onPress={(): void => undefined} />
+          <BasicButton
+            title="Pause contact tracing"
+            onPress={(): void => undefined}
+          />
         </View>
       </View>
     </View>
