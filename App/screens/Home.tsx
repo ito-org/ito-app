@@ -25,16 +25,16 @@ import {
 
 const styles = StyleSheet.create({
   lastFetchRow: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
+    padding: 0,
+    marginBottom: hp('2%'),
   },
   lastFetch: {
     color: '#595959',
     fontSize: 16,
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
-    marginBottom: 8,
     marginRight: 8,
   },
   refreshIcon: {
@@ -42,10 +42,8 @@ const styles = StyleSheet.create({
   },
   circlesContainer: {
     margin: 0,
-    marginTop: 32,
-    paddingBottom: 64,
+    justifyContent: 'center',
     alignItems: 'center',
-    flex: 10,
   },
   outerCircle: {
     position: 'relative',
@@ -55,6 +53,7 @@ const styles = StyleSheet.create({
     height: wp('44.4%'),
     borderColor: '#a1ffeb',
     borderWidth: 2,
+    marginBottom: hp('0%'),
   },
   innerCircle: {
     position: 'absolute',
@@ -75,14 +74,8 @@ const styles = StyleSheet.create({
   contacts: {
     color: '#595959',
     fontSize: 18,
-    marginTop: 32,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
-  },
-  bottomButtonContainer: {
-    flex: 3,
-    justifyContent: 'flex-end',
-    backgroundColor: 'white',
   },
   IDMatchPopup: {
     backgroundColor: 'white',
@@ -98,19 +91,15 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   pausedText: {
-    position: 'absolute',
-    marginTop: wp('36%'),
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
     color: '#595959',
   },
   visible: {opacity: 1},
   invisible: {opacity: 0},
+  removed: {display: 'none'},
   popup: {
-    position: 'absolute',
-    bottom: 100,
-    left: 20,
-    right: 20,
+    position: 'relative',
   },
 });
 
@@ -121,7 +110,6 @@ const stylesNoContacts = StyleSheet.create({
   outerCircle: {
     backgroundColor: 'rgba(135, 202, 187, 0.2)',
   },
-  contacts: {},
 });
 
 const stylesFewContacts = StyleSheet.create({
@@ -131,7 +119,6 @@ const stylesFewContacts = StyleSheet.create({
   outerCircle: {
     backgroundColor: 'rgba(136, 202, 187, 0.4)',
   },
-  contacts: {},
 });
 
 const stylesManyContacts = StyleSheet.create({
@@ -141,7 +128,6 @@ const stylesManyContacts = StyleSheet.create({
   outerCircle: {
     backgroundColor: 'rgba(135, 202, 187, 0.6)',
   },
-  contacts: {},
 });
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -246,10 +232,6 @@ export const Home: React.FC<{
       stylesManyContacts.outerCircle,
     ]);
   }
-  const contactsStyle = StyleSheet.flatten([
-    styles.contacts,
-    contactStyles.contacts,
-  ]);
   const avgDistance = distances.length
     ? distances.reduce((prev, cur) => prev + cur, 0) / distances.length
     : null;
@@ -262,7 +244,7 @@ export const Home: React.FC<{
 
   return (
     <TouchableWithoutFeedback>
-      <View style={global.container}>
+      <View style={[global.container, {paddingBottom: 100}]}>
         {showIDMatch && (
           <BlurBackground>
             <View style={styles.IDMatchPopup}>
@@ -299,16 +281,6 @@ export const Home: React.FC<{
               isBLERunning ? styles.visible : styles.invisible,
             ]}
           />
-          <Text
-            style={[
-              styles.pausedText,
-              isBLERunning ? styles.invisible : styles.visible,
-            ]}>
-            ito is paused {'\n'}
-            <Text style={{fontStyle: 'italic'}}>
-              press to resume collection now
-            </Text>
-          </Text>
           <View
             style={[
               outerCircleStyle,
@@ -318,7 +290,17 @@ export const Home: React.FC<{
         </View>
         <Text
           style={[
-            contactsStyle,
+            styles.pausedText,
+            isBLERunning ? styles.removed : styles.visible,
+          ]}>
+          ito is paused {'\n'}
+          <Text style={{fontStyle: 'italic'}}>
+            press to resume collection now
+          </Text>
+        </Text>
+        <Text
+          style={[
+            styles.contacts,
             isBLERunning ? styles.visible : styles.invisible,
           ]}>{`${distances.length} ${t('home.contacts')} (avg: ${
           avgDistance === null ? 'n/a' : `${avgDistance.toPrecision(2)}m`
@@ -326,14 +308,14 @@ export const Home: React.FC<{
         <ButtonPopup
           style={styles.popup}
           button={{
-            fn: () => {
+            fn: (): void => {
               navigation.navigate('Endangerment');
             },
             title: t('home.popup_info.button'),
           }}>
           <Text>{t('home.popup_info.text')}</Text>
         </ButtonPopup>
-        <BottomMenu navigation={navigation} activate="Tracing"></BottomMenu>
+        <BottomMenu navigation={navigation} activate="Tracing" />
       </View>
     </TouchableWithoutFeedback>
   );
