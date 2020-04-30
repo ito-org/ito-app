@@ -260,7 +260,14 @@ export const Home: React.FC<{
           <Text style={styles.lastFetch}>
             {t('home.lastIdFetch')}: {latestFetch}
           </Text>
-          <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
+          <Icon
+            name="refresh-ccw"
+            size={18}
+            style={styles.refreshIcon}
+            onPress={(): void => {
+              // TODO: call library to fetch TCNs
+            }}
+          />
         </View>
         <View style={styles.circlesContainer}>
           <Icon
