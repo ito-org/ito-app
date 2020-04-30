@@ -10,6 +10,10 @@ import {TextInput} from 'react-native-gesture-handler';
 import {RNCamera} from 'react-native-camera';
 import BasicButton from '../components/BasicButton';
 import {BottomMenu} from '../components/BottomMenu';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const {ItoBluetooth} = NativeModules;
 
@@ -38,6 +42,14 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 100,
   },
+  camera: {
+    width: wp('60%'),
+    height: wp('60%'),
+    marginTop: 32,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: 32,
+  },
 });
 
 export const PositiveResult: React.FC<{
@@ -62,6 +74,19 @@ export const PositiveResult: React.FC<{
       }, 1000);
     }
   }, [navigation, uploadSuccess]);
+  const doUpload = () => {
+    // allows uploading again when going back / visiting the screen anew
+    // going back should be prevented once actual verification is implemented
+    setUploadSuccess(null);
+    // TODO: make timeframe for uploading TCNS configurable
+    const now = Date.now() / 1000;
+    const sevenDaysAgo = now - 7 * 24 * 60 * 60;
+    // FIXME: store this timeout and clear it to allow cancelling
+    setTimeout(() => {
+      ItoBluetooth.publishBeaconUUIDs(sevenDaysAgo, now, setUploadSuccess);
+    }, 2000);
+    navigation.navigate('Upload');
+  };
   return (
     <View style={[global.container]}>
       <Header
@@ -72,13 +97,10 @@ export const PositiveResult: React.FC<{
         showAlpha={true}
       />
       <Text style={design.explanation}>{t('positiveResult.instruction')}</Text>
-      <View style={design.center}>
+      <View>
         <RNCamera
           captureAudio={false}
-          style={{
-            width: Dimensions.get('window').width - 150,
-            height: Dimensions.get('window').width - 150,
-          }}
+          style={styles.camera}
           androidCameraPermissionOptions={{
             title: t('positiveResult.camPermissionTitle'),
             message: t('positiveResult.camPermissionText'),
@@ -86,7 +108,8 @@ export const PositiveResult: React.FC<{
             buttonNegative: t('global.cancel'),
           }}
           onBarCodeRead={(data: object): void => {
-            console.warn('onBarCodeRead:', data);
+            console.log('onBarCodeRead:', data);
+            doUpload();
           }}>
           {({
             camera: _camera,
@@ -110,30 +133,10 @@ export const PositiveResult: React.FC<{
       <TextInput
         style={[design.textInput, styles.enterCode]}
         placeholder={t('positiveResult.textPlaceholderEnterCode')}
+        returnKeyType="send"
+        onSubmitEditing={doUpload}
       />
-      <BasicButton
-        title={t('positiveResult.buttonTitleOk')}
-        variant="outlined"
-        buttonStyle={[design.bottomOffset, design.bottomOffset]}
-        onPress={(): void => {
-          // allows uploading again when going back / visiting the screen anew
-          // going back should be prevented once actual verification is implemented
-          setUploadSuccess(null);
-          // TODO: make timeframe for uploading TCNS configurable
-          const now = Date.now() / 1000;
-          const sevenDaysAgo = now - 7 * 24 * 60 * 60;
-          // FIXME: store this timeout and clear it to allow cancelling
-          setTimeout(() => {
-            ItoBluetooth.publishBeaconUUIDs(
-              sevenDaysAgo,
-              now,
-              setUploadSuccess,
-            );
-          }, 2000);
-          navigation.navigate('Upload');
-        }}
-      />
-      <BottomMenu navigation={navigation} activate="Infected?"></BottomMenu>
+      <BottomMenu navigation={navigation} activate="Infected?" />
     </View>
   );
 };
