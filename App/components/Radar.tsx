@@ -1,5 +1,5 @@
 import React from 'react';
-import {wPercent, colorPaletteMintGrey, hPercent} from '../styles/style-v3';
+import {wPercent, radarColors, hPercent} from '../styles/style-v3';
 import Svg, {
   Circle,
   LinearGradient,
@@ -32,28 +32,28 @@ export const Radar: React.FC<RadarProp> = ({flexWidth}) => {
       r: circRad.c1,
       cx: wPercent(0.5),
       cy: svg.cx + svg.cxOffset,
-      stroke: colorPaletteMintGrey.primary500,
+      stroke: radarColors.border,
       strokeOpacity: 0.12,
     },
     circle2: {
       r: circRad.c2,
       cx: wPercent(0.5),
       cy: svg.cx + svg.cxOffset,
-      stroke: colorPaletteMintGrey.primary500,
+      stroke: radarColors.border,
       strokeOpacity: 0.25,
     },
     circle3: {
       r: circRad.c3,
       cx: wPercent(0.5),
       cy: svg.cx + svg.cxOffset,
-      stroke: colorPaletteMintGrey.primary500,
+      stroke: radarColors.border,
       strokeOpacity: 0.5,
     },
     circle4: {
       r: circRad.c4,
       cx: wPercent(0.5),
       cy: svg.cx + svg.cxOffset,
-      stroke: colorPaletteMintGrey.primary500,
+      stroke: radarColors.border,
       strokeWidth: circRad.c4 - circRad.c4inner,
       strokeOpacity: 1,
     },
@@ -69,8 +69,8 @@ export const Radar: React.FC<RadarProp> = ({flexWidth}) => {
   return (
     <Svg style={{backgroundColor: 'white'}}>
       <RadialGradient id="gradCirc5">
-        <Stop offset="0%" stopColor={colorPaletteMintGrey.primary500} />
-        <Stop offset="80%" stopColor={colorPaletteMintGrey.grey0} />
+        <Stop offset="0%" stopColor={radarColors.gradientFrom} />
+        <Stop offset="80%" stopColor={radarColors.gradientTo} />
       </RadialGradient>
 
       <Circle
@@ -107,7 +107,7 @@ export const Radar: React.FC<RadarProp> = ({flexWidth}) => {
         cy={radar.circle5.cy}
         r={radar.circle5.r}
         strokeWidth={radar.circle5.strokeWidth}
-        fill={colorPaletteMintGrey.primary500}
+        fill={radarColors.fill}
       />
     </Svg>
   );

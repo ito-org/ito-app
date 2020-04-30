@@ -1,33 +1,45 @@
 import React from 'react';
 import {StyleSheet, NativeTouchEvent, NativeSyntheticEvent} from 'react-native';
 import {Button} from 'react-native-elements';
-import {wPercent, hPercent} from '../styles/style-v3';
+import {
+  wPercent,
+  hPercent,
+  textColors,
+  buttonColors,
+  colors,
+} from '../styles/style-v3';
 
 const designStyles = {
   titleFilled: {
-    color: '#595959',
+    color: textColors.main,
   },
   titleOutlined: {
-    color: '#2c2c2c',
+    color: textColors.main,
+  },
+  titleTextOnly: {
+    color: textColors.light,
   },
   buttonFilled: {
-    backgroundColor: '#91e6d3',
+    backgroundColor: buttonColors.bg,
   },
   buttonOutlined: {
-    backgroundColor: '#fff',
+    backgroundColor: buttonColors.bg,
+  },
+  buttonTextOnly: {
+    backgroundColor: colors.transparent,
+    borderWidth: 0,
   },
 };
 
 const styles = StyleSheet.create({
   buttonTitle: {
     letterSpacing: 1,
-    textTransform: 'uppercase',
-    fontSize: 14,
-    fontFamily: 'Ubuntu-M',
+    fontSize: hPercent(0.019),
+    fontFamily: 'Ubuntu',
   },
   button: {
     borderRadius: 6,
-    borderColor: '#91e6d3',
+    borderColor: buttonColors.bg,
     borderStyle: 'solid',
     borderWidth: 1,
     width: wPercent(0.634375),
@@ -39,7 +51,7 @@ const styles = StyleSheet.create({
 interface BasicButtonProps {
   onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void;
   title: string;
-  variant?: 'filled' | 'outlined';
+  variant?: 'filled' | 'outlined' | 'textOnly';
   textStyle?: object;
   buttonStyle?: object;
 }
@@ -47,6 +59,7 @@ interface BasicButtonProps {
 const VARIANT_SUFFIXES = {
   filled: 'Filled',
   outlined: 'Outlined',
+  textOnly: 'TextOnly',
 };
 
 export const BasicButton: React.FC<BasicButtonProps> = ({

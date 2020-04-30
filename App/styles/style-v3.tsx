@@ -4,8 +4,18 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-// Naming from design in figma
-export const colorPaletteMintGrey = {
+const width: number = Dimensions.get('window').width;
+const height: number = Dimensions.get('window').height;
+export const wPercent = (flexVal: number) => {
+  return wp(flexVal * 100);
+};
+
+export const hPercent = (flexVal: number) => {
+  return hp(flexVal * 100);
+};
+
+/* color palette !not for use in other styles! */
+const colorPaletteMintGrey = {
   primary500: '#7DC6B6',
   primary400: '#91E6D3',
   primary200: '#A1FFEB',
@@ -15,6 +25,29 @@ export const colorPaletteMintGrey = {
   grey0: '#FFFFFF',
 };
 
+/* named color sets */
+export const colors = {
+  transparent: 'rgba(0,0,0,0)',
+};
+
+export const radarColors = {
+  border: colorPaletteMintGrey.primary500,
+  fill: colorPaletteMintGrey.primary500,
+  gradientTo: colorPaletteMintGrey.grey0,
+  gradientFrom: colorPaletteMintGrey.primary500,
+};
+
+export const textColors = {
+  main: colorPaletteMintGrey.grey900,
+  light: colorPaletteMintGrey.grey800,
+};
+
+export const buttonColors = {
+  bg: colorPaletteMintGrey.grey300,
+  fg: colorPaletteMintGrey.grey900,
+};
+
+/* general styles */
 export const global = StyleSheet.create({
   row: {
     display: 'flex',
@@ -30,14 +63,14 @@ export const global = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
   },
+  textSubtitle: {
+    textAlign: 'center',
+    fontSize: hPercent(0.03),
+    fontFamily: 'Ubuntu',
+  },
+  textInfo: {
+    textAlign: 'center',
+    fontSize: hPercent(0.026),
+    fontFamily: 'Ubuntu',
+  },
 });
-
-const width: number = Dimensions.get('window').width;
-const height: number = Dimensions.get('window').height;
-export const wPercent = (flexVal: number) => {
-  return wp(flexVal * 100);
-};
-
-export const hPercent = (flexVal: number) => {
-  return hp(flexVal * 100);
-};
