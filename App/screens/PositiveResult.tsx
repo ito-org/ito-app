@@ -74,7 +74,7 @@ export const PositiveResult: React.FC<{
       }, 1000);
     }
   }, [navigation, uploadSuccess]);
-  const doUpload = () => {
+  const doUpload = (): void => {
     // allows uploading again when going back / visiting the screen anew
     // going back should be prevented once actual verification is implemented
     setUploadSuccess(null);

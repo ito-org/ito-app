@@ -33,7 +33,7 @@ export const DataUpload: React.FC<{
       <Header
         navigationButton={{
           title: 'home',
-          fn: (): void => navigation.navigate('HomeBluetooth'),
+          fn: (): void => navigation.navigate('Home'),
         }}
         showHelp={true}
       />
