@@ -7,7 +7,6 @@ import {
   NativeModules,
   NativeEventEmitter,
 } from 'react-native';
-import {Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Feather';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
@@ -17,8 +16,12 @@ import {global} from '../styles';
 import BasicButton from '../components/BasicButton';
 import {BlurBackground} from '../components/BackgroundBlur';
 import {useTranslation} from 'react-i18next';
-import {BottomMenu, MenuItem} from '../components/BottomMenu';
+import {BottomMenu} from '../components/BottomMenu';
 import {ButtonPopup} from '../components/ButtonPopup';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
   lastFetchRow: {
@@ -37,48 +40,44 @@ const styles = StyleSheet.create({
   refreshIcon: {
     color: '#595959',
   },
-  radiusContainer: {
+  circlesContainer: {
     margin: 0,
-    paddingTop: 16,
+    marginTop: 32,
     paddingBottom: 64,
     alignItems: 'center',
     flex: 10,
   },
-  radius1: {
-    position: 'absolute',
-    top: 135,
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: 'black',
-    width: 100,
-    height: 100,
+  outerCircle: {
+    position: 'relative',
+    alignSelf: 'center',
+    borderRadius: wp('22.2%'),
+    width: wp('44.4%'),
+    height: wp('44.4%'),
+    borderColor: '#a1ffeb',
+    borderWidth: 2,
   },
-  radius1Icon: {
+  innerCircle: {
     position: 'absolute',
-    top: 170,
-    paddingLeft: 35,
-    width: 100,
-    height: 100,
+    alignSelf: 'center',
+    borderRadius: wp('12%'),
+    width: wp('24%'),
+    height: wp('24%'),
+  },
+  pausePlayIcon: {
+    position: 'absolute',
     zIndex: 3,
-  },
-  radius2: {
-    position: 'absolute',
-    top: 80,
-    borderRadius: 110,
-    width: 220,
-    height: 220,
-  },
-  radius3: {
-    borderRadius: 170,
-    width: 340,
-    height: 340,
+    fontSize: wp('12%'),
+    width: wp('12%'),
+    height: wp('12%'),
+    top: wp('16%'),
+    left: wp('24%') + wp('18%') - 12,
   },
   contacts: {
     color: '#595959',
     fontSize: 18,
+    marginTop: 32,
     textAlign: 'center',
     fontFamily: 'Ubuntu-B',
-    marginBottom: 100,
   },
   bottomButtonContainer: {
     flex: 3,
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
   },
   pausedText: {
     position: 'absolute',
-    top: 300,
+    marginTop: wp('36%'),
     textAlign: 'center',
     fontFamily: 'Ubuntu-R',
     color: '#595959',
@@ -116,40 +115,31 @@ const styles = StyleSheet.create({
 });
 
 const stylesNoContacts = StyleSheet.create({
-  radius1: {
+  innerCircle: {
     backgroundColor: '#7dc6b6',
   },
-  radius2: {
+  outerCircle: {
     backgroundColor: 'rgba(135, 202, 187, 0.2)',
-  },
-  radius3: {
-    backgroundColor: 'rgba(133, 201, 186, 0.2)',
   },
   contacts: {},
 });
 
 const stylesFewContacts = StyleSheet.create({
-  radius1: {
+  innerCircle: {
     backgroundColor: '#7dc6b6',
   },
-  radius2: {
+  outerCircle: {
     backgroundColor: 'rgba(136, 202, 187, 0.4)',
-  },
-  radius3: {
-    backgroundColor: 'rgba(136, 202, 187, 0.2)',
   },
   contacts: {},
 });
 
 const stylesManyContacts = StyleSheet.create({
-  radius1: {
+  innerCircle: {
     backgroundColor: '#7dc6b6',
   },
-  radius2: {
+  outerCircle: {
     backgroundColor: 'rgba(135, 202, 187, 0.6)',
-  },
-  radius3: {
-    backgroundColor: 'rgba(136, 202, 187, 0.4)',
   },
   contacts: {},
 });
@@ -203,9 +193,8 @@ export const Home: React.FC<{
     setIDMatchSeen(true);
   };
 
-  const r1Distances = distances.filter((d) => d <= 1.5);
-  const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
-  const r3Distances = distances.filter((d) => d > 5);
+  const closeDistances = distances.filter((d) => d <= 1.5);
+  const furtherDistances = distances.filter((d) => d > 1.5 && d <= 5);
   // let contactDescription;
   let contactStyles;
   if (distances.length === 0) {
@@ -218,60 +207,43 @@ export const Home: React.FC<{
     contactStyles = stylesManyContacts;
     // contactDescription = 'many contacts around you';
   }
-  let radius1Style;
-  if (r1Distances.length < 1) {
-    radius1Style = StyleSheet.flatten([
-      styles.radius1,
-      stylesNoContacts.radius1,
+  let innerCircleStyle;
+  if (closeDistances.length < 1) {
+    innerCircleStyle = StyleSheet.flatten([
+      styles.innerCircle,
+      stylesNoContacts.innerCircle,
     ]);
-  } else if (r1Distances.length >= 1 && r1Distances.length < 5) {
-    radius1Style = StyleSheet.flatten([
-      styles.radius1,
-      stylesFewContacts.radius1,
+  } else if (closeDistances.length >= 1 && closeDistances.length < 5) {
+    innerCircleStyle = StyleSheet.flatten([
+      styles.innerCircle,
+      stylesFewContacts.innerCircle,
     ]);
   } else {
-    radius1Style = StyleSheet.flatten([
-      styles.radius1,
-      stylesManyContacts.radius1,
+    innerCircleStyle = StyleSheet.flatten([
+      styles.innerCircle,
+      stylesManyContacts.innerCircle,
     ]);
   }
-  let radius2Style;
-  if (r1Distances.length >= 1) {
-    radius2Style = StyleSheet.flatten([
-      styles.radius2,
-      stylesManyContacts.radius2,
+  let outerCircleStyle;
+  if (closeDistances.length >= 1) {
+    outerCircleStyle = StyleSheet.flatten([
+      styles.outerCircle,
+      stylesManyContacts.outerCircle,
     ]);
-  } else if (r2Distances.length < 1) {
-    radius2Style = StyleSheet.flatten([
-      styles.radius2,
-      stylesNoContacts.radius2,
+  } else if (furtherDistances.length < 1) {
+    outerCircleStyle = StyleSheet.flatten([
+      styles.outerCircle,
+      stylesNoContacts.outerCircle,
     ]);
-  } else if (r2Distances.length >= 1 && r2Distances.length < 5) {
-    radius2Style = StyleSheet.flatten([
-      styles.radius2,
-      stylesFewContacts.radius2,
-    ]);
-  } else {
-    radius2Style = StyleSheet.flatten([
-      styles.radius2,
-      stylesManyContacts.radius2,
-    ]);
-  }
-  let radius3Style;
-  if (r3Distances.length < 1) {
-    radius3Style = StyleSheet.flatten([
-      styles.radius3,
-      stylesNoContacts.radius3,
-    ]);
-  } else if (r3Distances.length >= 1 && r3Distances.length < 5) {
-    radius3Style = StyleSheet.flatten([
-      styles.radius3,
-      stylesFewContacts.radius3,
+  } else if (furtherDistances.length >= 1 && furtherDistances.length < 5) {
+    outerCircleStyle = StyleSheet.flatten([
+      styles.outerCircle,
+      stylesFewContacts.outerCircle,
     ]);
   } else {
-    radius3Style = StyleSheet.flatten([
-      styles.radius3,
-      stylesManyContacts.radius3,
+    outerCircleStyle = StyleSheet.flatten([
+      styles.outerCircle,
+      stylesManyContacts.outerCircle,
     ]);
   }
   const contactsStyle = StyleSheet.flatten([
@@ -281,8 +253,10 @@ export const Home: React.FC<{
   const avgDistance = distances.length
     ? distances.reduce((prev, cur) => prev + cur, 0) / distances.length
     : null;
-  const circle2Diameter =
-    avgDistance === null ? 220 : 80 + Math.cbrt(avgDistance) * 100;
+  const innerCircleDiameter =
+    avgDistance === null
+      ? wp('35.26%')
+      : wp('44.4%') - Math.min(wp('44.4%'), Math.sqrt(avgDistance) * wp('6%'));
 
   const [isBLERunning, setIsBLERunning] = useState(true);
 
@@ -306,38 +280,38 @@ export const Home: React.FC<{
           </Text>
           <Icon name="refresh-ccw" size={18} style={styles.refreshIcon} />
         </View>
-        <View style={styles.radiusContainer}>
+        <View style={styles.circlesContainer}>
           <Icon
-            name={isBLERunning ? 'pause' : 'play'}
-            style={styles.radius1Icon}
-            size={30}
-            onPress={(): void => {
-              setIsBLERunning((): boolean => !isBLERunning);
-            }}
+            name={isBLERunning ? 'pause-circle' : 'play-circle'}
+            style={styles.pausePlayIcon}
+            onPress={(): void => setIsBLERunning(!isBLERunning)}
           />
-          <Text style={[radius1Style]} />
-          <Text
+          <View
             style={[
-              styles.pausedText,
-              isBLERunning ? styles.invisible : styles.visible,
-            ]}>
-            app is paused {'\n'}press to resume collection
-          </Text>
-          <Text
-            style={[
-              radius2Style,
+              innerCircleStyle,
               {
-                width: circle2Diameter,
-                height: circle2Diameter,
-                borderRadius: circle2Diameter / 2,
-                top: 185 - circle2Diameter / 2,
+                width: innerCircleDiameter,
+                height: innerCircleDiameter,
+                borderRadius: innerCircleDiameter / 2,
+                top: wp('22%') - innerCircleDiameter / 2,
+                left: (wp('100%') - 32 - innerCircleDiameter) / 2,
               },
               isBLERunning ? styles.visible : styles.invisible,
             ]}
           />
           <Text
             style={[
-              radius3Style,
+              styles.pausedText,
+              isBLERunning ? styles.invisible : styles.visible,
+            ]}>
+            ito is paused {'\n'}
+            <Text style={{fontStyle: 'italic'}}>
+              press to resume collection now
+            </Text>
+          </Text>
+          <View
+            style={[
+              outerCircleStyle,
               isBLERunning ? styles.visible : styles.invisible,
             ]}
           />
