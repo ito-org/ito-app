@@ -42,16 +42,17 @@
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^1.1.0",
-    "@types/jest": "^24.0.24",
+    "@types/jest": "^25.2.1",
     "@types/react-native": "^0.62.2",
     "@types/react-native-background-timer": "^2.0.0",
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "^25.5.1",
     "eslint": "^6.5.1",
     "husky": "^4.2.5",
-    "jest": "^24.9.0",
+    "jest": "^25.5.4",
+    "jest-transform-stub": "^2.0.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "^2.0.4",
@@ -73,7 +74,14 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "setupFiles": [
+      "./jestSetup.js",
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    }
   },
   "snyk": true
 }
