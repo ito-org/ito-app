@@ -1,19 +1,15 @@
-import React, {ReactNode, useState, useEffect} from 'react';
+import React, {ReactNode, useState, useEffect, useRef} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../App';
 import {useTranslation} from 'react-i18next';
 import {Header} from '../components/Header';
-import {View, StyleSheet, Text, Dimensions, NativeModules} from 'react-native';
+import {View, StyleSheet, Text, NativeModules} from 'react-native';
 import global, {design} from '../styles';
 import Icon from 'react-native-vector-icons/Feather';
 import {TextInput} from 'react-native-gesture-handler';
 import {RNCamera} from 'react-native-camera';
-import BasicButton from '../components/BasicButton';
 import {BottomMenu} from '../components/BottomMenu';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const {ItoBluetooth} = NativeModules;
 
@@ -56,6 +52,9 @@ export const PositiveResult: React.FC<{
   navigation: PositiveResultScreenNavigationProp;
 }> = ({navigation}) => {
   const {t} = useTranslation();
+  const deferUploadTimeout: React.MutableRefObject<NodeJS.Timeout | null> = useRef(
+    null,
+  );
 
   const [uploadSuccess, setUploadSuccess] = useState(null);
   useEffect(() => {
@@ -66,26 +65,33 @@ export const PositiveResult: React.FC<{
       console.log('TCN Upload succeeded');
       setTimeout((): void => {
         navigation.navigate('DataUpload');
-      }, 1000);
+      }, 600);
     } else {
       console.warn('TCN Upload failed');
       setTimeout((): void => {
         navigation.navigate('DataUpload');
-      }, 1000);
+      }, 600);
     }
   }, [navigation, uploadSuccess]);
   const doUpload = (): void => {
+    if (deferUploadTimeout.current) {
+      console.log('preventing more than one parallel upload timeout');
+      return;
+    }
     // allows uploading again when going back / visiting the screen anew
     // going back should be prevented once actual verification is implemented
     setUploadSuccess(null);
     // TODO: make timeframe for uploading TCNS configurable
     const now = Date.now() / 1000;
     const sevenDaysAgo = now - 7 * 24 * 60 * 60;
-    // FIXME: store this timeout and clear it to allow cancelling
-    setTimeout(() => {
+    deferUploadTimeout.current = setTimeout(() => {
+      deferUploadTimeout.current = null;
       ItoBluetooth.publishBeaconUUIDs(sevenDaysAgo, now, setUploadSuccess);
-    }, 2000);
-    navigation.navigate('Upload');
+    }, 3000);
+    console.log('PositiveResult', {deferUploadTimeout});
+    navigation.navigate('Upload', {
+      deferUploadTimeout: deferUploadTimeout,
+    });
   };
   return (
     <View style={[global.container]}>
