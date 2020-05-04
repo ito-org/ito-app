@@ -46,7 +46,7 @@ export type RootStackParamList = {
   AlphaPositiveResult: undefined;
   IDMatch: undefined;
   PositiveResult: undefined;
-  Upload: undefined;
+  Upload: {deferUploadTimeout: React.MutableRefObject<NodeJS.Timeout | null>};
   Home: undefined;
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../App';
 import {StyleSheet, View, Text, Animated} from 'react-native';
@@ -12,6 +13,8 @@ type UploadScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Upload'
 >;
+
+type UploadScreenRouteProp = RouteProp<RootStackParamList, 'Upload'>;
 
 const styles = StyleSheet.create({
   icon: {
@@ -40,8 +43,10 @@ const styles = StyleSheet.create({
 
 export const Upload: React.FC<{
   navigation: UploadScreenNavigationProp;
-}> = ({navigation}) => {
+  route: UploadScreenRouteProp;
+}> = ({navigation, route}) => {
   const {t} = useTranslation();
+  const {deferUploadTimeout} = route.params;
 
   const animRotation = new Animated.Value(0);
   const rotation = animRotation.interpolate({
@@ -79,7 +84,19 @@ export const Upload: React.FC<{
         title={t('uploadData.buttonTitleCancel')}
         variant="outlined"
         buttonStyle={styles.cancelButton}
-        onPress={(): void => navigation.goBack()}
+        onPress={(): void => {
+          if (!deferUploadTimeout.current) {
+            console.warn(
+              'failed to clear deferUploadTimeout',
+              deferUploadTimeout,
+            );
+            return;
+          }
+          console.log('clearing deferUploadTimeout', deferUploadTimeout);
+          clearTimeout(deferUploadTimeout.current);
+          deferUploadTimeout.current = null;
+          navigation.navigate('PositiveResult');
+        }}
       />
     </View>
   );
