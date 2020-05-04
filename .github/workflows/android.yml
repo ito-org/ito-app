@@ -41,10 +41,10 @@ jobs:
         run: sh ci/install-android-sdk.sh
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
-      - name: Build APK
-        run: npm run android:build-apk
       - name: Run tests
         run: npm run test
+      - name: Build APK
+        run: npm run android:build-apk
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
