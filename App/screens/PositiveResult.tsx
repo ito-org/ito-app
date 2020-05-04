@@ -63,14 +63,10 @@ export const PositiveResult: React.FC<{
     }
     if (uploadSuccess) {
       console.log('TCN Upload succeeded');
-      setTimeout((): void => {
-        navigation.navigate('DataUpload');
-      }, 600);
+      navigation.navigate('DataUpload');
     } else {
       console.warn('TCN Upload failed');
-      setTimeout((): void => {
-        navigation.navigate('DataUpload');
-      }, 600);
+      navigation.navigate('DataUpload');
     }
   }, [navigation, uploadSuccess]);
   const doUpload = (): void => {
