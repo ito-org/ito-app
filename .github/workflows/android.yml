@@ -43,9 +43,8 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Build APK
         run: npm run android:build-apk
-      # Tests currently disabled because of broken test setup
-      # - name: Run tests
-      #   run: npm run test
+      - name: Run tests
+        run: npm run test
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
