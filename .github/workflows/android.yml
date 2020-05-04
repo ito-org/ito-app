@@ -39,13 +39,16 @@ jobs:
           java-package: jdk
       - name: Install Android SDK
         run: sh ci/install-android-sdk.sh
+      - name: Ignore snyk protect script that would take too long
+        run: npm config set ignore-scripts true
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
+      - name: No longer ignore npm scripts
+        run: npm config set ignore-scripts false
+      - name: Run tests
+        run: npm run test
       - name: Build APK
         run: npm run android:build-apk
-      # Tests currently disabled because of broken test setup
-      # - name: Run tests
-      #   run: npm run test
       - name: Archive APK
         uses: actions/upload-artifact@v1
         with:
