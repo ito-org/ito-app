@@ -65,13 +65,23 @@ export const Upload: React.FC<{
     }).start(() => startAnimation());
   };
   startAnimation();
+  const cancelUpload = (): void => {
+    if (!deferUploadTimeout.current) {
+      console.warn('failed to clear deferUploadTimeout', deferUploadTimeout);
+      return;
+    }
+    console.log('clearing deferUploadTimeout', deferUploadTimeout);
+    clearTimeout(deferUploadTimeout.current);
+    deferUploadTimeout.current = null;
+    navigation.navigate('PositiveResult');
+  };
 
   return (
     <View style={[global.container]}>
       <Header
         navigationButton={{
           title: t('global.cancel'),
-          fn: (): void => navigation.goBack(),
+          fn: cancelUpload,
         }}
         showHelp={true}
         showAlpha={true}
@@ -84,19 +94,7 @@ export const Upload: React.FC<{
         title={t('uploadData.buttonTitleCancel')}
         variant="outlined"
         buttonStyle={styles.cancelButton}
-        onPress={(): void => {
-          if (!deferUploadTimeout.current) {
-            console.warn(
-              'failed to clear deferUploadTimeout',
-              deferUploadTimeout,
-            );
-            return;
-          }
-          console.log('clearing deferUploadTimeout', deferUploadTimeout);
-          clearTimeout(deferUploadTimeout.current);
-          deferUploadTimeout.current = null;
-          navigation.navigate('PositiveResult');
-        }}
+        onPress={cancelUpload}
       />
     </View>
   );

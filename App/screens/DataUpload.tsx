@@ -1,5 +1,6 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useCallback} from 'react';
+import {StyleSheet, View, Text, BackHandler} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from 'App/App';
 import Header from '../components/Header';
@@ -27,6 +28,18 @@ export const DataUpload: React.FC<{
   navigation: DataUploadScreenNavigationProp;
 }> = ({navigation}) => {
   const {t} = useTranslation();
+
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = (): boolean => {
+        navigation.navigate('Home');
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return (): void =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [navigation]),
+  );
 
   return (
     <View style={global.container}>
