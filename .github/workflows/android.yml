@@ -39,6 +39,8 @@ jobs:
           java-package: jdk
       - name: Install Android SDK
         run: sh ci/install-android-sdk.sh
+      - name: Ignore snyk protect script that will take too long
+        run: npm config set ignore-scripts true
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
       - name: Run tests
