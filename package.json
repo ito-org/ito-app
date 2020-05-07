@@ -55,7 +55,7 @@
     "jest-transform-stub": "^2.0.0",
     "jetifier": "^1.6.5",
     "metro-react-native-babel-preset": "^0.59.0",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "react-test-renderer": "16.13.0",
     "typescript": "^3.8.3"
