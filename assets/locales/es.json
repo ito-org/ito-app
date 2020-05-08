@@ -1,24 +1,24 @@
 {
   "translation": {
     "global": {
-      "cancel": "cancel",
+      "cancel": "cancelar",
       "ok": "ok"
     },
     "onboarding": {
-      "motto": "track infections, not people.",
-      "welcomeMessage": "protect yourself and\nthe people surrounding you\n\nito doesn't track any personal\nor location data\n- \nwe just need to know\nabout your health status",
-      "tutorial": "How does this work?"
+      "motto": "rastrea infecciones, no personas.",
+      "welcomeMessage": "protegete a ti mismo y a\nlas personas a tu alrededor\n\nito no rastrea datos personales\no datos de ubicación\n- \nsolo tenemos que saber\nsobre tu estado de salud",
+      "tutorial": "Cómo funciona?"
     },
     "alphaPositiveResult": {
-      "testingPurposes": "For testing purposes you can simulate a positive test result. After pressing the button, your phone's TCNs will be marked as positive and uploaded to the server.\n\nEvery ito user now at risk of an infection will be notified.",
-      "buttonTitleReleaseResult": "Release positive test result"
+      "testingPurposes": "Por fines de prueba usted puede simular un resultado de examen positivo. Despues de presionar el boton, el TCN de su ceular será marcado como positivo y subido al servidor.\n\nCada usuario de ito ahora en riesgo de infección será notificado.",
+      "buttonTitleReleaseResult": "Publicar resultados de examen positivo"
     },
     "onboardingHow": {
-      "bluetooth": "we use your phone's bluetooth\nto let your phone see every\nother ito user around you",
-      "smartphone": "your phone saves which other\nphones you encountered. this\ndata is just on your phone",
-      "bell": "if someone you encountered\nbefore got infected, you get a\nnotification with information\non what to do",
-      "shield2": "if you got infected and tested\npositive you can let everybody\nyou encountered lately know",
-      "buttonTitleGetStarted": "Get started"
+      "bluetooth": "usamos el Bluetooth de su celular\npara que pueda reconocer\notro usuarios de ito cerca de usted",
+      "smartphone": "su celular guarda otros\ndispositivos que usted haya encontrado. Estos\ndatos se quedan solo en su dispositivo",
+      "bell": "si alguien con el que usted se haya encontrado\npreviamente contrajo una infección, usted recibirá una\nnotificación con información\nsobre que hacer",
+      "shield2": "si usted contrajo una infección y resultó\n positivo, usted puede hacerle saber a todos\n con los que se ha encontrado ultimamente",
+      "buttonTitleGetStarted": "Comenzar"
     },
     "alphaWarning": {
       "demoPurpose": "This version is for demonstration purpose only.",
