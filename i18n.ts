@@ -4,6 +4,7 @@ import en from './assets/locales/en';
 import nl from './assets/locales/nl';
 import de from './assets/locales/de';
 import bn from './assets/locales/bn';
+import es from './assets/locales/es';
 
 import {NativeModules} from 'react-native';
 
@@ -29,7 +30,7 @@ function getSystemLocale(): string {
   return locale;
 }
 
-const resources = {en, nl, de, bn};
+const resources = {en, nl, de, bn, es};
 
 function getLangPrefix(lng: string): string {
   let prefix = 'en';

@@ -1,0 +1,84 @@
+{
+  "translation": {
+    "global": {
+      "cancel": "cancelar",
+      "ok": "ok"
+    },
+    "onboarding": {
+      "motto": "rastrea infecciones, no personas.",
+      "welcomeMessage": "protegete a ti mismo y a\nlas personas a tu alrededor\n\nito no rastrea datos personales\no datos de ubicación\n- \nsolo tenemos que saber\nsobre tu estado de salud",
+      "tutorial": "Cómo funciona?"
+    },
+    "alphaPositiveResult": {
+      "testingPurposes": "Por fines de prueba usted puede simular un resultado de examen positivo. Despues de presionar el boton, el TCN de su ceular será marcado como positivo y subido al servidor.\n\nCada usuario de ito ahora en riesgo de infección será notificado.",
+      "buttonTitleReleaseResult": "Publicar resultados de examen positivo"
+    },
+    "onboardingHow": {
+      "bluetooth": "usamos el Bluetooth de su celular\npara que pueda reconocer\notro usuarios de ito cerca de usted",
+      "smartphone": "su celular guarda otros\ndispositivos que usted haya encontrado. Estos\ndatos se quedan solo en su dispositivo",
+      "bell": "si alguien con el que usted se haya encontrado\npreviamente contrajo una infección, usted recibirá una\nnotificación con información\nsobre que hacer",
+      "shield2": "si usted contrajo una infección y resultó\n positivo, usted puede hacerle saber a todos\n con los que se ha encontrado ultimamente",
+      "buttonTitleGetStarted": "Comenzar"
+    },
+    "alphaWarning": {
+      "demoPurpose": "Esta versión solo tiene fines de demonstración.",
+      "notFullyImplemented": "No todas las características han sido implementadas ni auditadas.",
+      "review": "Por favor revise esta app, analise el codigo y reporte problemas, fallas o retroalimentación a",
+      "start": "ok, comenzar"
+    },
+    "confimationCode": {
+      "enterCode": "Por favor escanee el codigo QR que usted recibió con el examen o ingrese el ID del resultado para verificar su resultado de examen positivo.",
+      "buttonTitleSubmit": "Codigo de verificación de examen ingresado"
+    },
+    "dataUpload": {
+      "thanks": "Gracias por compartir su\nresultado de examen verificado.\n\nQue se mejore pronto!"
+    },
+    "homeTour": {
+      "circle": "Este circulo muestra con cuantos usuarios ito usted se ha encontrado. No se preocupe, es solo un indicador para ver si usted esta en medio de muchos usuarios ito o no.",
+      "report": "Si usted cree que contrajo una infección porfavor reportelo aca para obtener mas información sobre que hacer. Esto también nos ayuda a informar otros usuarios ito sobre un posible riesgo de infección.",
+      "pause": "El boton de pausa le permite detener el rastreo. Por ejemplo, si usted esta usando equipo de protección o si esta en una situación donde quiera detener la aplicación.",
+      "next": "siguiente",
+      "done": "listo",
+      "buttonTitleInfected": "Creo que he contraido una infección"
+    },
+    "home": {
+      "lastIdFetch": "Last ID fetch",
+      "today": "today",
+      "never": "never",
+      "alertContactDiscovered": "We just discovered you have been in contact with a COVID-19 case.\nDon't panic!",
+      "whatNext": "What to do next?",
+      "contacts": "contacts",
+      "buttonTitleInfected": "I think I'm infected",
+      "popup_info": {
+        "text": "You perceive COVID-19 symptoms or have a positive test result?",
+        "button": "Take next steps"
+      }
+    },
+    "endangerment": {
+      "info": "Tell us if you have symptoms or if you\nhave a positive test result",
+      "symptomsTitle": "I have typical symptoms",
+      "symptomsText": "Don't worry!\nWe will help you figure out what to do next.",
+      "positiveResultTitle": "I have a positive result",
+      "positiveResultText": "If you got a positive result from your doctor or authorities please\nlet us know to help everybody else stay healthy."
+    },
+    "symptomInfo": {
+      "selfTestUrl": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses",
+      "explanation": "Please check if your symptoms and situation are similar to a COVID-19 infection.\n\nTo do a self-assessed check first, please head over to your country's designated app:",
+      "buttonTitleOpenDesignatedApp": "Open designated app",
+      "buttonTitleNotInfected": "Looks like I'm not infected",
+      "buttonTitlePositiveTest": "I have a positive test result"
+    },
+    "positiveResult": {
+      "instruction": "Please scan the QR Code you got with your test or enter the result ID to verfiy your positive test result.",
+      "textPlaceholderEnterCode": "Enter verification code",
+      "cameraMessage": "Please enable camera",
+      "buttonTitleOk": "Upload data",
+      "camPermissionTitle": "Permission to use camera",
+      "camPermissionText": "We need your permission to use your camera"
+    },
+    "uploadData": {
+      "info": "uploading test verification...\nthis might take a while",
+      "buttonTitleCancel": "cancel upload"
+    }
+  }
+}
