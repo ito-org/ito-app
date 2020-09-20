@@ -152,8 +152,6 @@ export const HomeBluetooth: React.FC<{
 }> = ({navigation}) => {
   const {t} = useTranslation();
   const [distances, setDistances] = useState<never[]>([]);
-  const [showIDMatch, setIDMatchShow] = useState<boolean>(false);
-  const [hasSeenIDMatch, setIDMatchSeen] = useState<boolean>(false);
   const emitter = useRef<NativeEventEmitter | null>(null);
   const latestFetchTime = NativeModules.ItoBluetooth.getLatestFetchTime();
   console.log('Latest fetch time:', latestFetchTime);
@@ -178,21 +176,6 @@ export const HomeBluetooth: React.FC<{
       }
     };
   }, [distances.length]);
-
-  useEffect(() => {
-    function refresh(): void {
-      if (NativeModules.ItoBluetooth.isPossiblyInfected() && !hasSeenIDMatch) {
-        setIDMatchShow(true);
-      }
-    }
-    const interval = setInterval(refresh, 2500);
-    return (): void => clearInterval(interval);
-  }, [navigation, hasSeenIDMatch]);
-
-  const closeIDMatch = (): void => {
-    setIDMatchShow(false);
-    setIDMatchSeen(true);
-  };
 
   const r1Distances = distances.filter((d) => d <= 1.5);
   const r2Distances = distances.filter((d) => d > 1.5 && d <= 5);
@@ -278,16 +261,6 @@ export const HomeBluetooth: React.FC<{
   return (
     <TouchableWithoutFeedback>
       <View style={global.container}>
-        {showIDMatch && (
-          <BlurBackground>
-            <View style={styles.IDMatchPopup}>
-              <Text style={styles.IDMatchText}>
-                {t('home.alertContactDiscovered')}
-              </Text>
-              <BasicButton title={t('home.whatNext')} onPress={closeIDMatch} />
-            </View>
-          </BlurBackground>
-        )}
         <Header
           showHelp={true}
           navigationButton={{
