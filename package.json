@@ -36,7 +36,7 @@
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^6.6.0",
     "util": "^0.12.2",
-    "snyk": "^1.316.1"
+    "snyk": "^1.419.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
